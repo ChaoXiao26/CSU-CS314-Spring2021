@@ -6,3 +6,4 @@
 | Garner    | Mark       | Ms675199  | Msgarner18      | ms675199@rams.colostate.edu |
 | Si        | Fan        | fan6      | 471654852       | fan6@rams.colostate.edu     |
 | Huang     | Yuxin      | chaoxiao  | ChaoXiao26      | chaoxiao@rams.colostate.edu |
+| Vasuez    | Tomas      | vasquezt  | vasquezt15      | vasquezt@colostate.edu      |
