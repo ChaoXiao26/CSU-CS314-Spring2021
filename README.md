@@ -4,3 +4,4 @@
 | Last Name | First Name | CSU eName | GitHub username | CSU email                   |
 | :---      | :---       | :---      | :---            | :---                        |
 | Garner    | Mark       | Ms675199  | Msgarner18      | ms675199@rams.colostate.edu |
+| Si        | Fan        | fan6      | 471654852       | fan6@rams.colostate.edu     |
