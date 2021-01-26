@@ -25,7 +25,7 @@
 1. __Do you want to have a standing meeting time outside of class?__ 
    * No preference.
 1. __How often do you think the team will need to meet outside of class?__ 
-   * Oncce we get assignment that needs some commnuite.
+   * Once we get assignment that needs some commnuite.
 1. __Will you need approval of every team member before making a decision?__ 
    * Yes, that would be the best.
 1. __What will you do if every team member except one agrees on something?__ 
