@@ -43,8 +43,8 @@ Planned epics includes the subtasks: Create a reverse geocoding utility function
 | Statistic | # Planned | # Completed |
 | --- | ---: | ---: |
 | Epics | 3 | 0 |
-| Tasks |  *count*   | *count* | 
-| Story Points |  *count*  | *count* | 
+| Tasks |  14   | 0 | 
+| Story Points |  20  | 0 | 
 
 
 ## Scrums
