@@ -31,9 +31,9 @@ public class TestConfigRequest {
     }
 
     @Test
-    @DisplayName("Team name is t99 team name")
+    @DisplayName("Team name is t16 404 Brain Not Found")
     public void testServerName() {
         String name = conf.getServerName();
-        assertEquals("t99 team name", name);
+        assertEquals("t16 404 Brain Not Found", name);
     }
 }
