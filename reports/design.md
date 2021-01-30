@@ -106,9 +106,9 @@ Often there are several related classes but we've listed only one to simplify th
 
 
 # Sprint 1
-##User Interface
-##Components
-##Classes
+## User Interface
+## Components
+## Classes
 # Sprint 2
 # Sprint 3
 # Sprint 4 
