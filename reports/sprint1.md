@@ -43,9 +43,9 @@ Maps includes: Choose a list of background maps for the user to select from, Add
 
 | Statistic | # Planned | # Completed |
 | --- | ---: | ---: |
-| Epics | 3 | 0 |
-| Tasks |  14   | 0 | 
-| Story Points |  20  | 0 | 
+| Epics | 5 | 0 |
+| Tasks |  21   | 0 | 
+| Story Points |  25  | 0 | 
 
 
 ## Scrums
