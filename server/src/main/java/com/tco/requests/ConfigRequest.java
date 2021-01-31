@@ -13,7 +13,7 @@ public class ConfigRequest extends RequestHeader {
 
     @Override
     public void buildResponse() {
-        serverName = "t99 team name";
+        serverName = "t16 404 Brain Not Found";
         features = new ArrayList<String>();
         features.add("config");
         log.trace("buildResponse -> {}", this);
