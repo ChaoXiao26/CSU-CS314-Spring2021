@@ -13,7 +13,7 @@ describe('Footer', () => {
 
     beforeEach(() => {
         footerWrapper = shallow(<Footer
-            serverSettings={{'serverConfig': {'requestType': 'config', 'serverName': 't16'},
+            serverSettings={{'serverConfig': {'requestType': 'config', 'serverName': 't99'},
                 'serverPort': 'http://localhost:8000'}}
             processServerConfigSuccess={processServerConfigSuccess}
         />);
