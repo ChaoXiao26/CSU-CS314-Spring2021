@@ -101,7 +101,7 @@ describe('Server Settings Modal', () => {
     function mockConfigResponse() {
         const responseData = {
             requestType: "config",
-            serverName: "t99",
+            serverName: "t16",
             features: ["config"]
         };
         fetch.mockResponse(JSON.stringify(responseData));
