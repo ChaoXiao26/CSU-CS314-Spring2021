@@ -16,7 +16,7 @@ setLogLevelIfDefault();
 
 export const LOG = ulog("App");
 
-export const CLIENT_TEAM_NAME = "T99 Team Name";
+export const CLIENT_TEAM_NAME = "T16 404 Brain Not Found";
 
 export const EARTH_RADIUS_UNITS_DEFAULT = {"miles": 3959};
 
