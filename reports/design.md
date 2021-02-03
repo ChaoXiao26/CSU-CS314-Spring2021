@@ -107,8 +107,21 @@ Often there are several related classes but we've listed only one to simplify th
 
 # Sprint 1
 ## User Interface
+![image](https://user-images.githubusercontent.com/56741965/106678223-7e55d500-6577-11eb-8b7a-ac1db2d8fe34.png)
+![image](https://user-images.githubusercontent.com/56741965/106678240-8a419700-6577-11eb-997b-43936407a842.png)
+![image](https://user-images.githubusercontent.com/56741965/106678258-9168a500-6577-11eb-8370-08d72caf07f1.png)
+![image](https://user-images.githubusercontent.com/56741965/106678271-97f71c80-6577-11eb-8858-90275df0ac0a.png)
+![image](https://user-images.githubusercontent.com/56741965/106678290-a1808480-6577-11eb-8761-080ce861919a.png)
+
 ## Components
+![image](https://user-images.githubusercontent.com/56741965/106678323-b2c99100-6577-11eb-9e16-d91e9ea04d0f.png)
+![image](https://user-images.githubusercontent.com/56741965/106678358-c83ebb00-6577-11eb-80e4-4bdc0544d2c4.png)
+![image](https://user-images.githubusercontent.com/56741965/106678369-cf65c900-6577-11eb-81de-c991507b0d71.png)
+![image](https://user-images.githubusercontent.com/56741965/106678376-d4c31380-6577-11eb-8ccb-93f04aa1c841.png)
+
 ## Classes
+![image](https://user-images.githubusercontent.com/56741965/106678423-ee645b00-6577-11eb-8080-3108ae90c051.png)
+
 # Sprint 2
 # Sprint 3
 # Sprint 4 
