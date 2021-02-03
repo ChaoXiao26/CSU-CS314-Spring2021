@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import {Container, Row, Col, Button} from 'reactstrap';
 
 import {CLIENT_TEAM_NAME} from "../../utils/constants";
+import TEAM_IMAGE from "../../../../team/images/404 Brain Not Found.jpg"
 
 export default class About extends Component {
 
@@ -14,6 +15,7 @@ export default class About extends Component {
                         <h2>{CLIENT_TEAM_NAME}</h2>
                         <h3>Team Photo</h3>
                         <p>Here will be the Team Photo</p>
+                        <img src ={TEAM_IMAGE}/>
                         <h3>Mission Statement</h3>
                         <table width="100%" border="1">
                             <tr>
