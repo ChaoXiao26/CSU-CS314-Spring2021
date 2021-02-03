@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {Container, Row, Col, Button} from 'reactstrap';
 
 import {CLIENT_TEAM_NAME} from "../../utils/constants";
-import {TEAM_IMAGE} from "../../../../team/images/404 Brain Not Found.jpg"
+import TEAM_IMAGE from "../../../../team/images/404 Brain Not Found.jpg"
 
 export default class About extends Component {
 
