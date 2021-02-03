@@ -26,7 +26,40 @@ export default class About extends Component {
                             </tr>
                         </table>
                         <h3>Members</h3>
-                        <p>This is the Members Page</p>
+                        <div id="teamBio">
+                            <div id="inline-block">
+                                <img src="images/yourImageHere.png" alt="Picture" width="180" height="250"></img>
+                                <div id="bioTxtContainer">Your name.<br></br>Your Bio here.</div>
+                            </div>
+                            &nbsp;&nbsp;&nbsp;
+
+                            <div id="inline-block">
+                                <img src="images/yourImageHere.png" alt="Picture" width="180" height="250"></img>
+                                <div id="bioTxtContainer">Your name.<br></br>Your Bio here.</div>
+                            </div>
+                            &nbsp;&nbsp;&nbsp;
+
+                            <div id="inline-block">
+                                <img src="images/yourImageHere.png" alt="Picture" width="180" height="250"></img>
+                                <div id="bioTxtContainer">Your name.<br></br>Your Bio here.</div>
+                            </div>
+                            &nbsp;&nbsp;&nbsp;
+
+                            <div id="inline-block">
+                                <img src="images/yourImageHere.png" alt="Picture" width="180" height="250"></img>
+                                <div id="bioTxtContainer">Your name.<br></br>Your Bio here.</div>
+                            </div>
+                            &nbsp;&nbsp;&nbsp;
+
+                            <div id="inline-block">
+                                <img src="images/yourImageHere.png" alt="Picture" width="180" height="250"></img>
+                                <div id="bioTxtContainer">Your name.<br></br>Your Bio here.</div>
+                            </div>
+                            &nbsp;&nbsp;&nbsp;
+                    
+                        </div>
+            
+            
                     </Col>
                     <Col xs="auto">
                         <Button color="primary" onClick={this.props.closePage} xs={1}>
