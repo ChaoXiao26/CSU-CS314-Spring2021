@@ -3,3 +3,15 @@
     tempted to go all out with the styling of your website. We encourage you not to spend the time styling the pages
     for this class, and to spend that time on styling of your own personal webpage or side project.
  */
+
+ #inline-block {
+    display: inline-block;
+    border: 2px solid rgb(0, 56, 5);
+ }
+
+ #bioTxtContainer {
+   height: 200px;
+   width: 180px;
+   border: 1px solid rgb(0, 56, 5);
+   //position: relative;
+}

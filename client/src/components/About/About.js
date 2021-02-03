@@ -5,6 +5,16 @@ import {Container, Row, Col, Button} from 'reactstrap';
 import {CLIENT_TEAM_NAME} from "../../utils/constants";
 import TEAM_IMAGE from "../../../../team/images/404 Brain Not Found.jpg"
 
+/* 
+    A simple instrucation for member bio container
+    You need to change things inside <div id="inline-block">
+    there are five of those blocks everyone should take one.
+    Put your bio image under ~/client/images/, change "images/yourImageHere.png" to your pics.
+    Put your bio text inside bioTxtContainer at "Your Bio here". Use <br><\br> to make a new line.
+    You can change the css file here -> ~/client/src/static/styles/student-styles.scss if you want to change how everything looks.
+    Make sure you test it after edit.
+*/
+
 export default class About extends Component {
 
     render() {
@@ -26,7 +36,40 @@ export default class About extends Component {
                             </tr>
                         </table>
                         <h3>Members</h3>
-                        <p>This is the Members Page</p>
+                        <div id="teamBio">
+                            <div id="inline-block">
+                                <img src="images/yourImageHere.png" alt="Picture" width="180" height="250"></img>
+                                <div id="bioTxtContainer">Your name.<br></br>Your Bio here.</div>
+                            </div>
+                            &nbsp;&nbsp;&nbsp;
+
+                            <div id="inline-block">
+                                <img src="images/yourImageHere.png" alt="Picture" width="180" height="250"></img>
+                                <div id="bioTxtContainer">Your name.<br></br>Your Bio here.</div>
+                            </div>
+                            &nbsp;&nbsp;&nbsp;
+
+                            <div id="inline-block">
+                                <img src="images/yourImageHere.png" alt="Picture" width="180" height="250"></img>
+                                <div id="bioTxtContainer">Your name.<br></br>Your Bio here.</div>
+                            </div>
+                            &nbsp;&nbsp;&nbsp;
+
+                            <div id="inline-block">
+                                <img src="images/yourImageHere.png" alt="Picture" width="180" height="250"></img>
+                                <div id="bioTxtContainer">Your name.<br></br>Your Bio here.</div>
+                            </div>
+                            &nbsp;&nbsp;&nbsp;
+
+                            <div id="inline-block">
+                                <img src="images/yourImageHere.png" alt="Picture" width="180" height="250"></img>
+                                <div id="bioTxtContainer">Your name.<br></br>Your Bio here.</div>
+                            </div>
+                            &nbsp;&nbsp;&nbsp;
+                    
+                        </div>
+            
+            
                     </Col>
                     <Col xs="auto">
                         <Button color="primary" onClick={this.props.closePage} xs={1}>
