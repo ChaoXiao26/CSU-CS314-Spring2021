@@ -5,6 +5,16 @@ import {Container, Row, Col, Button} from 'reactstrap';
 import {CLIENT_TEAM_NAME} from "../../utils/constants";
 import TEAM_IMAGE from "../../../../team/images/404 Brain Not Found.jpg"
 
+/* 
+    A simple instrucation for member bio container
+    You need to change things inside <div id="inline-block">
+    there are five of those blocks everyone should take one.
+    Put your bio image under ~/client/images/, change "images/yourImageHere.png" to your pics.
+    Put your bio text inside bioTxtContainer at "Your Bio here". Use <br><\br> to make a new line.
+    You can change the css file here -> ~/client/src/static/styles/student-styles.scss if you want to change how everything looks.
+    Make sure you test it after edit.
+*/
+
 export default class About extends Component {
 
     render() {
