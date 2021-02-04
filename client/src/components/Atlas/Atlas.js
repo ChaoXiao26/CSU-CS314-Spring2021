@@ -35,6 +35,24 @@ export default class Atlas extends Component {
                     <Row>
                         <Col sm={12} md={{size: 10, offset: 1}}>
                             {this.renderLeafletMap()}
+                            <table width="100%" border="1">
+                            <thead>
+                                <tr> 
+                                    <th><b>Number</b></th>
+                                    <th><b>Address</b></th>
+                                    <th><b>Latitude</b></th>
+                                    <th><b>Longitude</b></th>     
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <tr> 
+                                        <th>test1</th>
+                                        <th>test2</th>
+                                        <th>test3</th>
+                                        <th>test4</th>     
+                                    </tr>
+                            </tbody>
+                            </table>
                         </Col>
                     </Row>
                 </Container>
