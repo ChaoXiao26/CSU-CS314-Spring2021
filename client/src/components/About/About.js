@@ -44,12 +44,10 @@ export default class About extends Component {
                             &nbsp;&nbsp;&nbsp;
 
                             <div class="inline-block">
-                                <img src="client/images/IMG_20180919_071702_480.jpg" alt="Picture" width="180" height="250"></img>
-                                <div class="bioTxtContainer"><br>Sam Bonafe</br>
+                                <img src="images/IMG_20180919_071702_480.jpg" alt="Picture" width="180" height="250"></img>
+                                <div class="bioTxtContainer"><b>Sam Bonafe</b>
                                     <br></br> Major in Computer Science
-                                    <br></br> Speaks Only English
                                     <br></br> Learning to code in C++, Javascript, Java, C
-                                    <br></br><a href="https://www.linkedin.com/in/sam-bonafe/">Linkedin: Sam Bonafe</a>
                                 </div>
                             </div>
                             &nbsp;&nbsp;&nbsp;
