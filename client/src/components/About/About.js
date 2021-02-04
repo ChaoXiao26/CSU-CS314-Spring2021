@@ -38,6 +38,7 @@ export default class About extends Component {
                         <div class="teamBio">
                             <div class="inline-block">
                                 <img src="images/mark.jpg" alt="Profile Picture of Mark Garner" width="180" height="250"/>
+                                <img src="images/yourImageHere.png" class = "Imagecover" alt="Picture" width="180" height="250"/>
                                 <div class="bioTxtContainer">
                                     <p><b>Mark Garner</b></p>
                                     <p>Major in Computer Science</p>
@@ -46,7 +47,7 @@ export default class About extends Component {
                             </div>
 
                             <div class="inline-block">
-                                <img src="images/IMG_20180919_071702_480.jpg" alt="Picture" width="180" height="250"/>
+                                <img src="images/IMG_20180919_071702_480.jpg" class = "Imagecover" alt="Picture" width="180" height="250"/>
                                 <div class="bioTxtContainer">
                                     <p><b>Sam Bonafe</b></p>
                                     <p>Major in Computer Science</p>
@@ -75,7 +76,7 @@ export default class About extends Component {
                             </div>
 
                             <div class="inline-block">
-                                <img src="images/Copper.jpg" alt="Picture" width="180" height="250"/>
+                                <img src="images/Copper.jpg" class = "Imagecover" alt="Picture" width="180" height="250"/>
                                 <div class="bioTxtContainer">
                                     <p>Tomas Vasquez.</p>
                                     <p>Major in Computer Science and Math.</p>
