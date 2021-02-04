@@ -68,8 +68,10 @@ export default class About extends Component {
                             &nbsp;&nbsp;&nbsp;
 
                             <div class="inline-block">
-                                <img src="images/yourImageHere.png" alt="Picture" width="180" height="250"></img>
-                                <div class="bioTxtContainer">Your name.<br></br>Your Bio here.</div>
+                                <img src="images/Copper.jpg" alt="Picture" width="180" height="250"></img>
+                                <div class="bioTxtContainer">Tomas Vasquez.<br></br>Major in Computer Science and Math.
+                                <br></br> Speaks English, Spanish, and German.
+                                <br></br> Proficient in C, C++, Java, Python, and R.</div>
                             </div>
                             &nbsp;&nbsp;&nbsp;
                     
