@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-
 import {Container, Row, Col, Button} from 'reactstrap';
-
 import {CLIENT_TEAM_NAME} from "../../utils/constants";
 import TEAM_IMAGE from "../../../../team/images/404 Brain Not Found.jpg"
 
@@ -40,7 +38,7 @@ export default class About extends Component {
                         <h3>Members</h3>
                         <div class="teamBio">
                             <div class="inline-block">
-                                <img src="images/mark.jpg" class = "Imagecover" alt="Profile Picture of Mark Garner"/>
+                                <img src="https://i.postimg.cc/2SNNQQ9Y/mark.jpg" class = "Imagecover" alt="Profile Picture of Mark Garner"/>
                                 <div class="bioTxtContainer">
                                     <p><b>Mark Garner</b></p>
                                     <p>Major in Computer Science</p>
@@ -49,7 +47,7 @@ export default class About extends Component {
                             </div>
 
                             <div class="inline-block">
-                                <img src="images/IMG_20180919_071702_480.jpg" class = "Imagecover" alt="Profile Picture of Sam Bonafe"/>
+                                <img src="https://i.postimg.cc/dtyKZHBn/IMG-20180919-071702-480.jpg" class = "Imagecover" alt="Profile Picture of Sam Bonafe"/>
                                 <div class="bioTxtContainer">
                                     <p><b>Sam Bonafe</b></p>
                                     <p>Major in Computer Science</p>
@@ -58,7 +56,7 @@ export default class About extends Component {
                             </div>
 
                             <div class="inline-block">
-                                <img src="images/yx.jpg" class = "Imagecover" alt="Picture"/>
+                                <img src="https://i.postimg.cc/pLQbqm3F/yx.jpg" class = "Imagecover" alt="Picture"/>
                                 <div class="bioTxtContainer">
                                     <p><b>Yuxin Huang</b></p>
                                     <p class="p">Major in CS & Math</p>
@@ -69,7 +67,7 @@ export default class About extends Component {
                             </div>
 
                             <div class="inline-block">
-                                <img src="images/FanSi-Biopic.jpg" class="Imagecover" alt="FanSi_bioPic"/>
+                                <img src="https://i.postimg.cc/kMZm43xB/Fan-Si-Biopic.jpg" class="Imagecover" alt="FanSi_bioPic"/>
                                 <div class="bioTxtContainer">
                                     <p><b>Fan Si</b></p>
                                     <p>Computer Science student at CSU. Learning & Using C, C++, Java, Python, Lua, JS, HTML. Speaks English, Chinese & learing Japanese</p>
@@ -78,7 +76,7 @@ export default class About extends Component {
                             </div>
 
                             <div class="inline-block">
-                                <img src="images/Copper.jpg" class = "Imagecover" alt="Picture"/>
+                                <img src="https://i.postimg.cc/Y0JKyYp1/Copper.jpg" class = "Imagecover" alt="Picture"/>
                                 <div class="bioTxtContainer">
                                     <p><b>Tomas Vasquez</b></p>
                                     <p class="p">Major in Computer Science and Math.</p>
