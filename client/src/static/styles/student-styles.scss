@@ -7,6 +7,8 @@
  .inline-block {
     display: inline-block;
     border: 2px solid rgb(0, 56, 5);
+    vertical-align: top;
+    margin: 0 3px;//3px represents the ammount of space between the team members
  }
 
  .bioTxtContainer {
