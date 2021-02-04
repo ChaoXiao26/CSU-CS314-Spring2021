@@ -53,8 +53,6 @@ Maps includes: Choose a list of background maps for the user to select from, Add
 | Date | Tasks closed  | Tasks in progress | Impediments |
 | :--- | :--- | :--- | :--- |
 | *1/31/2021* | *#Set the team name in the browser tab <br /> #Set Team Name in Client Application <br /> #Set the team name on the server* | *#Update the design document for the addition of team and member information <br /> #Add the components without content to create the structure* | *none* | 
-| *2/2/2021* | *#Update the design document for the addition of team and member information <br /> #Add the components without content to create the structure* | *#Create a team image <br /> #Add "team member's" image, name, bio <br /> #Write a team mission statement* | *none* | 
-| *2/3/2021* | *#Create a team image <br /> #Add "team member's" image, name, bio <br /> #Write a team mission statemen* | *#Create a list of places that have been clicked* | *Having trouble on finding the data(name,latitude,etc.)* |
 
 ## Review
 
