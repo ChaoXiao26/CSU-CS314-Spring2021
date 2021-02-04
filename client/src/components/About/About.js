@@ -40,7 +40,7 @@ export default class About extends Component {
                         <h3>Members</h3>
                         <div class="teamBio">
                             <div class="inline-block">
-                                <img src="images/mark.jpg" class = "Imagecover" alt="Profile Picture of Mark Garner" width="180" height="250"/>
+                                <img src="images/mark.jpg" class = "Imagecover" alt="Profile Picture of Mark Garner"/>
                                 <div class="bioTxtContainer">
                                     <p><b>Mark Garner</b></p>
                                     <p>Major in Computer Science</p>
@@ -49,7 +49,7 @@ export default class About extends Component {
                             </div>
 
                             <div class="inline-block">
-                                <img src="images/IMG_20180919_071702_480.jpg" class = "Imagecover" alt="Profile Picture of Sam Bonafe" width="180" height="250"/>
+                                <img src="images/IMG_20180919_071702_480.jpg" class = "Imagecover" alt="Profile Picture of Sam Bonafe"/>
                                 <div class="bioTxtContainer">
                                     <p><b>Sam Bonafe</b></p>
                                     <p>Major in Computer Science</p>
@@ -58,7 +58,7 @@ export default class About extends Component {
                             </div>
 
                             <div class="inline-block">
-                                <img src="images/yx.jpg" class = "Imagecover" alt="Picture" width="180" height="250"/>
+                                <img src="images/yx.jpg" class = "Imagecover" alt="Picture"/>
                                 <div class="bioTxtContainer">
                                     <p><b>Yuxin Huang</b></p>
                                     <p class="p">Major in CS & Math</p>
@@ -69,7 +69,7 @@ export default class About extends Component {
                             </div>
 
                             <div class="inline-block">
-                                <img src="images/FanSi-Biopic.jpg" class="Imagecover" alt="FanSi_bioPic" width="180" height="250"/>
+                                <img src="images/FanSi-Biopic.jpg" class="Imagecover" alt="FanSi_bioPic"/>
                                 <div class="bioTxtContainer">
                                     <p><b>Fan Si</b></p>
                                     <p>Computer Science student at CSU. Learning & Using C, C++, Java, Python, Lua, JS, HTML. Speaks English, Chinese & learing Japanese</p>
@@ -78,7 +78,7 @@ export default class About extends Component {
                             </div>
 
                             <div class="inline-block">
-                                <img src="images/Copper.jpg" class = "Imagecover" alt="Picture" width="180" height="250"/>
+                                <img src="images/Copper.jpg" class = "Imagecover" alt="Picture"/>
                                 <div class="bioTxtContainer">
                                     <p><b>Tomas Vasquez</b></p>
                                     <p class="p">Major in Computer Science and Math.</p>
