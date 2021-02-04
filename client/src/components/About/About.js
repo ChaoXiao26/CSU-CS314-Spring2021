@@ -37,45 +37,51 @@ export default class About extends Component {
                         <h3>Members</h3>
                         <div class="teamBio">
                             <div class="inline-block">
-                                <img src="images/yourImageHere.png" alt="Picture" width="180" height="250"></img>
-                                <div class="bioTxtContainer">Your name.<br></br>Your Bio here.</div>
-                            </div>
-                            &nbsp;&nbsp;&nbsp;
-
-                            <div class="inline-block">
-                                <img src="images/IMG_20180919_071702_480.jpg" alt="Picture" width="180" height="250"></img>
-                                <div class="bioTxtContainer"><b>Sam Bonafe</b>
-                                    <br></br> Major in Computer Science
-                                    <br></br> Learning to code in C++, Javascript, Java, C
+                                <img src="images/yourImageHere.png" alt="Picture" width="180" height="250"/>
+                                <div class="bioTxtContainer">
+                                    <p><b>Your name.</b></p>
+                                    <p>Your Bio here.</p>
                                 </div>
                             </div>
-                            &nbsp;&nbsp;&nbsp;
 
                             <div class="inline-block">
-                                <img src="images/yx.jpg" class = "Imagecover" alt="Picture" width="180" height="250"></img>
-                                <div class="bioTxtContainer"><b>Yuxin Huang</b>
-                                <br></br> Major in CS & Math
-                                <br></br> Speaks English & Chinese
-                                <br></br> Learning to code in java, C#, C++, Python
-                                <br></br><a href="https://twitter.com/GeorgeChaoXiao">Twitter: ChaoXiao</a>
+                                <img src="images/IMG_20180919_071702_480.jpg" alt="Picture" width="180" height="250"/>
+                                <div class="bioTxtContainer">
+                                    <p><b>Sam Bonafe</b></p>
+                                    <p>Major in Computer Science</p>
+                                    <p>Learning to code in C++, Javascript, Java, C</p>
                                 </div>
                             </div>
-                            &nbsp;&nbsp;&nbsp;
 
                             <div class="inline-block">
-                                <img src="images/FanSi-Biopic.jpg" class="Imagecover" alt="FanSi_bioPic" width="180" height="250"></img>
-                                <div class="bioTxtContainer"><b>Fan Si</b><br></br>Computer Science student at CSU. Learning & Using C, C++, Java, Python, Lua, JS, HTML. Speaks English, Chinese & learing Japanese</div>
-
+                                <img src="images/yx.jpg" class = "Imagecover" alt="Picture" width="180" height="250"/>
+                                <div class="bioTxtContainer">
+                                    <p><b>Yuxin Huang</b></p>
+                                    <p>Major in CS & Math</p>
+                                    <p>Speaks English & Chinese</p>
+                                    <p>Learning to code in java, C#, C++, Python</p>
+                                    <p><a href="https://twitter.com/GeorgeChaoXiao">Twitter: ChaoXiao</a></p>
+                                </div>
                             </div>
-                            &nbsp;&nbsp;&nbsp;
 
                             <div class="inline-block">
-                                <img src="images/Copper.jpg" alt="Picture" width="180" height="250"></img>
-                                <div class="bioTxtContainer"><b>Tomas Vasquez</b><br></br>Major in Computer Science and Math.
-                                <br></br> Speaks English, Spanish, and German.
-                                <br></br> Proficient in C, C++, Java, Python, and R.</div>
+                                <img src="images/FanSi-Biopic.jpg" class="Imagecover" alt="FanSi_bioPic" width="180" height="250"/>
+                                <div class="bioTxtContainer">
+                                    <p><b>Fan Si</b></p>
+                                    <p>Computer Science student at CSU. Learning & Using C, C++, Java, Python, Lua, JS, HTML. Speaks English, Chinese & learing Japanese</p>
+                                </div>
+
                             </div>
-                            &nbsp;&nbsp;&nbsp;
+
+                            <div class="inline-block">
+                                <img src="images/Copper.jpg" alt="Picture" width="180" height="250"/>
+                                <div class="bioTxtContainer">
+                                    <p>Tomas Vasquez.</p>
+                                    <p>Major in Computer Science and Math.</p>
+                                    <p>Speaks English, Spanish, and German.</p>
+                                    <p>Proficient in C, C++, Java, Python, and R.</p>
+                                </div>
+                            </div>
                     
                         </div>
             
