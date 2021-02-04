@@ -36,22 +36,22 @@ export default class About extends Component {
                             </tr>
                         </table>
                         <h3>Members</h3>
-                        <div id="teamBio">
-                            <div id="inline-block">
+                        <div class="teamBio">
+                            <div class="inline-block">
                                 <img src="images/yourImageHere.png" alt="Picture" width="180" height="250"></img>
-                                <div id="bioTxtContainer">Your name.<br></br>Your Bio here.</div>
+                                <div class="bioTxtContainer">Your name.<br></br>Your Bio here.</div>
                             </div>
                             &nbsp;&nbsp;&nbsp;
 
-                            <div id="inline-block">
+                            <div class="inline-block">
                                 <img src="images/yourImageHere.png" alt="Picture" width="180" height="250"></img>
-                                <div id="bioTxtContainer">Your name.<br></br>Your Bio here.</div>
+                                <div class="bioTxtContainer">Your name.<br></br>Your Bio here.</div>
                             </div>
                             &nbsp;&nbsp;&nbsp;
 
-                            <div id="inline-block">
-                                <img src="images/yx.jpg" id = "Imagecover" alt="Picture" width="180" height="250"></img>
-                                <div id="bioTxtContainer"><b>Yuxin Huang</b>
+                            <div class="inline-block">
+                                <img src="images/yx.jpg" class = "Imagecover" alt="Picture" width="180" height="250"></img>
+                                <div class="bioTxtContainer"><b>Yuxin Huang</b>
                                 <br></br> Major in CS & Math
                                 <br></br> Speaks English & Chinese
                                 <br></br> Learning to code in java, C#, C++, Python
@@ -60,15 +60,16 @@ export default class About extends Component {
                             </div>
                             &nbsp;&nbsp;&nbsp;
 
-                            <div id="inline-block">
-                                <img src="images/FanSi-Biopic.jpg" id="Imagecover" alt="FanSi_bioPic" width="180" height="250"></img>
-                                <div id="bioTxtContainer"><b>Fadn Si</b><br></br>Computer Science student at CSU. Learning & Using C, C++, Java, Python, Lua, JS, HTML. Speaks English, Chinese & learing Japanese</div>
+                            <div class="inline-block">
+                                <img src="images/FanSi-Biopic.jpg" class="Imagecover" alt="FanSi_bioPic" width="180" height="250"></img>
+                                <div class="bioTxtContainer"><b>Fadn Si</b><br></br>Computer Science student at CSU. Learning & Using C, C++, Java, Python, Lua, JS, HTML. Speaks English, Chinese & learing Japanese</div>
+
                             </div>
                             &nbsp;&nbsp;&nbsp;
 
-                            <div id="inline-block">
+                            <div class="inline-block">
                                 <img src="images/yourImageHere.png" alt="Picture" width="180" height="250"></img>
-                                <div id="bioTxtContainer">Your name.<br></br>Your Bio here.</div>
+                                <div class="bioTxtContainer">Your name.<br></br>Your Bio here.</div>
                             </div>
                             &nbsp;&nbsp;&nbsp;
                     
