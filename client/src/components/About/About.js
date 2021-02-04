@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-
 import {Container, Row, Col, Button} from 'reactstrap';
-
 import {CLIENT_TEAM_NAME} from "../../utils/constants";
 import TEAM_IMAGE from "../../../../team/images/404 Brain Not Found.jpg"
 
@@ -69,7 +67,7 @@ export default class About extends Component {
                             </div>
 
                             <div class="inline-block">
-                                <img src="images/FanSi-Biopic.jpg" class="Imagecover" alt="FanSi_bioPic" width="180" height="250"/>
+                                <img src="src/static/images/FanSi-Biopic.jpg" class="Imagecover" alt="FanSi_bioPic" width="180" height="250"/>
                                 <div class="bioTxtContainer">
                                     <p><b>Fan Si</b></p>
                                     <p>Computer Science student at CSU. Learning & Using C, C++, Java, Python, Lua, JS, HTML. Speaks English, Chinese & learing Japanese</p>
