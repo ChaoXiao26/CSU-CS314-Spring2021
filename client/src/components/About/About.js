@@ -50,14 +50,20 @@ export default class About extends Component {
                             &nbsp;&nbsp;&nbsp;
 
                             <div class="inline-block">
-                                <img src="images/yourImageHere.png" alt="Picture" width="180" height="250"></img>
-                                <div class="bioTxtContainer">Your name.<br></br>Your Bio here.</div>
+                                <img src="images/yx.jpg" class = "Imagecover" alt="Picture" width="180" height="250"></img>
+                                <div class="bioTxtContainer"><b>Yuxin Huang</b>
+                                <br></br> Major in CS & Math
+                                <br></br> Speaks English & Chinese
+                                <br></br> Learning to code in java, C#, C++, Python
+                                <br></br><a href="https://twitter.com/GeorgeChaoXiao">Twitter: ChaoXiao</a>
+                                </div>
                             </div>
                             &nbsp;&nbsp;&nbsp;
 
                             <div class="inline-block">
                                 <img src="images/FanSi-Biopic.jpg" class="Imagecover" alt="FanSi_bioPic" width="180" height="250"></img>
-                                <div class="bioTxtContainer"><b>Fadn Si</b><br></br>Computer Science student at CSU. Learning & Using C, C++, Java, Python, Lua, JS, HTML. Speak English, Chinese & learing Japanese</div>
+                                <div class="bioTxtContainer"><b>Fadn Si</b><br></br>Computer Science student at CSU. Learning & Using C, C++, Java, Python, Lua, JS, HTML. Speaks English, Chinese & learing Japanese</div>
+
                             </div>
                             &nbsp;&nbsp;&nbsp;
 
