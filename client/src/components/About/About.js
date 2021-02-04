@@ -24,8 +24,7 @@ export default class About extends Component {
                     <Col>
                         <h2>{CLIENT_TEAM_NAME}</h2>
                         <h3>Team Photo</h3>
-                        <p>Here will be the Team Photo</p>
-                        <img src ={TEAM_IMAGE}/>
+                        <img src ={TEAM_IMAGE} alt="Picture" width="250" height="250"></img>
                         <h3>Mission Statement</h3>
                         <table width="100%" border="1">
                             <tr>
@@ -68,7 +67,7 @@ export default class About extends Component {
                             <div class="inline-block">
                                 <img src="images/FanSi-Biopic.jpg" class="Imagecover" alt="FanSi_bioPic" width="180" height="250"/>
                                 <div class="bioTxtContainer">
-                                    <p><b>Fadn Si</b></p>
+                                    <p><b>Fan Si</b></p>
                                     <p>Computer Science student at CSU. Learning & Using C, C++, Java, Python, Lua, JS, HTML. Speaks English, Chinese & learing Japanese</p>
                                 </div>
 
