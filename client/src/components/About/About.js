@@ -31,7 +31,10 @@ export default class About extends Component {
                                 <th>Mission Statement</th>
                             </tr>
                             <tr>
-                                <td>Content for Mission Statement</td>
+                                <td>404 Brain Not Found is a team committed to making a quality travel map application. 
+                                        Our purpose is to provide the end user with an easy to use experience. 
+                                        We aim to create a clean and intuitive application that anyone can use in order to create the ultimate trip. 
+                                        Our goal is to collectively work together in order to make sure that the location is always found.</td>
                             </tr>
                         </table>
                         <h3>Members</h3>
@@ -47,7 +50,7 @@ export default class About extends Component {
                             </div>
 
                             <div class="inline-block">
-                                <img src="images/IMG_20180919_071702_480.jpg" class = "Imagecover" alt="Picture" width="180" height="250"/>
+                                <img src="images/IMG_20180919_071702_480.jpg" class = "Imagecover" alt="Profile Picture of Sam Bonafe" width="180" height="250"/>
                                 <div class="bioTxtContainer">
                                     <p><b>Sam Bonafe</b></p>
                                     <p>Major in Computer Science</p>
