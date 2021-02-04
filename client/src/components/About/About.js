@@ -37,10 +37,11 @@ export default class About extends Component {
                         <h3>Members</h3>
                         <div class="teamBio">
                             <div class="inline-block">
-                                <img src="images/yourImageHere.png" alt="Picture" width="180" height="250"/>
+                                <img src="images/mark.png" alt="Profile Picture of Mark Garner" width="180" height="250"/>
                                 <div class="bioTxtContainer">
-                                    <p><b>Your name.</b></p>
-                                    <p>Your Bio here.</p>
+                                    <p><b>Mark Garner</b></p>
+                                    <p>Major in Computer Science</p>
+                                    <p>Proficient in HTML, CSS, C++, Javascript, and Java.</p>
                                 </div>
                             </div>
 
