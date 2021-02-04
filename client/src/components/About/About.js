@@ -53,7 +53,7 @@ export default class About extends Component {
                                 <img src="images/yx.jpg" id = "Imagecover" alt="Picture" width="180" height="250"></img>
                                 <div id="bioTxtContainer"><b>Yuxin Huang</b>
                                 <br></br> Major in CS & Math
-                                <br></br> Speaks in English & Chinese
+                                <br></br> Speaks English & Chinese
                                 <br></br> Learning to code in java, C#, C++, Python
                                 <br></br><a href="https://twitter.com/GeorgeChaoXiao">Twitter: ChaoXiao</a>
                                 </div>
