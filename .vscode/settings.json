@@ -1,5 +1,6 @@
 {
     "files.watcherExclude": {
+        "**": true,
         "**/.idea/**": true,
         "**/bin/server/**": true,
         "**/server/.m2/**": true,

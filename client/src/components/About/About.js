@@ -40,8 +40,7 @@ export default class About extends Component {
                         <h3>Members</h3>
                         <div class="teamBio">
                             <div class="inline-block">
-                                <img src="images/mark.jpg" alt="Profile Picture of Mark Garner" width="180" height="250"/>
-                                <img src="images/yourImageHere.png" class = "Imagecover" alt="Picture" width="180" height="250"/>
+                                <img src="images/mark.jpg" class = "Imagecover" alt="Profile Picture of Mark Garner" width="180" height="250"/>
                                 <div class="bioTxtContainer">
                                     <p><b>Mark Garner</b></p>
                                     <p>Major in Computer Science</p>
@@ -62,9 +61,9 @@ export default class About extends Component {
                                 <img src="images/yx.jpg" class = "Imagecover" alt="Picture" width="180" height="250"/>
                                 <div class="bioTxtContainer">
                                     <p><b>Yuxin Huang</b></p>
-                                    <p>Major in CS & Math</p>
-                                    <p>Speaks English & Chinese</p>
-                                    <p>Learning to code in java, C#, C++, Python</p>
+                                    <p class="p">Major in CS & Math</p>
+                                    <p class="p">Speaks English & Chinese</p>
+                                    <p class="p">Learning to code in java, C#, C++, Python</p>
                                     <p><a href="https://twitter.com/GeorgeChaoXiao">Twitter: ChaoXiao</a></p>
                                 </div>
                             </div>
@@ -81,10 +80,10 @@ export default class About extends Component {
                             <div class="inline-block">
                                 <img src="images/Copper.jpg" class = "Imagecover" alt="Picture" width="180" height="250"/>
                                 <div class="bioTxtContainer">
-                                    <p>Tomas Vasquez.</p>
-                                    <p>Major in Computer Science and Math.</p>
-                                    <p>Speaks English, Spanish, and German.</p>
-                                    <p>Proficient in C, C++, Java, Python, and R.</p>
+                                    <p><b>Tomas Vasquez</b></p>
+                                    <p class="p">Major in Computer Science and Math.</p>
+                                    <p class="p">Speaks English, Spanish, and German.</p>
+                                    <p class="p">Proficient in C, C++, Java, Python, and R.</p>
                                 </div>
                             </div>
                     
