@@ -43,16 +43,18 @@ Maps includes: Choose a list of background maps for the user to select from, Add
 
 | Statistic | # Planned | # Completed |
 | --- | ---: | ---: |
-| Epics | 5 | 0 |
-| Tasks |  21   | 0 | 
-| Story Points |  25  | 0 | 
+| Epics | 5 | 2 |
+| Tasks |  21   | 10 | 
+| Story Points |  25  | 13 | 
 
 
 ## Scrums
 
 | Date | Tasks closed  | Tasks in progress | Impediments |
 | :--- | :--- | :--- | :--- |
-| *date* | *#task, ...* | *#task, ...* | *none* | 
+| *1/31/2021* | *#Set the team name in the browser tab <br /> #Set Team Name in Client Application <br /> #Set the team name on the server* | *#Update the design document for the addition of team and member information <br /> * | *none* | 
+| *2/2/2021* | *#Update the design document for the addition of team and member information <br /> #Add the components without content to create the structure* | *#Create a team image <br /> #Add "team member's" image, name, bio* | *none* | 
+| *2/2/2021* | *#Update the design document for the addition of team and member information <br /> #Add the components without content to create the structure* | *#task, ...* | *none* |
 
 
 ## Review
