@@ -44,7 +44,7 @@ export default class About extends Component {
                             &nbsp;&nbsp;&nbsp;
 
                             <div class="inline-block">
-                                <img src="client/images/IMG_20180919_071702_480.jpg" alt="Picture" width="180" height="250"></img>
+                                <img src="IMG_20180919_071702_480.jpg" alt="Picture" width="180" height="250"></img>
                                 <div class="bioTxtContainer"><b>Sam Bonafe</b>
                                     <br></br> Major in Computer Science
                                     <br></br> Learning to code in C++, Javascript, Java, C
