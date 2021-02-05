@@ -70,9 +70,8 @@ export default class About extends Component {
                                 <img src="https://i.postimg.cc/kMZm43xB/Fan-Si-Biopic.jpg" class="Imagecover" alt="FanSi_bioPic"/>
                                 <div class="bioTxtContainer">
                                     <p><b>Fan Si</b></p>
-                                    <p>Computer Science student at CSU. Learning & Using C, C++, Java, Python, Lua, JS, HTML. Speaks English, Chinese & learing Japanese</p>
+                                    <p>Computer Science student at CSU. Learning & Using C, C++, Java, Python, Lua, JS, HTML. Speaks English, Chinese & Learning Japanese</p>
                                 </div>
-
                             </div>
 
                             <div class="inline-block">
