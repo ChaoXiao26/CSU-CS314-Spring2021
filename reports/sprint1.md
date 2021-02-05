@@ -59,6 +59,7 @@ Maps includes: Choose a list of background maps for the user to select from, Add
 ## Review
 
 #### Epics completed  
+Team Idenfication and About Epics were completed
 
 #### Epics not completed 
 
