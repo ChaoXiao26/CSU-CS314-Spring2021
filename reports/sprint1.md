@@ -70,3 +70,4 @@ Maps includes: Choose a list of background maps for the user to select from, Add
 #### Things that we need to improve
 
 #### One thing we will change next time
+We need to be more efficient. We all worked together to accomplish what we have this Sprint, but we need to do a better job at communicating and using our time effectively.
