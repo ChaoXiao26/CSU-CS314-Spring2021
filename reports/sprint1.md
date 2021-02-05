@@ -66,7 +66,7 @@ Maps includes: Choose a list of background maps for the user to select from, Add
 ## Retrospective
 
 #### Things that went well
-During the first project, all of us have learned how to use JavaScript and HTML to create and edit a website, and we help each other with the hard tasks and figure it out together. We finished the first two Epic and successfully make a release on the school server. Even though we faced a lot of challenges when we were doing the task, we had good communication on Slack and help each other solving the problem,  including setting a workspace on VScode and making sure any merged in GitHub can be merged successfully.
+During the first project, all of us have learned how to use JavaScript and HTML to create and edit a website, and we help each other with the hard tasks and figure it out together. We finished the first two Epic and successfully make a release on the school server. Even though we faced a lot of challenges when we were doing the task, we had good communication on Slack and help each other solving the problem,  including setting a workspace on VScode and making sure any pull request in GitHub can be merged successfully.
 
 #### Things that we need to improve
 
