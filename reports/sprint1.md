@@ -59,6 +59,7 @@ Maps includes: Choose a list of background maps for the user to select from, Add
 ## Review
 
 #### Epics completed  
+Two total epics were completed during sprint 1. Team Idenfication and About Epics were the two epics completed.
 
 #### Epics not completed 
 
