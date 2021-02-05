@@ -68,8 +68,6 @@ Maps includes: Choose a list of background maps for the user to select from, Add
 #### Things that went well
 
 #### Things that we need to improve
-We need better communication, higher efficiency, and more teamwork. 
-
-Break tasks to small pieces instead of completing them all at once.
+We need better communication, higher efficiency, and more teamwork. <br />Break tasks to small pieces instead of completing them all at once.
 
 #### One thing we will change next time
