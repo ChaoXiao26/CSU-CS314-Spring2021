@@ -69,6 +69,7 @@ Two total epics were completed during sprint 1. Team Idenfication and About Epic
 #### Things that went well
 
 #### Things that we need to improve
+We need better communication, higher efficiency, and more teamwork. <br />Break tasks to smaller pieces instead of completing them all at once.
 
 #### One thing we will change next time
 We need to be more efficient. We all worked together to accomplish what we have this Sprint, but we need to do a better job at communicating and using our time effectively.
