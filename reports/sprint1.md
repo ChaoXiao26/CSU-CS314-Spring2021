@@ -67,6 +67,7 @@ Team 404 Brain Not Found was unable to complete three epics during sprint 1. The
 ## Retrospective
 
 #### Things that went well
+During the first project we learned how to use JavaScript and HTML to create and edit a website. We helped each other with the hard tasks and when needed, figured it out together. We finished the first two Epics and successfully made a release on the school server. Even though we faced a lot of challenges, we had good communication on Slack and helped each other solve the problems. Those problems included setting a workspace on VScode and making sure any pull request in GitHub could be merged successfully.
 
 #### Things that we need to improve
 We need better communication, higher efficiency, and more teamwork. <br />Break tasks to smaller pieces instead of completing them all at once.
