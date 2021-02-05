@@ -62,7 +62,7 @@ Maps includes: Choose a list of background maps for the user to select from, Add
 Two total epics were completed during sprint 1. Team Idenfication and About Epics were the two epics completed.
 
 #### Epics not completed 
-
+Team 404 Brain Not Found was unable to complete three epics during sprint 1. The epics not completed include the Trip, Maps, and Place details epics.
 
 ## Retrospective
 
