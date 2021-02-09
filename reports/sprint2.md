@@ -36,11 +36,11 @@
 ## Planned Epics
 Team 404 Brain Not Found plans on completing the Trip, Protocol Find Feature, Where Am I?, Where Is?, and Find Places epics.
 
-<b>Protocol Find Feature<b>
+##### Protocol Find Feature
   
 Build a API that find locations for client. It takes client POST request in json format, and return a list of location to client in json format. 1)Edit config response, so that it takes find feature, type, and where. 2)Read client request and find location for client. 3)return results to clicent. 4)If something is wrong with client's request, return HTTP status codes. 
 
-<b>Where Am I<b>
+##### Where Am I
  
 In this epic, we will add a new feture that allow user to finding their location on the map, including locate user's location when the application starts, add a button for user to locate their place, add ensure user will get location details on the table.
 
