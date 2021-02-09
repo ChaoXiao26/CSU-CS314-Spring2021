@@ -46,6 +46,9 @@ In this epic, we will add a new feature that allows the user to find their locat
 
 Where Is? includes: We will be adding the following functionality - allow users to enter latitutde and longitude coordinates such that the map navigates to those coordinates. The following tasks will need to be completed. 1) Write code to obtain coordinate information from the user in a variety of formats. 2) Write code to validate that the user provided latitude/longitude combination. 3) Write code to move the marker to the user-provided coordinates after validation. 4) Update "this" history and lastly 5)Ensure both the map and the marker show the additional place details. This is a preliminary list of tasks, and we will be adding more tasks as they become evident throughout the development process. This epic will be started after completing the Trip, Protocol find feature, and Where am I epics. Following the completition of this epic we will move on to the Find Places Epic. 
 
+##### Find Places
+In this epic, we will add a new feature that will allow us to search for places we would like to visit. Tasks include: 1) displaying locations based on a string entered in. 2) display locations based on a entered in type. 3) display locations based on an entered in area. 4) Allow the user to select an option and display it to the map. 5) add the selected option to history.
+
 ## Metrics
 
 | Statistic | # Planned | # Completed |
