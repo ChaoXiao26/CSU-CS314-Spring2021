@@ -34,7 +34,7 @@
 
 
 ## Planned Epics
-
+Team 404 Brain Not Found plans on completing the Trip, Protocol Find Feature, Where Am I?, Where Is?, and Find Places epics.
 
 ## Metrics
 
