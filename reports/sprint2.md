@@ -50,12 +50,12 @@ Where Is? includes: We will be adding the following functionality - allow users 
 In this epic, we will add a new feature that will allow us to search for places we would like to visit. Tasks include: 1) displaying locations based on a string entered in. 2) display locations based on a entered in type. 3) display locations based on an entered in area. 4) Allow the user to select an option and display it to the map. 5) add the selected option to history.
 
 ## Metrics
-
+During the sprint 1 we were able to complete 2 of the epics. We spent much of the week sprint learning new technologies and getting our environments up to date. This sprint we believe that we will be able to complete 5 epics in the product backlog. Our goal is to try to complete two of the epics a week in order to stay ahead and use the last few days of the sprint to deploy our server properly on the sprint blackbottle server. If we break up the 26 story points appropriately we will be able to accomplish this ambitious goal set forth by our team.
 | Statistic | # Planned | # Completed |
 | --- | ---: | ---: |
-| Epics | *count* | *count* |
-| Tasks |  *count*   | *count* | 
-| Story Points |  *sum*  | *sum* | 
+| Epics | *5* | *count* |
+| Tasks |  *21*   | *count* | 
+| Story Points |  *26*  | *sum* | 
 
 
 ## Scrums
