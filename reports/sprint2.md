@@ -34,7 +34,7 @@
 
 
 ## Planned Epics
-
+Team 404 Brain Not Found plans on completing the Trip, Protocol Find Feature, Where Am I?, Where Is?, and Find Places epics.
 
 ## Metrics
 
@@ -50,6 +50,7 @@
 | Date | Tasks closed  | Tasks in progress | Impediments |
 | :--- | :--- | :--- | :--- |
 | *date* | *#task, ...* | *#task, ...* |  | 
+| *2/08/2021* | *#Distribute epics to different teams members to create tasks <br /> #Set due date for this evening <br /> #Create sprint2.md document <br /> #Decide to meet tomorrow to discuss next steps* <br /> | *Update Sprint2.md with proper planned epic paragraphs* | | *none |
 
 
 ## Review
