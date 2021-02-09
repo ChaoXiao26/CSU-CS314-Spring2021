@@ -1,4 +1,4 @@
-# Sprint 2 - *your team number* - *your team name*
+# Sprint 2 - *T16* - *404 Brain Not Found*
 
 ## Goal
 ### *More ways to add places to the trip.*
