@@ -4,7 +4,7 @@
 ### *More ways to add places to the trip.*
 
 ## Sprint Leader: 
-### *firstname lastname*
+### *Sam Bonafe*
 
 ## Definition of Done
 
