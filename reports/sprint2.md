@@ -36,6 +36,8 @@
 ## Planned Epics
 Team 404 Brain Not Found plans on completing the Trip, Protocol Find Feature, Where Am I?, Where Is?, and Find Places epics.
 
+Where Is? includes: We will be adding the following functionality - allow users to enter latitutde and longitude coordinates such that the map navigates to those coordinates. The following tasks will need to be completed. 1) Write code to obtain coordinate information from the user in a variety of formats. 2) Write code to validate the user provided latitude/longitude combination. 3) Write code to move marker to user provided coordinates after validation. 4) Update "this" history and lastly 5)Ensure both the map and the marker show the additional place details. This is a preliminary list of tasks, and we will be adding more tasks as they become evident throughout the development process. This epic will be started after completing the Trip, Protocol find feature, and Where am I epics. Following the completition of this epic we will move on to the Find Places Epic. 
+
 ## Metrics
 
 | Statistic | # Planned | # Completed |
