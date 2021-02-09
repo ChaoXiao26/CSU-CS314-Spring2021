@@ -36,7 +36,13 @@
 ## Planned Epics
 Team 404 Brain Not Found plans on completing the Trip, Protocol Find Feature, Where Am I?, Where Is?, and Find Places epics.
 
-Protocol Find Feature. Build a API that find locations for client. It takes client POST request in json format, and return a list of location to client in json format. 1)Edit config response, so that it takes find feature, type, and where. 2)Read client request and find location for client. 3)return results to clicent. 4)If something is wrong with client's request, return HTTP status codes. 
+<b>Protocol Find Feature<b>
+  
+Build a API that find locations for client. It takes client POST request in json format, and return a list of location to client in json format. 1)Edit config response, so that it takes find feature, type, and where. 2)Read client request and find location for client. 3)return results to clicent. 4)If something is wrong with client's request, return HTTP status codes. 
+
+<b>Where Am I<b>
+ 
+In this epic, we will add a new feture that allow user to finding their location on the map, including locate user's location when the application starts, add a button for user to locate their place, add ensure user will get location details on the table.
 
 Where Is? includes: We will be adding the following functionality - allow users to enter latitutde and longitude coordinates such that the map navigates to those coordinates. The following tasks will need to be completed. 1) Write code to obtain coordinate information from the user in a variety of formats. 2) Write code to validate the user provided latitude/longitude combination. 3) Write code to move marker to user provided coordinates after validation. 4) Update "this" history and lastly 5)Ensure both the map and the marker show the additional place details. This is a preliminary list of tasks, and we will be adding more tasks as they become evident throughout the development process. This epic will be started after completing the Trip, Protocol find feature, and Where am I epics. Following the completition of this epic we will move on to the Find Places Epic. 
 
