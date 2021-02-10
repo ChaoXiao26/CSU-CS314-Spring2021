@@ -123,6 +123,10 @@ Often there are several related classes but we've listed only one to simplify th
 ![image](https://user-images.githubusercontent.com/56741965/106678423-ee645b00-6577-11eb-8080-3108ae90c051.png)
 
 # Sprint 2
+
+## Components
+![C2](https://user-images.githubusercontent.com/56741965/107450530-b1154580-6b02-11eb-9ebf-ca3f1c119e9e.png)
+
 # Sprint 3
 # Sprint 4 
 # Sprint 5
