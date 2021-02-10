@@ -144,6 +144,7 @@ The user will be allowed to search with key words and a list will be returned wi
 ![C2](https://user-images.githubusercontent.com/56741965/107450530-b1154580-6b02-11eb-9ebf-ca3f1c119e9e.png)
 
 ## Classes
+![IMG_0200(20210209-212256)](https://user-images.githubusercontent.com/54829242/107464370-635a0680-6b1d-11eb-9a51-46af7a4007bd.PNG)
 
 # Sprint 3
 # Sprint 4 
