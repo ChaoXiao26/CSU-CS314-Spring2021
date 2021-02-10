@@ -141,7 +141,10 @@ We will be adding a buttom to allow the user to enter latitude and longitude coo
 
 The user will be allowed to search with key words and a list will be returned with a collection of searches matching the user input. Then the user will be able to navigate to the location by clicking it and the location will be added to the trip.
 ## Components
+![C2](https://user-images.githubusercontent.com/56741965/107450530-b1154580-6b02-11eb-9ebf-ca3f1c119e9e.png)
+
 ## Classes
+
 # Sprint 3
 # Sprint 4 
 # Sprint 5
