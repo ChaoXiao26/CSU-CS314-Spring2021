@@ -123,6 +123,25 @@ Often there are several related classes but we've listed only one to simplify th
 ![image](https://user-images.githubusercontent.com/56741965/106678423-ee645b00-6577-11eb-8080-3108ae90c051.png)
 
 # Sprint 2
+## User Interface
+### Where am I?
+
+![image](https://github.com/csucs314s21/t16/blob/vasquezt15-update-design.md-Add-User-Interface-diagrams/reports/images/Sprint2-Epic1-Where%20am%20I%3F%20Interface%20image.png)
+
+We will be adding a buttom on the top left so that the user may click on it and obtain their current location. The marker will then move to the users location, and the location will be added to the trip log at the bottom.
+
+### Where is?
+![image](https://github.com/csucs314s21/t16/blob/vasquezt15-update-design.md-Add-User-Interface-diagrams/reports/images/Sprint2-Epic1-Where%20is%3F%20Interface%20image.png)
+
+We will be adding a buttom to allow the user to enter latitude and longitude coordinates. After validating the coordidates the marker will move to the desired location and it will be added to the trip.
+
+### Find Feature
+
+![image](https://github.com/csucs314s21/t16/blob/vasquezt15-update-design.md-Add-User-Interface-diagrams/reports/images/Sprint2-Epic1-Find%20Feature%3F%20Interface%20image.png)
+
+The user will be allowed to search with key words and a list will be returned with a collection of searches matching the user input. Then the user will be able to navigate to the location by clicking it and the location will be added to the trip.
+## Components
+## Classes
 # Sprint 3
 # Sprint 4 
 # Sprint 5
