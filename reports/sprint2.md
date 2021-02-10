@@ -34,7 +34,11 @@
 
 
 ## Planned Epics
-Team 404 Brain Not Found plans on completing the Trip, Protocol Find Feature, Where Am I?, Where Is?, and Find Places epics.
+Team 404 Brain Not Found plans on completing the Trip, Protocol Find Feature, Where Am I?, Where Is?, and Find Places epics. We plan to have everything completed before the due date so that we can properly test our server and make sure the deployment works properly. As a team we will work on dividing tasks evenly and working together to overcome the hard challenges we may face.
+
+##### Trip
+
+Trip includes: Create a list of places that have been clicked, Display the list of places that have been clicked with the most recent first, Clear the entire list to start over, Remove individual entries from the list. We will decide who will be assigned to these subtasks once the previous epics have been completed. We plan to complete this epic within the first week of the sprint. Thus laying the groundwork for the rest of our epics.
 
 ##### Protocol Find Feature
   
@@ -44,12 +48,16 @@ Build an API that finds locations for the client. It takes the client POST reque
  
 In this epic, we will add a new feature that allows the user to find their location on the map, including locate user's location when the application starts, add a button for user to locate their place, and ensure user will get location details on the table.
 
+##### Where Is?
+
 Where Is? includes: We will be adding the following functionality - allow users to enter latitutde and longitude coordinates such that the map navigates to those coordinates. The following tasks will need to be completed. 1) Write code to obtain coordinate information from the user in a variety of formats. 2) Write code to validate that the user provided latitude/longitude combination. 3) Write code to move the marker to the user-provided coordinates after validation. 4) Update "this" history and lastly 5)Ensure both the map and the marker show the additional place details. This is a preliminary list of tasks, and we will be adding more tasks as they become evident throughout the development process. This epic will be started after completing the Trip, Protocol find feature, and Where am I epics. Following the completition of this epic we will move on to the Find Places Epic. 
 
 ##### Find Places
+
 In this epic, we will add a new feature that will allow us to search for places we would like to visit. Tasks include: 1) displaying locations based on a string entered in. 2) display locations based on a entered in type. 3) display locations based on an entered in area. 4) Allow the user to select an option and display it to the map. 5) add the selected option to history.
 
 ## Metrics
+
 During the sprint 1 we were able to complete 2 of the epics. We spent much of the week sprint learning new technologies and getting our environments up to date. This sprint we believe that we will be able to complete 5 epics in the product backlog. Our goal is to try to complete two of the epics a week in order to stay ahead and use the last few days of the sprint to deploy our server properly on the sprint blackbottle server. If we break up the 26 story points appropriately we will be able to accomplish this ambitious goal set forth by our team.
 | Statistic | # Planned | # Completed |
 | --- | ---: | ---: |
