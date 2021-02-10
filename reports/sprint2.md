@@ -42,7 +42,7 @@ Trip includes: Create a list of places that have been clicked, Display the list 
 
 ##### Protocol Find Feature
   
-Build an API that finds locations for the client. It takes the client POST request in json format, and returns a list of locations to the client in json format. 1)Edit config response so that it takes find feature, type, and where. 2)Read the client request and find the location for the client. 3)return results to clicent. 4)If something is wrong with the client's request, return HTTP status codes. 
+Build an API that finds locations for the client. It takes the client POST request in json format, and returns a list of locations to the client in json format. We will edit config response so that it takes find feature, type, and where. Read the client request and find the location for the client. Return results to clicent. If something is wrong with the client's request, the application will return HTTP status codes. 
 
 ##### Where Am I
  
@@ -50,11 +50,11 @@ In this epic, we will add a new feature that allows the user to find their locat
 
 ##### Where Is?
 
-Where Is? includes: We will be adding the following functionality - allow users to enter latitutde and longitude coordinates such that the map navigates to those coordinates. The following tasks will need to be completed. 1) Write code to obtain coordinate information from the user in a variety of formats. 2) Write code to validate that the user provided latitude/longitude combination. 3) Write code to move the marker to the user-provided coordinates after validation. 4) Update "this" history and lastly 5)Ensure both the map and the marker show the additional place details. This is a preliminary list of tasks, and we will be adding more tasks as they become evident throughout the development process. This epic will be started after completing the Trip, Protocol find feature, and Where am I epics. Following the completition of this epic we will move on to the Find Places Epic. 
+We will be adding the following functionality - allow users to enter latitutde and longitude coordinates such that the map navigates to those coordinates. The following tasks will need to be completed. Write code to obtain coordinate information from the user in a variety of formats. Write code to validate that the user provided latitude/longitude combination. Write code to move the marker to the user-provided coordinates after validation. Update "this" history and lastly ensure both the map and the marker show the additional place details. This is a preliminary list of tasks, and we will be adding more tasks as they become evident throughout the development process. This epic will be started after completing the Trip, Protocol find feature, and Where am I epics. Following the completition of this epic we will move on to the Find Places Epic. 
 
 ##### Find Places
 
-In this epic, we will add a new feature that will allow us to search for places we would like to visit. Tasks include: 1) displaying locations based on a string entered in. 2) display locations based on a entered in type. 3) display locations based on an entered in area. 4) Allow the user to select an option and display it to the map. 5) add the selected option to history.
+In this epic, we will add a new feature that will allow us to search for places we would like to visit. Tasks include: Search for locations based on user provided key words . Display a list of locations matching the user search . The map will then navigate to a choosen location, if any. The entry selected will be added to the history.
 
 ## Metrics
 
