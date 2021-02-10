@@ -1,0 +1,12 @@
+name: reset-cache
+
+on: workflow_dispatch
+
+jobs:
+  reset-cache:
+
+    runs-on: [self-hosted, linux, x64]
+
+    steps:
+      - name: Reset build cache
+        run: cache-dependencies flush
