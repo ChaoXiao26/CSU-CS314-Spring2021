@@ -71,7 +71,9 @@ During the sprint 1 we were able to complete 2 of the epics. We spent much of th
 | Date | Tasks closed  | Tasks in progress | Impediments |
 | :--- | :--- | :--- | :--- |
 | *date* | *#task, ...* | *#task, ...* |  | 
-| *2/08/2021* | *#Distribute epics to different teams members to create tasks <br /> #Set due date for this evening <br /> #Create sprint2.md document <br /> #Decide to meet tomorrow to discuss next steps* <br /> | *Update Sprint2.md with proper planned epic paragraphs* | | *none |
+| *2/08/2021* | *#Distribute epics to different teams members to create tasks <br /> #Set due date for this evening <br /> #Create sprint2.md document <br /> #Decide to meet tomorrow to discuss next steps <br />* | *Update Sprint2.md with proper planned epic paragraphs* | | *none* |
+| *2/10/2021* | *#Make sure table was coded in React <br /> #Discuss Breakdown of Trip epic <br />*  | *Finish Trip Epic by Saturday Morning* | | *none* |
+
 
 
 ## Review
