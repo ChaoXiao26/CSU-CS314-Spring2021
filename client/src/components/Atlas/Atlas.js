@@ -25,7 +25,7 @@ export default class Atlas extends Component {
 
         this.state = {
             markerPosition: null,
-            locations: [],//holds an array of all locations clicked
+            locations: [],
         };
     }
 
@@ -36,24 +36,11 @@ export default class Atlas extends Component {
                     <Row>
                         <Col sm={12} md={{size: 10, offset: 1}}>
                             {this.renderLeafletMap()}
-                            <table width="100%" border="1">
-                            <thead>
-                                <tr> 
-                                    <th><b>Number</b></th>
-                                    <th><b>Address</b></th>
-                                    <th><b>Latitude</b></th>
-                                    <th><b>Longitude</b></th>     
-                                </tr>
-                            </thead>
-                            <tbody>
-                                    <tr> 
-                                        <th>test1</th>
-                                        <th>test2</th>
-                                        <th>test3</th>
-                                        <th>test4</th>     
-                                    </tr>
-                            </tbody>
-                            </table>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col sm={12} md={{size: 10, offset: 1}}>
+                            {this.renderLocationTable()}
                         </Col>
                     </Row>
                 </Container>
@@ -79,13 +66,39 @@ export default class Atlas extends Component {
             </Map>
         );
     }
+    renderLocationTable() {
+        //apply this function to each element in locations array
+        const locations = this.state.locations.map((location, i) =>
+            <tr key={i}> 
+                <th>test1</th>
+                <th>test2</th>
+                <th>{location.lat}</th>
+                <th>{location.lng}</th>     
+            </tr>
+            );
+        return(
+            <table width="100%" border="1">
+                <thead>
+                    <tr> 
+                        <th><b>Number</b></th>
+                        <th><b>Address</b></th>
+                        <th><b>Latitude</b></th>
+                        <th><b>Longitude</b></th>     
+                    </tr>
+                </thead>
+                <tbody>
+                        {locations}
+                </tbody>
+            </table>
+        );
+    }
 
     setMarker(mapClickInfo) {
-        const locations = this.state.locations;//array inside constructor in this.state
-        locations.push(mapClickInfo.latlng);//object that holds .lat and .lng(lattitude and longitude of location clicked)
-        //console.log(mapClickInfor.latlng);//this is how I knew what was stored inside this object
+        const locations = this.state.locations;
+        locations.push(mapClickInfo.latlng);//unshift
+	console.log(mapClickInfo.latlng);
         this.setState({markerPosition: mapClickInfo.latlng,
-                      locations: locations});//return changes in locations variable to this.state.locations
+            locations: locations});
     }
 
     getMarker() {
