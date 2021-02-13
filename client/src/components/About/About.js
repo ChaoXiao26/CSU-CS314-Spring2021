@@ -36,18 +36,18 @@ export default class About extends Component {
                             </tr>
                         </table>
                         <h3>Members</h3>
-                        <div class="teamBio">
-                            <div class="inline-block">
-                                <img src="https://i.postimg.cc/2SNNQQ9Y/mark.jpg" class = "Imagecover" alt="Profile Picture of Mark Garner"/>
-                                <div class="bioTxtContainer">
+                        <div className="teamBio">
+                            <div className="inline-block">
+                                <img src="https://i.postimg.cc/2SNNQQ9Y/mark.jpg" className = "Imagecover" alt="Profile Picture of Mark Garner"/>
+                                <div className="bioTxtContainer">
                                     <p><b>Mark Garner</b></p>
                                     <p>Major in Computer Science</p>
                                     <p>Proficient in HTML, CSS, C++, Javascript, and Java.</p>
                                 </div>
                             </div>
 
-                            <div class="inline-block">
-                                <img src="https://i.postimg.cc/dtyKZHBn/IMG-20180919-071702-480.jpg" class = "Imagecover" alt="Profile Picture of Sam Bonafe"/>
+                            <div className="inline-block">
+                                <img src="https://i.postimg.cc/dtyKZHBn/IMG-20180919-071702-480.jpg" className = "Imagecover" alt="Profile Picture of Sam Bonafe"/>
                                 <div className="bioTxtContainer">
                                     <p><b>Sam Bonafe</b></p>
                                     <p>Major in Computer Science</p>
@@ -55,32 +55,32 @@ export default class About extends Component {
                                 </div>
                             </div>
 
-                            <div class="inline-block">
-                                <img src="https://i.postimg.cc/pLQbqm3F/yx.jpg" class = "Imagecover" alt="Picture"/>
+                            <div className="inline-block">
+                                <img src="https://i.postimg.cc/pLQbqm3F/yx.jpg" className = "Imagecover" alt="Picture"/>
                                 <div className="bioTxtContainer">
                                     <p><b>Yuxin Huang</b></p>
-                                    <p class="p">Major in CS & Math</p>
-                                    <p class="p">Speaks English & Chinese</p>
-                                    <p class="p">Learning to code in java, C#, C++, Python</p>
+                                    <p className="p">Major in CS & Math</p>
+                                    <p className="p">Speaks English & Chinese</p>
+                                    <p className="p">Learning to code in java, C#, C++, Python</p>
                                     <p><a href="https://twitter.com/GeorgeChaoXiao">Twitter: ChaoXiao</a></p>
                                 </div>
                             </div>
 
-                            <div class="inline-block">
-                                <img src="https://i.postimg.cc/kMZm43xB/Fan-Si-Biopic.jpg" class="Imagecover" alt="FanSi_bioPic"/>
+                            <div className="inline-block">
+                                <img src="https://i.postimg.cc/kMZm43xB/Fan-Si-Biopic.jpg" className="Imagecover" alt="FanSi_bioPic"/>
                                 <div className="bioTxtContainer">
                                     <p><b>Fan Si</b></p>
                                     <p>Computer Science student at CSU. Learning & Using C, C++, Java, Python, Lua, JS, HTML. Speaks English, Chinese & Learning Japanese</p>
                                 </div>
                             </div>
 
-                            <div class="inline-block">
-                                <img src="https://i.postimg.cc/Y0JKyYp1/Copper.jpg" class = "Imagecover" alt="Picture"/>
+                            <div className="inline-block">
+                                <img src="https://i.postimg.cc/Y0JKyYp1/Copper.jpg" className = "Imagecover" alt="Picture"/>
                                 <div className="bioTxtContainer">
                                     <p><b>Tomas Vasquez</b></p>
-                                    <p class="p">Major in Computer Science and Math.</p>
-                                    <p class="p">Speaks English, Spanish, and German.</p>
-                                    <p class="p">Proficient in C, C++, Java, Python, and R.</p>
+                                    <p className="p">Major in Computer Science and Math.</p>
+                                    <p className="p">Speaks English, Spanish, and German.</p>
+                                    <p className="p">Proficient in C, C++, Java, Python, and R.</p>
                                 </div>
                             </div>
                     
