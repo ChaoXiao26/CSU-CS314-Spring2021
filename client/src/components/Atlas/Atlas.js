@@ -25,6 +25,7 @@ export default class Atlas extends Component {
 
         this.state = {
             markerPosition: null,
+            locations: [],//holds an array of all locations clicked
         };
     }
 
@@ -80,7 +81,11 @@ export default class Atlas extends Component {
     }
 
     setMarker(mapClickInfo) {
-        this.setState({markerPosition: mapClickInfo.latlng});
+        const locations = this.state.locations;//array inside constructor in this.state
+        locations.push(mapClickInfo.latlng);//object that holds .lat and .lng(lattitude and longitude of location clicked)
+        //console.log(mapClickInfor.latlng);//this is how I knew what was stored inside this object
+        this.setState({markerPosition: mapClickInfo.latlng,
+                      locations: locations});//return changes in locations variable to this.state.locations
     }
 
     getMarker() {
