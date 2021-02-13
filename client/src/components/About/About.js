@@ -48,7 +48,7 @@ export default class About extends Component {
 
                             <div class="inline-block">
                                 <img src="https://i.postimg.cc/dtyKZHBn/IMG-20180919-071702-480.jpg" class = "Imagecover" alt="Profile Picture of Sam Bonafe"/>
-                                <div class="bioTxtContainer">
+                                <div className="bioTxtContainer">
                                     <p><b>Sam Bonafe</b></p>
                                     <p>Major in Computer Science</p>
                                     <p>Learning to code in C++, Javascript, Java, C</p>
@@ -57,7 +57,7 @@ export default class About extends Component {
 
                             <div class="inline-block">
                                 <img src="https://i.postimg.cc/pLQbqm3F/yx.jpg" class = "Imagecover" alt="Picture"/>
-                                <div class="bioTxtContainer">
+                                <div className="bioTxtContainer">
                                     <p><b>Yuxin Huang</b></p>
                                     <p class="p">Major in CS & Math</p>
                                     <p class="p">Speaks English & Chinese</p>
@@ -68,7 +68,7 @@ export default class About extends Component {
 
                             <div class="inline-block">
                                 <img src="https://i.postimg.cc/kMZm43xB/Fan-Si-Biopic.jpg" class="Imagecover" alt="FanSi_bioPic"/>
-                                <div class="bioTxtContainer">
+                                <div className="bioTxtContainer">
                                     <p><b>Fan Si</b></p>
                                     <p>Computer Science student at CSU. Learning & Using C, C++, Java, Python, Lua, JS, HTML. Speaks English, Chinese & Learning Japanese</p>
                                 </div>
@@ -76,7 +76,7 @@ export default class About extends Component {
 
                             <div class="inline-block">
                                 <img src="https://i.postimg.cc/Y0JKyYp1/Copper.jpg" class = "Imagecover" alt="Picture"/>
-                                <div class="bioTxtContainer">
+                                <div className="bioTxtContainer">
                                     <p><b>Tomas Vasquez</b></p>
                                     <p class="p">Major in Computer Science and Math.</p>
                                     <p class="p">Speaks English, Spanish, and German.</p>
