@@ -96,7 +96,7 @@ export default class Atlas extends Component {
     }
 	
     clearTable(){
-	    this.state.locations.splice(0, locations.length);
+	    locations.length = 0;
 	    this.setState({locations: this.state.locations});
     }
 
