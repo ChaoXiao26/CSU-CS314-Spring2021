@@ -95,8 +95,10 @@ export default class Atlas extends Component {
     }
 	
     clearTable(){
-	    const locations = [];
-	    this.setState({locations: locations});
+	    var location;
+	    for(x in locations){
+		    delete locations[x];
+	    }
     }
 
     setMarker(mapClickInfo) {
