@@ -22,6 +22,7 @@ export default class Atlas extends Component {
         super(props);
 
         this.setMarker = this.setMarker.bind(this);
+	this.clearTable = this.clearTable.bind(this);
 
         this.state = {
             markerPosition: null,
