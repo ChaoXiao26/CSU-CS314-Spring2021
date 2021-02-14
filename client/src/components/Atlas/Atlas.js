@@ -84,7 +84,7 @@ export default class Atlas extends Component {
                         <th><b>Address</b></th>
                         <th><b>Latitude</b></th>
                         <th><b>Longitude</b></th>   
-			<th><Button color="primary" onClick={this.clearTable}xs={1}>Clear</Button></th>
+			<th><Button color="primary" onClick={ () => this.clearTable()}>Clear</Button></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -95,8 +95,8 @@ export default class Atlas extends Component {
     }
 	
     clearTable(){
-	    const location = [];
-	    this.setState({location: location});
+	    this.state.locations.splice(0, locations.length);
+	    this.setState({locations: this.state.locations});
     }
 
     setMarker(mapClickInfo) {
