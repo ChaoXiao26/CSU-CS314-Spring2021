@@ -22,7 +22,8 @@ export default class Atlas extends Component {
         super(props);
 
         this.setMarker = this.setMarker.bind(this);
-	this.clearTable = this.clearTable.bind(this);
+	      this.clearTable = this.clearTable.bind(this);
+        this.handleRemoveDestination = this.handleRemoveDestination.bind(this);
 
         this.state = {
             markerPosition: null,
@@ -71,10 +72,11 @@ export default class Atlas extends Component {
         //apply this function to each element in locations array
         const locations = this.state.locations.map((location, i) =>
             <tr key={i}> 
-                <th>test1</th>
+                <th>Destination {i}</th>
                 <th>test2</th>
                 <th>{location.lat}</th>
-                <th>{location.lng}</th>     
+                <th>{location.lng}</th> 
+                <th><button onClick ={() => this.handleRemoveDestination(i)}>remove </button></th> 
             </tr>
             );
         return(
@@ -85,7 +87,7 @@ export default class Atlas extends Component {
                         <th><b>Address</b></th>
                         <th><b>Latitude</b></th>
                         <th><b>Longitude</b></th>   
-			<th><Button color="primary" type="button" class="btn btn-secondary" onClick={this.clearTable}>Clear</Button></th>
+			                  <th><Button color="primary" type="button" class="btn btn-secondary" onClick={this.clearTable}>Clear</Button></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -99,6 +101,11 @@ export default class Atlas extends Component {
 	    this.state.locations.length = 0;
 	    this.setState({markerPosition: null, locations : this.state.locations});
     }
+
+   handleRemoveDestination(i){
+       this.state.locations.splice(i,1);
+        this.setState({locations: this.state.locations});
+    }  
 
     setMarker(mapClickInfo) {
         const locations = this.state.locations;
@@ -129,4 +136,5 @@ export default class Atlas extends Component {
     getLatLngText(latLng) {
         return latLng.lat.toFixed(6) + ', ' + latLng.lng.toFixed(6);
     }
+
 }
