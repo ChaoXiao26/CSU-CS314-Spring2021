@@ -97,7 +97,6 @@ export default class Atlas extends Component {
     clearTable(){
 	    const location = [];
 	    this.setState({location: location});
-	    }
     }
 
     setMarker(mapClickInfo) {
