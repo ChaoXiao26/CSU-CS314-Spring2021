@@ -84,7 +84,7 @@ export default class Atlas extends Component {
                         <th><b>Address</b></th>
                         <th><b>Latitude</b></th>
                         <th><b>Longitude</b></th>   
-			<th><Button color="primary" onClick={ () => this.clearTable()}>Clear</Button></th>
+			<th><Button color="primary" type="button" class="btn btn-secondary" onClick={ () => this.clearTable()}>Clear</Button></th>
                     </tr>
                 </thead>
                 <tbody>
