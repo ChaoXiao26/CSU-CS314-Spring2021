@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Col, Container, Row} from 'reactstrap';
+import {Col, Container, Row, Button} from 'reactstrap';
 
 import {Map, Marker, Popup, TileLayer} from 'react-leaflet';
 
@@ -83,7 +83,8 @@ export default class Atlas extends Component {
                         <th><b>Number</b></th>
                         <th><b>Address</b></th>
                         <th><b>Latitude</b></th>
-                        <th><b>Longitude</b></th>     
+                        <th><b>Longitude</b></th>   
+			<th><Button color="primary" onClick={this.props.clearTable}xs={1}>Clear</Button></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -91,6 +92,11 @@ export default class Atlas extends Component {
                 </tbody>
             </table>
         );
+    }
+	
+    clearTable(){
+	    const locations = [];
+	    this.setState({locations});
     }
 
     setMarker(mapClickInfo) {
