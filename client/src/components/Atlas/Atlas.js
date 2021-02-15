@@ -72,10 +72,9 @@ export default class Atlas extends Component {
         //apply this function to each element in locations array
         const locations = this.state.locations.map((location, i) =>
             <tr key={i}> 
-                <th>Destination {i}</th>
-                <th>test2</th>
-                <th>{location.lat}</th>
-                <th>{location.lng}</th> 
+                <th>#{i}</th>
+                <th>{location.lat.toFixed(6)}</th>
+                <th>{location.lng.toFixed(6)}</th> 
                 <th><button onClick ={() => this.handleRemoveDestination(i)}>remove </button></th> 
             </tr>
             );
@@ -84,10 +83,9 @@ export default class Atlas extends Component {
                 <thead>
                     <tr> 
                         <th><b>Number</b></th>
-                        <th><b>Address</b></th>
                         <th><b>Latitude</b></th>
                         <th><b>Longitude</b></th>   
-			                  <th><Button color="primary" type="button" class="btn btn-secondary" onClick={this.clearTable}>Clear</Button></th>
+			            <th><Button color="primary" type="button" class="btn btn-secondary" onClick={this.clearTable}>Clear</Button></th>
                     </tr>
                 </thead>
                 <tbody>
