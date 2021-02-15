@@ -107,8 +107,7 @@ export default class Atlas extends Component {
 
     setMarker(mapClickInfo) {
         const locations = this.state.locations;
-        locations.push(mapClickInfo.latlng);//unshift
-	console.log(mapClickInfo.latlng);
+        locations.unshift(mapClickInfo.latlng);
         this.setState({markerPosition: mapClickInfo.latlng,
             locations: locations});
     }
