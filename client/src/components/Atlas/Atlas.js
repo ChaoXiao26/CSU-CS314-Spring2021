@@ -22,7 +22,7 @@ export default class Atlas extends Component {
         super(props);
 
         this.setMarker = this.setMarker.bind(this);
-	      this.clearTable = this.clearTable.bind(this);
+	this.clearTable = this.clearTable.bind(this);
         this.handleRemoveDestination = this.handleRemoveDestination.bind(this);
 
         this.state = {
@@ -85,7 +85,7 @@ export default class Atlas extends Component {
                         <th><b>Number</b></th>
                         <th><b>Latitude</b></th>
                         <th><b>Longitude</b></th>   
-			            <th><Button color="primary" type="button" class="btn btn-secondary" onClick={this.clearTable}>Clear</Button></th>
+			            <th><Button color="primary" type="button" className="btn btn-secondary" onClick={this.clearTable}>Clear</Button></th>
                     </tr>
                 </thead>
                 <tbody>
