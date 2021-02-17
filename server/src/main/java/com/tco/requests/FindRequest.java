@@ -5,14 +5,14 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Map;
 
 public class FindRequest extends RequestHeader {
     private String match;
     private String[] type, where;
-    private Integer limit = null;
-    private Integer found = null;
-    private List<HashMap<String, String>> places;
+    private Integer limit;
+    private Integer found;
+    private List<Map<String, String>> places;
     
     public FindRequest(){
         this.requestType = "find";
@@ -27,17 +27,18 @@ public class FindRequest extends RequestHeader {
     }
 
     private final transient Logger log = LoggerFactory.getLogger(FindRequest.class);
+
     @Override
     public void buildResponse() {
-        ////////////////
-        requestType = this.requestType;
-        match = this.match;
-        limit = this.limit;
-        type = this.type;
-        where = this.where;
-        ////////////////
+        // ////////////////
+        // requestType = this.requestType;
+        // match = this.match;
+        // limit = this.limit;
+        // type = this.type;
+        // where = this.where;
+        // ////////////////
         found = 0;
-        places = this.places;
+        //places = this.places;
         log.trace("buildResponse -> {}", this);
     }
 
