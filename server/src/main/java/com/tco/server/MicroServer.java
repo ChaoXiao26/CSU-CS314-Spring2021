@@ -37,7 +37,7 @@ class MicroServer {
         path("/api", () -> {
             before("/*", (req, res) -> logRequest(req));
             post("/config", (req, res) -> processHttpRequest(req, res, ConfigRequest.class));
-            post("find", (req, res) -> processHttpRequest(req, res, FindRequest.class));
+            post("/find", (req, res) -> processHttpRequest(req, res, FindRequest.class));
         });
     }
 
