@@ -10,12 +10,16 @@ public class ConfigRequest extends RequestHeader {
     private String serverName;
     private final transient Logger log = LoggerFactory.getLogger(ConfigRequest.class);
     private ArrayList<String> features;
+    private String[] type, where;
 
     @Override
     public void buildResponse() {
         serverName = "t16 404 Brain Not Found";
         features = new ArrayList<String>();
         features.add("config");
+        features.add("find");
+        //features.add("type");
+        //features.add("where"); maybe for feture?
         log.trace("buildResponse -> {}", this);
     }
 
