@@ -29,9 +29,12 @@ public class FindRequest extends RequestHeader {
     private final transient Logger log = LoggerFactory.getLogger(FindRequest.class);
     @Override
     public void buildResponse() {
-        match = "matchTest";
-        type[1] = "typeTest";
-        where[1] = "whereTest";
+        match = this.match;
+        limit = this.limit;
+        type = this.type;
+        where = this.where;
+        found = 0;
+        places = this.places;
         log.trace("buildResponse -> {}", this);
     }
 

@@ -1,0 +1,10 @@
+POST http://localhost:31958/api/find
+content-type: application/json
+
+{
+  "requestType"    : "find",
+  "match"          : "dave",
+  "type"           : ["airport"], 
+  "where"          : ["United States"],
+  "limit"          : 10
+}
