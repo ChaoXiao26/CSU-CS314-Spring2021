@@ -74,6 +74,7 @@ During the sprint 1 we were able to complete 2 of the epics. We spent much of th
 | *2/08/2021* | *#Distribute epics to different teams members to create tasks <br /> #Set due date for this evening <br /> #Create sprint2.md document <br /> #Decide to meet tomorrow to discuss next steps <br />* | *Update Sprint2.md with proper planned epic paragraphs* | | *none* |
 | *2/10/2021* | *#Make sure table was coded in React <br /> #Discuss Breakdown of Trip epic <br />*  | *Finish Trip Epic by Saturday Morning* | | *none* |
 | *2/12/2021* | *#Create a list of map locations clicked <br /> #Display places that have beem clicked <br />* | *Finish Remove Individual Entry <br /> Clear list of places clicked <br />* || *none* |
+| *2/17/2021* | *#Create FindRequest class. Add find API entry <br /> #Add schemas for client and server <br />* | *Read client request and find location for client <br /> Return results to client <br /> Make an auto test for find protocol <br />* || *none*| 
 
 
 
