@@ -44,6 +44,20 @@ public class FindRequest extends RequestHeader {
         placeInfo.put("url", "https://www.aopa.org/destinations/airports/0CO1/details");
         places.add(placeInfo);
 
+        int lim;
+        try {
+            lim = limit.intValue();
+        }
+        catch (NullPointerException e) {
+            lim = 500;
+        }
+
+        FindDatabase dbt = new FindDatabase(this.match, lim, this.where, this.type);
+        dbt.connect();
+        Map<String, String> test = new HashMap();
+        test.put("Test", dbt.output);
+        places.add(test);
+
         log.trace("buildResponse -> {}", this);
     }
 
