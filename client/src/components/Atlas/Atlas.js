@@ -71,8 +71,7 @@ export default class Atlas extends Component {
     renderLocationTable() {
         //apply this function to each element in locations array
         const locations = this.state.locations.map((location, i) =>
-            <tr key={i}> 
-                <th>#{i}</th>
+            <tr key={i}>
                 <th>{location.lat.toFixed(6)}</th>
                 <th>{location.lng.toFixed(6)}</th> 
                 <th><button onClick ={() => this.handleRemoveDestination(i)}>remove </button></th> 
@@ -82,7 +81,6 @@ export default class Atlas extends Component {
             <table width="100%" border="1">
                 <thead>
                     <tr> 
-                        <th><b>Number</b></th>
                         <th><b>Latitude</b></th>
                         <th><b>Longitude</b></th>   
 			            <th><Button color="primary" type="button" className="btn btn-secondary" onClick={this.clearTable}>Clear</Button></th>
