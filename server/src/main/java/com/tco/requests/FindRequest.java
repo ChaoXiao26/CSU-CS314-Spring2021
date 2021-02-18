@@ -46,5 +46,5 @@ public class FindRequest extends RequestHeader {
 
         log.trace("buildResponse -> {}", this);
     }
-        
+
 }
