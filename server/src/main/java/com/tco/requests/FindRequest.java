@@ -1,19 +1,19 @@
 package com.tco.requests;
-import com.tco.requests.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
 
 public class FindRequest extends RequestHeader {
     private String match;
     private String[] type, where;
     private Integer limit;
-    private Integer found = 1;
-    //private List<Map<String, String>> places;
-    ArrayList places = new ArrayList();
-
+    private Integer found;
+    private List<Map<String, String>> places;
+    
     public FindRequest(){
         this.requestType = "find";
     }
@@ -30,20 +30,15 @@ public class FindRequest extends RequestHeader {
 
     @Override
     public void buildResponse() {
-
-        Map<String, String> placeInfo = new HashMap();
-        placeInfo.put("name", "Dave's Airport");
-        placeInfo.put("latitude", "40.0332984924");
-        placeInfo.put("longitude", "-105.124000549");
-        placeInfo.put("id", "0CO1");
-        placeInfo.put("altitude", "5170");
-        placeInfo.put("municipality", "Louisville");
-        placeInfo.put("type", "small_airport");
-        placeInfo.put("region", "Colorado");
-        placeInfo.put("country", "United States");
-        placeInfo.put("url", "https://www.aopa.org/destinations/airports/0CO1/details");
-        places.add(placeInfo);
-
+        // ////////////////
+        // requestType = this.requestType;
+        // match = this.match;
+        // limit = this.limit;
+        // type = this.type;
+        // where = this.where;
+        // ////////////////
+        found = 0;
+        //places = this.places;
         log.trace("buildResponse -> {}", this);
     }
 
