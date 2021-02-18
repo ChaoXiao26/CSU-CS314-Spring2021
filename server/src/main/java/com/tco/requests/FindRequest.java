@@ -57,6 +57,7 @@ public class FindRequest extends RequestHeader {
         Map<String, String> test = new HashMap();
         test.put("Test", dbt.output);
         places.add(test);
+
         log.trace("buildResponse -> {}", this);
     }
 
