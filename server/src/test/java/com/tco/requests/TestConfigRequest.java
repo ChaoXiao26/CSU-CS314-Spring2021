@@ -29,6 +29,12 @@ public class TestConfigRequest {
     public void testFeatures(){
         assertTrue(conf.validFeature("config"));
     }
+    
+    @Test
+    @DisplayName("Features includes \"find\"")
+    public void testFeatures(){
+        assertTrue(conf.validFeature("find"));
+    }
 
     @Test
     @DisplayName("Team name is t16 404 Brain Not Found")
