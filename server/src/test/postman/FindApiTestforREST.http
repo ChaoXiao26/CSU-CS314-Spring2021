@@ -1,10 +1,11 @@
 POST http://localhost:31233/api/find
+
 content-type: application/json
 
 {
   "requestType"    : "find",
-  "match"          : "dave",
+  "match"          : "denver",
   "type"           : ["airport"], 
-  "where"          : ["United States"],
+  "where"          : ["world"],
   "limit"          : 10
 }
