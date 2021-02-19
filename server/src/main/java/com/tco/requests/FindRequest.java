@@ -11,13 +11,9 @@ public class FindRequest extends RequestHeader {
     private String[] type, where;
     private Integer limit;
     private Integer found = 1;
-    //private List<Map<String, String>> places;
     ArrayList places = new ArrayList();
 
-    public FindRequest(){
-        this.requestType = "find";
-    }
-
+ 
     public FindRequest(String match, Integer limit, String[] type, String[] where){
         this.requestType = "find";
         this.match = match;
@@ -60,5 +56,11 @@ public class FindRequest extends RequestHeader {
 
         log.trace("buildResponse -> {}", this);
     }
+    
+      /* The following methods exist only for testing purposes and are not used
+  during normal execution, including the constructor. */
 
+       public FindRequest(){
+        this.requestType = "find";
+       }
 }
