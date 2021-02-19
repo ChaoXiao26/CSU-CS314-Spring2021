@@ -56,7 +56,7 @@ public class FindRequest extends RequestHeader {
         }
 
         FindDatabase dbt = new FindDatabase(this.match, lim, this.where, this.type);
-        dbt.match(match, limit);
+        dbt.match(match);
         ArrayList<String> dbTmpName = new ArrayList();
         dbTmpName = dbt.Database();
 
