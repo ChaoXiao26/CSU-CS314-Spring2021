@@ -9,31 +9,25 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestFindRequest {
 
-    private FindRequest conf;
+    private FindRequest req;
 
     @BeforeEach
     public void createConfigurationForTestCases() {
-        conf = new FindRequest();
-        conf.buildResponse();
+        req = new FindRequest();
+        req.buildResponse();
     }
 
     @Test
     @DisplayName("Request type is \"find\"")
     public void testType() {
-        String type = conf.getRequestType();
+        String type = req.getRequestType();
         assertEquals("find", type);
     }
-
+    
     // @Test
     // @DisplayName("Features includes \"config\"")
     // public void testFeatures(){
     //     assertTrue(conf.validFeature("config"));
     // }
 
-    // @Test
-    // @DisplayName("Team name is t16 404 Brain Not Found")
-    // public void testServerName() {
-    //     String name = conf.getServerName();
-    //     assertEquals("t16 404 Brain Not Found", name);
-    // }
 }
