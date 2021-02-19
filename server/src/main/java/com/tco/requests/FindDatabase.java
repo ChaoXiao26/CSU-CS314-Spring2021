@@ -63,7 +63,9 @@ public class FindDatabase{
         ArrayList<String> outstr = new ArrayList();
         
         while(results.next()){
-            count++;
+            synchronized(this){
+                count++;
+            }
             outstr.add(results.getString("NAME"));
         }
         return outstr;
