@@ -47,12 +47,12 @@ public class FindDatabase{
         input += "SELECT NAME, TYPE FROM world WHERE NAME LIKE '%dave%' LIMIT 10";
     }
 
-    public void match(String name){
+    public void match(String name, Integer limit){
         // input += "SELECT NAME, TYPE FROM "
         //         + where[0] + " WHERE NAME LIKE '%"
         //         + match + "%' LIMIT"
         //         + limit + ";";
-        input += "SELECT NAME, TYPE FROM world WHERE NAME LIKE '%" + name + "%' LIMIT 10";
+        input += "SELECT NAME, TYPE FROM world WHERE NAME LIKE '%" + name + "%' LIMIT " + limit;
     }
 
     public int getCount(){
