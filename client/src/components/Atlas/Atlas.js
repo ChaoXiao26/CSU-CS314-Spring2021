@@ -38,10 +38,6 @@ export default class Atlas extends Component {
                     <Row>
                         <Col sm={12} md={{size: 10, offset: 1}}>
                             {this.renderLeafletMap()}
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col sm={12} md={{size: 10, offset: 1}}>
                             {this.renderLocationTable()}
                         </Col>
                     </Row>
