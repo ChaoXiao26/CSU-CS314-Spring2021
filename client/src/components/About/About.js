@@ -78,12 +78,12 @@ export default class About extends Component {
                         //img_alt 
                         "Profile Picture of Mark Garner",
                         //pers_name
-                        <p>Mark Garner</p>,
+                        <CardTitle tag = "h5">Mark Garner</CardTitle>,
                         //info
-                        (<p>
+                        (<CardText>
                             Major in Computer Science.<br/>
                             Proficient in HTML, CSS, C++, Javascript, and Java.
-                        </p>)
+                        </CardText>)
                     )}
                     {this.printCard(
                         //img_src 
@@ -91,12 +91,12 @@ export default class About extends Component {
                         //img_alt 
                         "Profile Picture of Sam Bonafe",
                         //pers_name
-                        <p>Sam Bonafe</p>,
+                        <CardTitle tag = "h5">Sam Bonafe</CardTitle>,
                         //info
-                        (<p>
+                        (<CardText>
                             Major in Computer Science.<br/>
                             Learning to code in C++, Javascript, Java, C.
-                        </p>)
+                        </CardText>)
                     )}
                     {this.printCard(
                         //img_src 
@@ -104,14 +104,14 @@ export default class About extends Component {
                         //img_alt 
                         "Profile Picture of Yuxin Huang",
                         //pers_name
-                        <p>Yuxin Huang</p>,
+                        <CardTitle tag = "h5">Yuxin Huang</CardTitle>,
                         //info
-                        (<p>
+                        (<CardText>
                             Major in CS & Math<br/>
                             Speaks English & Chinese<br/>
                             Learning to code in java, C#, C++, Python<br/>
                             <a href="https://twitter.com/GeorgeChaoXiao">Twitter: ChaoXiao</a>
-                        </p>)
+                        </CardText>)
                     )}
                     {this.printCard(
                         //img_src
@@ -119,11 +119,11 @@ export default class About extends Component {
                         //img_alt
                         "FanSi_bioPic",
                         //pers_name
-                        <p>Fan Si</p>,
+                        <CardTitle tag = "h5">Fan Si</CardTitle>,
                         //info
-                        (<p>
+                        (<CardText>
                             Computer Science student at CSU. Learning & Using C, C++, Java, Python, Lua, JS, HTML. Speaks English, Chinese & Learning Japanese
-                        </p>)
+                        </CardText>)
                     )}
                     {this.printCard(
                         //img_src 
@@ -131,13 +131,13 @@ export default class About extends Component {
                         //img_alt 
                         "Profile Picture of Tomas Vasquez",
                         //pers_name
-                        <p>Tomas Vasquez</p>,
+                        <CardTitle tag = "h5">Tomas Vasquez</CardTitle>,
                         //info
-                        (<p>
+                        (<CardText>
                             Major in Computer Science and Math.<br/>
                             Speaks English, Spanish, and German.<br/>
                             Proficient in C, C++, Java, Python, and R.
-                        </p>)
+                        </CardText>)
                     )}
                 </Row>
             </Container>
@@ -150,8 +150,8 @@ export default class About extends Component {
                 <Card style={{ borderWidth: '2px', borderColor: 'black'}}>
                     <CardImg style = {{ height: '300px', objectFit: 'cover' }}src={img_src} alt={img_alt}/>
                     <CardBody style ={{ height: '250px' }}>
-                        <CardTitle tag="h5">{pers_name}</CardTitle>
-                        <CardText>{info}</CardText>
+                        {pers_name}
+                        {info}
                     </CardBody>
                 </Card>
             </Col>
