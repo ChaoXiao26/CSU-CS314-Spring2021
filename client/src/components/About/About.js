@@ -55,10 +55,12 @@ export default class About extends Component {
                                     <th>Mission Statement</th>
                                 </tr>
                                 <tr>
-                                    <td>404 Brain Not Found is a team committed to making a quality travel map application. 
-                                            Our purpose is to provide the end user with an easy to use experience. 
-                                            We aim to create a clean and intuitive application that anyone can use in order to create the ultimate trip. 
-                                            Our goal is to collectively work together in order to make sure that the location is always found.</td>
+                                    <td>
+                                        404 Brain Not Found is a team committed to making a quality travel map application. 
+                                        Our purpose is to provide the end user with an easy to use experience. 
+                                        We aim to create a clean and intuitive application that anyone can use in order to create the ultimate trip. 
+                                        Our goal is to collectively work together in order to make sure that the location is always found.
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -76,12 +78,12 @@ export default class About extends Component {
                         //img_alt 
                         "Profile Picture of Mark Garner",
                         //pers_name
-                        <div>Mark Garner</div>,
+                        <p>Mark Garner</p>,
                         //info
-                        (<div>
+                        (<p>
                             Major in Computer Science.<br/>
                             Proficient in HTML, CSS, C++, Javascript, and Java.
-                        </div>)
+                        </p>)
                     )}
                     {this.printCard(
                         //img_src 
@@ -89,12 +91,12 @@ export default class About extends Component {
                         //img_alt 
                         "Profile Picture of Sam Bonafe",
                         //pers_name
-                        <div>Sam Bonafe</div>,
+                        <p>Sam Bonafe</p>,
                         //info
-                        (<div>
+                        (<p>
                             Major in Computer Science.<br/>
                             Learning to code in C++, Javascript, Java, C.
-                        </div>)
+                        </p>)
                     )}
                     {this.printCard(
                         //img_src 
@@ -102,14 +104,14 @@ export default class About extends Component {
                         //img_alt 
                         "Profile Picture of Yuxin Huang",
                         //pers_name
-                        <div>Yuxin Huang</div>,
+                        <p>Yuxin Huang</p>,
                         //info
-                        (<div>
+                        (<p>
                             Major in CS & Math<br/>
                             Speaks English & Chinese<br/>
                             Learning to code in java, C#, C++, Python<br/>
                             <a href="https://twitter.com/GeorgeChaoXiao">Twitter: ChaoXiao</a>
-                        </div>)
+                        </p>)
                     )}
                     {this.printCard(
                         //img_src
@@ -117,11 +119,11 @@ export default class About extends Component {
                         //img_alt
                         "FanSi_bioPic",
                         //pers_name
-                        <div>Fan Si</div>,
+                        <p>Fan Si</p>,
                         //info
-                        (<div>
+                        (<p>
                             Computer Science student at CSU. Learning & Using C, C++, Java, Python, Lua, JS, HTML. Speaks English, Chinese & Learning Japanese
-                        </div>)
+                        </p>)
                     )}
                     {this.printCard(
                         //img_src 
@@ -129,13 +131,13 @@ export default class About extends Component {
                         //img_alt 
                         "Profile Picture of Tomas Vasquez",
                         //pers_name
-                        <div>Tomas Vasquez</div>,
+                        <p>Tomas Vasquez</p>,
                         //info
-                        (<div>
+                        (<p>
                             Major in Computer Science and Math.<br/>
                             Speaks English, Spanish, and German.<br/>
                             Proficient in C, C++, Java, Python, and R.
-                        </div>)
+                        </p>)
                     )}
                 </Row>
             </Container>
