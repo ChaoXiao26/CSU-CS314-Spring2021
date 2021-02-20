@@ -78,7 +78,7 @@ export default class About extends Component {
                         //img_alt 
                         "Profile Picture of Mark Garner",
                         //pers_name
-                        <CardTitle tag = "h5">Mark Garner</CardTitle>,
+                        "Mark Garner",
                         //info
                         (<CardText>
                             Major in Computer Science.<br/>
@@ -91,7 +91,7 @@ export default class About extends Component {
                         //img_alt 
                         "Profile Picture of Sam Bonafe",
                         //pers_name
-                        <CardTitle tag = "h5">Sam Bonafe</CardTitle>,
+                        "Sam Bonafe",
                         //info
                         (<CardText>
                             Major in Computer Science.<br/>
@@ -104,7 +104,7 @@ export default class About extends Component {
                         //img_alt 
                         "Profile Picture of Yuxin Huang",
                         //pers_name
-                        <CardTitle tag = "h5">Yuxin Huang</CardTitle>,
+                        "Yuxin Huang",
                         //info
                         (<CardText>
                             Major in CS & Math<br/>
@@ -119,7 +119,7 @@ export default class About extends Component {
                         //img_alt
                         "FanSi_bioPic",
                         //pers_name
-                        <CardTitle tag = "h5">Fan Si</CardTitle>,
+                        "Fan Si",
                         //info
                         (<CardText>
                             Computer Science student at CSU. Learning & Using C, C++, Java, Python, Lua, JS, HTML. Speaks English, Chinese & Learning Japanese
@@ -131,7 +131,7 @@ export default class About extends Component {
                         //img_alt 
                         "Profile Picture of Tomas Vasquez",
                         //pers_name
-                        <CardTitle tag = "h5">Tomas Vasquez</CardTitle>,
+                        "Tomas Vasquez",
                         //info
                         (<CardText>
                             Major in Computer Science and Math.<br/>
@@ -150,7 +150,7 @@ export default class About extends Component {
                 <Card style={{ borderWidth: '2px', borderColor: 'black'}}>
                     <CardImg style = {{ height: '300px', objectFit: 'cover' }}src={img_src} alt={img_alt}/>
                     <CardBody style ={{ height: '250px' }}>
-                        {pers_name}
+                    <CardTitle tag = "h5">{pers_name}</CardTitle>
                         {info}
                     </CardBody>
                 </Card>
