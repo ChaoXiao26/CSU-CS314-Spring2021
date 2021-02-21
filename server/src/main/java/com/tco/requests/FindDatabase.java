@@ -24,8 +24,13 @@ public class FindDatabase{
     protected ArrayList<String> nameAL = new ArrayList();
     protected ArrayList<String> latAL = new ArrayList();
     protected ArrayList<String> lngAL = new ArrayList();
+    protected ArrayList<String> altAL = new ArrayList();
     protected ArrayList<String> cityAL = new ArrayList();
     protected ArrayList<String> regionAL = new ArrayList();
+    protected ArrayList<String> countryAL = new ArrayList();
+    protected ArrayList<String> idAL = new ArrayList();
+    protected ArrayList<String> typeAL = new ArrayList();
+
 
     public FindDatabase(){
         this.match = "Dave";
@@ -45,15 +50,11 @@ public class FindDatabase{
     }
 
     public void match(){
-        input += "SELECT NAME, municipality, latitude, longitude, TYPE FROM world WHERE NAME LIKE '%dave%' LIMIT 10";
+        input += "SELECT * FROM world WHERE NAME LIKE '%dave%' LIMIT 10";
     }
 
     public void match(String name){
-        // input += "SELECT NAME, TYPE FROM "
-        //         + where[0] + " WHERE NAME LIKE '%"
-        //         + match + "%' LIMIT"
-        //         + limit + ";";
-        input += "SELECT NAME, municipality, latitude, longitude, TYPE FROM world WHERE NAME LIKE '%" + name + "%' LIMIT " + this.limit;
+        input += "SELECT * FROM world WHERE NAME LIKE '%" + name + "%' LIMIT " + this.limit;
     }
 
     public void Database(){
@@ -80,6 +81,11 @@ public class FindDatabase{
             latAL.add(results.getString("latitude"));
             lngAL.add(results.getString("longitude"));
             cityAL.add(results.getString("municipality"));
+            regionAL.add(results.getString("iso_region"));
+            countryAL.add(results.getString("iso_country"));
+            idAL.add(results.getString("id"));
+            typeAL.add(results.getString("type"));
+            altAL.add(results.getString("altitude"));
         }
     }
 
