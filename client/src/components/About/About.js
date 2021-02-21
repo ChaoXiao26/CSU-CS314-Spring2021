@@ -76,98 +76,116 @@ export default class About extends Component {
     }
     printMark()
     {
-        this.printCard(
-            //img_src 
-            "https://i.postimg.cc/2SNNQQ9Y/mark.jpg",
-            //img_alt 
-            "Profile Picture of Mark Garner",
-            //pers_name
-            "Mark Garner",
-            //info
-            (<CardText>
-                Major in Computer Science.<br/>
-                Proficient in HTML, CSS, C++, Javascript, and Java.
-            </CardText>)
-        )
+        return(
+            <Col>
+                {this.printCard(
+                    //img_src 
+                    "https://i.postimg.cc/2SNNQQ9Y/mark.jpg",
+                    //img_alt 
+                    "Profile Picture of Mark Garner",
+                    //pers_name
+                    "Mark Garner",
+                    //info
+                    (<CardText>
+                        Major in Computer Science.<br/>
+                        Proficient in HTML, CSS, C++, Javascript, and Java.
+                    </CardText>)
+                )}
+            </Col>
+        );
     }
     printSam()
     {
-        this.printCard(
-            //img_src 
-            "https://i.postimg.cc/dtyKZHBn/IMG-20180919-071702-480.jpg",
-            //img_alt 
-            "Profile Picture of Sam Bonafe",
-            //pers_name
-            "Sam Bonafe",
-            //info
-            (<CardText>
-                Major in Computer Science.<br/>
-                Learning to code in C++, Javascript, Java, C.
-            </CardText>)
-        )
+        return(
+            <Col>
+                {this.printCard(
+                    //img_src 
+                    "https://i.postimg.cc/dtyKZHBn/IMG-20180919-071702-480.jpg",
+                    //img_alt 
+                    "Profile Picture of Sam Bonafe",
+                    //pers_name
+                    "Sam Bonafe",
+                    //info
+                    (<CardText>
+                        Major in Computer Science.<br/>
+                        Learning to code in C++, Javascript, Java, C.
+                    </CardText>)
+                )}
+            </Col>
+        );
     }
     printYuxin()
     {
-        this.printCard(
-            //img_src 
-            "https://i.postimg.cc/pLQbqm3F/yx.jpg",
-            //img_alt 
-            "Profile Picture of Yuxin Huang",
-            //pers_name
-            "Yuxin Huang",
-            //info
-            (<CardText>
-                Major in CS & Math<br/>
-                Speaks English & Chinese<br/>
-                Learning to code in java, C#, C++, Python<br/>
-                <a href="https://twitter.com/GeorgeChaoXiao">Twitter: ChaoXiao</a>
-            </CardText>)
-        )
+        return(
+            <Col>
+                {this.printCard(
+                    //img_src 
+                    "https://i.postimg.cc/pLQbqm3F/yx.jpg",
+                    //img_alt 
+                    "Profile Picture of Yuxin Huang",
+                    //pers_name
+                    "Yuxin Huang",
+                    //info
+                    (<CardText>
+                        Major in CS & Math<br/>
+                        Speaks English & Chinese<br/>
+                        Learning to code in java, C#, C++, Python<br/>
+                        <a href="https://twitter.com/GeorgeChaoXiao">Twitter: ChaoXiao</a>
+                    </CardText>)
+                )}
+            </Col>
+        );
     }
     printFanSi()
     {
-        this.printCard(
-            //img_src
-            "https://i.postimg.cc/kMZm43xB/Fan-Si-Biopic.jpg",
-            //img_alt
-            "FanSi_bioPic",
-            //pers_name
-            "Fan Si",
-            //info
-            (<CardText>
-                Computer Science student at CSU. Learning & Using C, C++, Java, Python, Lua, JS, HTML. Speaks English, Chinese & Learning Japanese
-            </CardText>)
-        )
+        return(
+            <Col>
+                {this.printCard(
+                    //img_src
+                    "https://i.postimg.cc/kMZm43xB/Fan-Si-Biopic.jpg",
+                    //img_alt
+                    "FanSi_bioPic",
+                    //pers_name
+                    "Fan Si",
+                    //info
+                    (<CardText>
+                        Computer Science student at CSU. Learning & Using C, C++, Java, Python, Lua, JS, HTML. Speaks English, Chinese & Learning Japanese
+                    </CardText>)
+                )}
+            </Col>
+        );
     }
     printTomas()
     {
-        this.printCard(
-            //img_src 
-            "https://i.postimg.cc/Y0JKyYp1/Copper.jpg",
-            //img_alt 
-            "Profile Picture of Tomas Vasquez",
-            //pers_name
-            "Tomas Vasquez",
-            //info
-            (<CardText>
-                Major in Computer Science and Math.<br/>
-                Speaks English, Spanish, and German.<br/>
-                Proficient in C, C++, Java, Python, and R.
-            </CardText>)
-        )
+        return(
+            <Col>
+                {this.printCard(
+                    //img_src 
+                    "https://i.postimg.cc/Y0JKyYp1/Copper.jpg",
+                    //img_alt 
+                    "Profile Picture of Tomas Vasquez",
+                    //pers_name
+                    "Tomas Vasquez",
+                    //info
+                    (<CardText>
+                        Major in Computer Science and Math.<br/>
+                        Speaks English, Spanish, and German.<br/>
+                        Proficient in C, C++, Java, Python, and R.
+                    </CardText>)
+                )}
+            </Col>
+        );
     }
     printCard(img_src, img_alt, pers_name, info)
     {
         return(
-            <Col>
-                <Card style={{ borderWidth: '2px', borderColor: 'black'}}>
-                    <CardImg style = {{ height: '300px', objectFit: 'cover' }}src={img_src} alt={img_alt}/>
-                    <CardBody style ={{ height: '250px' }}>
-                    <CardTitle tag = "h5">{pers_name}</CardTitle>
-                        {info}
-                    </CardBody>
-                </Card>
-            </Col>
+            <Card style={{ borderWidth: '2px', borderColor: 'black'}}>
+                <CardImg style = {{ height: '300px', objectFit: 'cover' }}src={img_src} alt={img_alt}/>
+                <CardBody style ={{ height: '250px' }}>
+                <CardTitle tag = "h5">{pers_name}</CardTitle>
+                    {info}
+                </CardBody>
+            </Card>
         );
     }
 }
