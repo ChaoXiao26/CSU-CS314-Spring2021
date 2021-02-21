@@ -51,21 +51,35 @@ public class FindRequest extends RequestHeader {
             lim = 100;
         }
 
-        FindDatabase dbt = new FindDatabase(this.match, lim, this.where, this.type);
-        dbt.match(match);
-        ArrayList<String> dbTmpName = new ArrayList();
-        dbTmpName = dbt.Database();
+        FindDatabase db = new FindDatabase(this.match, lim, this.where, this.type);
+        db.match(match);
+        db.Database();
+        ArrayList<String> dbNameAL = new ArrayList();
+        ArrayList<String> dbLatAL = new ArrayList();
+        ArrayList<String> dbLngAL = new ArrayList();
+        ArrayList<String> dbCityAL = new ArrayList();
+        dbNameAL = db.getNameAL();
+        dbLatAL = db.getLatAL();
+        dbLngAL = db.getLngAL();
+        dbCityAL =  db.getCityAL();
 
-        for (int i = 0; i < dbTmpName.size(); i++) {
+        for (int i = 0; i < dbNameAL.size(); i++) {
             placeInfo = new HashMap();
-            placeInfo.put("name", dbTmpName.get(i));
+            placeInfo.put("name", dbNameAL.get(i));
+            placeInfo.put("latitude", dbLatAL.get(i));
+            placeInfo.put("longitude", dbLngAL.get(i));
+            placeInfo.put("municipality", dbCityAL.get(i));
             places.add(placeInfo);
         }
         
-        found = dbt.getCount();
+        found = db.getCount();
         log.trace("buildResponse -> {}", this);
     }
     
+
+
+
+
       /* The following method exist only for testing purposes and are not used
   during normal execution, including the constructor. */
 
