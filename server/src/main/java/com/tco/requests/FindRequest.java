@@ -13,7 +13,6 @@ public class FindRequest extends RequestHeader {
     private Integer found = 0;
     ArrayList places = new ArrayList();
 
- 
     public FindRequest(String match, Integer limit, String[] type, String[] where){
         this.requestType = "find";
         this.match = match;
@@ -28,18 +27,7 @@ public class FindRequest extends RequestHeader {
     public void buildResponse() {
 
         Map<String, String> placeInfo;
-        // = new HashMap();
-        // placeInfo.put("name", "Dave's Airport");
-        // placeInfo.put("latitude", "40.0332984924");
-        // placeInfo.put("longitude", "-105.124000549");
-        // placeInfo.put("id", "0CO1");
-        // placeInfo.put("altitude", "5170");
-        // placeInfo.put("municipality", "Louisville");
-        // placeInfo.put("type", "small_airport");
-        // placeInfo.put("region", "Colorado");
-        // placeInfo.put("country", "United States");
-        // placeInfo.put("url", "https://www.aopa.org/destinations/airports/0CO1/details");
-        // places.add(placeInfo);
+
         int lim;
         try {
             lim = limit.intValue();
@@ -52,23 +40,21 @@ public class FindRequest extends RequestHeader {
         }
 
         FindDatabase db = new FindDatabase(this.match, lim, this.where, this.type);
+
         db.match(match);
         db.Database();
-        ArrayList<String> dbNameAL = new ArrayList();
-        ArrayList<String> dbLatAL = new ArrayList();
-        ArrayList<String> dbLngAL = new ArrayList();
-        ArrayList<String> dbCityAL = new ArrayList();
-        dbNameAL = db.getNameAL();
-        dbLatAL = db.getLatAL();
-        dbLngAL = db.getLngAL();
-        dbCityAL =  db.getCityAL();
 
-        for (int i = 0; i < dbNameAL.size(); i++) {
+        for (int i = 0; i < db.nameAL.size(); i++) {
             placeInfo = new HashMap();
-            placeInfo.put("name", dbNameAL.get(i));
-            placeInfo.put("latitude", dbLatAL.get(i));
-            placeInfo.put("longitude", dbLngAL.get(i));
-            placeInfo.put("municipality", dbCityAL.get(i));
+            placeInfo.put("name", db.nameAL.get(i));
+            placeInfo.put("latitude", db.latAL.get(i));
+            placeInfo.put("longitude", db.lngAL.get(i));
+            placeInfo.put("municipality", db.cityAL.get(i));
+            placeInfo.put("region", db.regionAL.get(i));
+            placeInfo.put("country", db.countryAL.get(i));
+            placeInfo.put("id", db.idAL.get(i));
+            placeInfo.put("type", db.typeAL.get(i));
+            placeInfo.put("altitude", db.altAL.get(i));
             places.add(placeInfo);
         }
         
@@ -76,10 +62,6 @@ public class FindRequest extends RequestHeader {
         log.trace("buildResponse -> {}", this);
     }
     
-
-
-
-
       /* The following method exist only for testing purposes and are not used
   during normal execution, including the constructor. */
 
