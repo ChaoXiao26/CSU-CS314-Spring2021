@@ -66,65 +66,30 @@ export default class About extends Component {
     {
         return(
             <Row>
-                {this.printMark()}
-                {this.printSam()}
-                {this.printYuxin()}
-                {this.printFanSi()}
-                {this.printTomas()}
-            </Row>
-        );
-    }
-    printMark()
-    {
-        return(
-            <Col>
                 {this.printCard(
-                    //img_src 
-                    "https://i.postimg.cc/2SNNQQ9Y/mark.jpg",
-                    //img_alt 
-                    "Profile Picture of Mark Garner",
-                    //pers_name
-                    "Mark Garner",
+                    /*img_src*/ "https://i.postimg.cc/2SNNQQ9Y/mark.jpg",
+                    /*img_alt*/ "Profile Picture of Mark Garner",
+                    /*pers_name*/ "Mark Garner",
                     //info
                     (<CardText>
                         Major in Computer Science.<br/>
                         Proficient in HTML, CSS, C++, Javascript, and Java.
                     </CardText>)
                 )}
-            </Col>
-        );
-    }
-    printSam()
-    {
-        return(
-            <Col>
                 {this.printCard(
-                    //img_src 
-                    "https://i.postimg.cc/dtyKZHBn/IMG-20180919-071702-480.jpg",
-                    //img_alt 
-                    "Profile Picture of Sam Bonafe",
-                    //pers_name
-                    "Sam Bonafe",
+                    /*img_src*/ "https://i.postimg.cc/dtyKZHBn/IMG-20180919-071702-480.jpg",
+                    /*img_alt*/ "Profile Picture of Sam Bonafe",
+                    /*pers_name*/ "Sam Bonafe",
                     //info
                     (<CardText>
                         Major in Computer Science.<br/>
                         Learning to code in C++, Javascript, Java, C.
                     </CardText>)
                 )}
-            </Col>
-        );
-    }
-    printYuxin()
-    {
-        return(
-            <Col>
                 {this.printCard(
-                    //img_src 
-                    "https://i.postimg.cc/pLQbqm3F/yx.jpg",
-                    //img_alt 
-                    "Profile Picture of Yuxin Huang",
-                    //pers_name
-                    "Yuxin Huang",
+                    /*img_src*/ "https://i.postimg.cc/pLQbqm3F/yx.jpg",
+                    /*img_alt*/ "Profile Picture of Yuxin Huang",
+                    /*pers_name*/ "Yuxin Huang",
                     //info
                     (<CardText>
                         Major in CS & Math<br/>
@@ -133,39 +98,21 @@ export default class About extends Component {
                         <a href="https://twitter.com/GeorgeChaoXiao">Twitter: ChaoXiao</a>
                     </CardText>)
                 )}
-            </Col>
-        );
-    }
-    printFanSi()
-    {
-        return(
-            <Col>
                 {this.printCard(
-                    //img_src
-                    "https://i.postimg.cc/kMZm43xB/Fan-Si-Biopic.jpg",
-                    //img_alt
-                    "FanSi_bioPic",
-                    //pers_name
-                    "Fan Si",
+                    /*img_src*/ "https://i.postimg.cc/kMZm43xB/Fan-Si-Biopic.jpg",
+                    /*img_alt*/ "FanSi_bioPic",
+                    /*pers_name*/ "Fan Si",
                     //info
                     (<CardText>
-                        Computer Science student at CSU. Learning & Using C, C++, Java, Python, Lua, JS, HTML. Speaks English, Chinese & Learning Japanese
+                        Computer Science student at CSU.
+                        Learning & Using C, C++, Java, Python, Lua, JS, HTML. 
+                        Speaks English, Chinese & Learning Japanese
                     </CardText>)
                 )}
-            </Col>
-        );
-    }
-    printTomas()
-    {
-        return(
-            <Col>
                 {this.printCard(
-                    //img_src 
-                    "https://i.postimg.cc/Y0JKyYp1/Copper.jpg",
-                    //img_alt 
-                    "Profile Picture of Tomas Vasquez",
-                    //pers_name
-                    "Tomas Vasquez",
+                    /*img_src*/ "https://i.postimg.cc/Y0JKyYp1/Copper.jpg",
+                    /*img_alt*/ "Profile Picture of Tomas Vasquez",
+                    /*pers_name*/ "Tomas Vasquez",
                     //info
                     (<CardText>
                         Major in Computer Science and Math.<br/>
@@ -173,19 +120,21 @@ export default class About extends Component {
                         Proficient in C, C++, Java, Python, and R.
                     </CardText>)
                 )}
-            </Col>
+            </Row>
         );
     }
     printCard(img_src, img_alt, pers_name, info)
     {
         return(
-            <Card style={{ borderWidth: '2px', borderColor: 'black'}}>
-                <CardImg style = {{ height: '300px', objectFit: 'cover' }}src={img_src} alt={img_alt}/>
-                <CardBody style ={{ height: '250px' }}>
-                <CardTitle tag = "h5">{pers_name}</CardTitle>
-                    {info}
-                </CardBody>
-            </Card>
+            <Col>
+                <Card style={{ borderWidth: '2px', borderColor: 'black'}}>
+                    <CardImg style = {{ height: '300px', objectFit: 'cover' }}src={img_src} alt={img_alt}/>
+                    <CardBody style ={{ height: '250px' }}>
+                    <CardTitle tag = "h5">{pers_name}</CardTitle>
+                        {info}
+                    </CardBody>
+                </Card>
+            </Col>
         );
     }
 }
