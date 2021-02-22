@@ -4,6 +4,7 @@ import {Map, Marker, Popup, TileLayer} from 'react-leaflet';
 import {LOG} from "../../utils/constants";
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import Coordinates from "coordinate-parser";
 import 'leaflet/dist/leaflet.css';
 
 const MAP_BOUNDS = [[-90, -180], [90, 180]];
@@ -23,11 +24,16 @@ export default class Atlas extends Component {
         this.setMarker = this.setMarker.bind(this);
 	this.clearTable = this.clearTable.bind(this);
         this.handleRemoveDestination = this.handleRemoveDestination.bind(this);
+        this.processCoordinatesInput = this.processCoordinatesInput.bind(this);
 
         this.state = {
             mapCenter: MAP_CENTER_DEFAULT,
             markerPosition: MAP_CENTER_DEFAULT,
             locations: [],
+            coordinates: {
+                inputText: "",
+                latLng: null
+            }
         };
     }
 
@@ -36,6 +42,7 @@ export default class Atlas extends Component {
             <div>
                 <Container>
                     {this.renderCoordinatesInput()}
+                    {this.renderResultText()}
                     <Row>
                         <Col sm={12} md={{size: 10, offset: 1}}>
                             {this.renderLeafletMap()}
@@ -141,6 +148,7 @@ export default class Atlas extends Component {
     }
 
     renderCoordinatesInput() {
+        const coordinates = this.state.coordinates;
         return (
             <InputGroup className="mt-4">
                 <InputGroupAddon addonType="prepend">
@@ -148,9 +156,43 @@ export default class Atlas extends Component {
                 </InputGroupAddon>
                 <Input
                     placeholder="Latitude, Longitude"
+                    onChange={this.processCoordinatesInput}
+                    value={coordinates.inputText}
                 />
             </InputGroup>
         );
       }
+      
+      processCoordinatesInput(onChangeEvent) {
+        const inputText = onChangeEvent.target.value;
+    
+        const coordinates = this.state.coordinates;
+        coordinates.inputText = inputText;
+        coordinates.latLng = this.getCoordinatesOrNull(inputText);
+    
+        this.setState({ coordinates: coordinates });
+      }
+    
+    getCoordinatesOrNull(coordinateString) {
+        try {
+          const convertedCoordinates = new Coordinates(coordinateString);
+          return {
+            lat: convertedCoordinates.getLatitude(),
+            lng: convertedCoordinates.getLongitude()
+          };
+        } catch (error) {
+          return null;
+        }
+    }
 
+    renderResultText() {
+        const latLng = this.state.coordinates.latLng;
+        if (latLng) {
+          return (
+            <h4 className="mt-4">
+              Latitude: {latLng.lat}, Longitude: {latLng.lng}
+            </h4>
+          );
+        }
+    }
 }
