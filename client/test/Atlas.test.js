@@ -15,14 +15,14 @@ describe('Atlas', () => {
 
     it('initializes as expected', () => {
         const actualMarkerPosition = atlasWrapper.state().markerPosition;
-        const expectedMarkerPosition = null;
+        const expectedMarkerPosition = L.latLng(40.5734, -105.0865);
 
         expect(actualMarkerPosition).toEqual(expectedMarkerPosition);
     });
 
     it('renders a marker on click', () => {
         const actualMarkerPosition = atlasWrapper.state().markerPosition;
-        const expectedMarkerPosition = null;
+        const expectedMarkerPosition = L.latLng(40.5734, -105.0865);
 
         expect(actualMarkerPosition).toEqual(expectedMarkerPosition);
 
