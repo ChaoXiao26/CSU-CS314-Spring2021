@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Col, Container, Row, Button} from 'reactstrap';
+import {Col, Container, Row, Button, InputGroup, InputGroupAddon, InputGroupText, Input} from 'reactstrap';
 import {Map, Marker, Popup, TileLayer} from 'react-leaflet';
 import {LOG} from "../../utils/constants";
 import icon from 'leaflet/dist/images/marker-icon.png';
@@ -35,6 +35,7 @@ export default class Atlas extends Component {
         return (
             <div>
                 <Container>
+                    {this.renderCoordinatesInput()}
                     <Row>
                         <Col sm={12} md={{size: 10, offset: 1}}>
                             {this.renderLeafletMap()}
@@ -138,4 +139,18 @@ export default class Atlas extends Component {
         const addressLabel = AddressData.address.LongLabel;
         this.setState({address: addressLabel});
     }
+
+    renderCoordinatesInput() {
+        return (
+            <InputGroup className="mt-4">
+                <InputGroupAddon addonType="prepend">
+                    <InputGroupText>Coordinates Find</InputGroupText>
+                </InputGroupAddon>
+                <Input
+                    placeholder="Latitude, Longitude"
+                />
+            </InputGroup>
+        );
+      }
+
 }
