@@ -21,11 +21,12 @@ export default class Atlas extends Component {
         super(props);
 
         this.setMarker = this.setMarker.bind(this);
-	    this.clearTable = this.clearTable.bind(this);
+	this.clearTable = this.clearTable.bind(this);
         this.handleRemoveDestination = this.handleRemoveDestination.bind(this);
 
         this.state = {
-            markerPosition: null,
+            mapCenter: MAP_CENTER_DEFAULT,
+            markerPosition: MAP_CENTER_DEFAULT,
             locations: [],
         };
     }
@@ -92,7 +93,7 @@ export default class Atlas extends Component {
 	
     clearTable(){
 	    this.state.locations.length = 0;
-	    this.setState({markerPosition: null, locations : this.state.locations});
+	    this.setState({markerPosition: L.latLng(40.5734, -105.0865), locations : this.state.locations});
     }
 
    handleRemoveDestination(i){
