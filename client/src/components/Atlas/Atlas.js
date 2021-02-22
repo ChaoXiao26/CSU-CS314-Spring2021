@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import {Col, Container, Row, Button} from 'reactstrap';
-
 import {Map, Marker, Popup, TileLayer} from 'react-leaflet';
-
+import {LOG} from "../../utils/constants";
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-
 import 'leaflet/dist/leaflet.css';
 
 const MAP_BOUNDS = [[-90, -180], [90, 180]];
@@ -15,6 +13,7 @@ const MAP_LAYER_ATTRIBUTION = "&copy; <a href=&quot;http://osm.org/copyright&quo
 const MAP_LAYER_URL = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
 const MAP_MIN_ZOOM = 1;
 const MAP_MAX_ZOOM = 19;
+const GEOCODE_URL = "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode?f=pjson&langCode=EN&location=";
 
 export default class Atlas extends Component {
 
@@ -22,7 +21,7 @@ export default class Atlas extends Component {
         super(props);
 
         this.setMarker = this.setMarker.bind(this);
-	this.clearTable = this.clearTable.bind(this);
+	    this.clearTable = this.clearTable.bind(this);
         this.handleRemoveDestination = this.handleRemoveDestination.bind(this);
 
         this.state = {
@@ -67,7 +66,8 @@ export default class Atlas extends Component {
     renderLocationTable() {
         //apply this function to each element in locations array
         const locations = this.state.locations.map((location, i) =>
-            <tr key={i}>
+            <tr key={i+=1}>
+                <th>#{i}</th>
                 <th>{location.lat.toFixed(6)}</th>
                 <th>{location.lng.toFixed(6)}</th> 
                 <th><button color="primary" type="button" className="btn btn-secondary" onClick ={() => this.handleRemoveDestination(i)}>X </button></th> 
@@ -77,6 +77,7 @@ export default class Atlas extends Component {
             <table width="100%" border="1">
                 <thead>
                     <tr> 
+                        <th><b>Number</b></th>
                         <th><b>Latitude</b></th>
                         <th><b>Longitude</b></th>   
 			            <th><Button color="primary" type="button" className="btn btn-secondary" onClick={this.clearTable}>Clear</Button></th>
@@ -104,6 +105,7 @@ export default class Atlas extends Component {
         locations.unshift(mapClickInfo.latlng);
         this.setState({markerPosition: mapClickInfo.latlng,
             locations: locations});
+        this.getAddress(mapClickInfo.latlng).then();
     }
 
     getMarker() {
@@ -111,6 +113,8 @@ export default class Atlas extends Component {
             return (
                 <Marker ref={(ref) => this.showMarkerPopup(ref)} position={this.state.markerPosition} icon={MARKER_ICON}>
                     <Popup offset={[0, -18]} className="font-weight-bold">
+                        {this.state.address}
+                        <br/>
                         {this.getLatLngText(this.state.markerPosition)}
                     </Popup>
                 </Marker>
@@ -128,4 +132,9 @@ export default class Atlas extends Component {
         return latLng.lat.toFixed(6) + ', ' + latLng.lng.toFixed(6);
     }
 
+    async getAddress(latlng){
+        const AddressData = await(await fetch(GEOCODE_URL+`${latlng.lng},${latlng.lat}`)).json();
+        const addressLabel = AddressData.address.LongLabel;
+        this.setState({address: addressLabel});
+    }
 }
