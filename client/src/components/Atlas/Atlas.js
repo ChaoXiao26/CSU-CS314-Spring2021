@@ -23,7 +23,6 @@ export default class Atlas extends Component {
         
         this.requestUserLocation = this.requestUserLocation.bind(this);
         this.handleGeolocation = this.handleGeolocation.bind(this);
-
         this.setMarker = this.setMarker.bind(this);
 	    this.clearTable = this.clearTable.bind(this);
         this.handleRemoveDestination = this.handleRemoveDestination.bind(this);
@@ -166,7 +165,6 @@ export default class Atlas extends Component {
         if(navigator.geolocation){
             navigator.geolocation.getCurrentPosition(this.handleGeolocation, this.handleGeolocationError);
         }else {
-            // use LOG.info() in your code, or show an error snackbar
             LOG.info("Geolocation is turned off or not supported by your browser.");
           }
     }
@@ -180,4 +178,3 @@ export default class Atlas extends Component {
     }
 
 }
-//ReactDOM.render(<Atlas/>,document.getElementById("root"));
