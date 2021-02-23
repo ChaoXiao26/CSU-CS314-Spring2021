@@ -24,9 +24,10 @@ export default class Atlas extends Component {
         this.requestUserLocation = this.requestUserLocation.bind(this);
         this.handleGeolocation = this.handleGeolocation.bind(this);
         this.setMarker = this.setMarker.bind(this);
-	    this.clearTable = this.clearTable.bind(this);
+	this.clearTable = this.clearTable.bind(this);
         this.handleRemoveDestination = this.handleRemoveDestination.bind(this);
         this.processCoordinatesInput = this.processCoordinatesInput.bind(this);
+	this.requestUserLocation();
 
         this.state = {
             mapCenter: MAP_CENTER_DEFAULT,
