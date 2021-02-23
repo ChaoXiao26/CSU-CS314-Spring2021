@@ -186,8 +186,6 @@ export default class Atlas extends Component {
     handleGeolocationError(){
         LOG.info("Error retrieving the user's positions.")
     }
-
-}
       
     processCoordinatesInput(onChangeEvent) {
         const inputText = onChangeEvent.target.value;
