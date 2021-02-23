@@ -42,7 +42,7 @@ export default class Atlas extends Component {
             <div>
                 <Container>
                     {this.renderCoordinatesInput()}
-                    {this.renderResultText()}
+                    {/* {this.renderResultText()} */}
                     <Row>
                         <Col sm={12} md={{size: 10, offset: 1}}>
                             {this.renderLeafletMap()}
@@ -163,15 +163,13 @@ export default class Atlas extends Component {
         );
       }
       
-      processCoordinatesInput(onChangeEvent) {
+    processCoordinatesInput(onChangeEvent) {
         const inputText = onChangeEvent.target.value;
-    
         const coordinates = this.state.coordinates;
         coordinates.inputText = inputText;
         coordinates.latLng = this.getCoordinatesOrNull(inputText);
-    
-        this.setState({ coordinates: coordinates });
-      }
+        this.setState({mapCenter: coordinates.latLng, markerPosition: coordinates.latLng});//2
+    }
     
     getCoordinatesOrNull(coordinateString) {
         try {
