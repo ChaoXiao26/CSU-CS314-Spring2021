@@ -183,6 +183,7 @@ export default class Atlas extends Component {
         const locations = this.state.locations;
         locations.unshift(latlng);
         this.setState({mapCenter: latlng, markerPosition: latlng, locations: locations});
+        this.getAddress(latlng).then()
         LOG.info('The user is located at ${JSON.stringify(latlng)}.');
     }
     handleGeolocationError(){
