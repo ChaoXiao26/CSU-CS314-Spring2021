@@ -63,7 +63,7 @@ During the sprint 1 we were able to complete 2 of the epics. We spent much of th
 | --- | ---: | ---: |
 | Epics | *5* | *count* |
 | Tasks |  *21*   | *count* | 
-| Story Points |  *26*  | *sum* | 
+| Story Points |  *27*  | *sum* | 
 
 
 ## Scrums
