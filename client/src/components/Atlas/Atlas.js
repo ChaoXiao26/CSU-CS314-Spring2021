@@ -195,6 +195,7 @@ export default class Atlas extends Component {
         coordinates.inputText = inputText;
         coordinates.latLng = this.getCoordinatesOrNull(inputText);
         this.setState({mapCenter: coordinates.latLng, markerPosition: coordinates.latLng});//2
+        this.getAddress(coordinates.latLng);
     }
     
     getCoordinatesOrNull(coordinateString) {
