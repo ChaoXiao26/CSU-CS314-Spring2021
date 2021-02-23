@@ -151,6 +151,8 @@ export default class Atlas extends Component {
 
     renderCoordinatesInput() {
         const coordinates = this.state.coordinates;
+        const validCoordinates = coordinates.latLng != null;
+        const inputBoxEmpty = !coordinates.inputText;
         return (
             <InputGroup className="mt-4">
                 <InputGroupAddon addonType="prepend">
@@ -160,6 +162,8 @@ export default class Atlas extends Component {
                     placeholder="Latitude, Longitude"
                     onChange={this.processCoordinatesInput}
                     value={coordinates.inputText}
+                    valid={validCoordinates}
+                    invalid={!inputBoxEmpty && !validCoordinates}
                 />
             </InputGroup>
         );
