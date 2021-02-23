@@ -5,7 +5,6 @@ import {LOG} from "../../utils/constants";
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import 'leaflet/dist/leaflet.css';
-import Coordinates from "coordinate-parser";
 
 const MAP_BOUNDS = [[-90, -180], [90, 180]];
 const MAP_CENTER_DEFAULT = L.latLng(40.5734, -105.0865);
