@@ -144,8 +144,8 @@ export default class Atlas extends Component {
     }
 
     async getAddress(latlng){
-        const AddressData = await(await fetch(GEOCODE_URL+`${latlng.lng},${latlng.lat}`)).json();
-        const addressLabel = AddressData.address.LongLabel;
+        const addressData = await(await fetch(GEOCODE_URL+`${latlng.lng},${latlng.lat}`)).json();
+        const addressLabel = (addressData.address !== undefined) ? addressData.address.LongLabel : "Unknown";
         this.setState({address: addressLabel});
     }
 
