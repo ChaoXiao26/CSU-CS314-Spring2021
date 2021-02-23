@@ -27,6 +27,7 @@ export default class Atlas extends Component {
 	this.clearTable = this.clearTable.bind(this);
         this.handleRemoveDestination = this.handleRemoveDestination.bind(this);
         this.processCoordinatesInput = this.processCoordinatesInput.bind(this);
+	this.updateCooInput = this.updateCooInput.bind(this);
 	this.requestUserLocation();
 
         this.state = {
@@ -44,10 +45,10 @@ export default class Atlas extends Component {
         return (
             <div>
                 <Container>
-                    {this.renderCoordinatesInput()}
-                    {/* {this.renderResultText()} */}
                     <Row>
                         <Col sm={12} md={{size: 10, offset: 1}}>
+			    {this.renderCoordinatesInput()}
+                    	    {/* {this.renderResultText()} */}
                             {this.renderLeafletMap()}
                             {this.renderFindMeButtom()}
                             {this.renderLocationTable()}
@@ -166,6 +167,9 @@ export default class Atlas extends Component {
                     valid={validCoordinates}
                     invalid={!inputBoxEmpty && !validCoordinates}
                 />
+		<InputGroupAddon addonType="append">
+                    <Button onClick={this.updateCooInput} color="success">Go!</Button>
+                </InputGroupAddon>
             </InputGroup>
         );
     }
@@ -199,7 +203,12 @@ export default class Atlas extends Component {
         const coordinates = this.state.coordinates;
         coordinates.inputText = inputText;
         coordinates.latLng = this.getCoordinatesOrNull(inputText);
-        this.setState({mapCenter: coordinates.latLng, markerPosition: coordinates.latLng});//2
+        this.setState({coordinates: coordinates});
+    }
+
+    updateCooInput() {
+        const coordinates = this.state.coordinates;
+        this.setState({mapCenter: coordinates.latLng, markerPosition: coordinates.latLng});
         this.getAddress(coordinates.latLng);
     }
     
