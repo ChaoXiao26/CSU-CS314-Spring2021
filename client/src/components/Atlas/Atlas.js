@@ -107,16 +107,15 @@ export default class Atlas extends Component {
 	    this.setState({markerPosition: L.latLng(40.5734, -105.0865), locations : this.state.locations});
     }
 
-   handleRemoveDestination(i){
-       this.state.locations.splice(i,1);
+    handleRemoveDestination(i){
+        this.state.locations.splice(i,1);
         this.setState({locations: this.state.locations});
     }  
 
     setMarker(mapClickInfo) {
         const locations = this.state.locations;
         locations.unshift(mapClickInfo.latlng);
-        this.setState({markerPosition: mapClickInfo.latlng,
-            locations: locations});
+        this.setState({markerPosition: mapClickInfo.latlng, mapCenter: mapClickInfo.latlng, locations: locations});
         this.getAddress(mapClickInfo.latlng).then();
     }
     //render marker
@@ -164,7 +163,7 @@ export default class Atlas extends Component {
                 />
             </InputGroup>
         );
-      }
+    }
 
     renderFindMeButtom(){
         return (
