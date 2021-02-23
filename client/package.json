@@ -11,6 +11,7 @@
     "@material-ui/core": "^4.9.14",
     "ajv": "^6.12.2",
     "bootstrap": "^4.5.0",
+    "coordinate-parser": "^1.0.7",
     "leaflet": "^1.6.0",
     "newman": "^5.1.2",
     "node-sass": "^4.14.1",

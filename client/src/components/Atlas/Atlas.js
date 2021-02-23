@@ -5,6 +5,7 @@ import {LOG} from "../../utils/constants";
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import 'leaflet/dist/leaflet.css';
+import Coordinates from "coordinate-parser";
 
 const MAP_BOUNDS = [[-90, -180], [90, 180]];
 const MAP_CENTER_DEFAULT = L.latLng(40.5734, -105.0865);
@@ -19,9 +20,12 @@ export default class Atlas extends Component {
 
     constructor(props) {
         super(props);
+        
+        this.requestUserLocation = this.requestUserLocation.bind(this);
+        this.handleGeolocation = this.handleGeolocation.bind(this);
 
         this.setMarker = this.setMarker.bind(this);
-	this.clearTable = this.clearTable.bind(this);
+	    this.clearTable = this.clearTable.bind(this);
         this.handleRemoveDestination = this.handleRemoveDestination.bind(this);
 
         this.state = {
@@ -39,6 +43,7 @@ export default class Atlas extends Component {
                     <Row>
                         <Col sm={12} md={{size: 10, offset: 1}}>
                             {this.renderLeafletMap()}
+                            {this.renderFindMeButtom()}
                             {this.renderLocationTable()}
                         </Col>
                     </Row>
@@ -57,7 +62,7 @@ export default class Atlas extends Component {
                 minZoom={MAP_MIN_ZOOM}
                 maxZoom={MAP_MAX_ZOOM}
                 maxBounds={MAP_BOUNDS}
-                center={MAP_CENTER_DEFAULT}
+                center={this.state.mapCenter}
                 onClick={this.setMarker}
             >
                 <TileLayer url={MAP_LAYER_URL} attribution={MAP_LAYER_ATTRIBUTION}/>
@@ -109,7 +114,7 @@ export default class Atlas extends Component {
             locations: locations});
         this.getAddress(mapClickInfo.latlng).then();
     }
-
+    //render marker
     getMarker() {
         if (this.state.markerPosition) {
             return (
@@ -152,5 +157,27 @@ export default class Atlas extends Component {
             </InputGroup>
         );
       }
+    renderFindMeButtom(){
+        return (
+        <Button onClick ={this.requestUserLocation} color = "success" block>Find Me</Button>
+        ); 
+    }
+    requestUserLocation(){
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(this.handleGeolocation, this.handleGeolocationError);
+        }else {
+            // use LOG.info() in your code, or show an error snackbar
+            LOG.info("Geolocation is turned off or not supported by your browser.");
+          }
+    }
+    handleGeolocation(position){
+        const latlng = {lat: position.coords.latitude, lng: position.coords.longitude};
+    this.setState({mapCenter: latlng, markerPosition: latlng});
+        LOG.info('The user is located at ${JSON.stringify(latlng)}.');
+    }
+    handleGeolocationError(){
+        LOG.info("Error retrieving the user's positions.")
+    }
 
 }
+//ReactDOM.render(<Atlas/>,document.getElementById("root"));
