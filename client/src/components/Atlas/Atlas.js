@@ -47,8 +47,7 @@ export default class Atlas extends Component {
                 <Container>
                     <Row>
                         <Col sm={12} md={{size: 10, offset: 1}}>
-			    {this.renderCoordinatesInput()}
-                    	    {/* {this.renderResultText()} */}
+			                {this.renderCoordinatesInput()}
                             {this.renderLeafletMap()}
                             {this.renderFindMeButtom()}
                             {this.renderLocationTable()}
@@ -62,7 +61,7 @@ export default class Atlas extends Component {
     renderLeafletMap() {
         return (
             <Map
-                className={'mapStyle'}
+                className={'mapStyle mapHightRefine'}
                 boxZoom={false}
                 useFlyTo={true}
                 zoom={15}
@@ -81,20 +80,20 @@ export default class Atlas extends Component {
         //apply this function to each element in locations array
         const locations = this.state.locations.map((location, i) =>
             <tr key={i+=1}>
-                <th>#{i}</th>
+                <th>{i}</th>
                 <th>{location.lat.toFixed(6)}</th>
                 <th>{location.lng.toFixed(6)}</th> 
-                <th><button color="primary" type="button" className="btn btn-secondary" onClick ={() => this.handleRemoveDestination(i)}>X </button></th> 
+                <th><button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick ={() => this.handleRemoveDestination(i)}>X </button></th> 
             </tr>
             );
         return(
-            <table width="100%" border="1">
+            <table className="table table-striped table-bordered table-sm">
                 <thead>
                     <tr> 
-                        <th><b>Number</b></th>
+                        <th className="smallCell"><b>#</b></th>
                         <th><b>Latitude</b></th>
                         <th><b>Longitude</b></th>   
-			            <th><Button color="primary" type="button" className="btn btn-secondary" onClick={this.clearTable}>Clear</Button></th>
+			            <th className="smallCell"><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick={this.clearTable}>Clear</Button></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -156,7 +155,7 @@ export default class Atlas extends Component {
         const validCoordinates = coordinates.latLng != null;
         const inputBoxEmpty = !coordinates.inputText;
         return (
-            <InputGroup className="mt-4">
+            <InputGroup className="mb-1">
                 <InputGroupAddon addonType="prepend">
                     <InputGroupText>Coordinates Find</InputGroupText>
                 </InputGroupAddon>
@@ -176,7 +175,7 @@ export default class Atlas extends Component {
 
     renderFindMeButtom(){
         return (
-        <Button onClick ={this.requestUserLocation} color = "success" block>Find Me</Button>
+        <Button className="my-1" onClick ={this.requestUserLocation} color = "success" block>Find Me</Button>
         ); 
     }
     requestUserLocation(){
@@ -184,7 +183,7 @@ export default class Atlas extends Component {
             navigator.geolocation.getCurrentPosition(this.handleGeolocation, this.handleGeolocationError);
         }else {
             LOG.info("Geolocation is turned off or not supported by your browser.");
-          }
+        }
     }
     handleGeolocation(position){
         const latlng = {lat: position.coords.latitude, lng: position.coords.longitude};
@@ -229,7 +228,7 @@ export default class Atlas extends Component {
         const latLng = this.state.coordinates.latLng;
         if (latLng) {
           return (
-            <h4 className="mt-4">
+            <h4 className="my-1">
               Latitude: {latLng.lat}, Longitude: {latLng.lng}
             </h4>
           );
