@@ -83,7 +83,7 @@ export default class Atlas extends Component {
                 <th>{i}</th>
                 <th>{location.lat.toFixed(6)}</th>
                 <th>{location.lng.toFixed(6)}</th> 
-                <th><button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick ={() => this.handleRemoveDestination(i)}>X </button></th> 
+                <th><button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick ={() => this.handleRemoveDestination(i-=1)}>X </button></th> 
             </tr>
             );
         return(
