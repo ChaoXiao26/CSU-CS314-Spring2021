@@ -24,11 +24,11 @@ export default class Atlas extends Component {
         this.requestUserLocation = this.requestUserLocation.bind(this);
         this.handleGeolocation = this.handleGeolocation.bind(this);
         this.setMarker = this.setMarker.bind(this);
-	this.clearTable = this.clearTable.bind(this);
+	    this.clearTable = this.clearTable.bind(this);
         this.handleRemoveDestination = this.handleRemoveDestination.bind(this);
         this.processCoordinatesInput = this.processCoordinatesInput.bind(this);
-	this.updateCooInput = this.updateCooInput.bind(this);
-	this.requestUserLocation();
+	    this.updateCooInput = this.updateCooInput.bind(this);
+	    this.requestUserLocation();
 
         this.state = {
             mapCenter: MAP_CENTER_DEFAULT,
@@ -167,7 +167,7 @@ export default class Atlas extends Component {
                     valid={validCoordinates}
                     invalid={!inputBoxEmpty && !validCoordinates}
                 />
-		<InputGroupAddon addonType="append">
+		        <InputGroupAddon addonType="append">
                     <Button onClick={this.updateCooInput} color="success">Go!</Button>
                 </InputGroupAddon>
             </InputGroup>
@@ -210,6 +210,7 @@ export default class Atlas extends Component {
         const coordinates = this.state.coordinates;
         this.setState({mapCenter: coordinates.latLng, markerPosition: coordinates.latLng});
         this.getAddress(coordinates.latLng);
+        this.setState({locations: [coordinates.latLng, ...this.state.locations]});
     }
     
     getCoordinatesOrNull(coordinateString) {
