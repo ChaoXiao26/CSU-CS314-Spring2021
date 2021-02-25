@@ -110,7 +110,7 @@ export default class Atlas extends Component {
     }
 
     handleRemoveDestination(i){
-        if(this.state.locations.length == 0){this.clearTable()}
+        if(this.state.locations.length <= 1){this.clearTable()}
         else
         {
             const locations = this.state.locations;
