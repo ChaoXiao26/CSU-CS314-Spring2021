@@ -110,8 +110,14 @@ export default class Atlas extends Component {
     }
 
     handleRemoveDestination(i){
-        this.state.locations.splice(i,1);
-        this.setState({locations: this.state.locations});
+        if(this.state.locations.length <= 1){this.clearTable()}
+        else
+        {
+            const locations = this.state.locations;
+            locations.splice(i,1);
+            this.setState({markerPosition: locations[0], mapCenter: locations[0], locations: locations});
+            this.getAddress(locations[0]).then();
+        }
     }  
 
     setMarker(mapClickInfo) {
@@ -238,4 +244,3 @@ export default class Atlas extends Component {
         }
     }
 }
-
