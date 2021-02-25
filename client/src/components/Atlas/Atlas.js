@@ -116,8 +116,7 @@ export default class Atlas extends Component {
             const locations = this.state.locations;
             locations.splice(i,1);
             this.setState({markerPosition: locations[0], mapCenter: locations[0], locations: locations});
-            console.log(locations[0]);
-            //this.getAddress(locations[0].latlng).then();
+            this.getAddress(locations[0]).then();
         }
     }  
 
