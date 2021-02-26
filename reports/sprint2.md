@@ -81,9 +81,15 @@ During the sprint 1 we were able to complete 2 of the epics. We spent much of th
 
 ## Review
 
-### Epics completed  
+### Epics completed
+###### Trip
+###### Protocol find feature
+###### Where am I
+###### Where is
 
-### Epics not completed 
+### Epics not completed
+###### Find places
+
 
 ## Retrospective
 
