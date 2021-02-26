@@ -38,3 +38,4 @@ target/
 
 server/.project
 server/.settings/
+bin/server/
