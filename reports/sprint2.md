@@ -94,7 +94,10 @@ During the sprint 1 we were able to complete 2 of the epics. We spent much of th
 ## Retrospective
 
 ### Things that went well
+  We were able to get 4 epics done which is more than last time. The website never broke and we added alot of functionality.
 
 ### Things we need to improve
+  We are still having communication issues. We arent planning very well and its making the work difficult for us to distrubute. We need to work on following procedures and delivering on time to the team.
 
 ### One thing we will change next time
+  Follow procedures and plan better so that we arent working as separate groups within one team.
