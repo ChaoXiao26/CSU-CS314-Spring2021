@@ -25,9 +25,7 @@ public class FindRequest extends RequestHeader {
 
     @Override
     public void buildResponse() {
-
         Map<String, String> placeInfo;
-
         int lim;
         try {
             lim = limit.intValue();
@@ -38,12 +36,9 @@ public class FindRequest extends RequestHeader {
         if(lim == 0){
             lim = 100;
         }
-
         FindDatabase db = new FindDatabase(this.match, lim, this.where, this.type);
-
         db.match(match);
         db.Database();
-
         for (int i = 0; i < db.nameAL.size(); i++) {
             placeInfo = new HashMap();
             placeInfo.put("name", db.nameAL.get(i));
@@ -57,7 +52,6 @@ public class FindRequest extends RequestHeader {
             placeInfo.put("altitude", db.altAL.get(i));
             places.add(placeInfo);
         }
-        
         found = db.getCount();
         log.trace("buildResponse -> {}", this);
     }
