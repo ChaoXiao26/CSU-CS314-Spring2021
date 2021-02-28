@@ -1,10 +1,10 @@
 {
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverageDirectory=${BUILD_DIRECTORY_PREFIX}/target/coverage/client/",
     "postman": "newman run ../server/src/test/postman/314-api-tests.postman_collection.json",
-    "devClient": "webpack-dev-server -d --env.CLIENT_PORT=$C_PORT --env.SERVER_PORT=$S_PORT --env.CLIENT_LOG_LEVEL=INFO",
-    "prodClient": "webpack -p --env.CLIENT_LOG_LEVEL=ERROR",
-    "server": "java -Dorg.slf4j.simpleLogger.log.com.tco=info -jar ../target/server-local.jar $S_PORT",
+    "devClient": "webpack-dev-server -d --env.CLIENT_PORT=$C_PORT --env.SERVER_PORT=$S_PORT --env.CLIENT_LOG_LEVEL=INFO --env.BUILD_DIRECTORY_PREFIX=$BUILD_DIRECTORY_PREFIX",
+    "prodClient": "webpack -p --env.CLIENT_LOG_LEVEL=ERROR --env.BUILD_DIRECTORY_PREFIX=$BUILD_DIRECTORY_PREFIX",
+    "server": "java -Dorg.slf4j.simpleLogger.log.com.tco=info -jar $BUILD_DIRECTORY_PREFIX/target/server-local.jar $S_PORT",
     "dev": "concurrently \"npm run server\" \"npm run devClient\""
   },
   "dependencies": {
@@ -70,7 +70,6 @@
       "/test/*",
       "/webpack.config.js"
     ],
-    "coverageDirectory": "../target/coverage/client/",
     "testURL": "http://localhost/",
     "moduleNameMapper": {
       "^.+\\.(png|svg|gif|jpg|jpeg)$": "<rootDir>/test/jestConfig/require_stub.js",

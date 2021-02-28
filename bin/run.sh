@@ -1,10 +1,12 @@
 #!/bin/bash
 
+umask 077;
+
 if [[ -z "$S_PORT" ]]; then 
-  export S_PORT=$((31000 + $RANDOM % 1000)); 
+  export S_PORT=8000; 
 fi
 if [[ -z "$C_PORT" ]]; then 
-  export C_PORT=$((32000 + $RANDOM % 1000)); 
+  export C_PORT=3000;
 fi
 
 if [[ -z "$REVISION" ]]; then
@@ -13,8 +15,13 @@ fi
 
 check_error() {
   if [ "$1" -ne 0 ]; then
+    echo "Failed at step: ${FUNCNAME[1]}"
     exit "$1"
   fi
+}
+
+realpath() {
+    [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}";
 }
 
 function usage {
@@ -22,82 +29,7 @@ function usage {
   echo "Options:"
   echo "    -h, --help     :  Display this menu";
   echo "    -e, --env      :  Specify environment, possible choices: [dev,prod], (default, dev)";
-  echo "    -d, --deploy   :  Create the production deployment only"
   echo ""
-}
-
-function check_client_dependencies {
-  if [ ! -d "${REPO_ROOT}/client/node_modules" ]; then
-    # install all dependencies into node_modules
-    npm install --prefix ${REPO_ROOT}/client
-  fi
-}
-
-function deploy {
-  echo "Building the Server for PRODUCTION"
-  echo
-
-  # Check if Node Modules are Installed
-
-  check_client_dependencies;
-
-  # Build The Client
-
-
-  pushd $REPO_ROOT/client > /dev/null;
-  npm run test;
-  check_error $?
-  popd > /dev/null;
-
-
-  npm run prodClient --prefix ${REPO_ROOT}/client
-  check_error $?
-
-  # Build and Package the JAVA Server
-
-
-  mvn -f ${REPO_ROOT}/server --global-settings ${REPO_ROOT}/server/.m2/settings.xml -Drevision=${REVISION} clean verify
-  check_error $?
-
-}
-
-function run_dev {
-	echo "Building and Starting the Server in DEVELOPMENT Mode."
-	echo
-
-  # Build and Package the JAVA Server
-  mvn -f ${REPO_ROOT}/server --global-settings ${REPO_ROOT}/server/.m2/settings.xml -Drevision=${REVISION} clean package
-  check_error $?
-
-  # Check if Node Modules are Installed
-
-  check_client_dependencies;
-
-  # Build and Run The Client / Run The Server
-
-  npm run test --prefix ${REPO_ROOT}/client
-  check_error $?
-
-  npm run dev --prefix ${REPO_ROOT}/client
-  check_error $?
-}
-
-function run_prod {
-	echo "Building and Starting the Server in PRODUCTION Mode."
-  echo
-
-  # Build and Package the JAVA Server With Client
-
-  deploy
-
-  # Run The Server
-
-  npm run server --prefix ${REPO_ROOT}/client
-  check_error $?
-}
-
-realpath() {
-    [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}";
 }
 
 function get_repo_root_dir {
@@ -111,8 +43,102 @@ function get_repo_root_dir {
 
 }
 
-# set prefix directory for relative path resolution
+function get_default_prefix {
+  if [[ -n "$NFS_MOUNTED" ]]; then
+    export BUILD_DIRECTORY_PREFIX="/tmp/cs314-$(whoami)"
+  else
+    export BUILD_DIRECTORY_PREFIX="${REPO_ROOT}"
+  fi
+}
+
 get_repo_root_dir $0;
+NFS_MOUNTED=`if [[ "$(stat -f -L -c %T ${REPO_ROOT})" == "nfs" ]]; then echo 1; fi;`
+get_default_prefix;
+
+function install_client_dependencies {
+  if [[ -n "${NFS_MOUNTED}" ]]; then
+    pushd ${REPO_ROOT}/client > /dev/null
+    if [[ ! -L node_modules && -d node_modules ]]; then
+      echo "Cleaning NFS mounted client/node_modules"
+      rm -rf node_modules
+    fi
+    function _install_client_dependences {
+      if [[ ! -e node_modules ]]; then
+        mkdir -p ${BUILD_DIRECTORY_PREFIX}/client
+        cp package.json ${BUILD_DIRECTORY_PREFIX}/client/
+        npm install --prefix ${BUILD_DIRECTORY_PREFIX}/client
+        ln -sf ${BUILD_DIRECTORY_PREFIX}/client/node_modules node_modules
+      fi
+    }
+    _install_client_dependences
+    check_error $?
+    popd > /dev/null
+  else
+    if [[ ! -d "${REPO_ROOT}/client/node_modules" ]]; then
+      npm install --prefix ${REPO_ROOT}/client
+      check_error $?
+    fi
+  fi
+}
+
+function install_server_dependencies {
+  if [[ -n "${NFS_MOUNTED}" ]]; then
+    pushd ${REPO_ROOT}/server > /dev/null
+    if [[ ! -L .m2/repository && -d .m2/repository ]]; then
+      echo "Cleaning NFS mounted server/.m2/repository"
+      rm -rf .m2/repository
+    fi
+    function _install_server_dependences {
+      if [[ ! -e .m2/repository ]]; then
+        mkdir -p ${BUILD_DIRECTORY_PREFIX}/server/.m2/repository
+        mvn --global-settings .m2/settings.xml \
+          -Dmaven.repo.local=${BUILD_DIRECTORY_PREFIX}/server/.m2/repository \
+          -Drevision=${REVISION} \
+          -Dbuild.directory.prefix=${BUILD_DIRECTORY_PREFIX} \
+          install 2>&1 | grep '^Download'
+        ln -sf ${BUILD_DIRECTORY_PREFIX}/server/.m2/repository .m2/repository
+      fi
+    }
+    _install_server_dependences
+    check_error $?
+    popd > /dev/null
+  else
+    if [[ ! -d "${REPO_ROOT}/server/.m2/repository" ]]; then
+      mvn -f ${REPO_ROOT}/server \
+        --global-settings ${REPO_ROOT}/server/.m2/settings.xml \
+        -Drevision=${REVISION} \
+        -Dbuild.directory.prefix=${BUILD_DIRECTORY_PREFIX} \
+        install 2>&1 | grep '^Download'
+      check_error $?
+    fi
+  fi
+}
+
+function bundle_client {
+  npm run prodClient --prefix ${REPO_ROOT}/client
+  check_error $?
+}
+
+function build_server {
+  mvn -f ${REPO_ROOT}/server --global-settings ${REPO_ROOT}/server/.m2/settings.xml -Drevision=${REVISION} -Dbuild.directory.prefix=${BUILD_DIRECTORY_PREFIX} package $@
+  check_error $?
+}
+
+function run_client_tests {
+  npm run test --prefix ${REPO_ROOT}/client
+  check_error $?
+}
+
+function run_server_and_hotloader {
+  npm run dev --prefix ${REPO_ROOT}/client
+  check_error $?
+}
+
+function run_server {
+  npm run server --prefix ${REPO_ROOT}/client
+  check_error $?
+}
+
 
 # parse args
 PARAMS=""
@@ -136,10 +162,6 @@ while (( "$#" )); do
         exit 1
       fi
       ;;
-    -d|--deploy)
-      deploy;
-      exit;
-      ;;
     -*|--*=) # unsupported flags
       echo "unrecognized option -- $(echo $1 | sed 's~^-*~~')" >&2
       usage;
@@ -158,8 +180,37 @@ if [[ -z "$CS314_ENV" ]]; then
   CS314_ENV=dev;
 fi;
 
+echo "Building and Starting the Application in $([[ "$CS314_ENV" == "dev" ]] && echo 'DEVELOPMENT' || echo 'PRODUCTION' ) Mode."
+
+if [[ -n "${NFS_MOUNTED}" ]]; then
+  mkdir -p ${BUILD_DIRECTORY_PREFIX}/target 
+  if [[ ! -L "${REPO_ROOT}/target" && -d "${REPO_ROOT}/target" ]]; then
+    echo "Cleaning NFS mounted target"
+    rm -rf ${REPO_ROOT}/target
+  fi
+  ln -sf ${BUILD_DIRECTORY_PREFIX}/target ${REPO_ROOT}/target
+  if [[ ! "$CS314_ENV" == "dev" ]]; then
+    mkdir -p ${BUILD_DIRECTORY_PREFIX}/client/dist
+    if [[ ! -L "${REPO_ROOT}/client/dist" && -d "${REPO_ROOT}/client/dist" ]]; then
+      echo "Cleaning NFS mounted client/dist"
+      rm -rf ${REPO_ROOT}/client/dist
+    fi
+    ln -sf ${BUILD_DIRECTORY_PREFIX}/client/dist ${REPO_ROOT}/client/dist
+  fi
+fi
+
+# install dependencies
+install_client_dependencies
+install_server_dependencies
+
+# test client
+run_client_tests
+
 if [[ "$CS314_ENV" == "dev" ]]; then
-  run_dev;
+  build_server
+  run_server_and_hotloader 
 else
-  run_prod;
+  bundle_client
+  build_server
+  run_server
 fi
