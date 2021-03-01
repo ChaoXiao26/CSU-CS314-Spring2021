@@ -34,18 +34,20 @@ module.exports = env => {
 	let CLIENT_PORT;
 	let SERVER_PORT;
 	let CLIENT_LOG_LEVEL;
+	let BUILD_DIRECTORY_PREFIX;
 
 	if (env) {
 		CLIENT_PORT = env.CLIENT_PORT;
 		SERVER_PORT = env.SERVER_PORT;
 		CLIENT_LOG_LEVEL = JSON.stringify(env.CLIENT_LOG_LEVEL || 'ERROR');
+		BUILD_DIRECTORY_PREFIX = env.BUILD_DIRECTORY_PREFIX;
 	}
 
 	return {
 		entry: { app: './src/entry.js' },
 		devServer: { hot: true, open: true, port: CLIENT_PORT },
 		module: MODULE_RULES,
-		output: { filename: "bundle.js", path: path.join(__dirname, './dist/public/') },
+		output: { filename: "bundle.js", path: path.resolve(BUILD_DIRECTORY_PREFIX, './client/dist/public/') },
 		performance: { hints: false },
 		plugins: [
 			new CleanWebpackPlugin(),
