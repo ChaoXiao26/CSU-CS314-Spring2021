@@ -37,9 +37,12 @@
 
 ## Planned Epics
 
-# Place Details
+### Place Details
 
 Place details includes the subtasks: Create a reverse geocoding utility function, add geographic details to the popup and the list, create a column for the address, add address details to the table upon clicking, and creating tests for the entire epic. We will decide who will be assigned to these subtasks once the previous epics have been completed. This epic should be completed in a quick fashion because we already have a general idea as a team how to finish this epic.
+
+### Protcol Distance Feature
+Protocol Distance Feature includes the subtasks: Make client send a Post Request to api/distances, and Create an API that returns places, latlng, and earth radius. We will decide who will be assigned to work on these subtasks once we finish previous epics and the sprint document.
 
 ## Metrics
 
