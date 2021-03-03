@@ -41,6 +41,9 @@
 
 Place details includes the subtasks: Create a reverse geocoding utility function, add geographic details to the popup and the list, create a column for the address, add address details to the table upon clicking, and creating tests for the entire epic. We will decide who will be assigned to these subtasks once the previous epics have been completed. This epic should be completed in a quick fashion because we already have a general idea as a team how to finish this epic.
 
+### Show Trip
+The user would like to see a line on the map for the tour contained in the history, including a return to the starting location. We will add a button to allow the user to call for a line to be drawn. We will implement the function to draw the line. The line will respond to new entries and adjust the trip to them. The user will have the option to return to the starting location when prompted.
+
 ## Metrics
 
 | Statistic | # Planned | # Completed |
