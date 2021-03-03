@@ -38,6 +38,7 @@
 ## Planned Epics
 For sprint 3, we were planning on completing a total of 6 epics, including "find places", "protocol distance feature", "calculate distances", "place details", "show trip" and "mark selected". In the meantime, we will fix some small problems in the "protocol find feature" epic. As a team, we will complete each of the epics together by splitting the hard work to every team member and working together to solve the hard problem.
 
+
 ### Find Details
 
 In this epic, we will add a new feature that will allow us to search for places we would like to visit. Tasks include: Search for locations based on user provided key words, display a list of locations matching the user search, access the find api, create a UI button on the client, and create tests. The map will then navigate to a choosen location, if any. The entry selected will have the option of being added to the history. This epic is leftover from sprint 2. Therefore, it is on the top of our priority list.
@@ -52,6 +53,13 @@ The user would like to calculate distances between destinations and for their pl
 
 ### Show Trip
 The user would like to see a line on the map for the tour contained in the history, including a return to the starting location. We will add a button to allow the user to call for a line to be drawn. We will implement the function to draw the line. The line will respond to new entries and adjust the trip to them. The user will have the option to return to the starting location when prompted.
+
+### Protcol Distance Feature
+Protocol Distance Feature includes the subtasks: Make client send a Post Request to api/distances, and Create an API that returns places, latlng, and earth radius. We will decide who will be assigned to work on these subtasks once we finish previous epics and the sprint document.
+
+### Mark Selected
+The Mark Selected Epic includes the following subtasks: Create a button to allow the user to click on an entry on the trip table and then the marker goes to it. Send the information from the trip table to the marker. Display the details in a pop-up after the marker goes to the entry. We will decide who will be assigned to which of these sub-tasks once the previous Epic has been completed.
+
 
 ## Metrics
 During the Sprint 2 we have completed four epics and have left "find places" epic to this sprint. In Sprint 3, we will continue working on "find places" and adding more featurte like "calculate distances" to our servers, and making users have better experience in our website. Our goal is to try to let every team member work together in every epic so everyone is on the same boat.
