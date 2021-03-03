@@ -54,12 +54,12 @@ The user would like to calculate distances between destinations and for their pl
 The user would like to see a line on the map for the tour contained in the history, including a return to the starting location. We will add a button to allow the user to call for a line to be drawn. We will implement the function to draw the line. The line will respond to new entries and adjust the trip to them. The user will have the option to return to the starting location when prompted.
 
 ## Metrics
-
+During the Sprint 2 we have completed four epics and have left "find places" epic to this sprint. In Sprint 3, we will continue working on "find places" and adding more featurte like "calculate distances" to our servers, and making users have better experience in our website. Our goal is to try to let every team member work together in every epic so everyone is on the same boat.
 | Statistic | # Planned | # Completed |
 | --- | ---: | ---: |
-| Epics | *count* | *count* |
-| Tasks |  *count*   | *count* | 
-| Story Points |  *sum*  | *sum* | 
+| Epics | *6* | *0* |
+| Tasks |  *count*   | *0* | 
+| Story Points |  *sum*  | *0* | 
 
 
 ## Scrums
