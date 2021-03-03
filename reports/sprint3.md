@@ -37,9 +37,15 @@
 
 ## Planned Epics
 
+
 ### Find Details
 
 In this epic, we will add a new feature that will allow us to search for places we would like to visit. Tasks include: Search for locations based on user provided key words, display a list of locations matching the user search, access the find api, create a UI button on the client, and create tests. The map will then navigate to a choosen location, if any. The entry selected will have the option of being added to the history. This epic is leftover from sprint 2. Therefore, it is on the top of our priority list.
+
+### Place Details
+
+Place details includes the subtasks: Create a reverse geocoding utility function, add geographic details to the popup and the list, create a column for the address, add address details to the table upon clicking, and creating tests for the entire epic. We will decide who will be assigned to these subtasks once the previous epics have been completed. This epic should be completed in a quick fashion because we already have a general idea as a team how to finish this epic.
+
 
 ## Metrics
 
