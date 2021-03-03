@@ -50,6 +50,9 @@ Place details includes the subtasks: Create a reverse geocoding utility function
 The user would like to calculate distances between destinations and for their planned trip. To provide this functionality we will Implement a function that calculates the distances with the given radius in miles (3959). We will show the distance between two places by providing a button, prompting the user to click on two adjacent locations, perform the calculation, and return the information to the user in a pop-up. We will add a button that gives the user the total distance for their planned trip in a pop up. We will re-calcualate the distance of the trip and update it on the trip table for the user upon adding each new entry.
 
 
+### Show Trip
+The user would like to see a line on the map for the tour contained in the history, including a return to the starting location. We will add a button to allow the user to call for a line to be drawn. We will implement the function to draw the line. The line will respond to new entries and adjust the trip to them. The user will have the option to return to the starting location when prompted.
+
 ## Metrics
 
 | Statistic | # Planned | # Completed |
