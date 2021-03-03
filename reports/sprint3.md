@@ -41,6 +41,9 @@
 
 Place details includes the subtasks: Create a reverse geocoding utility function, add geographic details to the popup and the list, create a column for the address, add address details to the table upon clicking, and creating tests for the entire epic. We will decide who will be assigned to these subtasks once the previous epics have been completed. This epic should be completed in a quick fashion because we already have a general idea as a team how to finish this epic.
 
+### Mark Selected
+The Mark Selected Epic includes the following subtasks: 1) Create a button to allow the user to click on an entry on the trip table and then the marker goes to it. 2) Send the information from the trip table to the marker. 3) display the details in a pop-up after the marker goes to the entry. We will decide who will be assigned to which of these sub-tasks once the previous Epic has been completed.
+
 ## Metrics
 
 | Statistic | # Planned | # Completed |
