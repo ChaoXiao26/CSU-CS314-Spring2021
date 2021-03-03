@@ -147,5 +147,24 @@ The user will be allowed to search with key words and a list will be returned wi
 ![IMG_0200(20210209-212256)](https://user-images.githubusercontent.com/54829242/107464370-635a0680-6b1d-11eb-9a51-46af7a4007bd.PNG)
 
 # Sprint 3
+##Find places
+![image](https://user-images.githubusercontent.com/56741965/109753563-bdd80700-7b9f-11eb-8212-ff681b02b568.png)
+
+##Calculate distances
+![image](https://user-images.githubusercontent.com/56741965/109753626-d9431200-7b9f-11eb-90be-60a146f1e087.png)
+![image](https://user-images.githubusercontent.com/56741965/109753634-dcd69900-7b9f-11eb-8dbe-b977af5da3d5.png)
+
+##Place details
+![image](https://user-images.githubusercontent.com/56741965/109753642-dfd18980-7b9f-11eb-9045-80c7111a761f.png)
+
+##Show trip
+![image](https://user-images.githubusercontent.com/56741965/109753656-e5c76a80-7b9f-11eb-80bb-4594ff97981d.png)
+
+##Mark selected
+![image](https://user-images.githubusercontent.com/56741965/109753681-ebbd4b80-7b9f-11eb-848d-a8ee1ee21e60.png)
+
+
+
+
 # Sprint 4 
 # Sprint 5
