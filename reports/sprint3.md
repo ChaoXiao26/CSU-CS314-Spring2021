@@ -55,6 +55,10 @@ The user would like to see a line on the map for the tour contained in the histo
 ### Protcol Distance Feature
 Protocol Distance Feature includes the subtasks: Make client send a Post Request to api/distances, and Create an API that returns places, latlng, and earth radius. We will decide who will be assigned to work on these subtasks once we finish previous epics and the sprint document.
 
+### Mark Selected
+The Mark Selected Epic includes the following subtasks: Create a button to allow the user to click on an entry on the trip table and then the marker goes to it. Send the information from the trip table to the marker. Display the details in a pop-up after the marker goes to the entry. We will decide who will be assigned to which of these sub-tasks once the previous Epic has been completed.
+
+
 ## Metrics
 
 | Statistic | # Planned | # Completed |
