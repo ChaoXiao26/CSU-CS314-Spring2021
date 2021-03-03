@@ -36,6 +36,8 @@
 
 
 ## Planned Epics
+For sprint 3, we were planning on completing a total of 6 epics, including "find places", "protocol distance feature", "calculate distances", "place details", "show trip" and "mark selected". In the meantime, we will fix some small problems in the "protocol find feature" epic. As a team, we will complete each of the epics together by splitting the hard work to every team member and working together to solve the hard problem.
+
 
 ### Find Details
 
@@ -60,12 +62,12 @@ The Mark Selected Epic includes the following subtasks: Create a button to allow
 
 
 ## Metrics
-
+During the Sprint 2 we have completed four epics and have left "find places" epic to this sprint. In Sprint 3, we will continue working on "find places" and adding more featurte like "calculate distances" to our servers, and making users have better experience in our website. Our goal is to try to let every team member work together in every epic so everyone is on the same boat.
 | Statistic | # Planned | # Completed |
 | --- | ---: | ---: |
-| Epics | *count* | *count* |
-| Tasks |  *count*   | *count* | 
-| Story Points |  *sum*  | *sum* | 
+| Epics | *6* | *0* |
+| Tasks |  *45*   | *0* | 
+| Story Points |  *43*  | *0* | 
 
 
 ## Scrums
@@ -73,6 +75,8 @@ The Mark Selected Epic includes the following subtasks: Create a button to allow
 | Date | Tasks closed  | Tasks in progress | Impediments |
 | :--- | :--- | :--- | :--- |
 | *date* | *#task, ...* | *#task, ...* |  | 
+| *3/1/2021* | *#Discussed who is the Scrum master <br /> #Discussed the problem in "Protocol find feature"*| *#Do some search on incoming epics <br /> #thinking about the epics for each new epics* |  |
+| *3/2/2021* | *#Created Sprint3.md file and update it <br /> #Discuss how many epics will do <br /> #Created tasks for each epic <br /> #Updated the diagrams in design.md <br /> #decided a meeting time on tuesday and thursday that work for everyone* | *#Working on fixing "protocol find feature" bugs <br /> #Working on starting the "find places" epic* |  | 
 
 
 ## Review
