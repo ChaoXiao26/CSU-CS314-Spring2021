@@ -58,8 +58,8 @@ During the Sprint 2 we have completed four epics and have left "find places" epi
 | Statistic | # Planned | # Completed |
 | --- | ---: | ---: |
 | Epics | *6* | *0* |
-| Tasks |  *count*   | *0* | 
-| Story Points |  *sum*  | *0* | 
+| Tasks |  *45*   | *0* | 
+| Story Points |  *43*  | *0* | 
 
 
 ## Scrums
