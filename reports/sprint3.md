@@ -37,6 +37,9 @@
 
 ## Planned Epics
 
+#Find Details
+
+In this epic, we will add a new feature that will allow us to search for places we would like to visit. Tasks include: Search for locations based on user provided key words, display a list of locations matching the user search, access the find api, create a UI button on the client, and create tests. The map will then navigate to a choosen location, if any. The entry selected will have the option of being added to the history. This epic is leftover from sprint 2. Therefore, it is on the top of our priority list.
 
 ## Metrics
 
