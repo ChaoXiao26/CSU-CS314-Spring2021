@@ -36,7 +36,7 @@
 
 
 ## Planned Epics
-
+For sprint 3, we were planning on completing a total of 6 epics, including "find places", "protocol distance feature", "calculate distances", "place details", "show trip" and "mark selected". In the meantime, we will fix some small problems in the "protocol find feature" epic. As a team, we will complete each of the epics together by splitting the hard work to every team member and working together to solve the hard problem.
 
 ### Find Details
 
