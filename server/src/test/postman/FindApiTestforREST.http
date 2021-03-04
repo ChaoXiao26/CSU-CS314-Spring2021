@@ -1,10 +1,10 @@
-POST http://localhost:31920/api/find
+POST http://localhost:8000/api/find
 content-type: application/json
 
 {
   "requestType"    : "find",
-  "match"          : "denver",
+  "match"          : "aqua",
   "type"           : ["airport"], 
   "where"          : ["world"],
-  "limit"          : 10
+  "limit"          : 15
 }
