@@ -86,8 +86,8 @@ public class FindDatabase{
             latAL.add(results.getString("latitude"));
             lngAL.add(results.getString("longitude"));
             cityAL.add(results.getString("municipality"));
-            regionAL.add(results.getString("iso_region"));
-            countryAL.add(results.getString("iso_country"));
+            regionAL.add(results.getString("region.name"));
+            countryAL.add(results.getString("country.name"));
             idAL.add(results.getString("id"));
             typeAL.add(results.getString("type"));
             altAL.add(results.getString("altitude"));
