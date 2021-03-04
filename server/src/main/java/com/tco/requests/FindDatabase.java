@@ -54,7 +54,7 @@ public class FindDatabase{
     }
 
     public void match(String name){
-        input += "SELECT * FROM world WHERE NAME LIKE '%" + name + "%' LIMIT " + this.limit;
+        input += "SELECT * FROM world WHERE NAME LIKE '%" + name + "%';";
     }
 
     public void Database(){
