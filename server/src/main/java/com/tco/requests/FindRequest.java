@@ -25,10 +25,21 @@ public class FindRequest extends RequestHeader {
 
     @Override
     public void buildResponse() {
-        Map<String, String> placeInfo;
         int lim;
-        try {lim = limit.intValue();} catch (NullPointerException e) {lim = 100;}
-        if (lim == 0) {lim = 100;}
+        try {
+            lim = limit.intValue();
+        }
+        catch (NullPointerException e) {
+            lim = 100;
+        }
+        if (lim == 0){
+            lim = 100;
+        }
+        putPlaceInfo(lim);
+        log.trace("buildResponse -> {}", this);
+    }
+    private void putPlaceInfo(int lim){
+        Map<String, String> placeInfo;
         FindDatabase db = new FindDatabase(this.match, lim, this.where, this.type);
         db.match(match);
         db.Database();
@@ -46,13 +57,11 @@ public class FindRequest extends RequestHeader {
             places.add(placeInfo);
         }
         found = db.getCount();
-        log.trace("buildResponse -> {}", this);
     }
-    
       /* The following method exist only for testing purposes and are not used
   during normal execution, including the constructor. */
 
-       public FindRequest(){
-        this.requestType = "find";
-       }
+    public FindRequest(){
+    this.requestType = "find";
+    }
 }
