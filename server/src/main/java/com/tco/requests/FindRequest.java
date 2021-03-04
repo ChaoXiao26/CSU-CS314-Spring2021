@@ -27,17 +27,12 @@ public class FindRequest extends RequestHeader {
     public void buildResponse() {
         Map<String, String> placeInfo;
         int lim;
-        try {lim = limit.intValue();}
-        catch (NullPointerException e) {lim = 100;}
+        try {lim = limit.intValue();} catch (NullPointerException e) {lim = 100;}
         if (lim == 0) {lim = 100;}
         FindDatabase db = new FindDatabase(this.match, lim, this.where, this.type);
         db.match(match);
         db.Database();
-
-        if(lim > db.nameAL.size()){
-            lim = db.nameAL.size();
-        }
-        for (int i = 0; i < lim; i++) {
+        for (int i = 0; i < db.nameAL.size(); i++) {
             placeInfo = new HashMap();
             placeInfo.put("name", db.nameAL.get(i));
             placeInfo.put("latitude", db.latAL.get(i));
