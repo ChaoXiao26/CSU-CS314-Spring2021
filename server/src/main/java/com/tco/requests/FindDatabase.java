@@ -47,14 +47,18 @@ public class FindDatabase{
         this.limit = limit;
         this.where = where;
         this.type = type;
-    }
-
-    public void match(){
-        input += "SELECT * FROM world WHERE NAME LIKE '%dave%' LIMIT 10";
-    }
 
     public void match(String name){
-        input += "SELECT * FROM world WHERE NAME LIKE '%" + name + "%';";
+        input += "SELECT world.name, world.type, world.latitude, world.longitude, world.altitude, "
+              +  "world.municipality, world.id, country.name, region.name "
+              +  "FROM continent "
+              +  "INNER JOIN country on continent.id = country.continent "
+              +  "INNER JOIN region on country.id = region.iso_country "
+              +  "INNER JOIN world on region.id = world.iso_region "
+              +  "WHERE ( country.name LIKE \"%" + name + "%\" "
+              +  "OR region.name LIKE \"%" + name + "%\" "
+              +  "OR world.name LIKE \"%" + name + "%\" "
+              +  "OR world.municipality LIKE \"%" + name + "%\"  ) "           
     }
 
     public void Database(){
