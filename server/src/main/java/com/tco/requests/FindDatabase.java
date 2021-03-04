@@ -49,12 +49,17 @@ public class FindDatabase{
         this.type = type;
     }
 
-    public void match(){
-        input += "SELECT * FROM world WHERE NAME LIKE '%dave%' LIMIT 10";
-    }
-
     public void match(String name){
-        input += "SELECT * FROM world WHERE NAME LIKE '%" + name + "%';";
+        input += "SELECT world.name, world.type, world.latitude, world.longitude, world.altitude, "
+              +  "world.municipality, world.id, country.name, region.name "
+              +  "FROM continent "
+              +  "INNER JOIN country on continent.id = country.continent "
+              +  "INNER JOIN region on country.id = region.iso_country "
+              +  "INNER JOIN world on region.id = world.iso_region "
+              +  "WHERE ( country.name LIKE \"%" + name + "%\" "
+              +  "OR region.name LIKE \"%" + name + "%\" "
+              +  "OR world.name LIKE \"%" + name + "%\" "
+              +  "OR world.municipality LIKE \"%" + name + "%\"  ) ";          
     }
 
     public void Database(){
@@ -81,8 +86,8 @@ public class FindDatabase{
             latAL.add(results.getString("latitude"));
             lngAL.add(results.getString("longitude"));
             cityAL.add(results.getString("municipality"));
-            regionAL.add(results.getString("iso_region"));
-            countryAL.add(results.getString("iso_country"));
+            regionAL.add(results.getString("region.name"));
+            countryAL.add(results.getString("country.name"));
             idAL.add(results.getString("id"));
             typeAL.add(results.getString("type"));
             altAL.add(results.getString("altitude"));
