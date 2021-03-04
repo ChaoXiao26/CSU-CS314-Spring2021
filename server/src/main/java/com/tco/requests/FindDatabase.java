@@ -47,6 +47,7 @@ public class FindDatabase{
         this.limit = limit;
         this.where = where;
         this.type = type;
+    }
 
     public void match(String name){
         input += "SELECT world.name, world.type, world.latitude, world.longitude, world.altitude, "
@@ -58,7 +59,7 @@ public class FindDatabase{
               +  "WHERE ( country.name LIKE \"%" + name + "%\" "
               +  "OR region.name LIKE \"%" + name + "%\" "
               +  "OR world.name LIKE \"%" + name + "%\" "
-              +  "OR world.municipality LIKE \"%" + name + "%\"  ) "           
+              +  "OR world.municipality LIKE \"%" + name + "%\"  ) ";          
     }
 
     public void Database(){
