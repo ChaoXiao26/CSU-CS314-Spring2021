@@ -48,7 +48,17 @@ export default class Find extends Component {
                             </InputGroupAddon>
                                 <Input
                                     placeholder="Enter the name of an area to search"
-                                    onChange={this.functionTakingMatchInput}
+                                    onChange={this.functionTakingWhereInput}
+                                />
+                        </InputGroup>
+
+                        <InputGroup>
+                            <InputGroupAddon addonType="prepend">
+                                <InputGroupText>Type</InputGroupText>
+                            </InputGroupAddon>
+                                <Input
+                                    placeholder="Enter the type of location (Ex: Airport, Restaurant, etc)"
+                                    onChange={this.functionTakingTypeInput}
                                 />
                         </InputGroup>
 
