@@ -1,4 +1,4 @@
-# Inspection Checklist for t##
+# Inspection Checklist for t16
 
 The goal of an Inspection is to file defects.
 This checklist is our guide to help us look for defects.
@@ -37,3 +37,9 @@ The checklist will be updated as we identify new faults in our code that we wish
 
 ### Exception faults
 * Have all possible error conditions been considered?
+
+### Readability
+* Are the functions broken down to small chunks?
+* Do variables, functions, classes have a good clear naming structure?
+* Is the code easy to follow?
+
