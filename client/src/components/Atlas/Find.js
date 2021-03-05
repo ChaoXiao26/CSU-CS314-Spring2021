@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Col, Container, Row, Button, InputGroup, InputGroupAddon, InputGroupText, Input, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
-import icon from 'leaflet/dist/images/marker-icon.png';
+import {Button, InputGroup, InputGroupAddon, InputGroupText, Input, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 import 'leaflet/dist/leaflet.css';
 
 export default class Find extends Component {
@@ -24,10 +23,8 @@ export default class Find extends Component {
         //https://6-4-0--reactstrap.netlify.app/components/modals/
         return (
             <div>
-                
-                {/* Current UI interface. Works*/}
 
-                <Button color='success' onClick={this.findToggleNew} className="mb-1" block>From Find Places N/A</Button>
+                <Button color='success' onClick={this.findToggleNew} className="mb-1" block>Find a place</Button>
                 <Modal isOpen={this.state.modalNew} toggle={this.findToggleNew}>
                     <ModalHeader toggle={this.findToggleNew}>Find places</ModalHeader>
                     <ModalBody>
