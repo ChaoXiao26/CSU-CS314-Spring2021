@@ -77,8 +77,8 @@ export default class Find extends Component {
                     </ModalFooter>
                 </Modal>
             </div>
-    );
-  }
+        );
+    }
     findToggleNew() {
         this.setState({
             modalNew: !this.state.modalNew
