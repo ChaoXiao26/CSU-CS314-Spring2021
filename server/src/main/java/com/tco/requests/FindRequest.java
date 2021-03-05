@@ -66,15 +66,5 @@ public class FindRequest extends RequestHeader {
 
        public FindRequest(){
         this.requestType = "find";
-        this.match = "Dave";
-        this.limit = 0;
-       }
-
-       public String getMatch(){
-           return this.match;
-       }
-
-       public Integer getFound(){
-           return this.found;
        }
 }
