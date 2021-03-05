@@ -62,7 +62,7 @@ public class FindRequest extends RequestHeader {
         found = db.getCount();
     }
       /* The following method exist only for testing purposes and are not used
-  during normal execution, including the constructor. */
+        during normal execution, including the constructor. */
 
     public FindRequest(){
         this.requestType = "find";

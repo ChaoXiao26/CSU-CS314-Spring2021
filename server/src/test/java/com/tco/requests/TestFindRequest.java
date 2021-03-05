@@ -24,9 +24,7 @@ public class TestFindRequest {
         assertEquals("find", type);
 
     }    
-
-    }
-    
+        
     @Test
     @DisplayName("Test request match is \"Dave\"")
     public void testMatch() {
