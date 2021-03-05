@@ -28,10 +28,12 @@ export default class Atlas extends Component {
         this.handleRemoveDestination = this.handleRemoveDestination.bind(this);
         this.processCoordinatesInput = this.processCoordinatesInput.bind(this);
 	    this.updateCooInput = this.updateCooInput.bind(this);
+       //TO DO: delete next line once functionality moves to Find.js
         this.findToggle = this.findToggle.bind(this);
         this.requestUserLocation();
 
         this.state = {
+            //TO DO: delete next line once functionality moves to Find.js
             modal: false,
             mapCenter: MAP_CENTER_DEFAULT,
             markerPosition: MAP_CENTER_DEFAULT,
@@ -42,7 +44,7 @@ export default class Atlas extends Component {
             }
         };
     }
-
+    //TODO: Delete after it works in Find.js
     findToggle() {
         this.setState({
             modal: !this.state.modal
@@ -252,11 +254,15 @@ export default class Atlas extends Component {
           );
         }
     }
-
+    
     renderFindInput() {
         //https://6-4-0--reactstrap.netlify.app/components/modals/
         return (
             <div>
+                {/* New UI interface. call to Find.js does not work yet*/}
+                <Button color='success' onClick={this.findToggleNew} className="mb-1" block>Find Places N/A</Button>
+                {/* Current UI interface. Works*/}
+
                 <Button color='success' onClick={this.findToggle} className="mb-1" block>Find Places</Button>
                 <Modal isOpen={this.state.modal} toggle={this.findToggle}>
                     <ModalHeader toggle={this.findToggle}>Find places</ModalHeader>
