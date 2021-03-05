@@ -3,7 +3,8 @@ import {Button, InputGroup, InputGroupAddon, InputGroupText, Input, Modal, Modal
 import 'leaflet/dist/leaflet.css';
 import { sendServerRequest, isJsonResponseValid, getOriginalServerPort} from "../../utils/restfulAPI";
 import * as findSchema from "../../../schemas/FindResponse";
-import axios from 'axios'
+
+const SerPort = getOriginalServerPort()
 
 export default class Find extends Component {
     constructor(props) {
@@ -12,7 +13,7 @@ export default class Find extends Component {
         this.fetchFind = this.fetchFind.bind(this);
         this.state = {
             sPort: getOriginalServerPort(),
-            testVal: 'test',
+            matchedName: '',
             modalNew: false
         }
     }
@@ -21,6 +22,7 @@ export default class Find extends Component {
             <div>
             {this.renderFindInput()}
             {(this.state.sPort+"/api/find")}
+            {SerPort}
             </div>
 
         );
@@ -92,13 +94,11 @@ export default class Find extends Component {
         });
     }
     fetchFind(){
-        const url = this.state.sPort + '/api/find';
-        const [matchName] = useState(null)
-        useEffect(()=>{
-            axions.get(url)
-            .then(response => {
-                matchName(response.data)
-            })
-        }, [url])
+        const url = this.state.sPort;// + '/api/find';
+        sendServerRequest({requestType: "find"}, url)
+        .then((res)=>res.json())
+        .then((post) => {
+            this.setState({matchedName:post})
+        })
     }
 }
