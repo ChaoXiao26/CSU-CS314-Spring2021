@@ -1,4 +1,4 @@
-# Inspection Checklist for t##
+# Inspection Checklist for t16
 
 The goal of an Inspection is to file defects.
 This checklist is our guide to help us look for defects.
@@ -37,3 +37,8 @@ The checklist will be updated as we identify new faults in our code that we wish
 
 ### Exception faults
 * Have all possible error conditions been considered?
+
+### Test coverage
+* Has 70% of the code been tested?
+* Have all the improtant functions been tested?
+* Are the tests readable and maintainable?
