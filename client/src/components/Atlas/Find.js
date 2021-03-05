@@ -1,12 +1,18 @@
-import React, {Component} from 'react';
+import React, {Component, useEffect} from 'react';
 import {Button, InputGroup, InputGroupAddon, InputGroupText, Input, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 import 'leaflet/dist/leaflet.css';
+import { sendServerRequest, isJsonResponseValid, getOriginalServerPort} from "../../utils/restfulAPI";
+import * as findSchema from "../../../schemas/FindResponse";
+import axios from 'axios'
 
 export default class Find extends Component {
     constructor(props) {
         super(props);
         this.findToggleNew = this.findToggleNew.bind(this);
+        this.fetchFind = this.fetchFind.bind(this);
         this.state = {
+            sPort: getOriginalServerPort(),
+            testVal: 'test',
             modalNew: false
         }
     }
@@ -14,6 +20,7 @@ export default class Find extends Component {
         return ( 
             <div>
             {this.renderFindInput()}
+            {(this.state.sPort+"/api/find")}
             </div>
 
         );
@@ -72,7 +79,7 @@ export default class Find extends Component {
 
                     </ModalBody>
                     <ModalFooter>
-                        <Button onClick={this.functionFind} color="success">Find</Button>
+                        <Button onClick={this.fetchFind} color="success">Find</Button>
                         <Button color='secondary' onClick={this.findToggleNew}>Cancel/Done</Button>
                     </ModalFooter>
                 </Modal>
@@ -84,6 +91,14 @@ export default class Find extends Component {
             modalNew: !this.state.modalNew
         });
     }
-
-
+    fetchFind(){
+        const url = this.state.sPort + '/api/find';
+        const [matchName] = useState(null)
+        useEffect(()=>{
+            axions.get(url)
+            .then(response => {
+                matchName(response.data)
+            })
+        }, [url])
+    }
 }
