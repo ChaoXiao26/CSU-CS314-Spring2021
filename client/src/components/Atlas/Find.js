@@ -14,7 +14,9 @@ export default class Find extends Component {
         this.state = {
             sPort: getOriginalServerPort(),
             matchedName: '',
-            modalNew: false
+            modalNew: false,
+            validServer: null,
+            find: {}
         }
     }
     render() {
@@ -93,12 +95,28 @@ export default class Find extends Component {
             modalNew: !this.state.modalNew
         });
     }
+
+    processFindResponse(findResponse) {
+        if (!isJsonResponseValid(findResponse, findSchema)) {
+            this.setState({validServer: false, find: false});
+        } else {
+            this.setState({validServer: true, find: findResponse});
+        }
+    }
+
     fetchFind(){
         const url = this.state.sPort;// + '/api/find';
-        sendServerRequest({requestType: "find"}, url)
-        .then((res)=>res.json())
-        .then((post) => {
-            this.setState({matchedName:post})
-        })
+        sendServerRequest({requestType: "find", match: "Dave", limit: 30 }, url)
+        .then(findResponse => {
+            if (findResponse) {
+                this.processFindResponse(findResponse);
+            } else {
+                this.setState({validServer: false, find: null});
+            }
+        });
+        // .then((res)=>res.json())
+        // .then((post) => {
+        //     this.setState({matchedName:post})
+        // })
     }
 }
