@@ -37,9 +37,7 @@ export default class Find extends Component {
                                     placeholder="Match Name Text"
                                     onChange={this.functionTakingMatchInput}
                                 />
-                            <InputGroupAddon addonType="append">
-                                <Button onClick={this.functionFind} color="success">Find!</Button>
-                            </InputGroupAddon>
+                            
                         </InputGroup>
                         
                         <InputGroup>
@@ -72,12 +70,9 @@ export default class Find extends Component {
                                 />
                         </InputGroup>
 
-
-
-
-
                     </ModalBody>
                     <ModalFooter>
+                        <Button onClick={this.functionFind} color="success">Find</Button>
                         <Button color='secondary' onClick={this.findToggleNew}>Cancel/Done</Button>
                     </ModalFooter>
                 </Modal>
