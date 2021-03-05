@@ -23,8 +23,6 @@ export default class Find extends Component {
         return ( 
             <div>
             {this.renderFindInput()}
-            {(this.state.sPort+"/api/find")}
-            {SerPort}
             </div>
 
         );
@@ -83,6 +81,9 @@ export default class Find extends Component {
 
                     </ModalBody>
                     <ModalFooter>
+                        <div>
+                            {"url: " + (this.state.sPort+"/api/find")}
+                        </div>
                         <Button onClick={this.fetchFind} color="success">Find</Button>
                         <Button color='secondary' onClick={this.findToggleNew}>Cancel/Done</Button>
                     </ModalFooter>
@@ -105,7 +106,7 @@ export default class Find extends Component {
     }
 
     fetchFind(){
-        const url = this.state.sPort;// + '/api/find';
+        const url = this.state.sPort;
         sendServerRequest({requestType: "find", match: "Dave", limit: 30 }, url)
         .then(findResponse => {
             if (findResponse) {
@@ -114,9 +115,5 @@ export default class Find extends Component {
                 this.setState({validServer: false, find: null});
             }
         });
-        // .then((res)=>res.json())
-        // .then((post) => {
-        //     this.setState({matchedName:post})
-        // })
     }
 }
