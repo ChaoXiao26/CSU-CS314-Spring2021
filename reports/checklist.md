@@ -1,4 +1,4 @@
-# Inspection Checklist for t##
+# Inspection Checklist for t16
 
 The goal of an Inspection is to file defects.
 This checklist is our guide to help us look for defects.
