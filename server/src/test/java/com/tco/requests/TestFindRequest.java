@@ -22,8 +22,9 @@ public class TestFindRequest {
     public void testType() {
         String type = req.getRequestType();
         assertEquals("find", type);
-    }
-    
+
+    }    
+        
     @Test
     @DisplayName("Test request match is \"Dave\"")
     public void testMatch() {
@@ -36,11 +37,5 @@ public class TestFindRequest {
     public void testFound() {
         Integer Found = req.getFound();
         assertEquals("28", Integer.toString(Found));
-    } 
-    // @Test
-    // @DisplayName("Features includes \"config\"")
-    // public void testFeatures(){
-    //     assertTrue(conf.validFeature("config"));
-    // }
-
+    }
 }
