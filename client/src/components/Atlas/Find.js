@@ -37,12 +37,42 @@ export default class Find extends Component {
                                     placeholder="Match Name Text"
                                     onChange={this.functionTakingMatchInput}
                                 />
-                            <InputGroupAddon addonType="append">
-                                <Button onClick={this.functionFind} color="success">Find!</Button>
-                            </InputGroupAddon>
+                            
                         </InputGroup>
+                        
+                        <InputGroup>
+                            <InputGroupAddon addonType="prepend">
+                                <InputGroupText>Where</InputGroupText>
+                            </InputGroupAddon>
+                                <Input
+                                    placeholder="Enter the name of an area to search"
+                                    onChange={this.functionTakingWhereInput}
+                                />
+                        </InputGroup>
+
+                        <InputGroup>
+                            <InputGroupAddon addonType="prepend">
+                                <InputGroupText>Type</InputGroupText>
+                            </InputGroupAddon>
+                                <Input
+                                    placeholder="Enter the type of location (Ex: Airport, Restaurant, etc)"
+                                    onChange={this.functionTakingTypeInput}
+                                />
+                        </InputGroup>
+
+                        <InputGroup>
+                            <InputGroupAddon addonType="prepend">
+                                <InputGroupText>Limit</InputGroupText>
+                            </InputGroupAddon>
+                                <Input
+                                    placeholder="Enter the number of locations to return"
+                                    onChange={this.functionTakingLimitInput}
+                                />
+                        </InputGroup>
+
                     </ModalBody>
                     <ModalFooter>
+                        <Button onClick={this.functionFind} color="success">Find</Button>
                         <Button color='secondary' onClick={this.findToggleNew}>Cancel/Done</Button>
                     </ModalFooter>
                 </Modal>
