@@ -1,5 +1,5 @@
-import React, {Component, useState} from 'react';
-import {Col, Container, Row, Button, InputGroup, InputGroupAddon, InputGroupText, Input, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
+import React, {Component} from 'react';
+import {Col, Container, Row, Button, InputGroup, InputGroupAddon, InputGroupText, Input} from 'reactstrap';
 import {Map, Marker, Popup, TileLayer} from 'react-leaflet';
 import {LOG} from "../../utils/constants";
 import icon from 'leaflet/dist/images/marker-icon.png';
