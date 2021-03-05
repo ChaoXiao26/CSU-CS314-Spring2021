@@ -41,6 +41,21 @@ export default class Find extends Component {
                                 <Button onClick={this.functionFind} color="success">Find!</Button>
                             </InputGroupAddon>
                         </InputGroup>
+                        
+                        <InputGroup>
+                            <InputGroupAddon addonType="prepend">
+                                <InputGroupText>Where</InputGroupText>
+                            </InputGroupAddon>
+                                <Input
+                                    placeholder="Enter the name of an area to search"
+                                    onChange={this.functionTakingMatchInput}
+                                />
+                        </InputGroup>
+
+
+
+
+
                     </ModalBody>
                     <ModalFooter>
                         <Button color='secondary' onClick={this.findToggleNew}>Cancel/Done</Button>
