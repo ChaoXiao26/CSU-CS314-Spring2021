@@ -62,6 +62,16 @@ export default class Find extends Component {
                                 />
                         </InputGroup>
 
+                        <InputGroup>
+                            <InputGroupAddon addonType="prepend">
+                                <InputGroupText>Limit</InputGroupText>
+                            </InputGroupAddon>
+                                <Input
+                                    placeholder="Enter the number of locations to return"
+                                    onChange={this.functionTakingLimitInput}
+                                />
+                        </InputGroup>
+
 
 
 
