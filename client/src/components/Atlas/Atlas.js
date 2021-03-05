@@ -1,11 +1,13 @@
-import React, {Component, useState} from 'react';
-import {Col, Container, Row, Button, InputGroup, InputGroupAddon, InputGroupText, Input, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
+import React, {Component} from 'react';
+import {Col, Container, Row, Button, InputGroup, InputGroupAddon, InputGroupText, Input} from 'reactstrap';
 import {Map, Marker, Popup, TileLayer} from 'react-leaflet';
 import {LOG} from "../../utils/constants";
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import Coordinates from "coordinate-parser";
 import 'leaflet/dist/leaflet.css';
+//FOR: Find.js
+import Find from './Find';
 
 const MAP_BOUNDS = [[-90, -180], [90, 180]];
 const MAP_CENTER_DEFAULT = L.latLng(40.5734, -105.0865);
@@ -28,11 +30,9 @@ export default class Atlas extends Component {
         this.handleRemoveDestination = this.handleRemoveDestination.bind(this);
         this.processCoordinatesInput = this.processCoordinatesInput.bind(this);
 	    this.updateCooInput = this.updateCooInput.bind(this);
-        this.findToggle = this.findToggle.bind(this);
         this.requestUserLocation();
 
         this.state = {
-            modal: false,
             mapCenter: MAP_CENTER_DEFAULT,
             markerPosition: MAP_CENTER_DEFAULT,
             locations: [],
@@ -43,19 +43,13 @@ export default class Atlas extends Component {
         };
     }
 
-    findToggle() {
-        this.setState({
-            modal: !this.state.modal
-        });
-    }
-
     render() {
         return (
             <div>
                 <Container>
                     <Row>
                         <Col sm={12} md={{size: 10, offset: 1}}>
-                            {this.renderFindInput()}
+                            <Find></Find>
 			                {this.renderCoordinatesInput()}
                             {this.renderLeafletMap()}
                             {this.renderFindMeButtom()}
@@ -252,34 +246,5 @@ export default class Atlas extends Component {
           );
         }
     }
-
-    renderFindInput() {
-        //https://6-4-0--reactstrap.netlify.app/components/modals/
-        return (
-            <div>
-                <Button color='success' onClick={this.findToggle} className="mb-1" block>Find Places</Button>
-                <Modal isOpen={this.state.modal} toggle={this.findToggle}>
-                    <ModalHeader toggle={this.findToggle}>Find places</ModalHeader>
-                    <ModalBody>
-                        {/* InputGroup here */}
-                        <InputGroup>
-                            <InputGroupAddon addonType="prepend">
-                                <InputGroupText>Match</InputGroupText>
-                            </InputGroupAddon>
-                                <Input
-                                    placeholder="Match Name Text"
-                                    onChange={this.functionTakingMatchInput}
-                                />
-                            <InputGroupAddon addonType="append">
-                                <Button onClick={this.functionFind} color="success">Find!</Button>
-                            </InputGroupAddon>
-                        </InputGroup>
-                    </ModalBody>
-                    <ModalFooter>
-                        <Button color='secondary' onClick={this.findToggle}>Cancel/Done</Button>
-                    </ModalFooter>
-                </Modal>
-            </div>
-    );
-  }
+    
 }
