@@ -49,6 +49,7 @@ public class FindDatabase{
         this.type = type;
     }
 
+
     public void match(String name){
         input += "SELECT world.name, world.type, world.latitude, world.longitude, world.altitude, "
               +  "world.municipality, world.id, country.name, region.name "
@@ -93,21 +94,4 @@ public class FindDatabase{
             altAL.add(results.getString("altitude"));
         }
     }
-
-    public ArrayList<String> getNameAL(){
-        return this.nameAL;
-    }
-    
-    public ArrayList<String> getLatAL(){
-        return this.latAL;
-    }
-
-    public ArrayList<String> getLngAL(){
-        return this.lngAL;
-    }
-
-    public ArrayList<String> getCityAL(){
-        return this.cityAL;
-    }
-
 }

@@ -24,10 +24,3 @@ public class TestFindRequest {
         assertEquals("find", type);
     }
     
-    // @Test
-    // @DisplayName("Features includes \"config\"")
-    // public void testFeatures(){
-    //     assertTrue(conf.validFeature("config"));
-    // }
-
-}
