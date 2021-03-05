@@ -22,5 +22,5 @@ public class TestFindRequest {
     public void testType() {
         String type = req.getRequestType();
         assertEquals("find", type);
-    }
-    
+    }   
+}
