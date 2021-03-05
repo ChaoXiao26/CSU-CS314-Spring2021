@@ -64,7 +64,17 @@ public class FindRequest extends RequestHeader {
       /* The following method exist only for testing purposes and are not used
   during normal execution, including the constructor. */
 
-       public FindRequest(){
+    public FindRequest(){
         this.requestType = "find";
-       }
+        this.match = "Dave";
+        this.limit = 0;
+    }
+
+    public String getMatch(){
+        return this.match;
+    }
+
+    public Integer getFound(){
+        return this.found;
+    }
 }
