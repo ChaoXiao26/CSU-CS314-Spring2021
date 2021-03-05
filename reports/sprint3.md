@@ -78,6 +78,7 @@ During the Sprint 2 we have completed four epics and have left "find places" epi
 | *3/1/2021* | *#Discussed who is the Scrum master <br /> #Discussed the problem in "Protocol find feature"*| *#Do some search on incoming epics <br /> #thinking about the epics for each new epics* |  |
 | *3/2/2021* | *#Created Sprint3.md file and update it <br /> #Discuss how many epics will do <br /> #Created tasks for each epic <br /> #Updated the diagrams in design.md <br /> #decided a meeting time on tuesday and thursday that work for everyone* | *#Working on fixing "protocol find feature" bugs <br /> #Working on starting the "find places" epic* |  | 
 | *3/3/2021* | *#Assign jobs for each team member<br /> #solve limit and found issue in "protocol find feature" epic* | *#Working on fixing "protocol find feature" type and where bugs <br /> #Working on the website UI for "find places" epic <br /> #code Smell* |  | 
+| *3/5/2021* | *#Fixed protocol find epic bugs<br /> #Created UI and button for find places epic* | *#Assign jobs for each teammate for find places<br /> #Working on link database with Atalas file and completing "find places" epic* |  | 
 
 
 ## Review
