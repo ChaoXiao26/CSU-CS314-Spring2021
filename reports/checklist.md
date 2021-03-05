@@ -47,3 +47,10 @@ The checklist will be updated as we identify new faults in our code that we wish
 * Has 70% of the code been tested?
 * Have all the improtant functions been tested?
 * Are the tests readable and maintainable?
+
+### Maintainability
+* No hardcoded configurations
+* No useless code in files/no code that was slated to be deleted remains.
+* Have minimal comments, if comments are necessary, they are descriptive and purpouseful. 
+* Proper organization of the code. Most abstract to most specific.
+* Functions follow an easy to read progression. Methods called in one function follow directly after it.
