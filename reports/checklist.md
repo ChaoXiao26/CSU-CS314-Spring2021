@@ -43,3 +43,7 @@ The checklist will be updated as we identify new faults in our code that we wish
 * Do variables, functions, classes have a good clear naming structure?
 * Is the code easy to follow?
 
+### Test coverage
+* Has 70% of the code been tested?
+* Have all the improtant functions been tested?
+* Are the tests readable and maintainable?
