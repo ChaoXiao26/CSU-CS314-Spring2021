@@ -19,8 +19,8 @@ export default class Find extends Component {
             modalNew: false,
             modalFindResponse: false,
             validServer: null,
-            find: {},
-            //foundLocations: []
+            find: [],
+            foundLocations: []
         }
     }
     render() {
@@ -118,31 +118,29 @@ export default class Find extends Component {
         );
        
     }
-    createLocationTable(){
-        const foundLocations = find.places.map((location,i) =>
-            <tr key={i+=1}>
+    
+    renderFindTableResponse(){
+        //const foundLocations = this.state.find.names;
+        const foundLocations = this.state.find.map((location) =>
+            <tr key={location.id}>
                 <th>{location.altitude}</th>
                 <th>{location.country}</th> 
+                <th>{location.id}</th>
+                <th>{location.latitude}</th> 
+                <th>{location.longitude}</th> 
+                <th>{location.municipality}</th>
+                <th>{location.name}</th>  
+                <th>{location.region}</th> 
+                <th>{location.type}</th> 
             </tr>
             );
-            return foundLocations;
-
-    }
-    renderFindTableResponse(){
-        //const foundLocations = this.state.find.places.names;
-        /* const foundLocations = this.state.find.places.map((location,i) =>
-            <tr key={i+=1}>
-                <th>{location.altitude}</th>
-                <th>{location.country}</th> 
-            </tr>
-            ); */
         //this.createLocationTable();  
         return(
             <table className="table table-striped table-bordered table-sm">
                 <thead>
                     <tr> 
-                        <th className="smallCell"><b>#</b></th>
-                        <th><b>altitude</b></th>
+                        <th className="smallCell">
+                        <b>altitude</b></th>
                         <th><b>country</b></th>
                         <th><b>id</b></th>
                         <th><b>Latitude</b></th>
@@ -155,6 +153,7 @@ export default class Find extends Component {
                     </tr>
                 </thead>
                 <tbody>
+                    {foundLocations}
                 </tbody>
             </table>
         );
@@ -174,9 +173,8 @@ export default class Find extends Component {
         if (!isJsonResponseValid(findResponse, findSchema)) {
             this.setState({validServer: false, find: false});
         } else {
-            this.setState({validServer: true, find: findResponse});
+            this.setState({validServer: true, find: findResponse.places});
             this.findResponseToggle();
-            //console.log(this.state.find.places);
         }
     }
 
