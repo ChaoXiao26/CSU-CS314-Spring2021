@@ -10,11 +10,13 @@ export default class Find extends Component {
     constructor(props) {
         super(props);
         this.findToggleNew = this.findToggleNew.bind(this);
+        this.findResponseToggle = this.findResponseToggle.bind(this);
         this.fetchFind = this.fetchFind.bind(this);
         this.state = {
             sPort: getOriginalServerPort(),
             matchName: "",      //defult as empty
             modalNew: false,
+            modalFindResponse: false,
             validServer: null,
             find: {}
         }
@@ -98,6 +100,11 @@ export default class Find extends Component {
             modalNew: !this.state.modalNew
         });
     }
+    findResponseToggle() {
+        this.setState({
+            modalFindResponse: !this.state.modalFindResponse
+        });
+    }
     functionTakingMatchInput = (event) =>{
         //this.fetchFind(event.target.value);
         this.setState({matchName: event.target.value})
@@ -109,6 +116,8 @@ export default class Find extends Component {
             this.setState({validServer: false, find: false});
         } else {
             this.setState({validServer: true, find: findResponse});
+            this.findResponseToggle();
+            //console.log(this.state.modalFindResponse);
         }
     }
 
