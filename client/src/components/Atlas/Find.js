@@ -78,7 +78,9 @@ export default class Find extends Component {
                                     onChange={this.functionTakingLimitInput}
                                 />
                         </InputGroup>
-                        
+                        <div>
+                            {this.protocolTest()}
+                        </div>
                     </ModalBody>
                     <ModalFooter>
                         <div>
@@ -122,11 +124,10 @@ export default class Find extends Component {
         });
     }
 
-    protocolReturnTest(){
+    protocolTest(){
         return(
             <div>
                 {"Current limit(should be 30 after Find): " + this.state.find.limit}
-                {console.log(xtype(this.state.find.places))}
             </div>
         );
     }
