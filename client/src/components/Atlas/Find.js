@@ -96,7 +96,11 @@ export default class Find extends Component {
             modalNew: !this.state.modalNew
         });
     }
-
+    functionTakingMatchInput = (event) =>{
+        this.fetchFind(event.target.value);
+        //console.log(this.state.validServer);
+        //console.log(this.find);
+    }
     processFindResponse(findResponse) {
         if (!isJsonResponseValid(findResponse, findSchema)) {
             this.setState({validServer: false, find: false});
