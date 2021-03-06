@@ -1,13 +1,22 @@
-import React, {Component} from 'react';
+import React, {Component, useEffect} from 'react';
 import {Button, InputGroup, InputGroupAddon, InputGroupText, Input, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 import 'leaflet/dist/leaflet.css';
+import { sendServerRequest, isJsonResponseValid, getOriginalServerPort} from "../../utils/restfulAPI";
+import * as findSchema from "../../../schemas/FindResponse";
+
+const SerPort = getOriginalServerPort()
 
 export default class Find extends Component {
     constructor(props) {
         super(props);
         this.findToggleNew = this.findToggleNew.bind(this);
+        this.fetchFind = this.fetchFind.bind(this);
         this.state = {
-            modalNew: false
+            sPort: getOriginalServerPort(),
+            matchedName: '',
+            modalNew: false,
+            validServer: null,
+            find: {}
         }
     }
     render() {
@@ -72,18 +81,39 @@ export default class Find extends Component {
 
                     </ModalBody>
                     <ModalFooter>
-                        <Button onClick={this.functionFind} color="success">Find</Button>
+                        <div>
+                            {"url: " + (this.state.sPort+"/api/find")}
+                        </div>
+                        <Button onClick={this.fetchFind} color="success">Find</Button>
                         <Button color='secondary' onClick={this.findToggleNew}>Cancel/Done</Button>
                     </ModalFooter>
                 </Modal>
             </div>
-    );
-  }
+        );
+    }
     findToggleNew() {
         this.setState({
             modalNew: !this.state.modalNew
         });
     }
 
+    processFindResponse(findResponse) {
+        if (!isJsonResponseValid(findResponse, findSchema)) {
+            this.setState({validServer: false, find: false});
+        } else {
+            this.setState({validServer: true, find: findResponse});
+        }
+    }
 
+    fetchFind(){
+        const url = this.state.sPort;
+        sendServerRequest({requestType: "find", match: "Dave", limit: 30 }, url)
+        .then(findResponse => {
+            if (findResponse) {
+                this.processFindResponse(findResponse);
+            } else {
+                this.setState({validServer: false, find: null});
+            }
+        });
+    }
 }
