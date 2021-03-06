@@ -13,7 +13,7 @@ export default class Find extends Component {
         this.fetchFind = this.fetchFind.bind(this);
         this.state = {
             sPort: getOriginalServerPort(),
-            matchedName: '',
+            matchName: "",      //defult as empty
             modalNew: false,
             validServer: null,
             find: {}
@@ -78,7 +78,9 @@ export default class Find extends Component {
                                     onChange={this.functionTakingLimitInput}
                                 />
                         </InputGroup>
-
+                        <div>
+                            {this.protocolTest()}
+                        </div>
                     </ModalBody>
                     <ModalFooter>
                         <div>
@@ -97,7 +99,8 @@ export default class Find extends Component {
         });
     }
     functionTakingMatchInput = (event) =>{
-        this.fetchFind(event.target.value);
+        //this.fetchFind(event.target.value);
+        this.setState({matchName: event.target.value})
         //console.log(this.state.validServer);
         //console.log(this.find);
     }
@@ -111,7 +114,7 @@ export default class Find extends Component {
 
     fetchFind(){
         const url = this.state.sPort;
-        sendServerRequest({requestType: "find", match: "Dave", limit: 30 }, url)
+        sendServerRequest({requestType: "find", match: this.state.matchName, limit: 30 }, url)
         .then(findResponse => {
             if (findResponse) {
                 this.processFindResponse(findResponse);
@@ -119,5 +122,13 @@ export default class Find extends Component {
                 this.setState({validServer: false, find: null});
             }
         });
+    }
+
+    protocolTest(){
+        return(
+            <div>
+                {"Current limit(should be 30 after Find): " + this.state.find.limit}
+            </div>
+        );
     }
 }
