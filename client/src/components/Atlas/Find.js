@@ -106,7 +106,7 @@ export default class Find extends Component {
     renderFindResponse(){
         return (
             <div>
-            <Modal isOpen={this.state.modalFindResponse} toggle={this.findResponseToggle}>
+            <Modal className="findplaces-custom-modal" isOpen={this.state.modalFindResponse} toggle={this.findResponseToggle}>
                 <ModalHeader toggle={this.findResponseToggle}>Places Found</ModalHeader>
                 <ModalBody>
                     {this.renderFindTableResponse()}
