@@ -123,15 +123,8 @@ export default class Find extends Component {
         //const foundLocations = this.state.find.names;
         const foundLocations = this.state.find.map((location) =>
             <tr key={location.id}>
-                <th>{location.altitude}</th>
-                <th>{location.country}</th> 
-                <th>{location.id}</th>
-                <th>{location.latitude}</th> 
-                <th>{location.longitude}</th> 
-                <th>{location.municipality}</th>
                 <th>{location.name}</th>  
                 <th>{location.region}</th> 
-                <th>{location.type}</th> 
             </tr>
             );
         //this.createLocationTable();  
@@ -139,17 +132,10 @@ export default class Find extends Component {
             <table className="table table-striped table-bordered table-sm">
                 <thead>
                     <tr> 
-                        <th className="smallCell">
-                        <b>altitude</b></th>
-                        <th><b>country</b></th>
-                        <th><b>id</b></th>
-                        <th><b>Latitude</b></th>
-                        <th><b>Longitude</b></th> 
-                        <th><b>municipality</b></th>
-                        <th><b>name</b></th>
+                        <th>
+                        <b>name</b></th>
                         <th><b>region</b></th>
-                        <th><b>type</b></th>
-			            <th className="smallCell"><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick={this.clearTable}>Clear</Button></th>
+			            <th><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick={this.clearTable}>Clear</Button></th>
                     </tr>
                 </thead>
                 <tbody>
