@@ -109,9 +109,7 @@ export default class Find extends Component {
             <Modal isOpen={this.state.modalFindResponse} toggle={this.findResponseToggle}>
                 <ModalHeader toggle={this.findResponseToggle}>Places Found</ModalHeader>
                 <ModalBody>
-                    <InputGroup>
                     {this.renderFindTableResponse()}
-                    </InputGroup>
                 </ModalBody>
             </Modal>
         </div>
