@@ -30,6 +30,7 @@ export default class Atlas extends Component {
         this.handleRemoveDestination = this.handleRemoveDestination.bind(this);
         this.processCoordinatesInput = this.processCoordinatesInput.bind(this);
 	    this.updateCooInput = this.updateCooInput.bind(this);
+        this.addTrip = this.addTrip.bind(this);
         this.requestUserLocation();
 
         this.state = {
