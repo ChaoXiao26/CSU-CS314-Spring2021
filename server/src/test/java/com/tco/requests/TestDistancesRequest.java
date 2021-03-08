@@ -16,11 +16,5 @@ public class TestDistancesRequest {
     distanceRequest = new DistanceRequest();
     distanceRequest.buildResponse();
   }
-  
-  @Test
-  @DisplayName("Request type is \"distances\"")
-  public void testType(){
-    String type = distanceRequest.getRequestType();
-    assertEquals("distances", type);
-  }
+
 }
