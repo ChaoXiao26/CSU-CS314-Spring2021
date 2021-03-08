@@ -25,5 +25,6 @@ public class DistancesRequest extends RequestHeader {
        this.distances = new ArrayList<Integer>();
        //log.trac("buildResponse -> {}", this);
     }
+    
 }
 
