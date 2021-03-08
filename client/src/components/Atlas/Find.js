@@ -122,7 +122,8 @@ export default class Find extends Component {
         const foundLocations = this.state.find.map((location) =>
             <tr key={location.id}>
                 <th>{location.name}</th>  
-                <th>{location.region}</th> 
+                <th>{location.region}</th>
+                <th><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick={this.addTrip}>Add</Button></th> 
             </tr>
             );
         //this.createLocationTable();  
@@ -172,6 +173,10 @@ export default class Find extends Component {
                 this.setState({validServer: false, find: null});
             }
         });
+    }
+
+    addTrip(){
+        //call function for adding place to the table and showing in the map
     }
 
     protocolTest(){
