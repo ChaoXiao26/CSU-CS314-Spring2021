@@ -11,16 +11,16 @@ public class TestDistancesRequest {
   
   private DistancesRequest distancesRequest;
   
-  @BeforeEach
-  public void createConfigurationForTestCases(){
-    distancesRequest = new DistancesRequest();
-    distancesRequest.buildResponse();
-  }
+//   @BeforeEach
+//   public void createConfigurationForTestCases(){
+//     distancesRequest = new DistancesRequest();
+//     distancesRequest.buildResponse();
+//   }
   
-   @Test
-  @DisplayName("Request type is \"distances\"")
-  public void testType(){
-    String type = distancesRequest.getRequestType();
-    assertEquals("distances", type);
-  }
+//    @Test
+//   @DisplayName("Request type is \"distances\"")
+//   public void testType(){
+//     String type = distancesRequest.getRequestType();
+//     assertEquals("distances", type);
+//   }
 }
