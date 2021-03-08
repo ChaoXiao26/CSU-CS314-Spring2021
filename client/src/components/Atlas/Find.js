@@ -5,11 +5,13 @@ import { sendServerRequest, isJsonResponseValid, getOriginalServerPort} from "..
 import Coordinates from "coordinate-parser";
 import * as findSchema from "../../../schemas/FindResponse";
 
+
 const SerPort = getOriginalServerPort()
 
 export default class Find extends Component {
     constructor(props) {
         super(props);
+        this.props = props;
         this.findToggleNew = this.findToggleNew.bind(this);
         this.findResponseToggle = this.findResponseToggle.bind(this);
         this.fetchFind = this.fetchFind.bind(this);
@@ -123,7 +125,7 @@ export default class Find extends Component {
             <tr key={location.id}>
                 <th>{location.name}</th>  
                 <th>{location.region}</th>
-                <th><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick={this.addTrip}>Add</Button></th> 
+                <th><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick={() => this.props.AddTrip(location.latitude, location.longitude)}>Add</Button></th> 
             </tr>
             );
         //this.createLocationTable();  
@@ -173,10 +175,6 @@ export default class Find extends Component {
                 this.setState({validServer: false, find: null});
             }
         });
-    }
-
-    addTrip(){
-        //call function for adding place to the table and showing in the map
     }
 
     protocolTest(){

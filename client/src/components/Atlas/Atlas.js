@@ -49,7 +49,7 @@ export default class Atlas extends Component {
                 <Container>
                     <Row>
                         <Col sm={12} md={{size: 10, offset: 1}}>
-                            <Find></Find>
+                        <Find AddTrip={this.addTrip} />
 			                {this.renderCoordinatesInput()}
                             {this.renderLeafletMap()}
                             {this.renderFindMeButtom()}
@@ -60,7 +60,10 @@ export default class Atlas extends Component {
             </div>
         );
     }
-
+    addTrip(lat, long){
+        console.log(lat);
+        console.log(long);
+    }
     renderLeafletMap() {
         return (
             <Map
