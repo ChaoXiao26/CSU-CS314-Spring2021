@@ -8,10 +8,10 @@ import java.util.*;
 
 public class DistancesRequest extends RequestHeader {
     ArrayList<Map<String, String>> places = new ArrayList<Map<String, String>>();
-    private float earthRadius;
-    private int[] distances;
+    private Float earthRadius;
+    ArrayList<Integer> distances = new ArrayList<Integer>();
     
-    public DistancesRequest(ArrayList<Map<String, String>> places, float earthRadius, int[] distances){
+    public DistancesRequest(ArrayList<Map<String, String>> places, float earthRadius, ArrayList<Integer> distances){
         this.requestType = "distances";
         this.places = places;
         this.earthRadius = earthRadius;
@@ -22,6 +22,8 @@ public class DistancesRequest extends RequestHeader {
     
     @Override
     public void buildResponse(){
-       // log.trac("buildResponse -> {}", this);
+       this.distances = new ArrayList<Integer>();
+       //log.trac("buildResponse -> {}", this);
     }
 }
+
