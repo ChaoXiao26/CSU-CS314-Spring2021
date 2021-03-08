@@ -61,9 +61,12 @@ export default class Atlas extends Component {
             </div>
         );
     }
-    addTrip(lat, long){
-        console.log(lat);
-        console.log(long);
+    addTrip(lat, lng){
+        const inputtxt = lat + ',' + lng;
+        console.log(inputtxt);
+        const coordinates = this.state.coordinates;
+        coordinates.latLng = this.getCoordinatesOrNull(inputtxt);
+        this.setState({coordinates: coordinates});
     }
     renderLeafletMap() {
         return (
@@ -221,11 +224,11 @@ export default class Atlas extends Component {
 
     updateCooInput() {
         const coordinates = this.state.coordinates;
-	if(coordinates.latLng != null){
-        this.setState({mapCenter: coordinates.latLng, markerPosition: coordinates.latLng});
-        this.getAddress(coordinates.latLng);
-        this.setState({locations: [coordinates.latLng, ...this.state.locations]});
-	}
+	    if(coordinates.latLng != null){
+            this.setState({mapCenter: coordinates.latLng, markerPosition: coordinates.latLng});
+            this.getAddress(coordinates.latLng);
+            this.setState({locations: [coordinates.latLng, ...this.state.locations]});
+	    }
     }
     
     getCoordinatesOrNull(coordinateString) {
