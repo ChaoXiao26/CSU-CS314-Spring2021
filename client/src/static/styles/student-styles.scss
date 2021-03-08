@@ -39,3 +39,29 @@
 {
    height: 55vh !important;
 }
+
+.modal-dialog{
+   overflow-y: initial !important
+}
+
+.modal-body{
+   max-height: 70vh;
+   overflow-y: scroll;
+}
+
+.findplaces-custom-modal
+{
+   max-width: 750px !important;
+   width:'95vw' !important;
+   height:'55vh' !important;
+   //display:flex !important;
+   //margin: auto !important;
+   margin-top: 7vh !important;
+   overflow-y: hidden !important;
+}
+
+.findplaces-custom-table
+{
+   max-height: "30vh" !important;
+   overflow-y: scroll !important;
+}
