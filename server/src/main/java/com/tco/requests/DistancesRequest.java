@@ -24,4 +24,11 @@ public class DistancesRequest extends RequestHeader {
     public void buildResponse(){
        // log.trac("buildResponse -> {}", this);
     }
+    
+    public DistanceRequest(){
+        this.requestType = "distances";
+        this.places = "";
+        this.earthRadius = 0;
+        this.distances = distances;
+    }
 }
