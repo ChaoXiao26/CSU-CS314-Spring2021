@@ -11,11 +11,11 @@ public class TestDistancesRequest {
   
   private DistanceRequest distanceRequest;
   
-  @BeforeEach
-  public void createConfigurationForTestCases(){
-    distanceRequest = new DistancesRequest();
-    distanceRequest.buildResponse();
-  }
+//   @BeforeEach
+//   public void createConfigurationForTestCases(){
+//     distanceRequest = new DistancesRequest();
+//     distanceRequest.buildResponse();
+//   }
   
 //    @Test
 //   @DisplayName("Request type is \"distances\"")
