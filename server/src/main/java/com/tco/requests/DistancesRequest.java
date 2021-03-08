@@ -27,8 +27,5 @@ public class DistancesRequest extends RequestHeader {
     
     public DistanceRequest(){
         this.requestType = "distances";
-        this.places = "";
-        this.earthRadius = 0;
-        this.distances = distances;
     }
 }
