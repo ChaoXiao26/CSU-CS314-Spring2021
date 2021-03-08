@@ -5,6 +5,7 @@ import com.tco.misc.JSONValidator;
 import com.tco.requests.ConfigRequest;
 import com.tco.requests.FindRequest;
 import com.tco.requests.RequestHeader;
+import com.tco.requests.DistancesRequest;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -38,6 +39,7 @@ class MicroServer {
             before("/*", (req, res) -> logRequest(req));
             post("/config", (req, res) -> processHttpRequest(req, res, ConfigRequest.class));
             post("/find", (req, res) -> processHttpRequest(req, res, FindRequest.class));
+            post("/distances", (req, res) -> processHttpRequest(req, res, DistancesRequest.class));
         });
     }
 
