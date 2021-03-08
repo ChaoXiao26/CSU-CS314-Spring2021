@@ -25,7 +25,4 @@ public class DistancesRequest extends RequestHeader {
        // log.trac("buildResponse -> {}", this);
     }
     
-    public DistanceRequest(){
-        this.requestType = "distances";
-    }
 }
