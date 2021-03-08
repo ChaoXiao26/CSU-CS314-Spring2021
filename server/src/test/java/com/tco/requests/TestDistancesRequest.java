@@ -13,8 +13,14 @@ public class TestDistancesRequest {
   
   @BeforeEach
   public void createConfigurationForTestCases(){
-    distanceRequest = new DistanceRequest();
+    distanceRequest = new DistancesRequest();
     distanceRequest.buildResponse();
   }
-
+  
+   @Test
+  @DisplayName("Request type is \"distances\"")
+  public void testType(){
+    String type = distanceRequest.getRequestType();
+    assertEquals("distances", type);
+  }
 }
