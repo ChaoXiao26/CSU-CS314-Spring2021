@@ -18,7 +18,7 @@ public class TestDistancesRequest {
   }
   
   @Test
-  @DisplayName(("Request type is \"distances\"")
+  @DisplayName("Request type is \"distances\"")
   public void testType(){
     String type = distanceRequest.getRequestType();
     assertEquals("distances", type);
