@@ -18,6 +18,7 @@ public class ConfigRequest extends RequestHeader {
         features = new ArrayList<String>();
         features.add("config");
         features.add("find");
+        features.add("distances");
         //features.add("type");
         //features.add("where"); maybe for feture?
         log.trace("buildResponse -> {}", this);
