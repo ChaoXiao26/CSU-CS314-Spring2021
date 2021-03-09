@@ -31,7 +31,7 @@ export default class Atlas extends Component {
         this.processCoordinatesInput = this.processCoordinatesInput.bind(this);
 	    this.updateCooInput = this.updateCooInput.bind(this);
         this.addTrip = this.addTrip.bind(this);
-        this.addTable = this.addTable.bind(this);
+        this.addTableAndPinOnMap = this.addTableAndPinOnMap.bind(this);
         this.requestUserLocation();
         
 
@@ -69,11 +69,13 @@ export default class Atlas extends Component {
         const coordinates = this.state.coordinates;
         coordinates.latLng = this.getCoordinatesOrNull(inputtxt);
         this.setState({coordinates: coordinates});
-        this.addTable();
+        this.addTableAndPinOnMap();
     }
 
-    addTable(){
+    addTableAndPinOnMap(){
         const coordinates = this.state.coordinates;
+        this.setState({mapCenter: coordinates.latLng, markerPosition: coordinates.latLng});
+        this.getAddress(coordinates.latLng);
 	    this.setState({locations: [coordinates.latLng, ...this.state.locations]});
     }
 
