@@ -13,6 +13,7 @@
 | Tomas | 1hr |
 | Fan | 1hr |
 | Yuxin | 1hr |
+| Mark | 1hr |
 |  |  |
 
 ### Problems found
@@ -29,4 +30,6 @@
 | Find.js 38 | RenderFindInput has too much lines of code | low | Yuxin| |
 | Find.js 122| Test for renderFindTableResponse() required |med| Yuxin | |
 | Find.js 180| ProtocolTest() wasn't used |low| Yuxin | |
+| Find.js 48| Repeated code in 4 locations |low| Mark | |
+| Find.js 171| Similar blocks of code found in 2 locations |low| Mark | |
 
