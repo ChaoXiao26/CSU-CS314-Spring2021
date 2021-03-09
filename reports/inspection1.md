@@ -14,7 +14,7 @@
 | Fan | 1hr |
 | Yuxin | 1hr |
 | Mark | 1hr |
-|  |  |
+| Sam | 1 hr |
 
 ### Problems found
 
@@ -32,4 +32,6 @@
 | Find.js 180| ProtocolTest() wasn't used |low| Yuxin | |
 | Find.js 48| Repeated code in 4 locations |low| Mark | |
 | Find.js 171| Similar blocks of code found in 2 locations |low| Mark | |
+| Find.js 153| Potential for invalid input | medium | Sam | |
+| Find.js 28 | No error handling | medium | Sam ||
 
