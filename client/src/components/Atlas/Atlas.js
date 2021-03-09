@@ -31,7 +31,9 @@ export default class Atlas extends Component {
         this.processCoordinatesInput = this.processCoordinatesInput.bind(this);
 	    this.updateCooInput = this.updateCooInput.bind(this);
         this.addTrip = this.addTrip.bind(this);
+        this.addTable = this.addTable.bind(this);
         this.requestUserLocation();
+        
 
         this.state = {
             mapCenter: MAP_CENTER_DEFAULT,
@@ -67,7 +69,14 @@ export default class Atlas extends Component {
         const coordinates = this.state.coordinates;
         coordinates.latLng = this.getCoordinatesOrNull(inputtxt);
         this.setState({coordinates: coordinates});
+        this.addTable();
     }
+
+    addTable(){
+        const coordinates = this.state.coordinates;
+	    this.setState({locations: [coordinates.latLng, ...this.state.locations]});
+    }
+
     renderLeafletMap() {
         return (
             <Map

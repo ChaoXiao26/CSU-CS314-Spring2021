@@ -12,6 +12,7 @@
 | ---- | ---- |
 | Tomas | 1hr |
 | Fan | 1hr |
+| Yuxin | 1hr |
 |  |  |
 
 ### Problems found
@@ -25,3 +26,7 @@
 | Find.js 47, 154, 156, 157  | A unused line of comments| low | Fan| |
 | Find.js 108 | NO test for renderFindResponse()| low | Fan| |
 | Find.js 168 | NO test for fetchFind()| low | Fan| |
+| Find.js 38 | RenderFindInput has too much lines of code | low | Yuxin| |
+| Find.js 122| Test for renderFindTableResponse() required |med| Yuxin | |
+| Find.js 180| ProtocolTest() wasn't used |low| Yuxin | |
+
