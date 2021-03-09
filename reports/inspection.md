@@ -11,6 +11,7 @@
 | Name | Preparation Time |
 | ---- | ---- |
 | Tomas | 1hr |
+| Fan | 1hr |
 |  |  |
 
 ### Problems found
@@ -21,3 +22,6 @@
 | Find.js 108 | User not informed of failed request |med |Tomas | |
 | Find.js 119 | User not informed of failed request |med |Tomas | |
 | Find.js 127 | Test named for entire protocol only tests valid limit| low | Tomas| |
+| Find.js 47, 154, 156, 157  | A unused line of comment| low | Fan| |
+| Find.js 108 | NO test for renderFindResponse()| low | Fan| |
+| Find.js 168 | NO test for fetchFind()| low | Fan| |
