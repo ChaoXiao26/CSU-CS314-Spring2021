@@ -9,13 +9,16 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestDistancesRequest {
   
-  private DistancesRequest distancesRequest;
+  private DistancesRequest disReq;
+  private DistancesRequest disReq2;
   
-//   @BeforeEach
-//   public void createConfigurationForTestCases(){
-//     distancesRequest = new DistancesRequest();
-//     distancesRequest.buildResponse();
-//   }
+  @BeforeEach
+  public void createConfigurationForTestCases(){
+    disReq = new DistancesRequest();
+    disReq2 = new DistancesRequest(3959);
+    disReq.buildResponse();
+    disReq2.buildResponse();
+  }
   
 //    @Test
 //   @DisplayName("Request type is \"distances\"")
