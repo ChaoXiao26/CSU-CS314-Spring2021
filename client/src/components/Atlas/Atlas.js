@@ -6,8 +6,8 @@ import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import Coordinates from "coordinate-parser";
 import 'leaflet/dist/leaflet.css';
-//FOR: Find.js
 import Find from './Find';
+import Distance from './Distance';
 
 const MAP_BOUNDS = [[-90, -180], [90, 180]];
 const MAP_CENTER_DEFAULT = L.latLng(40.5734, -105.0865);
@@ -52,10 +52,11 @@ export default class Atlas extends Component {
                 <Container>
                     <Row>
                         <Col sm={12} md={{size: 10, offset: 1}}>
-                        <Find AddTrip={this.addTrip} />
+                            <Find AddTrip={this.addTrip}/>
 			                {this.renderCoordinatesInput()}
                             {this.renderLeafletMap()}
                             {this.renderFindMeButtom()}
+                            <Distance/>
                             {this.renderLocationTable()}
                         </Col>
                     </Row>
