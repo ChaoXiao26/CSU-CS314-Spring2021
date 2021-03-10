@@ -100,11 +100,13 @@ export default class Atlas extends Component {
     }
     renderLocationTable() {
         //apply this function to each element in locations array
+        const dummyDistance = 0;
         const locations = this.state.locations.map((location, i) =>
             <tr key={i+=1}>
                 <th>{i}</th>
                 <th>{location.lat.toFixed(6)}</th>
-                <th>{location.lng.toFixed(6)}</th> 
+                <th>{location.lng.toFixed(6)}</th>
+                <th>  {dummyDistance}</th>     
                 <th><button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick ={() => this.handleRemoveDestination(i-=1)}>X </button></th> 
                 
             </tr>
@@ -115,7 +117,8 @@ export default class Atlas extends Component {
                     <tr> 
                         <th className="smallCell"><b>#</b></th>
                         <th><b>Latitude</b></th>
-                        <th><b>Longitude</b></th>   
+                        <th><b>Longitude</b></th>
+                        <th><b>Cumulative Distance</b></th>   
 			            <th className="smallCell"><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick={this.clearTable}>Clear</Button></th>
                         <th><button color="success" type="button" className="btn btn-secondary btn-block float-right" >Total/Distance </button></th> 
                     </tr>
