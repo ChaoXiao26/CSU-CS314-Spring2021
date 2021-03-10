@@ -37,6 +37,12 @@ public class TestConfigRequest {
     }
 
     @Test
+    @DisplayName("Features includes \"distances\"")
+    public void testFeatureDistances(){
+        assertTrue(conf.validFeature("distances"));
+    }
+
+    @Test
     @DisplayName("Team name is t16 404 Brain Not Found")
     public void testServerName() {
         String name = conf.getServerName();
