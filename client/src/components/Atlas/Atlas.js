@@ -56,7 +56,7 @@ export default class Atlas extends Component {
 			                {this.renderCoordinatesInput()}
                             {this.renderLeafletMap()}
                             {this.renderFindMeButtom()}
-                            <Distance/>
+                            <Distance locations = {this.state.locations}/>
                             {this.renderLocationTable()}
                         </Col>
                     </Row>
@@ -111,6 +111,12 @@ export default class Atlas extends Component {
                 
             </tr>
             );
+
+            //DELETE
+            //console.log(locations);
+
+
+
         return(
             <table className="table table-striped table-bordered table-sm">
                 <thead>
