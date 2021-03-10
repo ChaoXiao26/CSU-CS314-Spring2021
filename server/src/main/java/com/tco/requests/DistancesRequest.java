@@ -23,8 +23,8 @@ public class DistancesRequest extends RequestHeader {
     public double greatCircle(double lat1, double lng1, double lat2, double lng2, double earthRad){
         if ((lat1 != lat2) && (lng1 != lng2)){
 
-			double dLat = lng1 - lng2;
-            double dLng = Math.toRadians(lng2-lng1);
+			double dLat = Math.toRadians(lat1 - lat2);
+            double dLng = Math.toRadians(lng2 - lng1);
 
 			double a = Math.sin(dLat/2) * Math.sin(dLat/2)
                      + Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2))
