@@ -10,6 +10,7 @@ public class DistancesRequest extends RequestHeader {
     ArrayList<Map<String, String>> places = new ArrayList<Map<String, String>>();
     private float earthRadius;
     ArrayList<Integer> distances = new ArrayList<Integer>();
+    public double testVar = 0;
 
     public DistancesRequest(ArrayList<Map<String, String>> places, float earthRadius, ArrayList<Integer> distances){
         this.requestType = "distances";
@@ -20,6 +21,15 @@ public class DistancesRequest extends RequestHeader {
 
     private final transient Logger log = LoggerFactory.getLogger(DistancesRequest.class);
     
+    public int tripDistances(){
+        for(int i = 0; i < this.places.size(); i++){
+            Map<String, String> place = this.places.get(i);
+            String tmp = place.get("latitude");
+            testVar = Double.parseDouble(tmp);
+        }
+        return (int)testVar;
+    }
+
     public double greatCircle(double lat1, double lng1, double lat2, double lng2, double earthRad){
         if ((lat1 != lat2) && (lng1 != lng2)){
 
@@ -48,6 +58,7 @@ public class DistancesRequest extends RequestHeader {
         distances.add((int)greatCircle(40.6, -105.1, -33.9, 151.2, 3959));      //a few test cases
         distances.add((int)greatCircle(40.6, -105.1, -33.9, 151.2, 6371));
         distances.add((int)greatCircle(0, 0, 0, 0, 0));
+        distances.add(tripDistances());
         log.trace("buildResponse -> {}", this);
     }
     
