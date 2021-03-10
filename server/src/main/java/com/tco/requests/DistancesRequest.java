@@ -10,7 +10,6 @@ public class DistancesRequest extends RequestHeader {
     ArrayList<Map<String, String>> places = new ArrayList<Map<String, String>>();
     private float earthRadius;
     ArrayList<Integer> distances = new ArrayList<Integer>();
-    public double testVar = 0;
 
     public DistancesRequest(ArrayList<Map<String, String>> places, float earthRadius, ArrayList<Integer> distances){
         this.requestType = "distances";
@@ -21,13 +20,27 @@ public class DistancesRequest extends RequestHeader {
 
     private final transient Logger log = LoggerFactory.getLogger(DistancesRequest.class);
     
-    public int tripDistances(){
-        for(int i = 0; i < this.places.size(); i++){
-            Map<String, String> place = this.places.get(i);
-            String tmp = place.get("latitude");
-            testVar = Double.parseDouble(tmp);
+    public void tripDistances(){
+        String name1, name2, lat1, lat2, lng1, lng2;
+        int ALsize = this.places.size();
+
+        for(int i = 0; i < (this.places.size() - 1); i++){
+            Map<String, String> place1 = this.places.get(i);
+            name1 = place1.get("name");
+            lat1 = place1.get("latitude");
+            lng1 = place1.get("longitude");
+            Map<String, String> place2 = this.places.get(i+1);
+            name2 = place2.get("name");
+            lat2 = place2.get("latitude");
+            lng2 = place2.get("longitude");
+            double la1 = Double.parseDouble(lat1);
+            double ln1 = Double.parseDouble(lng1);
+            double la2 = Double.parseDouble(lat2);
+            double ln2 = Double.parseDouble(lng2);
+            distances.add((int)greatCircle(la1, ln1, la2, ln2, 3959));
         }
-        return (int)testVar;
+        
+        //return 0;
     }
 
     public double greatCircle(double lat1, double lng1, double lat2, double lng2, double earthRad){
@@ -55,10 +68,7 @@ public class DistancesRequest extends RequestHeader {
 
     @Override
     public void buildResponse(){
-        distances.add((int)greatCircle(40.6, -105.1, -33.9, 151.2, 3959));      //a few test cases
-        distances.add((int)greatCircle(40.6, -105.1, -33.9, 151.2, 6371));
-        distances.add((int)greatCircle(0, 0, 0, 0, 0));
-        distances.add(tripDistances());
+        this.tripDistances();
         log.trace("buildResponse -> {}", this);
     }
     
