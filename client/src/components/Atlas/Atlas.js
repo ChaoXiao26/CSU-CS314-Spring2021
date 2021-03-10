@@ -106,6 +106,7 @@ export default class Atlas extends Component {
                 <th>{location.lat.toFixed(6)}</th>
                 <th>{location.lng.toFixed(6)}</th> 
                 <th><button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick ={() => this.handleRemoveDestination(i-=1)}>X </button></th> 
+                
             </tr>
             );
         return(
@@ -116,6 +117,7 @@ export default class Atlas extends Component {
                         <th><b>Latitude</b></th>
                         <th><b>Longitude</b></th>   
 			            <th className="smallCell"><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick={this.clearTable}>Clear</Button></th>
+                        <th><button color="success" type="button" className="btn btn-secondary btn-block float-right" >Total/Distance </button></th> 
                     </tr>
                 </thead>
                 <tbody>
