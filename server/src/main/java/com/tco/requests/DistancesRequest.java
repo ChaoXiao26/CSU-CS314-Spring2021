@@ -38,7 +38,7 @@ public class DistancesRequest extends RequestHeader {
         this.earthRadius = earthRadius;
     }
 
-    public float getearthRadius() {
+    public float getEarthRadius() {
         return earthRadius;
     }
 
