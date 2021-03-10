@@ -20,7 +20,7 @@
       "type": "array",
       "items": {
         "type": "string",
-        "enum": ["config", "find", "distance", "tour", "type", "where", "units", "title"]
+        "enum": ["config", "find", "distances", "tour", "type", "where"]
       }
     },
     "type": {
@@ -28,15 +28,14 @@
       "type": "array",
       "items": {
         "type": "string",
-        "enum": ["airport","balloonport","heliport"]
+        "enum": ["airport","balloonport","heliport","other"]
       }
     },
     "where": {
       "description": "a list of items from the config where filters.",
       "type": "array",
       "items": {
-        "type": "string",
-        "pattern":"^[a-zA-Z0-9_ ]+$"
+        "type": "string"
       }
     }
   },
