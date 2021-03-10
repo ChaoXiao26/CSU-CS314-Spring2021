@@ -1,7 +1,7 @@
-import React, {Component, useEffect} from 'react';
-import {Button, InputGroup, InputGroupAddon, InputGroupText, Input, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
+import React, { Component, useEffect } from 'react';
+import { Button, InputGroup, InputGroupAddon, InputGroupText, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import 'leaflet/dist/leaflet.css';
-import { sendServerRequest, isJsonResponseValid, getOriginalServerPort} from "../../utils/restfulAPI";
+import { sendServerRequest, isJsonResponseValid, getOriginalServerPort } from "../../utils/restfulAPI";
 import Coordinates from "coordinate-parser";
 import * as findSchema from "../../../schemas/FindResponse";
 
@@ -26,10 +26,10 @@ export default class Find extends Component {
         }
     }
     render() {
-        return ( 
+        return (
             <div>
-            {this.renderFindInput()}
-            {this.renderFindResponse()}
+                {this.renderFindInput()}
+                {this.renderFindResponse()}
             </div>
 
         );
@@ -49,14 +49,14 @@ export default class Find extends Component {
                             <InputGroupAddon addonType="prepend">
                                 <InputGroupText>Match</InputGroupText>
                             </InputGroupAddon>
-                                <Input
-                                    placeholder="Match Name Text"
-                                    onChange={this.functionTakingMatchInput}
-                                />
-                            
+                            <Input
+                                placeholder="Match Name Text"
+                                onChange={this.functionTakingMatchInput}
+                            />
+
                         </InputGroup>
-                        
-                        <InputGroup>
+
+                        {/* <InputGroup>
                             <InputGroupAddon addonType="prepend">
                                 <InputGroupText>Where</InputGroupText>
                             </InputGroupAddon>
@@ -74,16 +74,16 @@ export default class Find extends Component {
                                     placeholder="Enter the type of location (Ex: Airport, Restaurant, etc)"
                                     onChange={this.functionTakingTypeInput}
                                 />
-                        </InputGroup>
+                        </InputGroup> */}
 
                         <InputGroup>
                             <InputGroupAddon addonType="prepend">
                                 <InputGroupText>Limit</InputGroupText>
                             </InputGroupAddon>
-                                <Input
-                                    placeholder="Enter the number of locations to return"
-                                    onChange={this.functionTakingLimitInput}
-                                />
+                            <Input
+                                placeholder="Enter the number of locations to return"
+                                onChange={this.functionTakingLimitInput}
+                            />
                         </InputGroup>
                         <div>
                             {this.protocolTest()}
@@ -91,7 +91,7 @@ export default class Find extends Component {
                     </ModalBody>
                     <ModalFooter>
                         <div>
-                            {"url: " + (this.state.sPort+"/api/find")}
+                            {"url: " + (this.state.sPort + "/api/find")}
                         </div>
                         <Button onClick={this.fetchFind} color="success">Find</Button>
                         <Button color='secondary' onClick={this.findToggleNew}>Cancel/Done</Button>
@@ -105,38 +105,36 @@ export default class Find extends Component {
             modalNew: !this.state.modalNew
         });
     }
-    renderFindResponse(){
+    renderFindResponse() {
         return (
             <div>
-            <Modal className="findplaces-custom-modal" isOpen={this.state.modalFindResponse} toggle={this.findResponseToggle}>
-                <ModalHeader toggle={this.findResponseToggle}>Places Found</ModalHeader>
-                <ModalBody>
-                    {this.renderFindTableResponse()}
-                </ModalBody>
-            </Modal>
-        </div>
+                <Modal className="findplaces-custom-modal" isOpen={this.state.modalFindResponse} toggle={this.findResponseToggle}>
+                    <ModalHeader toggle={this.findResponseToggle}>Places Found</ModalHeader>
+                    <ModalBody>
+                        {this.renderFindTableResponse()}
+                    </ModalBody>
+                </Modal>
+            </div>
         );
-       
+
     }
-    
-    renderFindTableResponse(){
-        //const foundLocations = this.state.find.names;
+
+    renderFindTableResponse() {
         const foundLocations = this.state.find.map((location) =>
             <tr key={location.id}>
-                <th>{location.name}</th>  
+                <th>{location.name}</th>
                 <th>{location.region}</th>
-                <th><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick={() => this.props.AddTrip(location.latitude, location.longitude)}>Add</Button></th> 
+                <th><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick={() => this.props.AddTrip(location.latitude, location.longitude)}>Add</Button></th>
             </tr>
-            );
-        //this.createLocationTable();  
-        return(
+        );
+        return (
             <table className="table table-striped table-bordered table-sm">
                 <thead>
-                    <tr> 
+                    <tr>
                         <th>
-                        <b>name</b></th>
+                            <b>name</b></th>
                         <th><b>region</b></th>
-			            <th><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick={this.clearTable}>Clear</Button></th>
+                        <th><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick={this.clearTable}>Clear</Button></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -150,35 +148,32 @@ export default class Find extends Component {
             modalFindResponse: !this.state.modalFindResponse
         });
     }
-    functionTakingMatchInput = (event) =>{
-        //this.fetchFind(event.target.value);
-        this.setState({matchName: event.target.value})
-        //console.log(this.state.validServer);
-        //console.log(this.find);
+    functionTakingMatchInput = (event) => {
+        this.setState({ matchName: event.target.value })
     }
     processFindResponse(findResponse) {
         if (!isJsonResponseValid(findResponse, findSchema)) {
-            this.setState({validServer: false, find: false});
+            this.setState({ validServer: false, find: false });
         } else {
-            this.setState({validServer: true, find: findResponse.places});
+            this.setState({ validServer: true, find: findResponse.places });
             this.findResponseToggle();
         }
     }
 
-    fetchFind(){
+    fetchFind() {
         const url = this.state.sPort;
-        sendServerRequest({requestType: "find", match: this.state.matchName, limit: 30 }, url)
-        .then(findResponse => {
-            if (findResponse) {
-                this.processFindResponse(findResponse);
-            } else {
-                this.setState({validServer: false, find: null});
-            }
-        });
+        sendServerRequest({ requestType: "find", match: this.state.matchName, limit: 30 }, url)
+            .then(findResponse => {
+                if (findResponse) {
+                    this.processFindResponse(findResponse);
+                } else {
+                    this.setState({ validServer: false, find: null });
+                }
+            });
     }
 
-    protocolTest(){
-        return(
+    protocolTest() {
+        return (
             <div>
                 {"Current limit(should be 30 after Find): " + this.state.find.limit}
             </div>
