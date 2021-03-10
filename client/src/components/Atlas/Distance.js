@@ -13,7 +13,7 @@ export default class Distance extends Component {
     render() {
         return ( 
             <div>
-                {"Distance!"}
+                <Button className="my-1" onClick ={this.requestUserLocation} color = "primary" block>Distance</Button>
             </div>
         );
     }
