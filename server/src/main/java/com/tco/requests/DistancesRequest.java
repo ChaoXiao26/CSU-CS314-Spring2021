@@ -23,24 +23,42 @@ public class DistancesRequest extends RequestHeader {
     public void tripDistances(){
         String name1, name2, lat1, lat2, lng1, lng2;
         int ALsize = this.places.size();
-
-        for(int i = 0; i < (this.places.size() - 1); i++){
-            Map<String, String> place1 = this.places.get(i);
-            name1 = place1.get("name");
-            lat1 = place1.get("latitude");
-            lng1 = place1.get("longitude");
-            Map<String, String> place2 = this.places.get(i+1);
-            name2 = place2.get("name");
-            lat2 = place2.get("latitude");
-            lng2 = place2.get("longitude");
-            double la1 = Double.parseDouble(lat1);
-            double ln1 = Double.parseDouble(lng1);
-            double la2 = Double.parseDouble(lat2);
-            double ln2 = Double.parseDouble(lng2);
-            distances.add((int)greatCircle(la1, ln1, la2, ln2, 3959));
-        }
         
-        //return 0;
+        if(this.places.size() != 0){
+            for(int i = 0; i < (this.places.size() - 1); i++){
+                Map<String, String> place1 = this.places.get(i);
+                name1 = place1.get("name");
+                lat1 = place1.get("latitude");
+                lng1 = place1.get("longitude");
+                Map<String, String> place2 = this.places.get(i+1);
+                name2 = place2.get("name");
+                lat2 = place2.get("latitude");
+                lng2 = place2.get("longitude");
+                double la1 = Double.parseDouble(lat1);
+                double ln1 = Double.parseDouble(lng1);
+                double la2 = Double.parseDouble(lat2);
+                double ln2 = Double.parseDouble(lng2);
+                distances.add((int)greatCircle(la1, ln1, la2, ln2, 3959));
+            }
+            if(this.places.size() > 2){
+                Map<String, String> place1 = this.places.get(0);
+                name1 = place1.get("name");
+                lat1 = place1.get("latitude");
+                lng1 = place1.get("longitude");
+                Map<String, String> place2 = this.places.get((this.places.size() - 1));
+                name2 = place2.get("name");
+                lat2 = place2.get("latitude");
+                lng2 = place2.get("longitude");
+                double la1 = Double.parseDouble(lat1);
+                double ln1 = Double.parseDouble(lng1);
+                double la2 = Double.parseDouble(lat2);
+                double ln2 = Double.parseDouble(lng2);
+                distances.add((int)greatCircle(la1, ln1, la2, ln2, 3959));
+            }
+            if(this.places.size() == 1){
+                distances.add(0);
+            }
+        }
     }
 
     public double greatCircle(double lat1, double lng1, double lat2, double lng2, double earthRad){
