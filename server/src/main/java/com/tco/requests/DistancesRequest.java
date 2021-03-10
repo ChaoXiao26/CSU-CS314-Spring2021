@@ -8,9 +8,9 @@ import java.util.*;
 
 public class DistancesRequest extends RequestHeader {
     ArrayList<Map<String, String>> places = new ArrayList<Map<String, String>>();
-    private Float earthRadius;
+    private float earthRadius;
     ArrayList<Integer> distances = new ArrayList<Integer>();
-    
+
     public DistancesRequest(ArrayList<Map<String, String>> places, float earthRadius, ArrayList<Integer> distances){
         this.requestType = "distances";
         this.places = places;
@@ -22,9 +22,25 @@ public class DistancesRequest extends RequestHeader {
     
     @Override
     public void buildResponse(){
-       this.distances = new ArrayList<Integer>();
-       //log.trac("buildResponse -> {}", this);
+        log.trace("buildResponse -> {}", this);
     }
     
+    /* The following methods exist only for testing purposes and are not used
+    during normal execution, including the constructor. */
+    
+    public DistancesRequest(){
+        this.requestType = "distances";
+        this.earthRadius = 3959;
+    }
+
+    public DistancesRequest(float earthRadius){
+        this.requestType = "distances";
+        this.earthRadius = earthRadius;
+    }
+
+    public float getEarthRadius() {
+        return earthRadius;
+    }
+
 }
 
