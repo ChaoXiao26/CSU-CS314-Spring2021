@@ -1,0 +1,7 @@
+POST http://localhost:8000/api/distances
+
+{
+  "requestType"    : "distances",
+  "places"         : [],
+  "earthRadius"    : 6371.0
+}
