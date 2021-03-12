@@ -105,6 +105,7 @@ export default class Atlas extends Component {
         const locations = this.state.locations.map((location, i) =>
             <tr key={i+=1}>
                 <th>{i}</th>
+                <th>{location.name}</th>
                 <th>{location.lat.toFixed(6)}</th>
                 <th>{location.lng.toFixed(6)}</th>
                 <th>  {dummyDistance}</th>     
@@ -154,13 +155,16 @@ export default class Atlas extends Component {
         }
     }  
 
-    setMarker(mapClickInfo) {
+    async setMarker(mapClickInfo) {
+        const addressData = await(await fetch(GEOCODE_URL+`${mapClickInfo.latlng.lng},${mapClickInfo.latlng.lat}`)).json();
+        const addressLabel = (addressData.address !== undefined) ? addressData.address.LongLabel : "Unknown";
+        this.setState({names: addressLabel});
+        this.setState({address: addressLabel});
         const locations = this.state.locations;
-        const latlng = {name: this.state.names, ...mapClickInfo.latlng};
-        locations.unshift(mapClickInfo.latlng);
-        console.log(latlng);
+        const namelatlng = {name: this.state.names, ...mapClickInfo.latlng};
+        locations.unshift(namelatlng);
+        console.log(namelatlng);
         this.setState({markerPosition: mapClickInfo.latlng, mapCenter: mapClickInfo.latlng, locations: locations});
-        this.getAddress(mapClickInfo.latlng).then();
     }
     //render marker
     getMarker() {
@@ -190,7 +194,6 @@ export default class Atlas extends Component {
     async getAddress(latlng){
         const addressData = await(await fetch(GEOCODE_URL+`${latlng.lng},${latlng.lat}`)).json();
         const addressLabel = (addressData.address !== undefined) ? addressData.address.LongLabel : "Unknown";
-        this.setState({names: addressLabel});
         console.log(this.state.names);
         this.setState({address: addressLabel});
     }
@@ -230,13 +233,17 @@ export default class Atlas extends Component {
             LOG.info("Geolocation is turned off or not supported by your browser.");
         }
     }
-    handleGeolocation(position){
-        const latlng = {name: this.state.names, lat: position.coords.latitude, lng: position.coords.longitude};
+    async handleGeolocation(position){
+        const latlng = {lat: position.coords.latitude, lng: position.coords.longitude};
+        const addressData = await(await fetch(GEOCODE_URL+`${latlng.lng},${latlng.lat}`)).json();
+        const addressLabel = (addressData.address !== undefined) ? addressData.address.LongLabel : "Unknown";
+        this.setState({names: addressLabel});
+        this.setState({address: addressLabel});
         const locations = this.state.locations;
-        console.log(latlng);
-        locations.unshift(latlng);
+        const namelatlng = {name: this.state.names, lat: position.coords.latitude, lng: position.coords.longitude};
+        console.log(namelatlng);
+        locations.unshift(namelatlng);
         this.setState({mapCenter: latlng, markerPosition: latlng, locations: locations});
-        this.getAddress(latlng).then()
         LOG.info('The user is located at ${JSON.stringify(latlng)}.');
     }
     handleGeolocationError(){
