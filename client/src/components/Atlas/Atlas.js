@@ -74,11 +74,18 @@ export default class Atlas extends Component {
         this.addTableAndPinOnMap();
     }
 
-    addTableAndPinOnMap(){
+    async addTableAndPinOnMap(){
         const coordinates = this.state.coordinates;
         this.setState({mapCenter: coordinates.latLng, markerPosition: coordinates.latLng});
-        this.getAddress(coordinates.latLng);
-	    this.setState({locations: [coordinates.latLng, ...this.state.locations]});
+        //this.getAddress(coordinates.latLng);
+	    //this.setState({locations: [coordinates.latLng, ...this.state.locations]});
+        const addressData = await(await fetch(GEOCODE_URL+`${coordinates.latLng.lng},${coordinates.latLng.lat}`)).json();
+        const addressLabel = (addressData.address !== undefined) ? addressData.address.LongLabel : "Unknown";
+        this.setState({address: addressLabel});
+        const locations = this.state.locations;
+        const namelatlng = {name: addressLabel, ...coordinates.latLng};
+        locations.unshift(namelatlng);
+        this.setState({locations: locations});
     }
 
     renderLeafletMap() {
@@ -259,12 +266,18 @@ export default class Atlas extends Component {
         this.setState({coordinates: coordinates});
     }
 
-    updateCooInput() {
+    async updateCooInput() {
         const coordinates = this.state.coordinates;
 	    if(coordinates.latLng != null){
             this.setState({mapCenter: coordinates.latLng, markerPosition: coordinates.latLng});
-            this.getAddress(coordinates.latLng);
-            this.setState({locations: [coordinates.latLng, ...this.state.locations]});
+            const addressData = await(await fetch(GEOCODE_URL+`${coordinates.latLng.lng},${coordinates.latLng.lat}`)).json();
+            const addressLabel = (addressData.address !== undefined) ? addressData.address.LongLabel : "Unknown";
+            this.setState({address: addressLabel});
+            const locations = this.state.locations;
+            const namelatlng = {name: addressLabel, ...coordinates.latLng};
+            locations.unshift(namelatlng);
+            this.setState({locations: locations});
+            //this.setState({locations: [coordinates.latLng, ...this.state.locations]});
 	    }
     }
     
