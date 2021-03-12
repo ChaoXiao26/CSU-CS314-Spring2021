@@ -17,6 +17,7 @@
 
 | file:line | problem | hi/med/low | who found | github#  |
 | --- | --- | :---: | :---: | --- |
+| Atlas.js:109 | the table gets too wide on mobile| hi | Fan| |
 | Atlas.js:77, 166, 244, 269 | some duplicated code| med | Fan| |
 |  | | | | |
 |  | | | | |
