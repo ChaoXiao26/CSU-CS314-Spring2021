@@ -26,7 +26,7 @@ describe('Atlas', () => {
 
         expect(actualMarkerPosition).toEqual(expectedMarkerPosition);
 
-        const clickPosition = {lat: 0, lng: 0};
+        const clickPosition = {lat: 40.5734, lng: -105.0865};
         simulateOnClickEvent(atlasWrapper, {latlng: clickPosition});
 
         expect(atlasWrapper.state().markerPosition).toEqual(clickPosition);
