@@ -124,6 +124,7 @@ export default class Atlas extends Component {
                 <thead>
                     <tr> 
                         <th className="smallCell"><b>#</b></th>
+                        <th><b>Address</b></th>
                         <th><b>Latitude</b></th>
                         <th><b>Longitude</b></th>
                         <th><b>Cumulative Distance</b></th>   
