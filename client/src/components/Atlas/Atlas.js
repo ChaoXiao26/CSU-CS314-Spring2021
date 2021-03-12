@@ -22,7 +22,7 @@ export default class Atlas extends Component {
 
     constructor(props) {
         super(props);
-        
+
         this.requestUserLocation = this.requestUserLocation.bind(this);
         this.handleGeolocation = this.handleGeolocation.bind(this);
         this.setMarker = this.setMarker.bind(this);
@@ -38,6 +38,7 @@ export default class Atlas extends Component {
         this.state = {
             mapCenter: MAP_CENTER_DEFAULT,
             markerPosition: MAP_CENTER_DEFAULT,
+            names: null,
             locations: [],
             coordinates: {
                 inputText: "",
@@ -155,7 +156,9 @@ export default class Atlas extends Component {
 
     setMarker(mapClickInfo) {
         const locations = this.state.locations;
+        const latlng = {name: this.state.names, ...mapClickInfo.latlng};
         locations.unshift(mapClickInfo.latlng);
+        console.log(latlng);
         this.setState({markerPosition: mapClickInfo.latlng, mapCenter: mapClickInfo.latlng, locations: locations});
         this.getAddress(mapClickInfo.latlng).then();
     }
@@ -187,6 +190,8 @@ export default class Atlas extends Component {
     async getAddress(latlng){
         const addressData = await(await fetch(GEOCODE_URL+`${latlng.lng},${latlng.lat}`)).json();
         const addressLabel = (addressData.address !== undefined) ? addressData.address.LongLabel : "Unknown";
+        this.setState({names: addressLabel});
+        console.log(this.state.names);
         this.setState({address: addressLabel});
     }
 
@@ -226,8 +231,9 @@ export default class Atlas extends Component {
         }
     }
     handleGeolocation(position){
-        const latlng = {lat: position.coords.latitude, lng: position.coords.longitude};
+        const latlng = {name: this.state.names, lat: position.coords.latitude, lng: position.coords.longitude};
         const locations = this.state.locations;
+        console.log(latlng);
         locations.unshift(latlng);
         this.setState({mapCenter: latlng, markerPosition: latlng, locations: locations});
         this.getAddress(latlng).then()
