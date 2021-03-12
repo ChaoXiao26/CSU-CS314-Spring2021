@@ -17,5 +17,6 @@
 
 | file:line | problem | hi/med/low | who found | github#  |
 | --- | --- | :---: | :---: | --- |
+| Atlas.js:77, 166, 244, 269 | some duplicated code| med | Fan| |
 |  | | | | |
 |  | | | | |
