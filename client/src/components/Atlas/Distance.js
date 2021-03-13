@@ -2,7 +2,11 @@ import React, {Component, useEffect} from 'react';
 import {Button, InputGroup, InputGroupAddon, InputGroupText, Input, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 import 'leaflet/dist/leaflet.css';
 import Coordinates from "coordinate-parser";
+import { sendServerRequest, isJsonResponseValid, getOriginalServerPort } from "../../utils/restfulAPI";
 import * as findSchema from "../../../schemas/DistancesResponse";
+
+const SerPort = getOriginalServerPort()
+
 
 export default class Distance extends Component {
     constructor(props) {
@@ -10,14 +14,17 @@ export default class Distance extends Component {
         this.props = props;
         this.DistanceToggle = this.DistanceToggle.bind(this);
         this.testLocationsFromAtlas = this.testLocationsFromAtlas.bind(this);
+        this.formatDataFromAtlas = this.formatDataFromAtlas.bind(this)
         
         this.state = {
+            sPort: getOriginalServerPort(),
             modalDistance: false,
-               //to import locations from atlas
+            modalDisatanceResponse: false,
+            validServer: null,
         }
     }
     render() {
-        this.testLocationsFromAtlas();
+       this.testLocationsFromAtlas(); 
         return ( 
             <div>
                 <Button className="my-1" onClick ={this.DistanceToggle} color = "primary" block>Distance</Button>
@@ -63,9 +70,24 @@ export default class Distance extends Component {
             modalDistance: !this.state.modalDistance
         });
     }
+
+    formatDataFromAtlas(){
+        const formattedLocations = [];
+        for(let i =0; i< this.props.locations.length; i++){
+            let location = {
+                latitude: this.props.locations[i].lat,
+                longitude: this.props.locations[i].lng
+            };
+            console.log(location);
+            formattedLocations.push(location);
+        }
+        return formattedLocations;
+
+    }
     testLocationsFromAtlas(){
        //console.log("Hello World");
-        //console.log(this.props.locations);
+        console.log(this.formatDataFromAtlas());
+        
 
     }
 }
