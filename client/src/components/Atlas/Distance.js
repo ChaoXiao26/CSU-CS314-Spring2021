@@ -5,6 +5,10 @@ import Coordinates from "coordinate-parser";
 import { sendServerRequest, isJsonResponseValid, getOriginalServerPort } from "../../utils/restfulAPI";
 import * as findSchema from "../../../schemas/DistancesResponse";
 
+<<<<<<< HEAD
+=======
+const SerPort = getOriginalServerPort()
+>>>>>>> 13334191bff3fa02929ec7ad15e114315ce43820
 
 export default class Distance extends Component {
     constructor(props) {
@@ -17,11 +21,15 @@ export default class Distance extends Component {
         this.state = {
             sPort: getOriginalServerPort(),
             modalDistance: false,
+<<<<<<< HEAD
+=======
+            modalDisatanceResponse: false,
+>>>>>>> 13334191bff3fa02929ec7ad15e114315ce43820
             validServer: null,
         }
     }
     render() {
-        this.testLocationsFromAtlas();
+        
         return ( 
             <div>
                 <Button className="my-1" onClick ={this.DistanceToggle} color = "primary" block>Distance</Button>
