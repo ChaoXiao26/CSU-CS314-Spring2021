@@ -12,6 +12,7 @@ export default class Distance extends Component {
         this.props = props;
         this.DistanceToggle = this.DistanceToggle.bind(this);
         this.testLocationsFromAtlas = this.testLocationsFromAtlas.bind(this);
+        this.formatDataFromAtlas = this.formatDataFromAtlas.bind(this)
         
         this.state = {
             sPort: getOriginalServerPort(),
@@ -66,9 +67,24 @@ export default class Distance extends Component {
             modalDistance: !this.state.modalDistance
         });
     }
+
+    formatDataFromAtlas(){
+        const formattedLocations = [];
+        for(let i =0; i< this.props.locations.length; i++){
+            let location = {
+                latitude: this.props.locations[i].lat,
+                longitude: this.props.locations[i].lng
+            };
+            console.log(location);
+            formattedLocations.push(location);
+        }
+        return formattedLocations;
+
+    }
     testLocationsFromAtlas(){
        //console.log("Hello World");
-        //console.log(this.props.locations);
+        console.log(this.formatDataFromAtlas());
+        
 
     }
 }
