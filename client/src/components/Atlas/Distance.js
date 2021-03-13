@@ -2,7 +2,9 @@ import React, {Component, useEffect} from 'react';
 import {Button, InputGroup, InputGroupAddon, InputGroupText, Input, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 import 'leaflet/dist/leaflet.css';
 import Coordinates from "coordinate-parser";
+import { sendServerRequest, isJsonResponseValid, getOriginalServerPort } from "../../utils/restfulAPI";
 import * as findSchema from "../../../schemas/DistancesResponse";
+
 
 export default class Distance extends Component {
     constructor(props) {
@@ -12,8 +14,9 @@ export default class Distance extends Component {
         this.testLocationsFromAtlas = this.testLocationsFromAtlas.bind(this);
         
         this.state = {
+            sPort: getOriginalServerPort(),
             modalDistance: false,
-               //to import locations from atlas
+            validServer: null,
         }
     }
     render() {
