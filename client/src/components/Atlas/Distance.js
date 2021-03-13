@@ -21,10 +21,7 @@ export default class Distance extends Component {
         this.state = {
             sPort: getOriginalServerPort(),
             modalDistance: false,
-<<<<<<< HEAD
-=======
             modalDisatanceResponse: false,
->>>>>>> 13334191bff3fa02929ec7ad15e114315ce43820
             validServer: null,
         }
     }
