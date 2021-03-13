@@ -81,6 +81,7 @@ During the Sprint 2 we have completed four epics and have left "find places" epi
 | *3/5/2021* | *#Fixed protocol find epic bugs<br /> #Created UI and button for find places epic* | *#Assign jobs for each teammate for find places<br /> #Working on link database with Atalas file and completing "find places" epic* |  | 
 | *3/8/2021* | *#Finished "find places" epic<br /> #Group meeting discussion for inspection1.md <br /> #Create basic file for "Protocol distance" epic* | *#Refine "Protocol distance" epic*|  | 
 | *3/10/2021* | *#Finished "Protocol Distances" epic<br /> #Enable calculate distance functionality <br /> #deploying our server to school server* | *#Working on "Calculate Distance API"*|  | 
+| *3/12/2021* | *#Diaplay places details in table and map* | *#Working on tests for "places details" <br /> #Working on connecting distances protocol with server*|  | 
 
 
 ## Review
