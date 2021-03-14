@@ -2,15 +2,15 @@
  
 | Inspection | Details |
 | ----- | ----- |
-| Subject | *file and methods/line range to review for meeting* |
-| Meeting | *date, time, location* |
-| Checklist | *reference, URL, etc.* |
+| Subject | *Atlas.js* |
+| Meeting | *Monday, 2:00, Teams* |
+| Checklist | *checklist.md* |
 
 ### Roles
 
 | Name | Preparation Time |
 | ---- | ---- |
-|  |  |
+|  Sam  | 1hr |  
 |  |  |
 
 ### Problems found
@@ -19,5 +19,5 @@
 | --- | --- | :---: | :---: | --- |
 | Atlas.js:109 | the table gets too wide on mobile| hi | Fan| |
 | Atlas.js:77, 166, 244, 269 | some duplicated code| med | Fan| |
-|  | | | | |
-|  | | | | |
+| Atlas.js:68 | possiblity for incorrect type of arg to be passed | med | Sam | |
+|  Atlas.js:284 | Not all potential errors accounted for. Incorrect argument could be passed | med | Sam | |
