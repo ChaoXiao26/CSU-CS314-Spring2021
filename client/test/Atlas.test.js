@@ -33,6 +33,18 @@ describe('Atlas', () => {
         expect(atlasWrapper.find(Marker).length).toEqual(1);
     });
 
+    it('Table display name correctly', () => {
+        const actualName = atlasWrapper.state().locations;
+        const expectedName = []
+        expect(actualName).toEqual(expectedName);
+    })
+
+    it('Map display name correctly', () => {
+        const actualName = atlasWrapper.state().names;
+        const expectedName = null
+        expect(actualName).toEqual(expectedName);
+    })
+
     function simulateOnClickEvent(wrapper, event) {
         wrapper.find('Map').at(0).simulate('click', event);
         wrapper.update();
