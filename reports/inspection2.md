@@ -11,6 +11,7 @@
 | Name | Preparation Time |
 | ---- | ---- |
 |  Sam  | 1hr |  
+|  Mark | 1hr |
 |  |  |
 
 ### Problems found
@@ -21,3 +22,7 @@
 | Atlas.js:77, 166, 244, 269 | some duplicated code| med | Fan| |
 | Atlas.js:68 | possiblity for incorrect type of arg to be passed | med | Sam | |
 |  Atlas.js:284 | Not all potential errors accounted for. Incorrect argument could be passed | med | Sam | |
+|  Atlas.js:273 | Similar blocks of code found in 2 locations code smell | low | Mark | |
+|  Atlas.js:167 | Similar blocks of code found in 2 locations code smell | low | Mark | |
+|  Atlas.js:203 | Similar blocks of code found in 2 locations code smell | low | Mark | |
+|  Atlas.js:246 | Similar blocks of code found in 2 locations code smell | low | Mark | |
