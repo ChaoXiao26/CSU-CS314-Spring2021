@@ -28,4 +28,4 @@
 |  Atlas.js:167 | Similar blocks of code found in 2 locations code smell | low | Mark | |
 |  Atlas.js:203 | Similar blocks of code found in 2 locations code smell | low | Mark | |
 |  Atlas.js:246 | Similar blocks of code found in 2 locations code smell | low | Mark | |
-| Atlas.js:68 | duplicated function for calling "coordinates"| med | Yuxin| |
+| Atlas.js:68 | duplicated function for calling "coordinates"| med | Yuxin| 585 |
