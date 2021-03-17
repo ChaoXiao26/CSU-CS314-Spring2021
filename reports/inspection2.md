@@ -14,7 +14,7 @@
 |  Mark | 1hr |
 |  Fan | 1hr |
 |  Yuxin | 1hr |
-|  |  |
+| Tomas | 1hr |
 
 ### Problems found
 
@@ -25,3 +25,4 @@
 | Atlas.js:68 | possiblity for incorrect type of arg to be passed | med | Sam | |
 |  Atlas.js:284 | Not all potential errors accounted for. Incorrect argument could be passed | med | Sam | 581 |
 |  Atlas.js:273 167 246 68 | turn address data into a function that returns geocode | low | Mark | |
+|  Atlas.js:56| users location automatically populates trip as opposed to waiting for user to initiate trip | low | Tomas | |
