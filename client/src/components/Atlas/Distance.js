@@ -13,10 +13,8 @@ export default class Distance extends Component {
         super(props);
         this.props = props;
         this.DistanceToggle = this.DistanceToggle.bind(this);
-        this.testLocationsFromAtlas = this.testLocationsFromAtlas.bind(this);
         this.formatDataFromAtlas = this.formatDataFromAtlas.bind(this)
         this.distancesResponseToggle = this.distancesResponseToggle.bind(this);
-        this.functionTakingFormattedLocations = this.functionTakingFormattedLocations.bind(this);
         this.fetchDistances = this.fetchDistances.bind(this);
         this.processDistanceResponse = this.processDistanceResponse.bind(this);
         
@@ -29,7 +27,6 @@ export default class Distance extends Component {
         }
     }
     render() {
-       this.testLocationsFromAtlas(); 
         return ( 
             <div>
                 <Button className="my-1" onClick ={this.DistanceToggle} color = "primary" block>Distance</Button>
@@ -80,8 +77,8 @@ export default class Distance extends Component {
         const formattedLocations = [];
         for(let i =0; i< this.props.locations.length; i++){
             let location = {
-                latitude: this.props.locations[i].lat,
-                longitude: this.props.locations[i].lng
+                latitude: (this.props.locations[i].lat).toString(),
+                longitude: (this.props.locations[i].lng).toString()
             };
             console.log(location);
             formattedLocations.push(location);
@@ -93,10 +90,6 @@ export default class Distance extends Component {
         this.setState({
             modalDistanceResponse: !this.state.modalDistanceResponse
         });
-    }
-
-    functionTakingFormattedLocations = (event) => {
-        this.setState({ distances: event.target.value })
     }
 
 
@@ -119,11 +112,5 @@ export default class Distance extends Component {
             this.setState({ validServer: true, places: distancesResponse.places, earthRadius: distancesResponse.earthRadius, distances: distancesResponse.distances });
             this.distancesResponseToggle();
         }
-    }
-    testLocationsFromAtlas(){
-       //console.log("Hello World");
-        console.log(this.formatDataFromAtlas());
-        
-
     }
 }
