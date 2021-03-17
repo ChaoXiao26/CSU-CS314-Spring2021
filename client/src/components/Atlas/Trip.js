@@ -11,12 +11,36 @@ export default class Trip extends Component {
     constructor(props) {
         super(props);
         this.props = props;
-    
+        this.getLocationsFromAtlas = this.getLocationsFromAtlas.bind(this);
+        this.testLocations = this.testLocations.bind(this);
         this.state = {
 
         }
     }
-    render() {
-       
+
+    getLocationsFromAtlas(){
+        const locations = [];
+        for(let i =0; i< this.props.locations.length; i++){
+            let location = {
+                name: this.props.locations[i].name,
+                latitude: this.props.locations[i].lat,
+                longitude: this.props.locations[i].lng
+            };
+            locations.push(location);
+        }
+        return locations;
     }
+
+    render() {
+        //this.testLocations(); 
+        return(
+            <div>
+                {/*"Trip"*/}
+            </div>
+       );
+    }
+
+    testLocations(){
+        console.log(this.getLocationsFromAtlas());
+     }
 }
