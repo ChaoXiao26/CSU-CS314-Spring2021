@@ -98,7 +98,7 @@ export default class Distance extends Component {
 
     fetchFind() {
         const url = this.state.sPort;
-        sendServerRequest({ requestType: "distances", places: this.state.places, radius: this.state.radius }, url)
+        sendServerRequest({ requestType: "distances", places: this.formatDataFromAtlas, radius: 3959 }, url)
             .then(distancesResponse => {
                 if (Response) {
                     this.processDistanceResponse(distancesResponse);
