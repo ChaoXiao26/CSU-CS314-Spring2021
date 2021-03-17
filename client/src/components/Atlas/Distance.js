@@ -102,12 +102,12 @@ export default class Distance extends Component {
 
     fetchDistances() {
         const url = this.state.sPort;
-        sendServerRequest({ requestType: "distances", places: this.formatDataFromAtlas, radius: 3959 }, url)
+        sendServerRequest({ requestType: "distances", places: this.formatDataFromAtlas(), earthRadius: 3959 }, url)
             .then(distancesResponse => {
                 if (Response) {
                     this.processDistanceResponse(distancesResponse);
                 } else {
-                    this.setState({ validServer: false, places: null, radius: null, distances: null });
+                    this.setState({ validServer: false, places: null, earthRadius: null, distances: null });
                 }
             });
     }
@@ -116,7 +116,7 @@ export default class Distance extends Component {
         if (!isJsonResponseValid(distancesResponse, distancesSchema)) {
             this.setState({ validServer: false, find: false });
         } else {
-            this.setState({ validServer: true, places: distancesResponse.places, radius: distancesResponse.radius, distances: distancesResponse.distances });
+            this.setState({ validServer: true, places: distancesResponse.places, earthRadius: distancesResponse.earthRadius, distances: distancesResponse.distances });
             this.distancesResponseToggle();
         }
     }
