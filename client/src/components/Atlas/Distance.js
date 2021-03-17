@@ -3,7 +3,7 @@ import {Button, InputGroup, InputGroupAddon, InputGroupText, Input, Modal, Modal
 import 'leaflet/dist/leaflet.css';
 import Coordinates from "coordinate-parser";
 import { sendServerRequest, isJsonResponseValid, getOriginalServerPort } from "../../utils/restfulAPI";
-import * as findSchema from "../../../schemas/DistancesResponse";
+import * as distancesSchema from "../../../schemas/DistancesResponse";
 
 const SerPort = getOriginalServerPort()
 
@@ -19,8 +19,9 @@ export default class Distance extends Component {
         this.state = {
             sPort: getOriginalServerPort(),
             modalDistance: false,
-            modalDisatanceResponse: false,
+            modalDistanceResponse: false,
             validServer: null,
+            distances: [],
         }
     }
     render() {
@@ -82,7 +83,38 @@ export default class Distance extends Component {
             formattedLocations.push(location);
         }
         return formattedLocations;
+    }
+    
+    distancesResponseToggle() {
+        this.setState({
+            modalDistanceResponse: !this.state.modalDistanceResponse
+        });
+    }
 
+    functionTakingFormattedLocations = (event) => {
+        this.setState({ distances: event.target.value })
+    }
+
+
+    fetchFind() {
+        const url = this.state.sPort;
+        sendServerRequest({ requestType: "distances", places: this.formatDataFromAtlas, radius: 3959 }, url)
+            .then(distancesResponse => {
+                if (Response) {
+                    this.processDistanceResponse(distancesResponse);
+                } else {
+                    this.setState({ validServer: false, places: null, radius: null, distances: null });
+                }
+            });
+    }
+
+    processDistanceResponse(distancesResponse) {
+        if (!isJsonResponseValid(distancesResponse, distancesSchema)) {
+            this.setState({ validServer: false, find: false });
+        } else {
+            this.setState({ validServer: true, places: distancesResponse.places, radius: distancesResponse.radius, distances: distancesResponse.distances });
+            this.distancesResponseToggle();
+        }
     }
     testLocationsFromAtlas(){
        //console.log("Hello World");
