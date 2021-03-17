@@ -33,7 +33,6 @@ export default class Atlas extends Component {
 	    this.updateCooInput = this.updateCooInput.bind(this);
         this.addTrip = this.addTrip.bind(this);
         this.addTableAndPinOnMap = this.addTableAndPinOnMap.bind(this);
-        this.processLocationForLine = this.processLocationForLine.bind(this);
         this.requestUserLocation();
         
 
