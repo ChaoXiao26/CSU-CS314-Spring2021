@@ -8,6 +8,7 @@ import Coordinates from "coordinate-parser";
 import 'leaflet/dist/leaflet.css';
 import Find from './Find';
 import Distance from './Distance';
+import Trip from './Trip';
 
 const MAP_BOUNDS = [[-90, -180], [90, 180]];
 const MAP_CENTER_DEFAULT = L.latLng(40.5734, -105.0865);
