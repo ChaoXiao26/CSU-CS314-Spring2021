@@ -192,9 +192,10 @@ export default class Atlas extends Component {
     }
 	
     clearTable(){
-	this.state.locations.length = 0;
-	this.setState({markerPosition: MAP_CENTER_DEFAULT, mapCenter: MAP_CENTER_DEFAULT, locations : this.state.locations});
+	    this.state.locations.length = 0;
+	    this.setState({markerPosition: MAP_CENTER_DEFAULT, mapCenter: MAP_CENTER_DEFAULT, locations : this.state.locations});
         this.getAddress(MAP_CENTER_DEFAULT).then();
+        this.processLocationForLine();
     }
 
     handleRemoveDestination(i){
