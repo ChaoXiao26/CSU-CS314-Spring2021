@@ -15,6 +15,10 @@ export default class Distance extends Component {
         this.DistanceToggle = this.DistanceToggle.bind(this);
         this.testLocationsFromAtlas = this.testLocationsFromAtlas.bind(this);
         this.formatDataFromAtlas = this.formatDataFromAtlas.bind(this)
+        this.distancesResponseToggle = this.distancesResponseToggle.bind(this);
+        this.functionTakingFormattedLocations = this.functionTakingFormattedLocations.bind(this);
+        this.fetchDistances = this.fetchDistances.bind(this);
+        this.processDistanceResponse = this.processDistanceResponse.bind(this);
         
         this.state = {
             sPort: getOriginalServerPort(),
@@ -96,7 +100,7 @@ export default class Distance extends Component {
     }
 
 
-    fetchFind() {
+    fetchDistances() {
         const url = this.state.sPort;
         sendServerRequest({ requestType: "distances", places: this.formatDataFromAtlas, radius: 3959 }, url)
             .then(distancesResponse => {
