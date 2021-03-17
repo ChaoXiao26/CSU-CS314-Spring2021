@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Col, Container, Row, Button, InputGroup, InputGroupAddon, InputGroupText, Input} from 'reactstrap';
-import {Map, Marker, Popup, TileLayer} from 'react-leaflet';
+import {Map, Marker,Polyline, Popup, TileLayer, FeatureGroup} from 'react-leaflet';
 import {LOG} from "../../utils/constants";
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
@@ -41,10 +41,25 @@ export default class Atlas extends Component {
             markerPosition: MAP_CENTER_DEFAULT,
             names: null,
             locations: [],
+            line: [],
             coordinates: {
                 inputText: "",
                 latLng: null
-            }
+            },
+            testData: [
+                {
+                  fromlat: "40.570968",
+                  fromlng: "-105.085838",
+                  tolat: "39.955200",
+                  tolng: "-104.928800",
+                },
+                {
+                  fromlat: "39.955200",
+                  fromlng: "-104.928800",
+                  tolat: "34",
+                  tolng: "-118",
+                }
+            ]
         };
     }
 
@@ -88,8 +103,26 @@ export default class Atlas extends Component {
         const namelatlng = {name: addressLabel, ...coordinates.latLng};
         locations.unshift(namelatlng);
         this.setState({locations: locations});
+        this.processLocationForLine();
     }
 
+    processLocationForLine(){
+        const loca = [];
+        if(this.state.locations.length > 1){
+            console.log("process locall")
+            for(let i = 1; i< this.state.locations.length; i++){
+                let location = {
+                    fromlat: this.state.locations[i-1].lat,
+                    fromlng: this.state.locations[i-1].lng,
+                    tolat: this.state.locations[i].lat,
+                    tolng: this.state.locations[i].lng
+                };
+                loca.push(location);
+            }
+        }
+        this.setState({line: loca});
+        console.log(this.state.line);   
+    }
     renderLeafletMap() {
         return (
             <Map
@@ -102,8 +135,19 @@ export default class Atlas extends Component {
                 maxBounds={MAP_BOUNDS}
                 center={this.state.mapCenter}
                 onClick={this.setMarker}
-            >
+            >   
+
                 <TileLayer url={MAP_LAYER_URL} attribution={MAP_LAYER_ATTRIBUTION}/>
+                <FeatureGroup>
+                    {this.state.locations.map((location, i) => {
+                        return <Marker icon={MARKER_ICON} position={location}/>
+                        }
+                    )}
+                    {this.state.line.map(({fromlat, fromlng, tolat, tolng}) => {
+                        return <Polyline positions={[[fromlat, fromlng], [tolat, tolng],]} color={'blue'} />
+                        }
+                    )}
+                </FeatureGroup>
                 {this.getMarker()}
             </Map>
         );
@@ -125,7 +169,6 @@ export default class Atlas extends Component {
 
             //DELETE
             //console.log(locations);
-
 
 
         return(
@@ -163,6 +206,7 @@ export default class Atlas extends Component {
             this.setState({markerPosition: locations[0], mapCenter: locations[0], locations: locations});
             this.getAddress(locations[0]).then();
         }
+        this.processLocationForLine();
     }  
 
     async setMarker(mapClickInfo) {
@@ -175,6 +219,7 @@ export default class Atlas extends Component {
         locations.unshift(namelatlng);
         console.log(namelatlng);
         this.setState({markerPosition: mapClickInfo.latlng, mapCenter: mapClickInfo.latlng, locations: locations});
+        this.processLocationForLine()
     }
     //render marker
     getMarker() {
@@ -255,6 +300,7 @@ export default class Atlas extends Component {
         locations.unshift(namelatlng);
         this.setState({mapCenter: latlng, markerPosition: latlng, locations: locations});
         LOG.info('The user is located at ${JSON.stringify(latlng)}.');
+        this.processLocationForLine();
     }
     handleGeolocationError(){
         LOG.info("Error retrieving the user's positions.")
@@ -279,7 +325,8 @@ export default class Atlas extends Component {
             const namelatlng = {name: addressLabel, ...coordinates.latLng};
             locations.unshift(namelatlng);
             this.setState({locations: locations});
-            //this.setState({locations: [coordinates.latLng, ...this.state.locations]});
+            //this.setState({locations: [coordinates.latLng, ...this.state.locations]});\
+            this.processLocationForLine();
 	    }
     }
     
