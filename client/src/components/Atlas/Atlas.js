@@ -33,6 +33,7 @@ export default class Atlas extends Component {
 	    this.updateCooInput = this.updateCooInput.bind(this);
         this.addTrip = this.addTrip.bind(this);
         this.addTableAndPinOnMap = this.addTableAndPinOnMap.bind(this);
+        this.MarkSelect = this.MarkSelect.bind(this);
         this.requestUserLocation();
         
 
@@ -175,7 +176,8 @@ export default class Atlas extends Component {
                 <th>{location.name}</th>
                 <th>{location.lat.toFixed(6)}</th>
                 <th>{location.lng.toFixed(6)}</th>
-                <th>  {dummyDistance}</th>     
+                <th>  {dummyDistance}</th>
+                <th><button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick ={() => this.MarkSelect(location)}>mark </button></th>      
                 <th><button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick ={() => this.handleRemoveDestination(i-=1)}>X </button></th> 
                 
             </tr>
@@ -194,7 +196,8 @@ export default class Atlas extends Component {
                         <th><b>Address</b></th>
                         <th><b>Latitude</b></th>
                         <th><b>Longitude</b></th>
-                        <th><b>Cumulative Distance</b></th>   
+                        <th><b>Cumulative Distance</b></th>
+                        <th className="smallCell"><b>Mark</b></th>   
 			            <th className="smallCell"><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick={this.clearTable}>Clear</Button></th>
                         <th><button color="success" type="button" className="btn btn-secondary btn-block float-right" >Total/Distance </button></th> 
                     </tr>
@@ -369,4 +372,7 @@ export default class Atlas extends Component {
         this.setState({distances: childData})
     }
     
+    MarkSelect(location){
+        this.setState({markerPosition: location, mapCenter: location});
+    }
 }
