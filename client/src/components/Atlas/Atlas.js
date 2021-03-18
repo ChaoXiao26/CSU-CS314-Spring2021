@@ -186,12 +186,12 @@ export default class Atlas extends Component {
         for (let i=0; i<end; i++){
             sum+=this.state.distances[i]
         }
-        console.log(sum);
+        //console.log(sum);
         return sum;
     }
     renderLocationTable() {
         //apply this function to each element in locations array
-        console.log(this.state.distances)
+        //console.log(this.state.distances)
         //console.log(this.state.locations)
         const locations = this.state.locations.slice(0).reverse().map((location, i) =>
             <tr key={i+=1}>
