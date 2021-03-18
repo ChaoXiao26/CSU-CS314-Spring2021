@@ -31,6 +31,7 @@ export default class Distance extends Component {
             <div>
                 <Button className="my-1" onClick ={this.DistanceToggle} color = "primary" block>Distance</Button>
                 {this.DistancePopup()}
+                {this.handleReturnToParent}
             </div>
             
         );
@@ -113,4 +114,8 @@ export default class Distance extends Component {
             this.distancesResponseToggle();
         }
     }
+    handleReturnToParent = () =>{
+        this.props.parentCallBack(this.state.distances)
+    }
+
 }

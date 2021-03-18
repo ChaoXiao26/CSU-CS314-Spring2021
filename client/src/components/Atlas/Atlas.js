@@ -128,7 +128,7 @@ export default class Atlas extends Component {
             //DELETE
             //console.log(locations);
 
-
+        console.log(this.state.distances)
 
         return(
             <table className="table table-striped table-bordered table-sm">
