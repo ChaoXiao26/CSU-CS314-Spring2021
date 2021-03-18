@@ -64,7 +64,7 @@ public class DistancesRequest extends RequestHeader {
     public double greatCircle(double lat1, double lng1, double lat2, double lng2, double earthRad){
         if ((lat1 != lat2) && (lng1 != lng2)){
 
-			double dLat = Math.toRadians(lat1 - lat2);
+			double dLat = Math.toRadians(lat2 - lat1);
             double dLng = Math.toRadians(lng2 - lng1);
 
 			double a = Math.sin(dLat/2) * Math.sin(dLat/2)
@@ -73,7 +73,7 @@ public class DistancesRequest extends RequestHeader {
             double angle = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 
 			double dist = 0;
-            dist = angle * earthRad;
+            dist = angle * earthRad + 0.5;
 
 			return (dist);
 		}
