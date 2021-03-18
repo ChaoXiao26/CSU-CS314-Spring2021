@@ -35,6 +35,8 @@ export default class Atlas extends Component {
         this.addTableAndPinOnMap = this.addTableAndPinOnMap.bind(this);
         this.MarkSelect = this.MarkSelect.bind(this);
         this.requestUserLocation();
+
+        this.formatDataFromAtlas = this.formatDataFromAtlas.bind(this)
         
 
         this.state = {
@@ -108,6 +110,7 @@ export default class Atlas extends Component {
         locations.unshift(namelatlng);
         this.setState({locations: locations});
         this.processLocationForLine();
+        console.log(this.formatDataFromAtlas())
     }
 
     processLocationForLine(){
@@ -374,5 +377,16 @@ export default class Atlas extends Component {
     
     MarkSelect(location){
         this.setState({markerPosition: location, mapCenter: location});
+    }
+    formatDataFromAtlas(){
+        const formattedLocations = [];
+        for(let i =0; i< this.state.locations.length; i++){
+            let location = {
+                latitude: (this.state.locations[i].lat).toString(),
+                longitude: (this.state.locations[i].lng).toString()
+            };
+            formattedLocations.push(location);
+        }
+        return formattedLocations;
     }
 }
