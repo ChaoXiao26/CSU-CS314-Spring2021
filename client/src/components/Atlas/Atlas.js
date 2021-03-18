@@ -354,7 +354,6 @@ export default class Atlas extends Component {
     }
     handleCallback = (childData) =>{
         this.setState({distances: childData})
-        console.log(distances)
     }
     
 }
