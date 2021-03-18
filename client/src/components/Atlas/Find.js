@@ -94,7 +94,6 @@ export default class Find extends Component {
                             {"url: " + (this.state.sPort + "/api/find")}
                         </div>
                         <Button onClick={this.fetchFind} color="success">Find</Button>
-                        <Button color='secondary' onClick={this.findToggleNew}>Cancel/Done</Button>
                     </ModalFooter>
                 </Modal>
             </div>
@@ -134,7 +133,6 @@ export default class Find extends Component {
                         <th>
                             <b>name</b></th>
                         <th><b>region</b></th>
-                        <th><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick={this.clearTable}>Clear</Button></th>
                     </tr>
                 </thead>
                 <tbody>
