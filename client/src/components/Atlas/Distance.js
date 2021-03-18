@@ -81,7 +81,6 @@ export default class Distance extends Component {
                 latitude: (this.props.locations[i].lat).toString(),
                 longitude: (this.props.locations[i].lng).toString()
             };
-            console.log(location);
             formattedLocations.push(location);
         }
         return formattedLocations;
