@@ -189,7 +189,7 @@ export default class Atlas extends Component {
 
 
         return(
-            <table className="table table-striped table-bordered table-sm">
+            <table className="table table-striped table-bordered table-sm table-responsive">
                 <thead>
                     <tr> 
                         <th className="smallCell"><b>#</b></th>
