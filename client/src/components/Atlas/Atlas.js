@@ -41,7 +41,11 @@ export default class Atlas extends Component {
             markerPosition: MAP_CENTER_DEFAULT,
             names: null,
             locations: [],
+<<<<<<< HEAD
             line: [],
+=======
+            distances: [],
+>>>>>>> 27db66a5db46ba769518514b46cfcc4b75a11ecf
             coordinates: {
                 inputText: "",
                 latLng: null
@@ -73,7 +77,8 @@ export default class Atlas extends Component {
 			                {this.renderCoordinatesInput()}
                             {this.renderLeafletMap()}
                             {this.renderFindMeButtom()}
-                            <Distance locations = {this.state.locations}/>
+                            <Distance locations = {this.state.locations}
+                            parentCallback = {this.handleCallback}/>
                             <Trip locations = {this.state.locations}/>
                             {this.renderLocationTable()}
                         </Col>
@@ -170,6 +175,8 @@ export default class Atlas extends Component {
             //DELETE
             //console.log(locations);
 
+
+        console.log(this.state.distances)
 
         return(
             <table className="table table-striped table-bordered table-sm">
@@ -352,6 +359,9 @@ export default class Atlas extends Component {
             </h4>
           );
         }
+    }
+    handleCallback = (childData) =>{
+        this.setState({distances: childData})
     }
     
 }
