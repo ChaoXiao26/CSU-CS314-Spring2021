@@ -38,7 +38,7 @@ public class DistancesRequest extends RequestHeader {
                 double ln1 = Double.parseDouble(lng1);
                 double la2 = Double.parseDouble(lat2);
                 double ln2 = Double.parseDouble(lng2);
-                distances.add((int)greatCircle(la1, ln1, la2, ln2, 3959));
+                distances.add((int)greatCircle(la1, ln1, la2, ln2, this.earthRadius));
             }
             if(this.places.size() > 2){
                 Map<String, String> place1 = this.places.get(0);
@@ -53,7 +53,7 @@ public class DistancesRequest extends RequestHeader {
                 double ln1 = Double.parseDouble(lng1);
                 double la2 = Double.parseDouble(lat2);
                 double ln2 = Double.parseDouble(lng2);
-                distances.add((int)greatCircle(la1, ln1, la2, ln2, 3959));
+                distances.add((int)greatCircle(la1, ln1, la2, ln2, this.earthRadius));
             }
             if(this.places.size() == 1){
                 distances.add(0);
