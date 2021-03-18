@@ -120,6 +120,15 @@ export default class Atlas extends Component {
                 loca.push(location);
             }
         }
+        if(this.state.locations.length > 2){
+            let location = {
+                fromlat: this.state.locations[0].lat,
+                fromlng: this.state.locations[0].lng,
+                tolat: this.state.locations[this.state.locations.length - 1].lat,
+                tolng: this.state.locations[this.state.locations.length - 1].lng
+            };
+            loca.push(location);
+        }
         this.setState({line: loca});
         console.log(this.state.line);   
     }
