@@ -186,7 +186,6 @@ export default class Atlas extends Component {
         for (let i=0; i<end; i++){
             sum+=this.state.distances[i]
         }
-        //console.log(sum);
         return sum;
     }
     renderLocationTable() {
@@ -237,6 +236,7 @@ export default class Atlas extends Component {
 	    this.setState({markerPosition: MAP_CENTER_DEFAULT, mapCenter: MAP_CENTER_DEFAULT, locations : this.state.locations});
         this.getAddress(MAP_CENTER_DEFAULT).then();
         this.processLocationForLine();
+        this.fetchDistances();
     }
 
     handleRemoveDestination(i){
@@ -247,8 +247,10 @@ export default class Atlas extends Component {
             locations.splice(i,1);
             this.setState({markerPosition: locations[0], mapCenter: locations[0], locations: locations});
             this.getAddress(locations[0]).then();
+            this.fetchDistances();
         }
         this.processLocationForLine();
+
     }  
 
     async setMarker(mapClickInfo) {
