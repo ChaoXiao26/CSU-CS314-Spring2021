@@ -373,6 +373,7 @@ export default class Atlas extends Component {
     }
     
     MarkSelect(location){
+        this.getAddress(location);
         this.setState({markerPosition: location, mapCenter: location});
     }
 }
