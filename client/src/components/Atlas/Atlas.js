@@ -54,7 +54,6 @@ export default class Atlas extends Component {
             mapCenter: MAP_CENTER_DEFAULT,
             markerPosition: MAP_CENTER_DEFAULT,
             names: null,
-            sumDistances: null,
             locations: [],
 
             line: [],
@@ -188,13 +187,6 @@ export default class Atlas extends Component {
             sum+=this.state.distances[i]
         }
         return sum;
-    }
-    sumDistancesState(end){
-        let sum1=0;
-        for (let i=0; i<end; i++){
-            sum1+=this.state.distances[i]
-        }
-        this.setState({sum :sum1})
     }
     renderLocationTable() {
         //apply this function to each element in locations array
