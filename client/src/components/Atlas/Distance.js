@@ -31,8 +31,6 @@ export default class Distance extends Component {
     render() {
         return ( 
             <div>
-                <Button className="my-1" onClick ={this.DistanceToggle} color = "primary" block>Distance</Button>
-                {this.DistancePopup()}
             </div>
             
         );
