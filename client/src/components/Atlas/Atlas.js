@@ -41,11 +41,10 @@ export default class Atlas extends Component {
             markerPosition: MAP_CENTER_DEFAULT,
             names: null,
             locations: [],
-<<<<<<< HEAD
+
             line: [],
-=======
+
             distances: [],
->>>>>>> 27db66a5db46ba769518514b46cfcc4b75a11ecf
             coordinates: {
                 inputText: "",
                 latLng: null
