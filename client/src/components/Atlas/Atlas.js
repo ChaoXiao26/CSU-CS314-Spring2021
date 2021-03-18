@@ -10,6 +10,11 @@ import Find from './Find';
 import Distance from './Distance';
 import Trip from './Trip';
 
+import { sendServerRequest, isJsonResponseValid, getOriginalServerPort } from "../../utils/restfulAPI";
+import * as distancesSchema from "../../../schemas/DistancesResponse";
+
+const SerPort = getOriginalServerPort()
+
 const MAP_BOUNDS = [[-90, -180], [90, 180]];
 const MAP_CENTER_DEFAULT = L.latLng(40.5734, -105.0865);
 const MARKER_ICON = L.icon({iconUrl: icon, shadowUrl: iconShadow, iconAnchor: [12, 40]});
@@ -36,10 +41,16 @@ export default class Atlas extends Component {
         this.MarkSelect = this.MarkSelect.bind(this);
         this.requestUserLocation();
 
-        this.formatDataFromAtlas = this.formatDataFromAtlas.bind(this)
+        this.formatDataFromAtlas = this.formatDataFromAtlas.bind(this);
+        this.fetchDistances = this.fetchDistances.bind(this);
+        this.processDistanceResponse = this.processDistanceResponse.bind(this);
+        this.sumDistances = this.sumDistances.bind(this);
         
 
         this.state = {
+            sPort: getOriginalServerPort(),
+            modalDistanceResponse: false,
+            validServer: null,
             mapCenter: MAP_CENTER_DEFAULT,
             markerPosition: MAP_CENTER_DEFAULT,
             names: null,
@@ -110,7 +121,7 @@ export default class Atlas extends Component {
         locations.unshift(namelatlng);
         this.setState({locations: locations});
         this.processLocationForLine();
-        console.log(this.formatDataFromAtlas())
+        
     }
 
     processLocationForLine(){
@@ -139,7 +150,7 @@ export default class Atlas extends Component {
             loca.push(location);
         }
         this.setState({line: loca});
-        console.log(this.state.line);   
+        //console.log(this.state.line);   
     }
     renderLeafletMap() {
         return (
@@ -170,16 +181,25 @@ export default class Atlas extends Component {
             </Map>
         );
     }
+    sumDistances(end){
+        let sum=0;
+        for (let i=0; i<end; i++){
+            sum+=this.state.distances[i]
+        }
+        console.log(sum);
+        return sum;
+    }
     renderLocationTable() {
         //apply this function to each element in locations array
-        const dummyDistance = 0;
-        const locations = this.state.locations.map((location, i) =>
+        console.log(this.state.distances)
+        //console.log(this.state.locations)
+        const locations = this.state.locations.slice(0).reverse().map((location, i) =>
             <tr key={i+=1}>
                 <th>{i}</th>
                 <th>{location.name}</th>
                 <th>{location.lat.toFixed(6)}</th>
                 <th>{location.lng.toFixed(6)}</th>
-                <th>  {dummyDistance}</th>
+                <th>  {this.sumDistances(i)}</th>
                 <th><button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick ={() => this.MarkSelect(location)}>mark </button></th>      
                 <th><button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick ={() => this.handleRemoveDestination(i-=1)}>X </button></th> 
                 
@@ -202,7 +222,7 @@ export default class Atlas extends Component {
                         <th><b>Cumulative Distance</b></th>
                         <th className="smallCell"><b>Mark</b></th>   
 			            <th className="smallCell"><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick={this.clearTable}>Clear</Button></th>
-                        <th><button color="success" type="button" className="btn btn-secondary btn-block float-right" >Total/Distance </button></th> 
+                        <th><b>Total/Distance {this.sumDistances(this.state.distances.length)}</b></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -241,6 +261,8 @@ export default class Atlas extends Component {
         locations.unshift(namelatlng);
         this.setState({markerPosition: mapClickInfo.latlng, mapCenter: mapClickInfo.latlng, locations: locations});
         this.processLocationForLine()
+        this.fetchDistances();
+        //console.log(this.state.distances);
     }
     //render marker
     getMarker() {
@@ -378,7 +400,7 @@ export default class Atlas extends Component {
     MarkSelect(location){
         this.setState({markerPosition: location, mapCenter: location});
     }
-    formatDataFromAtlas(){
+   formatDataFromAtlas(){
         const formattedLocations = [];
         for(let i =0; i< this.state.locations.length; i++){
             let location = {
@@ -388,5 +410,25 @@ export default class Atlas extends Component {
             formattedLocations.push(location);
         }
         return formattedLocations;
+    }
+    async fetchDistances() {
+        const url = this.state.sPort;
+        sendServerRequest({ requestType: "distances", places: this.formatDataFromAtlas(), earthRadius: 3959 }, url)
+            .then(distancesResponse => {
+                if (Response) {
+                    this.processDistanceResponse(distancesResponse);
+                } else {
+                    this.setState({ validServer: false, places: null, earthRadius: null, distances: null });
+                }
+            });
+    }
+   async processDistanceResponse(distancesResponse) {
+        if (!isJsonResponseValid(distancesResponse, distancesSchema)) {
+            this.setState({ validServer: false, find: false });
+        } else {
+            this.setState({ validServer: true, places: distancesResponse.places, earthRadius: distancesResponse.earthRadius, distances: distancesResponse.distances });
+            return this.state.places;
+            
+        }
     }
 }
