@@ -17,6 +17,7 @@ export default class Distance extends Component {
         this.distancesResponseToggle = this.distancesResponseToggle.bind(this);
         this.fetchDistances = this.fetchDistances.bind(this);
         this.processDistanceResponse = this.processDistanceResponse.bind(this);
+        this.handleReturnToParent = this.handleReturnToParent.bind(this);
         
         this.state = {
             sPort: getOriginalServerPort(),
@@ -25,6 +26,7 @@ export default class Distance extends Component {
             validServer: null,
             distances: [],
         }
+        
     }
     render() {
         return ( 
@@ -80,7 +82,6 @@ export default class Distance extends Component {
                 latitude: (this.props.locations[i].lat).toString(),
                 longitude: (this.props.locations[i].lng).toString()
             };
-            console.log(location);
             formattedLocations.push(location);
         }
         return formattedLocations;
@@ -111,6 +112,11 @@ export default class Distance extends Component {
         } else {
             this.setState({ validServer: true, places: distancesResponse.places, earthRadius: distancesResponse.earthRadius, distances: distancesResponse.distances });
             this.distancesResponseToggle();
+            return this.state.places;
         }
     }
+    handleReturnToParent = () =>{
+        this.props.parentCallBack(this.state.distances)
+    }
+
 }

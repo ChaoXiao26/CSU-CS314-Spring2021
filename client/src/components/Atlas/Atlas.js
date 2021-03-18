@@ -41,7 +41,10 @@ export default class Atlas extends Component {
             markerPosition: MAP_CENTER_DEFAULT,
             names: null,
             locations: [],
+
             line: [],
+
+            distances: [],
             coordinates: {
                 inputText: "",
                 latLng: null
@@ -73,7 +76,8 @@ export default class Atlas extends Component {
 			                {this.renderCoordinatesInput()}
                             {this.renderLeafletMap()}
                             {this.renderFindMeButtom()}
-                            <Distance locations = {this.state.locations}/>
+                            <Distance locations = {this.state.locations}
+                            parentCallback = {this.handleCallback}/>
                             <Trip locations = {this.state.locations}/>
                             {this.renderLocationTable()}
                         </Col>
@@ -84,7 +88,6 @@ export default class Atlas extends Component {
     }
     addTrip(lat, lng){
         const inputtxt = lat + ',' + lng;
-        console.log(inputtxt);
         const coordinates = this.state.coordinates;
         coordinates.latLng = this.getCoordinatesOrNull(inputtxt);
         this.setState({coordinates: coordinates});
@@ -109,7 +112,6 @@ export default class Atlas extends Component {
     processLocationForLine(){
         const loca = [];
         if(this.state.locations.length > 1){
-            console.log("process locall")
             for(let i = 1; i< this.state.locations.length; i++){
                 let location = {
                     fromlat: this.state.locations[i-1].lat,
@@ -120,6 +122,9 @@ export default class Atlas extends Component {
                 loca.push(location);
             }
         }
+
+        this.setState({line: loca}); 
+
         if(this.state.locations.length > 2){
             let location = {
                 fromlat: this.state.locations[0].lat,
@@ -180,6 +185,7 @@ export default class Atlas extends Component {
             //console.log(locations);
 
 
+
         return(
             <table className="table table-striped table-bordered table-sm">
                 <thead>
@@ -227,7 +233,6 @@ export default class Atlas extends Component {
         const locations = this.state.locations;
         const namelatlng = {name: this.state.names, ...mapClickInfo.latlng};
         locations.unshift(namelatlng);
-        console.log(namelatlng);
         this.setState({markerPosition: mapClickInfo.latlng, mapCenter: mapClickInfo.latlng, locations: locations});
         this.processLocationForLine()
     }
@@ -259,7 +264,6 @@ export default class Atlas extends Component {
     async getAddress(latlng){
         const addressData = await(await fetch(GEOCODE_URL+`${latlng.lng},${latlng.lat}`)).json();
         const addressLabel = (addressData.address !== undefined) ? addressData.address.LongLabel : "Unknown";
-        console.log(this.state.names);
         this.setState({address: addressLabel});
     }
 
@@ -306,7 +310,6 @@ export default class Atlas extends Component {
         this.setState({address: addressLabel});
         const locations = this.state.locations;
         const namelatlng = {name: this.state.names, lat: position.coords.latitude, lng: position.coords.longitude};
-        console.log(namelatlng);
         locations.unshift(namelatlng);
         this.setState({mapCenter: latlng, markerPosition: latlng, locations: locations});
         LOG.info('The user is located at ${JSON.stringify(latlng)}.');
@@ -361,6 +364,9 @@ export default class Atlas extends Component {
             </h4>
           );
         }
+    }
+    handleCallback = (childData) =>{
+        this.setState({distances: childData})
     }
     
 }
