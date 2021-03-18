@@ -93,6 +93,7 @@ export default class Atlas extends Component {
                             <Distance locations = {this.state.locations}
                             parentCallback = {this.handleCallback}/>
                             <Trip locations = {this.state.locations}/>
+                            <h4><p><b>Round Trip distance: {this.sumDistances(this.state.distances.length)} miles</b> </p></h4>
                             {this.renderLocationTable()}
                         </Col>
                     </Row>
@@ -211,6 +212,7 @@ export default class Atlas extends Component {
 
 
         return(
+
             <table className="table table-striped table-bordered table-sm table-responsive">
                 <thead>
                     <tr> 
@@ -221,7 +223,6 @@ export default class Atlas extends Component {
                         <th><b>Cumulative Distance</b></th>
                         <th className="smallCell"><b>Mark</b></th>   
 			            <th className="smallCell"><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick={this.clearTable}>Clear</Button></th>
-                        <th><b>Total/Distance {this.sumDistances(this.state.distances.length)}</b></th>
                     </tr>
                 </thead>
                 <tbody>
