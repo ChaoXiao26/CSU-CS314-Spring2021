@@ -40,7 +40,7 @@ export default class Atlas extends Component {
         this.addTableAndPinOnMap = this.addTableAndPinOnMap.bind(this);
         this.MarkSelect = this.MarkSelect.bind(this);
         this.requestUserLocation();
-
+        this.renderLocationTable = this.renderLocationTable.bind(this);
         this.formatDataFromAtlas = this.formatDataFromAtlas.bind(this);
         this.fetchDistances = this.fetchDistances.bind(this);
         this.processDistanceResponse = this.processDistanceResponse.bind(this);
@@ -185,7 +185,7 @@ export default class Atlas extends Component {
     sumDistances(end){
         let sum=0;
         for (let i=0; i<end; i++){
-            sum+=this.state.distances[i]
+            sum+=this.state.distances.slice(0).reverse()[i]
         }
         return sum;
     }
@@ -193,13 +193,14 @@ export default class Atlas extends Component {
         //apply this function to each element in locations array
         //console.log(this.state.distances)
         //console.log(this.state.locations)
-        const locations = this.state.locations.slice(0).reverse().map((location, i) =>
-            <tr key={i+=1}>
+        //reverseDistances = this.state.distances.slice(0).reverse();
+        const locations = this.state.locations.map((location, i) =>
+            <tr key={i}>
                 <th>{i}</th>
                 <th>{location.name}</th>
                 <th>{location.lat.toFixed(6)}</th>
                 <th>{location.lng.toFixed(6)}</th>
-                <th>  {this.sumDistances(i)}</th>
+                <th>  {this.state.distances[i]}</th>
                 <th><button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick ={() => this.MarkSelect(location)}>mark </button></th>      
                 <th><button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick ={() => this.handleRemoveDestination(i-=1)}>X </button></th> 
                 
@@ -240,7 +241,7 @@ export default class Atlas extends Component {
 	    this.setState({markerPosition: MAP_CENTER_DEFAULT, mapCenter: MAP_CENTER_DEFAULT, locations : this.state.locations});
         this.getAddress(MAP_CENTER_DEFAULT).then();
         this.processLocationForLine();
-        this.fetchDistances();
+        //this.fetchDistances();
     }
 
     handleRemoveDestination(i){
@@ -251,7 +252,7 @@ export default class Atlas extends Component {
             locations.splice(i,1);
             this.setState({markerPosition: locations[0], mapCenter: locations[0], locations: locations});
             this.getAddress(locations[0]).then();
-            this.fetchDistances();
+            //this.fetchDistances();
         }
         this.processLocationForLine();
 
