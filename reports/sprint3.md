@@ -46,6 +46,7 @@ In this epic, we will add a new feature that will allow us to search for places 
 ### Place Details
 
 Place details includes the subtasks: Create a reverse geocoding utility function, add geographic details to the popup and the list, create a column for the address, add address details to the table upon clicking, and creating tests for the entire epic. We will decide who will be assigned to these subtasks once the previous epics have been completed. This epic should be completed in a quick fashion because we already have a general idea as a team how to finish this epic.
+
 ### Calculate Distances
 
 The user would like to calculate distances between destinations and for their planned trip. To provide this functionality we will Implement a function that calculates the distances with the given radius in miles (3959). We will show the distance between two places by providing a button, prompting the user to click on two adjacent locations, perform the calculation, and return the information to the user in a pop-up. We will add a button that gives the user the total distance for their planned trip in a pop up. We will re-calcualate the distance of the trip and update it on the trip table for the user upon adding each new entry.
@@ -88,7 +89,11 @@ During the Sprint 2 we have completed four epics and have left "find places" epi
 
 ### Epics completed  
 
+We completed all of our planned epics during this sprint. These included: Find details, Distance Protocol, Calculate Distances, Place Details, Show Trip, and Mark Selected. This was a huge accomplishment compared to our last sprint where we had to ice box the last epic.
+
 ### Epics not completed 
+
+We completed all epics.
 
 ## Retrospective
 
