@@ -196,7 +196,7 @@ export default class Atlas extends Component {
         //reverseDistances = this.state.distances.slice(0).reverse();
         const locations = this.state.locations.map((location, i) =>
             <tr key={i}>
-                <th>{i}</th>
+                
                 <th>{location.name}</th>
                 <th>{location.lat.toFixed(6)}</th>
                 <th>{location.lng.toFixed(6)}</th>
@@ -217,7 +217,6 @@ export default class Atlas extends Component {
             <table className="table table-striped table-bordered table-sm table-responsive">
                 <thead>
                     <tr> 
-                        <th className="smallCell"><b>#</b></th>
                         <th><b>Address</b></th>
                         <th><b>Latitude</b></th>
                         <th><b>Longitude</b></th>
