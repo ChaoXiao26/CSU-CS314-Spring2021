@@ -93,7 +93,9 @@ During the Sprint 2 we have completed four epics and have left "find places" epi
 ## Retrospective
 
 ### Things that went well
+We were able to complete all planned epics
 
 ### Things we need to improve
-
+We need to improve on time management, test coverage, and code smells.
 ### One thing we will change next time
+We will do more extensive testing
