@@ -65,9 +65,9 @@ The Mark Selected Epic includes the following subtasks: Create a button to allow
 During the Sprint 2 we have completed four epics and have left "find places" epic to this sprint. In Sprint 3, we will continue working on "find places" and adding more featurte like "calculate distances" to our servers, and making users have better experience in our website. Our goal is to try to let every team member work together in every epic so everyone is on the same boat.
 | Statistic | # Planned | # Completed |
 | --- | ---: | ---: |
-| Epics | *6* | *0* |
-| Tasks |  *45*   | *0* | 
-| Story Points |  *43*  | *0* | 
+| Epics | *6* | *6* |
+| Tasks |  *73*   | *68* | 
+| Story Points |  *83*  | *76* | 
 
 
 ## Scrums
@@ -82,7 +82,7 @@ During the Sprint 2 we have completed four epics and have left "find places" epi
 | *3/8/2021* | *#Finished "find places" epic<br /> #Group meeting discussion for inspection1.md <br /> #Create basic file for "Protocol distance" epic* | *#Refine "Protocol distance" epic*|  | 
 | *3/10/2021* | *#Finished "Protocol Distances" epic<br /> #Enable calculate distance functionality <br /> #deploying our server to school server* | *#Working on "Calculate Distance API"*|  | 
 | *3/12/2021* | *#Diaplay places details in table and map* | *#Working on tests for "places details" <br /> #Working on connecting distances protocol with server*|  | 
-
+| *3/18/2021* | *#Release website to School Server <br /> #Finished "mark select" epic" <br /> #Finished "Calculate Distances" epic" <br /> #Finished "show trip" epic"* | |  | 
 
 ## Review
 
