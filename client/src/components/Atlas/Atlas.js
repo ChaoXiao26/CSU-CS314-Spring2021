@@ -202,7 +202,7 @@ export default class Atlas extends Component {
                 <th>{location.lng.toFixed(6)}</th>
                 <th>  {this.state.distances[i]}</th>
                 <th><button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick ={() => this.MarkSelect(location)}>mark </button></th>      
-                <th><button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick ={() => this.handleRemoveDestination(i-=1)}>X </button></th> 
+                <th><button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick ={() => this.handleRemoveDestination(i)}>X </button></th> 
                 
             </tr>
             );
@@ -237,7 +237,7 @@ export default class Atlas extends Component {
 	    this.setState({markerPosition: MAP_CENTER_DEFAULT, mapCenter: MAP_CENTER_DEFAULT, locations : this.state.locations});
         this.getAddress(MAP_CENTER_DEFAULT).then();
         this.processLocationForLine();
-        //this.fetchDistances();
+        this.fetchDistances();
     }
 
     handleRemoveDestination(i){
@@ -248,7 +248,7 @@ export default class Atlas extends Component {
             locations.splice(i,1);
             this.setState({markerPosition: locations[0], mapCenter: locations[0], locations: locations});
             this.getAddress(locations[0]).then();
-            //this.fetchDistances();
+            this.fetchDistances();
         }
         this.processLocationForLine();
 
