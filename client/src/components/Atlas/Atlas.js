@@ -213,11 +213,8 @@ export default class Atlas extends Component {
 
 
         return(
-            
-            
-                
-           
-            <table className="table table-striped table-bordered table-sm">
+
+            <table className="table table-striped table-bordered table-sm table-responsive">
                 <thead>
                     <tr> 
                         <th className="smallCell"><b>#</b></th>
@@ -405,6 +402,7 @@ export default class Atlas extends Component {
     }
     
     MarkSelect(location){
+        this.getAddress(location);
         this.setState({markerPosition: location, mapCenter: location});
     }
    formatDataFromAtlas(){

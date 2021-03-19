@@ -18,6 +18,7 @@ export default class Find extends Component {
         this.state = {
             sPort: getOriginalServerPort(),
             matchName: "",      //defult as empty
+            matchLimit: 30,
             modalNew: false,
             modalFindResponse: false,
             validServer: null,
@@ -90,11 +91,7 @@ export default class Find extends Component {
                         </div>
                     </ModalBody>
                     <ModalFooter>
-                        <div>
-                            {"url: " + (this.state.sPort + "/api/find")}
-                        </div>
                         <Button onClick={this.fetchFind} color="success">Find</Button>
-                        <Button color='secondary' onClick={this.findToggleNew}>Cancel/Done</Button>
                     </ModalFooter>
                 </Modal>
             </div>
@@ -120,6 +117,7 @@ export default class Find extends Component {
     }
 
     renderFindTableResponse() {
+        console.log(this.state.find.length)
         const foundLocations = this.state.find.map((location) =>
             <tr key={location.id}>
                 <th>{location.name}</th>
@@ -134,7 +132,6 @@ export default class Find extends Component {
                         <th>
                             <b>name</b></th>
                         <th><b>region</b></th>
-                        <th><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick={this.clearTable}>Clear</Button></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -151,6 +148,14 @@ export default class Find extends Component {
     functionTakingMatchInput = (event) => {
         this.setState({ matchName: event.target.value })
     }
+    functionTakingLimitInput = (event) => {
+        if(event.target.value){
+            this.setState({ matchLimit: event.target.value})
+        } else{
+            this.setState({ matchLimit: 30})
+        }
+        
+    }
     processFindResponse(findResponse) {
         if (!isJsonResponseValid(findResponse, findSchema)) {
             this.setState({ validServer: false, find: false });
@@ -162,7 +167,8 @@ export default class Find extends Component {
 
     fetchFind() {
         const url = this.state.sPort;
-        sendServerRequest({ requestType: "find", match: this.state.matchName, limit: 30 }, url)
+        console.log(this.state.matchLimit);
+        sendServerRequest({ requestType: "find", match: this.state.matchName, limit: parseInt(this.state.matchLimit) }, url)
             .then(findResponse => {
                 if (findResponse) {
                     this.processFindResponse(findResponse);
@@ -175,7 +181,7 @@ export default class Find extends Component {
     protocolTest() {
         return (
             <div>
-                {"Current limit(should be 30 after Find): " + this.state.find.limit}
+                {"Current limit(Default: 30): " + this.state.matchLimit}
             </div>
         );
     }
