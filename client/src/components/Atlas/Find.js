@@ -46,16 +46,7 @@ export default class Find extends Component {
                     <ModalHeader toggle={this.findToggleNew}>Find places</ModalHeader>
                     <ModalBody>
                         {/* InputGroup here */}
-                        <InputGroup>
-                            <InputGroupAddon addonType="prepend">
-                                <InputGroupText>Match</InputGroupText>
-                            </InputGroupAddon>
-                            <Input
-                                placeholder="Match Name Text"
-                                onChange={this.functionTakingMatchInput}
-                            />
-
-                        </InputGroup>
+                        {this.textBox("Match", "Match Name Text", this.functionTakingMatchInput)}
 
                         {/* <InputGroup>
                             <InputGroupAddon addonType="prepend">
@@ -77,15 +68,8 @@ export default class Find extends Component {
                                 />
                         </InputGroup> */}
 
-                        <InputGroup>
-                            <InputGroupAddon addonType="prepend">
-                                <InputGroupText>Limit</InputGroupText>
-                            </InputGroupAddon>
-                            <Input
-                                placeholder="Enter the number of locations to return"
-                                onChange={this.functionTakingLimitInput}
-                            />
-                        </InputGroup>
+                       {this.textBox("Limit", "Enter the number of locations to return", this.functionTakingLimitInput)}
+                        
                         <div>
                             {this.protocolTest()}
                         </div>
@@ -95,6 +79,19 @@ export default class Find extends Component {
                     </ModalFooter>
                 </Modal>
             </div>
+        );
+    }
+    textBox(name, text, func){
+        return(
+            <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                    <InputGroupText>{name}</InputGroupText>
+                </InputGroupAddon>
+                <Input
+                    placeholder={text}
+                    onChange={func}
+                />
+            </InputGroup>
         );
     }
     findToggleNew() {
