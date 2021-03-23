@@ -4,7 +4,7 @@
 ### *Shorter tours!*
 
 ## Sprint Leader: 
-### *firstname lastname*
+### *Fan Si*
 
 ## Definition of Done
 
@@ -36,6 +36,10 @@
 
 
 ## Planned Epics
+
+# Protocol tour feature
+
+For this epic there are currently six planned tasks for a total of six story points. The plan is to create json files for both the response and request. Then our team needs to update the microserver and configuration request to reflect the new feature. After that we need to work on the server side files like tourRequest.java and testTourRequest.java. To finish the epic up we will have to create tests in order to maintain a high test coverage.
 
 
 ## Metrics
