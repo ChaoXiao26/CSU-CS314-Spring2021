@@ -43,7 +43,7 @@ This epic will add a great feature for our users. First we need to have a data s
 
 ### Search More
 
-This epic adds even more searching capabilities to our program. 
+This epic adds even more searching capabilities to our program. These additions will be broken down into the following tasks: Match a city, Match a State, Match a Country, Match an airport.
 
 ## Metrics
 
