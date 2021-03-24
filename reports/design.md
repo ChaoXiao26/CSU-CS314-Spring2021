@@ -165,5 +165,8 @@ The user will be allowed to search with key words and a list will be returned wi
 ## Components
 ![image](https://user-images.githubusercontent.com/77645615/112244955-a677c100-8c15-11eb-9d52-4f6042f467fb.png)
 
+## Classes
+![image](https://user-images.githubusercontent.com/56741965/112249580-aaa7dc80-8c1d-11eb-8fe3-5f4ef845271d.png)
+
 
 # Sprint 5
