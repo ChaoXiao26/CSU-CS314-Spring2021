@@ -72,7 +72,7 @@ During the Sprint 3 we have completed all the epics but left defect in distences
 | Date | Tasks closed  | Tasks in progress | Impediments |
 | :--- | :--- | :--- | :--- |
 | *date* | *#task, ...* | *#task, ...* |  | 
-| *3/23/2021* | Discussed who will be the sprint leader <br /> Discussed the problem of distances <br /> Discussed the problem of code smell <br /> Created epics and tasks in sprint backlog <br /> #708, Completed design.md | *Research for incoming epics* |  |
+| *3/23/2021* | Discussed who will be the sprint leader <br /> Discussed the problem of distances <br /> Discussed the problem of code smell <br /> Created epics and tasks in sprint backlog <br /> #707 & #708 & #713, Completed design.md | *Research for incoming epics* |  |
 
 ## Review
 
