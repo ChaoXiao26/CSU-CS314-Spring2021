@@ -40,6 +40,9 @@
 ### Protocol tour feature
 For this epic there are currently six planned tasks for a total of six story points. The plan is to create json files for both the response and request. Then our team needs to update the microserver and configuration request to reflect the new feature. After that we need to work on the server side files like tourRequest.java and testTourRequest.java. To finish the epic up we will have to create tests in order to maintain a high test coverage.
 
+### Shorter tour
+In this epic, we will need to use heuristic optimization techniques and concurrency to improve our tour showing, we need to let our website to respond in less than 1 second, and reduce the computation time for the optimization techniques.
+
 ### Modify tour
 
 This epic will add a great feature for our users. First we need to have a data structure that we can copy the old order of the old trip while allowing the user to select a new starting point. We also would like to provide the user with the option of reversing the order of the trip while maintaining the starting location. Another task will be allowing the user to reorder the individual destinations. The user will also be provided with functionality to remove individual destinations. A feature we would like to add is to allow the user to add information about individual places as well as correct any wrong information. Lastly we will need a function that will render the updated trip with this new information.
