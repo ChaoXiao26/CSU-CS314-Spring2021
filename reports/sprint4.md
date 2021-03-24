@@ -62,9 +62,9 @@ This epic will add the functionality such that the user can upload a file contai
 During the Sprint 3 we have completed all the epics but left defect in distences and some code smell. In Sprint 4, we will fix our code and implement new fectures for trip. Our goal is to have every team member work together and finish all the epics like what we did in Sprint3.
 | Statistic | # Planned | # Completed |
 | --- | ---: | ---: |
-| Epics | *count* | *count* |
-| Tasks |  *count*   | *count* | 
-| Story Points |  *sum*  | *sum* | 
+| Epics | *6* | *count* |
+| Tasks |  *30*   | *count* | 
+| Story Points |  *32*  | *sum* | 
 
 
 ## Scrums
@@ -72,7 +72,7 @@ During the Sprint 3 we have completed all the epics but left defect in distences
 | Date | Tasks closed  | Tasks in progress | Impediments |
 | :--- | :--- | :--- | :--- |
 | *date* | *#task, ...* | *#task, ...* |  | 
-| *3/23/2021* | Discussed who will be the sprint leader <br /> Discussed the problem of distances <br /> Discussed the problem of code smell <br /> Created epics and tasks in sprint backlog | *Research for incoming epics* |  |
+| *3/23/2021* | Discussed who will be the sprint leader <br /> Discussed the problem of distances <br /> Discussed the problem of code smell <br /> Created epics and tasks in sprint backlog <br /> #708, Completed design.md | *Research for incoming epics* |  |
 
 ## Review
 
