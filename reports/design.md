@@ -159,4 +159,7 @@ The user will be allowed to search with key words and a list will be returned wi
 
 
 # Sprint 4 
+## User Interface
+![image](./images/Sp4-UI2.png)
+
 # Sprint 5
