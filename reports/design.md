@@ -162,4 +162,8 @@ The user will be allowed to search with key words and a list will be returned wi
 ## User Interface
 ![image](https://user-images.githubusercontent.com/77645615/112243976-23a23680-8c14-11eb-8ac1-4d60ab8ed628.png)
 
+## Components
+![image](https://user-images.githubusercontent.com/77645615/112244955-a677c100-8c15-11eb-9d52-4f6042f467fb.png)
+
+
 # Sprint 5
