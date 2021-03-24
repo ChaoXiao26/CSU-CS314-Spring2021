@@ -47,6 +47,10 @@ In this epic, we will need to use heuristic optimization techniques and concurre
 
 This epic will add a great feature for our users. First we need to have a data structure that we can copy the old order of the old trip while allowing the user to select a new starting point. We also would like to provide the user with the option of reversing the order of the trip while maintaining the starting location. Another task will be allowing the user to reorder the individual destinations. The user will also be provided with functionality to remove individual destinations. A feature we would like to add is to allow the user to add information about individual places as well as correct any wrong information. Lastly we will need a function that will render the updated trip with this new information.
 
+### Search More
+
+This epic adds even more searching capabilities to our program. These additions will be broken down into the following tasks: Match a city, Match a State, Match a Country, Match an airport. This epic should be similar to find places epic except with additional things to match.
+
 ### Load tour
 
 This epic will add the functionality such that the user can upload a file containing their own tour. First we will create a button/way for the user to initialize the process of uploading the file. Then the user will be prompted with a form where the file will be selected and uploaded. From the cleint side we will have a function callback to open the file and a function to read from the file. Once the data is validated the tour will be updated with the new data.
