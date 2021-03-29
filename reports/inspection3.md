@@ -2,9 +2,9 @@
  
 | Inspection | Details |
 | ----- | ----- |
-| Subject | *file and methods/line range to review for meeting* |
-| Meeting | *date, time, location* |
-| Checklist | *reference, URL, etc.* |
+| Subject | *atlas.js The entire file* |
+| Meeting | *3/29/21, 7, Teams* |
+| Checklist | *Checklist.md* |
 
 ### Roles
 
