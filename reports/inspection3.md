@@ -12,6 +12,7 @@
 | ---- | ---- |
 | Sam Bonafe | 1hr |
 |Tomas Vasquez  | 1hr |
+|Yuxin Huang  | 1hr |
 |  |  |
 
 ### Problems found
