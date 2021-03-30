@@ -24,4 +24,4 @@
 | atlas.js: 267| Function to update the distanceses only called from the set marker method causing the table to only update when we click on an entry| high | Tomas | #727 |
 | atlas.js | MarkSelect function wasn't check if the input location is vaild | low | Yuxin|#734|
 | atlas.js | In find feature, limit won't check user input. Web will crash if user imput line 89| low | Fan | #740 |
-| atlas.js | on line 66 through 79, testData array is unused| low | Mark | #740 |
+| atlas.js | on line 66 through 79, testData array is unused| low | Mark | #743 |
