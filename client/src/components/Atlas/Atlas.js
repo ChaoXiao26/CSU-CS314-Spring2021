@@ -168,18 +168,23 @@ export default class Atlas extends Component {
             >   
 
                 <TileLayer url={MAP_LAYER_URL} attribution={MAP_LAYER_ATTRIBUTION}/>
-                <FeatureGroup>
-                    {this.state.locations.map((location, i) => {
-                        return <Marker icon={MARKER_ICON} position={location}/>
-                        }
-                    )}
-                    {this.state.line.map(({fromlat, fromlng, tolat, tolng}) => {
-                        return <Polyline positions={[[fromlat, fromlng], [tolat, tolng],]} color={'blue'} />
-                        }
-                    )}
-                </FeatureGroup>
+                {this.returnFeatureGroup()}
                 {this.getMarker()}
             </Map>
+        );
+    }
+    returnFeatureGroup() {
+        return (
+            <FeatureGroup>
+                {this.state.locations.map((location, i) => {
+                    return <Marker icon={MARKER_ICON} position={location}/>
+                    }
+                )}
+                {this.state.line.map(({fromlat, fromlng, tolat, tolng}) => {
+                    return <Polyline positions={[[fromlat, fromlng], [tolat, tolng],]} color={'blue'} />
+                    }
+                )}
+            </FeatureGroup>
         );
     }
     sumDistances(end){
