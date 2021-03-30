@@ -22,3 +22,4 @@
 | atlas.js | No catch or try blocks for server request line 420 | med | Sam | #723 |
 | atlas.js | Improper format could be put into formattedLocations[] 407| low | Sam | #724 |
 | atlas.js | Function to update the distanceses only called from the set marker method causing the table to only update when we click on an entry| high | Tomas | #727 |
+| atlas.js | MarkSelect function wasn't check if the input location is vaild | low | Yuxin||
