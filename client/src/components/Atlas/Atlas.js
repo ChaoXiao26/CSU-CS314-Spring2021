@@ -28,25 +28,16 @@ export default class Atlas extends Component {
 
     constructor(props) {
         super(props);
-
-        this.requestUserLocation = this.requestUserLocation.bind(this);
-        this.handleGeolocation = this.handleGeolocation.bind(this);
-        this.setMarker = this.setMarker.bind(this);
-	    this.clearTable = this.clearTable.bind(this);
-        this.handleRemoveDestination = this.handleRemoveDestination.bind(this);
-        this.processCoordinatesInput = this.processCoordinatesInput.bind(this);
-	    this.updateCooInput = this.updateCooInput.bind(this);
-        this.addTrip = this.addTrip.bind(this);
-        this.addTableAndPinOnMap = this.addTableAndPinOnMap.bind(this);
-        this.MarkSelect = this.MarkSelect.bind(this);
-        this.requestUserLocation();
-        this.renderLocationTable = this.renderLocationTable.bind(this);
-        this.formatDataFromAtlas = this.formatDataFromAtlas.bind(this);
-        this.fetchDistances = this.fetchDistances.bind(this);
-        this.processDistanceResponse = this.processDistanceResponse.bind(this);
-        this.sumDistances = this.sumDistances.bind(this);
+	    
+	//Mark-These are async functions-these statements are not necessary if the function is changed to = () =>{ } format
+	//It is possible we can remove these statements as well, but when I tried, I got an error, so I will get back to it later
+	this.handleGeolocation = this.handleGeolocation.bind(this);
+	this.setMarker = this.setMarker.bind(this);
+	this.updateCooInput = this.updateCooInput.bind(this);
+	this.addTableAndPinOnMap = this.addTableAndPinOnMap.bind(this);
+	this.fetchDistances = this.fetchDistances.bind(this);
+	this.processDistanceResponse = this.processDistanceResponse.bind(this);
         
-
         this.state = {
             sPort: getOriginalServerPort(),
             modalDistanceResponse: false,
@@ -101,7 +92,7 @@ export default class Atlas extends Component {
             </div>
         );
     }
-    addTrip(lat, lng){
+    addTrip = (lat, lng)=>{
         const inputtxt = lat + ',' + lng;
         const coordinates = this.state.coordinates;
         coordinates.latLng = this.getCoordinatesOrNull(inputtxt);
@@ -125,7 +116,7 @@ export default class Atlas extends Component {
         
     }
 
-    processLocationForLine(){
+    processLocationForLine=()=>{
         const loca = [];
         if(this.state.locations.length > 1){
             for(let i = 1; i< this.state.locations.length; i++){
@@ -153,7 +144,7 @@ export default class Atlas extends Component {
         this.setState({line: loca});
         //console.log(this.state.line);   
     }
-    renderLeafletMap() {
+    renderLeafletMap=()=>{
         return (
             <Map
                 className={'mapStyle mapHightRefine'}
@@ -173,7 +164,7 @@ export default class Atlas extends Component {
             </Map>
         );
     }
-    returnFeatureGroup() {
+    returnFeatureGroup=()=>{
         return (
             <FeatureGroup>
                 {this.state.locations.map((location, i) => {
@@ -187,14 +178,14 @@ export default class Atlas extends Component {
             </FeatureGroup>
         );
     }
-    sumDistances(end){
+    sumDistances=(end)=>{
         let sum=0;
         for (let i=0; i<end; i++){
             sum+=this.state.distances.slice(0).reverse()[i]
         }
         return sum;
     }
-    renderLocationTable() {
+    renderLocationTable=()=>{
         //apply this function to each element in locations array
         //console.log(this.state.distances)
         //console.log(this.state.locations)
@@ -235,15 +226,15 @@ export default class Atlas extends Component {
         );
     }
 	
-    clearTable(){
-	    this.state.locations.length = 0;
-	    this.setState({markerPosition: MAP_CENTER_DEFAULT, mapCenter: MAP_CENTER_DEFAULT, locations : this.state.locations});
+    clearTable=()=>{
+    	this.state.locations.length = 0;
+    	this.setState({markerPosition: MAP_CENTER_DEFAULT, mapCenter: MAP_CENTER_DEFAULT, locations : this.state.locations});
         this.getAddress(MAP_CENTER_DEFAULT).then();
         this.processLocationForLine();
         this.fetchDistances();
     }
 
-    handleRemoveDestination(i){
+    handleRemoveDestination=(i)=>{
         if(this.state.locations.length <= 1){this.clearTable()}
         else
         {
@@ -271,7 +262,7 @@ export default class Atlas extends Component {
         //console.log(this.state.distances);
     }
     //render marker
-    getMarker() {
+    getMarker=()=>{
         if (this.state.markerPosition) {
             return (
                 <Marker ref={(ref) => this.showMarkerPopup(ref)} position={this.state.markerPosition} icon={MARKER_ICON}>
@@ -285,13 +276,13 @@ export default class Atlas extends Component {
         }
     }
 
-    showMarkerPopup(ref) {
+    showMarkerPopup(ref){
         if (ref) {
             ref.leafletElement.openPopup();
         }
     }
 
-    getLatLngText(latLng) {
+    getLatLngText(latLng){
         return latLng.lat.toFixed(6) + ', ' + latLng.lng.toFixed(6);
     }
 
@@ -301,7 +292,7 @@ export default class Atlas extends Component {
         this.setState({address: addressLabel});
     }
 
-    renderCoordinatesInput() {
+    renderCoordinatesInput=()=>{
         const coordinates = this.state.coordinates;
         const validCoordinates = coordinates.latLng != null;
         const inputBoxEmpty = !coordinates.inputText;
@@ -324,12 +315,12 @@ export default class Atlas extends Component {
         );
     }
 
-    renderFindMeButtom(){
+    renderFindMeButtom=()=>{
         return (
         <Button className="my-1" onClick ={this.requestUserLocation} color = "success" block>Find Me</Button>
         ); 
     }
-    requestUserLocation(){
+    requestUserLocation=()=>{
         if(navigator.geolocation){
             navigator.geolocation.getCurrentPosition(this.handleGeolocation, this.handleGeolocationError);
         }else {
@@ -353,7 +344,7 @@ export default class Atlas extends Component {
         LOG.info("Error retrieving the user's positions.")
     }
       
-    processCoordinatesInput(onChangeEvent) {
+    processCoordinatesInput=(onChangeEvent)=>{
         const inputText = onChangeEvent.target.value;
         const coordinates = this.state.coordinates;
         coordinates.inputText = inputText;
@@ -389,7 +380,7 @@ export default class Atlas extends Component {
         }
     }
 
-    renderResultText() {
+    renderResultText=()=>{
         const latLng = this.state.coordinates.latLng;
         if (latLng) {
           return (
@@ -403,11 +394,11 @@ export default class Atlas extends Component {
         this.setState({distances: childData})
     }
     
-    MarkSelect(location){
+    MarkSelect=(location)=>{
         this.getAddress(location);
         this.setState({markerPosition: location, mapCenter: location});
     }
-   formatDataFromAtlas(){
+   formatDataFromAtlas=()=>{
         const formattedLocations = [];
         for(let i =0; i< this.state.locations.length; i++){
             let location = {
