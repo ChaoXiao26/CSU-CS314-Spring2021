@@ -60,6 +60,7 @@ public class FindDatabase{
               +  "WHERE ( country.name LIKE \"%" + name + "%\" "
               +  "OR region.name LIKE \"%" + name + "%\" "
               +  "OR world.name LIKE \"%" + name + "%\" "
+              +  "OR world.id LIKE \"%" + name + "%\" "
               +  "OR world.municipality LIKE \"%" + name + "%\"  ) ";          
     }
 
