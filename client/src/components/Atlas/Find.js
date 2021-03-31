@@ -12,9 +12,7 @@ export default class Find extends Component {
     constructor(props) {
         super(props);
         this.props = props;
-        this.findToggleNew = this.findToggleNew.bind(this);
-        this.findResponseToggle = this.findResponseToggle.bind(this);
-        this.fetchFind = this.fetchFind.bind(this);
+        
         this.state = {
             sPort: getOriginalServerPort(),
             matchName: "",      //defult as empty
@@ -36,7 +34,7 @@ export default class Find extends Component {
         );
 
     }
-    renderFindInput() {
+    renderFindInput=()=>{
         //https://6-4-0--reactstrap.netlify.app/components/modals/
         return (
             <div>
@@ -94,12 +92,12 @@ export default class Find extends Component {
             </InputGroup>
         );
     }
-    findToggleNew() {
+    findToggleNew=()=>{
         this.setState({
             modalNew: !this.state.modalNew
         });
     }
-    renderFindResponse() {
+    renderFindResponse=()=>{
         return (
             <div>
                 <Modal className="findplaces-custom-modal" isOpen={this.state.modalFindResponse} toggle={this.findResponseToggle}>
@@ -113,7 +111,7 @@ export default class Find extends Component {
 
     }
 
-    renderFindTableResponse() {
+    renderFindTableResponse=()=>{
         console.log(this.state.find.length)
         const foundLocations = this.state.find.map((location) =>
             <tr key={location.id}>
@@ -137,7 +135,7 @@ export default class Find extends Component {
             </table>
         );
     }
-    findResponseToggle() {
+    findResponseToggle=()=>{
         this.setState({
             modalFindResponse: !this.state.modalFindResponse
         });
@@ -153,7 +151,7 @@ export default class Find extends Component {
         }
         
     }
-    processFindResponse(findResponse) {
+    processFindResponse=(findResponse)=>{
         if (!isJsonResponseValid(findResponse, findSchema)) {
             this.setState({ validServer: false, find: false });
         } else {
@@ -162,7 +160,7 @@ export default class Find extends Component {
         }
     }
 
-    fetchFind() {
+    fetchFind=()=>{
         const url = this.state.sPort;
         console.log(this.state.matchLimit);
         sendServerRequest({ requestType: "find", match: this.state.matchName, limit: parseInt(this.state.matchLimit) }, url)
