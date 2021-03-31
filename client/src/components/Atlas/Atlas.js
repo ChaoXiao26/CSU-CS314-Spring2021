@@ -54,20 +54,6 @@ export default class Atlas extends Component {
                 inputText: "",
                 latLng: null
             },
-            testData: [
-                {
-                  fromlat: "40.570968",
-                  fromlng: "-105.085838",
-                  tolat: "39.955200",
-                  tolng: "-104.928800",
-                },
-                {
-                  fromlat: "39.955200",
-                  fromlng: "-104.928800",
-                  tolat: "34",
-                  tolng: "-118",
-                }
-            ]
         };
     }
 
