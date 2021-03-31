@@ -37,6 +37,7 @@ export default class Atlas extends Component {
 	this.addTableAndPinOnMap = this.addTableAndPinOnMap.bind(this);
 	this.fetchDistances = this.fetchDistances.bind(this);
 	this.processDistanceResponse = this.processDistanceResponse.bind(this);
+    this.downloadFile =  this.downloadFile.bind(this);
         
         this.state = {
             sPort: getOriginalServerPort(),
@@ -205,6 +206,7 @@ export default class Atlas extends Component {
                         <th><b>Cumulative Distance</b></th>
                         <th className="smallCell"><b>Mark</b></th>   
 			<th className="smallCell"><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick={this.clearTable}>Clear</Button></th>
+            <th className="smallCell"><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick ={() => this.downloadFile(locations,'Tour','application/json' )}>Save</Button></th>
                     </tr>
                 </thead>
                 <tbody>{locations}</tbody>
