@@ -10,7 +10,7 @@ This table lists each student in the team and the team they verified interoperab
 
 | Name | Team |
 | ---- | ---- |
-|  |  |
+| Sam | t17 |
 |  |  |
 
 ### Problems found
@@ -21,5 +21,5 @@ You should discuss the issues found with the other team and create defects in Gi
 
 | team | C/S | problem | github# |
 | :--- | :---: | :--- | --- |
-|  |  |  |  |
-|  |  |  |  |
+| t17 | c | no issues? |  |
+| t17 | s | initial configuration error right when we switch over |  |
