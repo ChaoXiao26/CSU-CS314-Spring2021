@@ -11,7 +11,7 @@ This table lists each student in the team and the team they verified interoperab
 | Name | Team |
 | ---- | ---- |
 | Sam | t17 |
-| Yuxin | t12 |
+| Yuxin | t11 |
 | Fan | t25 |
 | Mark | t6 |
 | Tomas | t12 |
@@ -28,8 +28,8 @@ You should discuss the issues found with the other team and create defects in Gi
 | :--- | :---: | :--- | --- |
 | t17 | c | no issues? |  |
 | t17 | s | initial configuration error right when we switch over |  |
-| t12 | c | "ERR_CONNECTION_REFUSED" for config in Console, But all functionality are working |  |
-| t12 | s | No error detected|  |
+| t11 | c | No error detected |  |
+| t11 | s | "ERR_CONNECTION_REFUSED" for config in Console, But all functionality are working|  |
 | t25 | c | no issue |  |
 | t25 | s | POST https://localhost:3141/api/config net::ERR_CONNECTION_REFUSED |  |
 | t6 | c | no issue |  |
