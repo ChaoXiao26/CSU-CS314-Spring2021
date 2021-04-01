@@ -66,7 +66,7 @@ export default class Atlas extends Component {
                     <Row>
                         <Col sm={12} md={{size: 10, offset: 1}}>
                             <Find AddTrip={this.addTrip}/>
-                            <Save/>
+                            <Save locations = {this.locations}/>
 			                {this.renderCoordinatesInput()}
                             {this.renderLeafletMap()}
                             {this.renderFindMeButtom()}
