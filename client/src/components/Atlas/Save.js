@@ -11,6 +11,8 @@ export default class Save extends Component {
         
         this.state = {  
             modalNew: false,
+            saveTourFormat: null,
+            saveMapFormat: null,
             
         }
     }
@@ -37,6 +39,7 @@ export default class Save extends Component {
                         {/*this.textBox("Match", "Match Name Text", this.functionTakingMatchInput)*/}
                         <InputGroup>
                             <Button onClick={this.fetchFind} color="success">Tour</Button>
+                            {this.textBox("Match", "Enter format as \"json\" or  \"csv\"", this.functionTakingMatchInput)}
                         </InputGroup>
                         <InputGroup> 
                         <div></div>
@@ -57,19 +60,19 @@ export default class Save extends Component {
             </div>
         );
     }
-    // textBox(name, text, func){
-    //     return(
-    //         <InputGroup>
-    //             <InputGroupAddon addonType="prepend">
-    //                 <InputGroupText>{name}</InputGroupText>
-    //             </InputGroupAddon>
-    //             <Input
-    //                 placeholder={text}
-    //                 onChange={func}
-    //             />
-    //         </InputGroup>
-    //     );
-    // }
+    textBox(name, text, func){
+        return(
+            <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                    <InputGroupText>{name}</InputGroupText>
+                </InputGroupAddon>
+                <Input
+                    placeholder={text}
+                    onChange={func}
+                />
+            </InputGroup>
+        );
+    }
     saveToggleNew=()=>{
         this.setState({
             modalNew: !this.state.modalNew
