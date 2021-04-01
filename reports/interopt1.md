@@ -11,6 +11,7 @@ This table lists each student in the team and the team they verified interoperab
 | Name | Team |
 | ---- | ---- |
 | Sam | t17 |
+| Yuxin | t12 |
 |  |  |
 
 ### Problems found
