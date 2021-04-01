@@ -36,10 +36,10 @@ export default class Save extends Component {
                     <ModalHeader toggle={this.saveToggleNew}>Save Tour and Map</ModalHeader>
                     <ModalBody>
                         {/* InputGroup here */}
-                        {/*this.textBox("Match", "Match Name Text", this.functionTakingMatchInput)*/}
+                        
                         <InputGroup>
                             <Button onClick={this.fetchFind} color="success">Tour</Button>
-                            {this.textBox("Match", "Enter format as \"json\" or  \"csv\"", this.functionTakingMatchInput)}
+                            {this.textBox("Match", "Enter format as \"json\" or  \"csv\"", this.functionTakingTourInput)}
                         </InputGroup>
                         <InputGroup> 
                         <div></div>
@@ -60,6 +60,11 @@ export default class Save extends Component {
             </div>
         );
     }
+    functionTakingTourInput = (event) => {
+        this.setState({ saveTourFormat: event.target.value });
+        downloadFile(this.props.distances, 'Tour', saveTourFormat);
+
+    }
     textBox(name, text, func){
         return(
             <InputGroup>
@@ -78,7 +83,23 @@ export default class Save extends Component {
             modalNew: !this.state.modalNew
         });
     }
-   
+   downloadFile(fileText, fileName, fileType) {
+    let file;   
+    if(fileType == 'json'){
+        file = new Blob([JSON.stringify(fileText)], {type: fileType});
+       }
+        
+        let a = document.createElement('a'),
+        url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() {
+          document.body.removeChild(a);
+          window.URL.revokeObjectURL(url);
+        }, 0);
+      }
 
    
 
