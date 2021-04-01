@@ -74,6 +74,7 @@ During the Sprint 3 we have completed all the epics but left defect in distences
 | *date* | *#task, ...* | *#task, ...* |  | 
 | *3/23/2021* | Discussed who will be the sprint leader <br /> Discussed the problem of distances <br /> Discussed the problem of code smell <br /> Created epics and tasks in sprint backlog <br /> #707 & #708 & #713, Completed design.md | *Research for incoming epics* |  |
 | *3/24/2021* | Discussed what are we going to do for the first week | *Research for incoming epics* <br /> Fix up code smell <br /> Separate Distances from Atlas.js <br /> Separate Trip from Atlas.js <br /> Improve test coverage <br /> Start “Search More” |  |
+| *3/31/2021* | #663,769,665,664,662,661, Created Protocol tour <br /> #775,776,777, Save trip as a file <br /> #658,659,657,660, Search More | #778, Pick format for file to be saved | saving files is new to us |
 
 ## Review
 
