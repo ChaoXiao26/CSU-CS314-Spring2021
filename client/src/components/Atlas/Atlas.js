@@ -66,7 +66,6 @@ export default class Atlas extends Component {
                     <Row>
                         <Col sm={12} md={{size: 10, offset: 1}}>
                             <Find AddTrip={this.addTrip}/>
-                            <Save locations = {this.locations}/>
 			                {this.renderCoordinatesInput()}
                             {this.renderLeafletMap()}
                             {this.renderFindMeButtom()}
@@ -208,7 +207,7 @@ export default class Atlas extends Component {
                         <th><b>Cumulative Distance</b></th>
                         <th className="smallCell"><b>Mark</b></th>   
 			<th className="smallCell"><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick={this.clearTable}>Clear</Button></th>
-            <th className="smallCell"><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick ={() => this.downloadFile(this.state.locations,'Tour','json')}>Save</Button></th>
+            <th> <Save locations = {this.locations}/> </th>
             
                     </tr>
                 </thead>
