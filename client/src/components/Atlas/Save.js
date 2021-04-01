@@ -38,14 +38,16 @@ export default class Save extends Component {
                         {/* InputGroup here */}
                         
                         <InputGroup>
-                            <Button onClick={this.fetchFind} color="success">Tour</Button>
-                            {this.textBox("Match", "Enter format as \"json\" or  \"csv\"", this.functionTakingTourInput)}
+                            <Button onClick={() => this.downloadFile(this.props.locations,'Tour','json')} color="success">Tour.json</Button>
                         </InputGroup>
                         <InputGroup> 
-                        <div></div>
+                        <Button onClick={() => this.downloadFile(this.props.locations,'Tour','csv')} color="success">Tour.csv</Button>
                         </InputGroup>
                         <InputGroup>
-                            <Button onClick={this.fetchFind} color="success">Map</Button>
+                            <Button onClick={() => this.downloadFile(this.props.locations,'Tour','csv')} color="success">Map.svg</Button>
+                        </InputGroup>
+                        <InputGroup>
+                        <Button onClick={() => this.downloadFile(this.props.locations,'Tour','csv')} color="success">Map.kml</Button>
                         </InputGroup>
                         
 
@@ -54,7 +56,7 @@ export default class Save extends Component {
                 
                     </ModalBody>
                     <ModalFooter>
-                        <Button  color="success">Find</Button>
+                        <Button onClick={this.saveToggleNew} color="success">Find</Button>
                     </ModalFooter>
                 </Modal>
             </div>
@@ -88,6 +90,15 @@ export default class Save extends Component {
     if(fileType == 'json'){
         file = new Blob([JSON.stringify(fileText)], {type: fileType});
        }
+       
+       //TO DO: Parse CSV file 
+       else if (fileType == 'csv'){
+        
+        file = new Blob([fileText], {type: fileType});
+       }
+       //TODO: IMPLEMENT FOR MAP.SVG
+
+       //TODO IMPLEMENT FOR MAP.KML
         
         let a = document.createElement('a'),
         url = URL.createObjectURL(file);
@@ -101,6 +112,8 @@ export default class Save extends Component {
         }, 0);
       }
 
+      //TODO: create function  to parse csv file
+      
    
 
 }
