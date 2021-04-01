@@ -25,4 +25,4 @@ You should discuss the issues found with the other team and create defects in Gi
 | t17 | c | no issues? |  |
 | t17 | s | initial configuration error right when we switch over |  |
 | t12 | c | "ERR_CONNECTION_REFUSED" for config in Console, But all functionality are working |  |
-| t17 | s | No error detected|  |
+| t12 | s | No error detected|  |
