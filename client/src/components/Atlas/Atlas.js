@@ -206,7 +206,7 @@ export default class Atlas extends Component {
                         <th><b>Cumulative Distance</b></th>
                         <th className="smallCell"><b>Mark</b></th>   
 			<th className="smallCell"><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick={this.clearTable}>Clear</Button></th>
-            <th className="smallCell"><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick ={() => this.downloadFile(locations,'Tour','application/json' )}>Save</Button></th>
+            <th className="smallCell"><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick ={() => this.downloadFile(this.state.locations,'Tour','json')}>Save</Button></th>
                     </tr>
                 </thead>
                 <tbody>{locations}</tbody>
@@ -418,7 +418,7 @@ export default class Atlas extends Component {
         }
     }
     downloadFile(fileText, fileName, fileType) {
-        let file = new Blob([fileText], {type: fileType});
+        let file = new Blob([JSON.stringify(fileText)], {type: fileType});
         let a = document.createElement('a'),
         url = URL.createObjectURL(file);
         a.href = url;
