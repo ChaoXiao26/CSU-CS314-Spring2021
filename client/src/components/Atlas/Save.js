@@ -1,13 +1,15 @@
 import React, { Component, useEffect } from 'react';
-import { Button, InputGroup, InputGroupAddon, InputGroupText, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Col, Container, Row, Button, InputGroup, InputGroupAddon, InputGroupText, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import 'leaflet/dist/leaflet.css';
-
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 
 export default class Save extends Component {
     constructor(props) {
         super(props);
         this.props = props;
+        this.downloadFile = this.downloadFile.bind(this);
         
         this.state = {  
             modalNew: false,
@@ -31,7 +33,7 @@ export default class Save extends Component {
         return (
             <div>
 
-                <Button color='success' onClick={this.saveToggleNew} >Save</Button>
+                <Button color='success' type="button" className="btn btn-secondary btn-block float-right" onClick={this.saveToggleNew} >Save</Button>
                 <Modal isOpen={this.state.modalNew} toggle={this.findToggleNew}>
                     <ModalHeader toggle={this.saveToggleNew}>Save Tour and Map</ModalHeader>
                     <ModalBody>
@@ -86,20 +88,20 @@ export default class Save extends Component {
         });
     }
    downloadFile(fileText, fileName, fileType) {
-    let file;   
-    if(fileType == 'json'){
-        file = new Blob([JSON.stringify(fileText)], {type: fileType});
-       }
+     
+    //if(fileType == 'json'){
+        let  file = new Blob([JSON.stringify(this.props.locations)], {type: fileType});
+      // }
        
        //TO DO: Parse CSV file 
-       else if (fileType == 'csv'){
+      // else{
         
-        file = new Blob([fileText], {type: fileType});
-       }
+       // file = new Blob([fileText], {type: fileType});
+      // }
        //TODO: IMPLEMENT FOR MAP.SVG
 
        //TODO IMPLEMENT FOR MAP.KML
-        
+        console.log(this.props.locations);
         let a = document.createElement('a'),
         url = URL.createObjectURL(file);
         a.href = url;
