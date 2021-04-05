@@ -130,8 +130,7 @@ export default class Atlas extends Component {
             };
             loca.push(location);
         }
-        this.setState({line: loca});
-        //console.log(this.state.line);   
+        this.setState({line: loca});   
     }
     renderLeafletMap=()=>{
         return (
@@ -176,8 +175,6 @@ export default class Atlas extends Component {
     }
     renderLocationTable=()=>{
         //apply this function to each element in locations array
-        //console.log(this.state.distances)
-        //console.log(this.state.locations)
         //reverseDistances = this.state.distances.slice(0).reverse();
         const locations = this.state.locations.map((location, i) =>
             <tr key={i}>
@@ -191,9 +188,6 @@ export default class Atlas extends Component {
                 
             </tr>
             );
-
-            //DELETE
-            //console.log(locations);
 
 
 
@@ -250,7 +244,6 @@ export default class Atlas extends Component {
         this.setState({markerPosition: mapClickInfo.latlng, mapCenter: mapClickInfo.latlng, locations: locations});
         this.processLocationForLine()
         this.fetchDistances();
-        //console.log(this.state.distances);
     }
     //render marker
     getMarker=()=>{
