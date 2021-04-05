@@ -101,7 +101,6 @@ export default class Save extends Component {
        //TODO: IMPLEMENT FOR MAP.SVG
 
        //TODO IMPLEMENT FOR MAP.KML
-        console.log(this.props.locations);
         let a = document.createElement('a'),
         url = URL.createObjectURL(file);
         a.href = url;
