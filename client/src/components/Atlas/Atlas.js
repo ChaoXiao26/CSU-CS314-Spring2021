@@ -38,7 +38,6 @@ export default class Atlas extends Component {
 	this.addTableAndPinOnMap = this.addTableAndPinOnMap.bind(this);
 	this.fetchDistances = this.fetchDistances.bind(this);
 	this.processDistanceResponse = this.processDistanceResponse.bind(this);
-    this.downloadFile =  this.downloadFile.bind(this);
         
         this.state = {
             sPort: getOriginalServerPort(),
@@ -130,8 +129,7 @@ export default class Atlas extends Component {
             };
             loca.push(location);
         }
-        this.setState({line: loca});
-        //console.log(this.state.line);   
+        this.setState({line: loca});   
     }
     renderLeafletMap=()=>{
         return (
@@ -176,8 +174,6 @@ export default class Atlas extends Component {
     }
     renderLocationTable=()=>{
         //apply this function to each element in locations array
-        //console.log(this.state.distances)
-        //console.log(this.state.locations)
         //reverseDistances = this.state.distances.slice(0).reverse();
         const locations = this.state.locations.map((location, i) =>
             <tr key={i}>
@@ -191,9 +187,6 @@ export default class Atlas extends Component {
                 
             </tr>
             );
-
-            //DELETE
-            //console.log(locations);
 
 
 
@@ -250,7 +243,6 @@ export default class Atlas extends Component {
         this.setState({markerPosition: mapClickInfo.latlng, mapCenter: mapClickInfo.latlng, locations: locations});
         this.processLocationForLine()
         this.fetchDistances();
-        //console.log(this.state.distances);
     }
     //render marker
     getMarker=()=>{
@@ -420,17 +412,5 @@ export default class Atlas extends Component {
             
         }
     }
-    downloadFile(fileText, fileName, fileType) {
-        let file = new Blob([JSON.stringify(fileText)], {type: fileType});
-        let a = document.createElement('a'),
-        url = URL.createObjectURL(file);
-        a.href = url;
-        a.download = fileName;
-        document.body.appendChild(a);
-        a.click();
-        setTimeout(function() {
-          document.body.removeChild(a);
-          window.URL.revokeObjectURL(url);
-        }, 0);
-      }
+    
 }
