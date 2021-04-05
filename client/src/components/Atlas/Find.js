@@ -112,7 +112,6 @@ export default class Find extends Component {
     }
 
     renderFindTableResponse=()=>{
-        console.log(this.state.find.length)
         const foundLocations = this.state.find.map((location) =>
             <tr key={location.id}>
                 <th>{location.name}</th>
@@ -162,7 +161,6 @@ export default class Find extends Component {
 
     fetchFind=()=>{
         const url = this.state.sPort;
-        console.log(this.state.matchLimit);
         sendServerRequest({ requestType: "find", match: this.state.matchName, limit: parseInt(this.state.matchLimit) }, url)
             .then(findResponse => {
                 if (findResponse) {
