@@ -155,7 +155,7 @@ export default class Atlas extends Component {
         return (
             <FeatureGroup>
                 {this.state.locations.map((location, i) => {
-                    return <Marker icon={MARKER_ICON} position={location}/>
+                    return <Marker key = {i} icon={MARKER_ICON} position={location}/>
                     }
                 )}
                 {this.state.line.map(({fromlat, fromlng, tolat, tolng}) => {
