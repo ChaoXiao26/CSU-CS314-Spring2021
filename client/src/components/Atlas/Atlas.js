@@ -38,7 +38,6 @@ export default class Atlas extends Component {
 	this.addTableAndPinOnMap = this.addTableAndPinOnMap.bind(this);
 	this.fetchDistances = this.fetchDistances.bind(this);
 	this.processDistanceResponse = this.processDistanceResponse.bind(this);
-    this.downloadFile =  this.downloadFile.bind(this);
         
         this.state = {
             sPort: getOriginalServerPort(),
