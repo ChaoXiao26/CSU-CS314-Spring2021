@@ -11,7 +11,7 @@
 | Name | Preparation Time |
 | ---- | ---- |
 | Sam | 1hr |
-|  |  |
+| Tomas |1hr  |
 
 ### Problems found
 
@@ -19,3 +19,5 @@
 | --- | --- | :---: | :---: | --- |
 | save.js: 93 | JSON.stringify is not in a try catch block | med | Sam | 812 |
 | save.js: 31 | render save could fail to render  | low | Sam | 811 |
+| save.js: 46 | CSV function call does not work for saving the tour  | high | Tomas |  |
+| save.js: 49 | MAP function call does not work for saving the Map in  svg format  | high | Tomas |  |
