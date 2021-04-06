@@ -1,21 +1,21 @@
-# Inspection - Team *T##* 
+# Inspection - Team *T16* 
  
 | Inspection | Details |
 | ----- | ----- |
-| Subject | *file and methods/line range to review for meeting* |
-| Meeting | *date, time, location* |
-| Checklist | *reference, URL, etc.* |
+| Subject | *save.js* |
+| Meeting | *4/05/21 8pm on teams* |
+| Checklist | *checklist.md* |
 
 ### Roles
 
 | Name | Preparation Time |
 | ---- | ---- |
-|  |  |
+| Sam | 1hr |
 |  |  |
 
 ### Problems found
 
 | file:line | problem | hi/med/low | who found | github#  |
 | --- | --- | :---: | :---: | --- |
-|  | | | | |
-|  | | | | |
+| save.js: 93 | JSON.stringify is not in a try catch block | med | Sam | |
+| save.js: 31 | render save could fail to render  | low | Sam | |
