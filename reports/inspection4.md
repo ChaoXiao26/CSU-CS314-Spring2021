@@ -17,5 +17,5 @@
 
 | file:line | problem | hi/med/low | who found | github#  |
 | --- | --- | :---: | :---: | --- |
-| save.js: 93 | JSON.stringify is not in a try catch block | med | Sam | |
-| save.js: 31 | render save could fail to render  | low | Sam | |
+| save.js: 93 | JSON.stringify is not in a try catch block | med | Sam | 812 |
+| save.js: 31 | render save could fail to render  | low | Sam | 811 |
