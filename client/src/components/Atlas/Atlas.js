@@ -11,6 +11,7 @@ import Distance from './Distance';
 import Trip from './Trip';
 import Save from './Save';
 import CoordinatesFind from './CoordinatesFind';
+import Load from './Load';
 
 import { sendServerRequest, isJsonResponseValid, getOriginalServerPort } from "../../utils/restfulAPI";
 import * as distancesSchema from "../../../schemas/DistancesResponse";
@@ -73,6 +74,7 @@ export default class Atlas extends Component {
                             />
                             {this.renderLeafletMap()}
                             {this.renderFindMeButtom()}
+                            <Load AddTrip={this.loadFuncDummy}/>
                             <Distance
                                 locations = {this.state.locations}
                                 parentCallback = {this.handleCallback}
