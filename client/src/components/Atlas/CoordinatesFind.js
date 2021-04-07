@@ -6,7 +6,6 @@ export default class CoordinatesFindButton extends Component {
 
     constructor(props) {
         super(props);
-        this.props = props;
     }
     render() {
         const coordinates = this.props.coordinates;
