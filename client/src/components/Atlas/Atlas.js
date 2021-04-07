@@ -10,7 +10,7 @@ import Find from './Find';
 import Distance from './Distance';
 import Trip from './Trip';
 import Save from './Save';
-import CoordinatesFindButton from './CoordinatesFindButton';
+import CoordinatesFind from './CoordinatesFind';
 
 import { sendServerRequest, isJsonResponseValid, getOriginalServerPort } from "../../utils/restfulAPI";
 import * as distancesSchema from "../../../schemas/DistancesResponse";
@@ -67,7 +67,7 @@ export default class Atlas extends Component {
                     <Row>
                         <Col sm={12} md={{size: 10, offset: 1}}>
                             <Find AddTrip={this.addTrip}/>
-                            <CoordinatesFindButton
+                            <CoordinatesFind
                                 coordinates = {this.state.coordinates}
                                 processCoordinatesInput = {this.processCoordinatesInput}
                                 updateCooInput = {this.updateCooInput}
@@ -165,8 +165,8 @@ export default class Atlas extends Component {
                     return <Marker key = {i} icon={MARKER_ICON} position={location}/>
                     }
                 )}
-                {this.state.line.map(({fromlat, fromlng, tolat, tolng}) => {
-                    return <Polyline positions={[[fromlat, fromlng], [tolat, tolng],]} color={'blue'} />
+                {this.state.line.map(({fromlat, fromlng, tolat, tolng}, i) => {
+                    return <Polyline key = {i} positions={[[fromlat, fromlng], [tolat, tolng],]} color={'blue'} />
                     }
                 )}
             </FeatureGroup>
@@ -207,9 +207,8 @@ export default class Atlas extends Component {
                         <th><b>Longitude</b></th>
                         <th><b>Cumulative Distance</b></th>
                         <th className="smallCell"><b>Mark</b></th>   
-			<th className="smallCell"><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick={this.clearTable}>Clear</Button></th>
-            <Save locations = {this.state.locations}/>
-            
+			            <th className="smallCell"><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick={this.clearTable}>Clear</Button></th>
+                        <th className="smallCell"><Save locations = {this.state.locations}/></th>
                     </tr>
                 </thead>
                 <tbody>{locations}</tbody>
