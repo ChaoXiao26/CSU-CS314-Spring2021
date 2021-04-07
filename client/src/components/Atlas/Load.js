@@ -16,7 +16,7 @@ export default class Load extends Component {
         return (
             <div>
                 <form onSubmit={this.dummy}>
-                    <h5><b>Trip File Upload</b></h5>
+                    <b>Trip File Upload</b><br></br>
                     <input type="file" onChange={this.dummy} />
                     <Button type="submit">Upload</Button>
                 </form>
