@@ -30,7 +30,6 @@ export default class Atlas extends Component {
 
     constructor(props) {
         super(props);
-        this.props = props;
 	    
         //Mark-These are async functions-these statements are not necessary if the function is changed to = () =>{ } format
         //It is possible we can remove these statements as well, but when I tried, I got an error, so I will get back to it later
