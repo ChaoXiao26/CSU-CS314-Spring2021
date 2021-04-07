@@ -89,9 +89,12 @@ export default class Save extends Component {
     }
    downloadFile(fileText, fileName, fileType) {
      
-    //if(fileType == 'json'){
+    if(fileType == 'json'){
         let  file = new Blob([JSON.stringify(this.props.locations)], {type: fileType});
-      // }
+       }
+       else{
+           arrayheader = ["Address","Latitude", "Longitude","Cumulative Distance"]
+       }
        
        //TO DO: Parse CSV file 
       // else{
@@ -114,6 +117,22 @@ export default class Save extends Component {
       }
 
       //TODO: create function  to parse csv file
+      export_csv = (arrayHeader, arrayData, delimiter, fileName) => {
+        let header = arrayHeader.join(delimiter) + '\n';
+        let csv = header;
+        arrayData.forEach( array => {
+            csv += array.join(delimiter)+"\n";
+        });
+
+        let csvData = new Blob([csv], { type: 'text/csv' });  
+        let csvUrl = URL.createObjectURL(csvData);
+
+        let hiddenElement = document.createElement('a');
+        hiddenElement.href = csvUrl;
+        hiddenElement.target = '_blank';
+        hiddenElement.download = fileName + '.csv';
+        hiddenElement.click();
+    }
       
    
 
