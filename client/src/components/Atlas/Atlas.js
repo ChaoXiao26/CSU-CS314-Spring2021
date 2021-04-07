@@ -9,7 +9,7 @@ import 'leaflet/dist/leaflet.css';
 import Find from './Find';
 import Distance from './Distance';
 import Trip from './Trip';
-import Save from './Save';
+import FindMeButton from './FindMeButton';
 
 import { sendServerRequest, isJsonResponseValid, getOriginalServerPort } from "../../utils/restfulAPI";
 import * as distancesSchema from "../../../schemas/DistancesResponse";
@@ -30,14 +30,14 @@ export default class Atlas extends Component {
     constructor(props) {
         super(props);
 	    
-	//Mark-These are async functions-these statements are not necessary if the function is changed to = () =>{ } format
-	//It is possible we can remove these statements as well, but when I tried, I got an error, so I will get back to it later
-	this.handleGeolocation = this.handleGeolocation.bind(this);
-	this.setMarker = this.setMarker.bind(this);
-	this.updateCooInput = this.updateCooInput.bind(this);
-	this.addTableAndPinOnMap = this.addTableAndPinOnMap.bind(this);
-	this.fetchDistances = this.fetchDistances.bind(this);
-	this.processDistanceResponse = this.processDistanceResponse.bind(this);
+        //Mark-These are async functions-these statements are not necessary if the function is changed to = () =>{ } format
+        //It is possible we can remove these statements as well, but when I tried, I got an error, so I will get back to it later
+        this.handleGeolocation = this.handleGeolocation.bind(this);
+        this.setMarker = this.setMarker.bind(this);
+        this.updateCooInput = this.updateCooInput.bind(this);
+        this.addTableAndPinOnMap = this.addTableAndPinOnMap.bind(this);
+        this.fetchDistances = this.fetchDistances.bind(this);
+        this.processDistanceResponse = this.processDistanceResponse.bind(this);
         
         this.state = {
             sPort: getOriginalServerPort(),
@@ -64,17 +64,20 @@ export default class Atlas extends Component {
                 <Container>
                     <Row>
                         <Col sm={12} md={{size: 10, offset: 1}}>
-                            <Find AddTrip={this.addTrip}/>
-                            
-			                {this.renderCoordinatesInput()}
-                            {this.renderLeafletMap()}
-                            {this.renderFindMeButtom()}
-                            <Distance locations = {this.state.locations}
-                            parentCallback = {this.handleCallback}/>
-                            <Trip locations = {this.state.locations}/>
-                            <h4><p><b>Round Trip distance: {this.sumDistances(this.state.distances.length)} miles</b> </p></h4>
-                            {this.renderLocationTable()}
-                        </Col>
+                          <Find AddTrip={this.addTrip}/>
+                          {this.renderCoordinatesInput()}
+                          {this.renderLeafletMap()}
+                          <FindMeButton
+                              handleGeolocation = {this.handleGeolocation}
+                          />
+                          <Distance
+                              locations = {this.state.locations}
+                              parentCallback = {this.handleCallback}
+                          />
+                          <Trip locations = {this.state.locations}/>
+                          <h4><p><b>Round Trip distance: {this.sumDistances(this.state.distances.length)} miles</b> </p></h4>
+                          {this.renderLocationTable()}
+                      </Col>
                     </Row>
                 </Container>
             </div>
@@ -92,7 +95,7 @@ export default class Atlas extends Component {
         const coordinates = this.state.coordinates;
         this.setState({mapCenter: coordinates.latLng, markerPosition: coordinates.latLng});
         //this.getAddress(coordinates.latLng);
-	    //this.setState({locations: [coordinates.latLng, ...this.state.locations]});
+        //this.setState({locations: [coordinates.latLng, ...this.state.locations]});
         const addressData = await(await fetch(GEOCODE_URL+`${coordinates.latLng.lng},${coordinates.latLng.lat}`)).json();
         const addressLabel = (addressData.address !== undefined) ? addressData.address.LongLabel : "Unknown";
         this.setState({address: addressLabel});
@@ -155,11 +158,11 @@ export default class Atlas extends Component {
         return (
             <FeatureGroup>
                 {this.state.locations.map((location, i) => {
-                    return <Marker key = {i} icon={MARKER_ICON} position={location}/>
+                      return <Marker key = {i} icon={MARKER_ICON} position={location}/>
                     }
                 )}
                 {this.state.line.map(({fromlat, fromlng, tolat, tolng}) => {
-                    return <Polyline positions={[[fromlat, fromlng], [tolat, tolng],]} color={'blue'} />
+                      return <Polyline positions={[[fromlat, fromlng], [tolat, tolng],]} color={'blue'} />
                     }
                 )}
             </FeatureGroup>
@@ -201,8 +204,6 @@ export default class Atlas extends Component {
                         <th><b>Cumulative Distance</b></th>
                         <th className="smallCell"><b>Mark</b></th>   
 			<th className="smallCell"><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick={this.clearTable}>Clear</Button></th>
-            <Save locations = {this.state.locations}/>
-            
                     </tr>
                 </thead>
                 <tbody>{locations}</tbody>
@@ -211,8 +212,8 @@ export default class Atlas extends Component {
     }
 	
     clearTable=()=>{
-    	this.state.locations.length = 0;
-    	this.setState({markerPosition: MAP_CENTER_DEFAULT, mapCenter: MAP_CENTER_DEFAULT, locations : this.state.locations});
+        this.state.locations.length = 0;
+        this.setState({markerPosition: MAP_CENTER_DEFAULT, mapCenter: MAP_CENTER_DEFAULT, locations : this.state.locations});
         this.getAddress(MAP_CENTER_DEFAULT).then();
         this.processLocationForLine();
         this.fetchDistances();
@@ -300,15 +301,8 @@ export default class Atlas extends Component {
 
     renderFindMeButtom=()=>{
         return (
-        <Button className="my-1" onClick ={this.requestUserLocation} color = "success" block>Find Me</Button>
+            <Button className="my-1" onClick ={this.requestUserLocation} color = "success" block>Find Me</Button>
         ); 
-    }
-    requestUserLocation=()=>{
-        if(navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(this.handleGeolocation, this.handleGeolocationError);
-        }else {
-            LOG.info("Geolocation is turned off or not supported by your browser.");
-        }
     }
     async handleGeolocation(position){
         const latlng = {lat: position.coords.latitude, lng: position.coords.longitude};
@@ -323,10 +317,7 @@ export default class Atlas extends Component {
         LOG.info('The user is located at ${JSON.stringify(latlng)}.');
         this.processLocationForLine();
     }
-    handleGeolocationError(){
-        LOG.info("Error retrieving the user's positions.")
-    }
-      
+    
     processCoordinatesInput=(onChangeEvent)=>{
         const inputText = onChangeEvent.target.value;
         const coordinates = this.state.coordinates;
@@ -412,5 +403,4 @@ export default class Atlas extends Component {
             
         }
     }
-    
 }
