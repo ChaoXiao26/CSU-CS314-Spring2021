@@ -158,8 +158,8 @@ export default class Atlas extends Component {
                     return <Marker key = {i} icon={MARKER_ICON} position={location}/>
                     }
                 )}
-                {this.state.line.map(({fromlat, fromlng, tolat, tolng}) => {
-                    return <Polyline positions={[[fromlat, fromlng], [tolat, tolng],]} color={'blue'} />
+                {this.state.line.map(({fromlat, fromlng, tolat, tolng}, i) => {
+                    return <Polyline key = {i} positions={[[fromlat, fromlng], [tolat, tolng],]} color={'blue'} />
                     }
                 )}
             </FeatureGroup>
