@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, InputGroup, InputGroupAddon, InputGroupText, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import 'leaflet/dist/leaflet.css';
 import Coordinates from "coordinate-parser";
 
@@ -17,7 +18,7 @@ export default class Load extends Component {
                 <form onSubmit={this.dummy}>
                     <h5><b>Trip File Upload</b></h5>
                     <input type="file" onChange={this.dummy} />
-                    <button type="submit">Upload</button>
+                    <Button type="submit">Upload</Button>
                 </form>
             </div>
         );
