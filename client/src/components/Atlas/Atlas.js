@@ -11,9 +11,11 @@ import Distance from './Distance';
 import Trip from './Trip';
 import Save from './Save';
 import CoordinatesFind from './CoordinatesFind';
+import FindMeButton from './FindMeButton';
 
 import { sendServerRequest, isJsonResponseValid, getOriginalServerPort } from "../../utils/restfulAPI";
 import * as distancesSchema from "../../../schemas/DistancesResponse";
+import { divIcon } from 'leaflet';
 
 const SerPort = getOriginalServerPort()
 
@@ -72,7 +74,7 @@ export default class Atlas extends Component {
                                 updateCooInput = {this.updateCooInput}
                             />
                             {this.renderLeafletMap()}
-                            {this.renderFindMeButtom()}
+                            <FindMeButton handleGeolocation = {this.handleGeolocation}/>
                             <Distance
                                 locations = {this.state.locations}
                                 parentCallback = {this.handleCallback}
@@ -302,19 +304,6 @@ export default class Atlas extends Component {
             </InputGroup>
         );
     }
-
-    renderFindMeButtom=()=>{
-        return (
-        <Button className="my-1" onClick ={this.requestUserLocation} color = "success" block>Find Me</Button>
-        ); 
-    }
-    requestUserLocation=()=>{
-        if(navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(this.handleGeolocation, this.handleGeolocationError);
-        }else {
-            LOG.info("Geolocation is turned off or not supported by your browser.");
-        }
-    }
     async handleGeolocation(position){
         const latlng = {lat: position.coords.latitude, lng: position.coords.longitude};
         const addressData = await(await fetch(GEOCODE_URL+`${latlng.lng},${latlng.lat}`)).json();
@@ -328,9 +317,7 @@ export default class Atlas extends Component {
         LOG.info('The user is located at ${JSON.stringify(latlng)}.');
         this.processLocationForLine();
     }
-    handleGeolocationError(){
-        LOG.info("Error retrieving the user's positions.")
-    }
+    
       
     processCoordinatesInput=(onChangeEvent)=>{
         const inputText = onChangeEvent.target.value;
