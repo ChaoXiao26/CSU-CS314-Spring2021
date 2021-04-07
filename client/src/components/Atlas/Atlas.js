@@ -64,20 +64,20 @@ export default class Atlas extends Component {
                 <Container>
                     <Row>
                         <Col sm={12} md={{size: 10, offset: 1}}>
-                            <Find AddTrip={this.addTrip}/>
-			                {this.renderCoordinatesInput()}
-                            {this.renderLeafletMap()}
-                            <FindMeButton
-                                handleGeolocation = {this.handleGeolocation}
-                            />
-                            <Distance
-                                locations = {this.state.locations}
-                                parentCallback = {this.handleCallback}
-                            />
-                            <Trip locations = {this.state.locations}/>
-                            <h4><p><b>Round Trip distance: {this.sumDistances(this.state.distances.length)} miles</b> </p></h4>
-                            {this.renderLocationTable()}
-                        </Col>
+                          <Find AddTrip={this.addTrip}/>
+                          {this.renderCoordinatesInput()}
+                          {this.renderLeafletMap()}
+                          <FindMeButton
+                              handleGeolocation = {this.handleGeolocation}
+                          />
+                          <Distance
+                              locations = {this.state.locations}
+                              parentCallback = {this.handleCallback}
+                          />
+                          <Trip locations = {this.state.locations}/>
+                          <h4><p><b>Round Trip distance: {this.sumDistances(this.state.distances.length)} miles</b> </p></h4>
+                          {this.renderLocationTable()}
+                      </Col>
                     </Row>
                 </Container>
             </div>
@@ -95,7 +95,7 @@ export default class Atlas extends Component {
         const coordinates = this.state.coordinates;
         this.setState({mapCenter: coordinates.latLng, markerPosition: coordinates.latLng});
         //this.getAddress(coordinates.latLng);
-	    //this.setState({locations: [coordinates.latLng, ...this.state.locations]});
+        //this.setState({locations: [coordinates.latLng, ...this.state.locations]});
         const addressData = await(await fetch(GEOCODE_URL+`${coordinates.latLng.lng},${coordinates.latLng.lat}`)).json();
         const addressLabel = (addressData.address !== undefined) ? addressData.address.LongLabel : "Unknown";
         this.setState({address: addressLabel});
@@ -132,8 +132,7 @@ export default class Atlas extends Component {
             };
             loca.push(location);
         }
-        this.setState({line: loca});
-        //console.log(this.state.line);   
+        this.setState({line: loca});   
     }
     renderLeafletMap=()=>{
         return (
@@ -159,11 +158,11 @@ export default class Atlas extends Component {
         return (
             <FeatureGroup>
                 {this.state.locations.map((location, i) => {
-                    return <Marker key = {i} icon={MARKER_ICON} position={location}/>
+                      return <Marker key = {i} icon={MARKER_ICON} position={location}/>
                     }
                 )}
                 {this.state.line.map(({fromlat, fromlng, tolat, tolng}) => {
-                    return <Polyline key = {i} positions={[[fromlat, fromlng], [tolat, tolng],]} color={'blue'} />
+                      return <Polyline positions={[[fromlat, fromlng], [tolat, tolng],]} color={'blue'} />
                     }
                 )}
             </FeatureGroup>
@@ -178,8 +177,6 @@ export default class Atlas extends Component {
     }
     renderLocationTable=()=>{
         //apply this function to each element in locations array
-        //console.log(this.state.distances)
-        //console.log(this.state.locations)
         //reverseDistances = this.state.distances.slice(0).reverse();
         const locations = this.state.locations.map((location, i) =>
             <tr key={i}>
@@ -193,9 +190,6 @@ export default class Atlas extends Component {
                 
             </tr>
             );
-
-            //DELETE
-            //console.log(locations);
 
 
 
@@ -218,8 +212,8 @@ export default class Atlas extends Component {
     }
 	
     clearTable=()=>{
-    	this.state.locations.length = 0;
-    	this.setState({markerPosition: MAP_CENTER_DEFAULT, mapCenter: MAP_CENTER_DEFAULT, locations : this.state.locations});
+        this.state.locations.length = 0;
+        this.setState({markerPosition: MAP_CENTER_DEFAULT, mapCenter: MAP_CENTER_DEFAULT, locations : this.state.locations});
         this.getAddress(MAP_CENTER_DEFAULT).then();
         this.processLocationForLine();
         this.fetchDistances();
@@ -250,7 +244,6 @@ export default class Atlas extends Component {
         this.setState({markerPosition: mapClickInfo.latlng, mapCenter: mapClickInfo.latlng, locations: locations});
         this.processLocationForLine()
         this.fetchDistances();
-        //console.log(this.state.distances);
     }
     //render marker
     getMarker=()=>{

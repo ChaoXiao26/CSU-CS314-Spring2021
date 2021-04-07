@@ -37,14 +37,14 @@ public class TestDistancesRequest {
   @Test
   @DisplayName("Request earthRadius is \"3959\"")
   public void testEarthRadius(){
-    float rad = disReq.getEarthRadius();
+    double rad = disReq.getEarthRadius();
     assertEquals(3959, rad);
   }
 
   @Test
   @DisplayName("Request earthRadius is \"3959\"")
   public void testEarthRadius2(){
-    float rad = disReq2.getEarthRadius();
+    double rad = disReq2.getEarthRadius();
     assertEquals(3959, rad);
   }
 

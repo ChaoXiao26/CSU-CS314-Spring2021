@@ -8,10 +8,10 @@ import java.util.*;
 
 public class TourRequest extends RequestHeader {
     ArrayList<Map<String, String>> places;
-    private float earthRadius;
+    private double earthRadius;
     private double response;
 
-    public TourRequest(float earthRadius, double response, ArrayList<Map<String, String>> places){
+    public TourRequest(double earthRadius, double response, ArrayList<Map<String, String>> places){
         this.requestType = "tour";
         this.earthRadius = earthRadius;
         this.response = response;
