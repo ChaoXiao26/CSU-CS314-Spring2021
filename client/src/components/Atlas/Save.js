@@ -88,22 +88,9 @@ export default class Save extends Component {
         });
     }
    downloadFile(fileText, fileName, fileType) {
-     
+    let  file;
     if(fileType == 'json'){
-        let  file = new Blob([JSON.stringify(this.props.locations)], {type: fileType});
-       }
-       else{
-           arrayheader = ["Address","Latitude", "Longitude","Cumulative Distance"]
-       }
-       
-       //TO DO: Parse CSV file 
-      // else{
-        
-       // file = new Blob([fileText], {type: fileType});
-      // }
-       //TODO: IMPLEMENT FOR MAP.SVG
-
-       //TODO IMPLEMENT FOR MAP.KML
+        file = new Blob([JSON.stringify(this.props.locations)], {type: fileType});
         let a = document.createElement('a'),
         url = URL.createObjectURL(file);
         a.href = url;
@@ -114,14 +101,32 @@ export default class Save extends Component {
           document.body.removeChild(a);
           window.URL.revokeObjectURL(url);
         }, 0);
+    }
+       else{
+           let arrayheader = ["Address","Latitude", "Longitude","Distance"];
+           console.log(this.props.locations);
+           this.export_csv(arrayheader, this.props.locations,',', fileName);
+
+       }
+       
+       //TO DO: Parse CSV file 
+      // else{
+        
+       // file = new Blob([fileText], {type: fileType});
+      // }
+       //TODO: IMPLEMENT FOR MAP.SVG
+
+       //TODO IMPLEMENT FOR MAP.KML
+        
       }
 
       //TODO: create function  to parse csv file
+      //Source: https://seegatesite.com/tutorial-read-and-write-csv-file-with-javascript/
       export_csv = (arrayHeader, arrayData, delimiter, fileName) => {
         let header = arrayHeader.join(delimiter) + '\n';
         let csv = header;
-        arrayData.forEach( array => {
-            csv += array.join(delimiter)+"\n";
+        arrayData.forEach( location => {
+            csv += [location["name"].replace(/,/g, "").replace(".", "")]+","+[location["lat"]]+','+[location["lng"]].join(delimiter)+"\n";
         });
 
         let csvData = new Blob([csv], { type: 'text/csv' });  
