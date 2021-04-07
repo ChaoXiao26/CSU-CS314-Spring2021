@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Button, InputGroup, InputGroupAddon, InputGroupText, Input, Modal, ModalHeader, ModalBody, ModalFooter, ToastHeader } from 'reactstrap';
+import { Button, InputGroup, InputGroupAddon, InputGroupText, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import 'leaflet/dist/leaflet.css';
 import Coordinates from "coordinate-parser";
-import { canvas } from 'leaflet';
 
 export default class Load extends Component {
     constructor(props) {
