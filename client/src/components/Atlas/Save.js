@@ -51,15 +51,7 @@ export default class Save extends Component {
                         <InputGroup>
                         <Button onClick={() => this.downloadFile(this.props.locations,'Tour','csv')} color="success">Map.kml</Button>
                         </InputGroup>
-                        
-
-
-                       
-                
                     </ModalBody>
-                    <ModalFooter>
-                        <Button onClick={this.saveToggleNew} color="success">Find</Button>
-                    </ModalFooter>
                 </Modal>
             </div>
         );
