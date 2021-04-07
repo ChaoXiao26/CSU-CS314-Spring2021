@@ -7,6 +7,7 @@ export default class Load extends Component {
     constructor(props) {
         super(props);
         this.props = props;
+        this.handlefile = this.handlefile.bind(this);
         this.state = {
             uplodedFile: null
         }
@@ -15,12 +16,25 @@ export default class Load extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.dummy}>
-                    <b>Trip File Upload</b><br></br>
-                    <input type="file" onChange={this.dummy} />
-                    <Button type="submit">Upload</Button>
-                </form>
+                <b>Trip File Upload</b><br></br>
+                <input type="file" id = 'input' multiple onClick ={() => this.handlefile()}/>
+                <Button type="submit" onClick ={() => this.handlefile()} >Upload</Button>
+                <pre id="fileDisplayArea"></pre>             
             </div>
+            
         );
     }
-} 
+
+    handlefile(){
+        var fileInput = document.getElementById('input');
+        var fileDisplayArea = document.getElementById('fileDisplayArea');
+        fileInput.addEventListener('change', function(e) {
+			var file = fileInput.files[0];
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                fileDisplayArea.innerText = reader.result;
+            }
+            reader.readAsText(file);	      
+        });
+    }
+}
