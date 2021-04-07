@@ -19,22 +19,27 @@ export default class Load extends Component {
                 <b>Trip File Upload</b><br></br>
                 <input type="file" id = 'input' multiple onClick ={() => this.handlefile()}/>
                 <Button type="submit" onClick ={() => this.handlefile()} >Upload</Button>
-                <pre id="fileDisplayArea"></pre>             
+                {/* <pre id="fileDisplayArea"></pre>              */}
             </div>
             
         );
     }
 
     handlefile(){
+        var ths = this;
         var fileInput = document.getElementById('input');
-        var fileDisplayArea = document.getElementById('fileDisplayArea');
+        //var fileDisplayArea = document.getElementById('fileDisplayArea');
         fileInput.addEventListener('change', function(e) {
 			var file = fileInput.files[0];
             var reader = new FileReader();
             reader.onload = function(e) {
-                fileDisplayArea.innerText = reader.result;
+                //fileDisplayArea.innerText = reader.result;
+                console.log(e.target.result);  
+                ths.setState({uplodedFile: e.target.result})
+                console.log(ths.state.uplodedFile);  
             }
-            reader.readAsText(file);	      
+            reader.readAsText(file); 
         });
+
     }
 }
