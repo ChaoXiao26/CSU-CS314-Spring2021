@@ -10,6 +10,7 @@ import Find from './Find';
 import Distance from './Distance';
 import Trip from './Trip';
 import Save from './Save';
+import CoordinatesFindButton from './CoordinatesFindButton';
 
 import { sendServerRequest, isJsonResponseValid, getOriginalServerPort } from "../../utils/restfulAPI";
 import * as distancesSchema from "../../../schemas/DistancesResponse";
@@ -29,15 +30,16 @@ export default class Atlas extends Component {
 
     constructor(props) {
         super(props);
+        this.props = props;
 	    
-	//Mark-These are async functions-these statements are not necessary if the function is changed to = () =>{ } format
-	//It is possible we can remove these statements as well, but when I tried, I got an error, so I will get back to it later
-	this.handleGeolocation = this.handleGeolocation.bind(this);
-	this.setMarker = this.setMarker.bind(this);
-	this.updateCooInput = this.updateCooInput.bind(this);
-	this.addTableAndPinOnMap = this.addTableAndPinOnMap.bind(this);
-	this.fetchDistances = this.fetchDistances.bind(this);
-	this.processDistanceResponse = this.processDistanceResponse.bind(this);
+        //Mark-These are async functions-these statements are not necessary if the function is changed to = () =>{ } format
+        //It is possible we can remove these statements as well, but when I tried, I got an error, so I will get back to it later
+        this.handleGeolocation = this.handleGeolocation.bind(this);
+        this.setMarker = this.setMarker.bind(this);
+        this.updateCooInput = this.updateCooInput.bind(this);
+        this.addTableAndPinOnMap = this.addTableAndPinOnMap.bind(this);
+        this.fetchDistances = this.fetchDistances.bind(this);
+        this.processDistanceResponse = this.processDistanceResponse.bind(this);
         
         this.state = {
             sPort: getOriginalServerPort(),
@@ -65,12 +67,17 @@ export default class Atlas extends Component {
                     <Row>
                         <Col sm={12} md={{size: 10, offset: 1}}>
                             <Find AddTrip={this.addTrip}/>
-                            
-			                {this.renderCoordinatesInput()}
+                            <CoordinatesFindButton
+                                coordinates = {this.state.coordinates}
+                                processCoordinatesInput = {this.processCoordinatesInput}
+                                updateCooInput = {this.updateCooInput}
+                            />
                             {this.renderLeafletMap()}
                             {this.renderFindMeButtom()}
-                            <Distance locations = {this.state.locations}
-                            parentCallback = {this.handleCallback}/>
+                            <Distance
+                                locations = {this.state.locations}
+                                parentCallback = {this.handleCallback}
+                            />
                             <Trip locations = {this.state.locations}/>
                             <h4><p><b>Round Trip distance: {this.sumDistances(this.state.distances.length)} miles</b> </p></h4>
                             {this.renderLocationTable()}
