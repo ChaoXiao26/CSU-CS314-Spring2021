@@ -62,6 +62,7 @@ export default class Load extends Component {
         for(var i = 1; i < line.length; i++){
             line[i] = line[i].substring(1, line[i].length - 1);
             var message = line[i].split("\",\"");
+            if(message == "") break;
             this.props.AddTrip(message[lat], message[long]);
         }
     }

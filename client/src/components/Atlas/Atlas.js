@@ -89,6 +89,8 @@ export default class Atlas extends Component {
         );
     }
     addTrip = (lat, lng)=>{
+        console.log(lat);
+        console.log(lng);
         const inputtxt = lat + ',' + lng;
         const coordinates = this.state.coordinates;
         coordinates.latLng = this.getCoordinatesOrNull(inputtxt);
