@@ -21,44 +21,34 @@ public class DistancesRequest extends RequestHeader {
     private final transient Logger log = LoggerFactory.getLogger(DistancesRequest.class);
     
     public void tripDistances(){
-        String name1, name2, lat1, lat2, lng1, lng2;
-        int ALsize = this.places.size();
+        String[] names = new String[2], lats = new String[2], lngs = new String[2];
+        double[] la = new double[2], ln = new double[2];
         
         if(this.places.size() != 0){
-            for(int i = 0; i < (this.places.size() - 1); i++){
-                Map<String, String> place1 = this.places.get(i);
-                name1 = place1.get("name");
-                lat1 = place1.get("latitude");
-                lng1 = place1.get("longitude");
-                Map<String, String> place2 = this.places.get(i+1);
-                name2 = place2.get("name");
-                lat2 = place2.get("latitude");
-                lng2 = place2.get("longitude");
-                double la1 = Double.parseDouble(lat1);
-                double ln1 = Double.parseDouble(lng1);
-                double la2 = Double.parseDouble(lat2);
-                double ln2 = Double.parseDouble(lng2);
-                distances.add((long)greatCircle(la1, ln1, la2, ln2, this.earthRadius));
-            }
-            if(this.places.size() > 2){
-                Map<String, String> place1 = this.places.get(0);
-                name1 = place1.get("name");
-                lat1 = place1.get("latitude");
-                lng1 = place1.get("longitude");
-                Map<String, String> place2 = this.places.get((this.places.size() - 1));
-                name2 = place2.get("name");
-                lat2 = place2.get("latitude");
-                lng2 = place2.get("longitude");
-                double la1 = Double.parseDouble(lat1);
-                double ln1 = Double.parseDouble(lng1);
-                double la2 = Double.parseDouble(lat2);
-                double ln2 = Double.parseDouble(lng2);
-                distances.add((long)greatCircle(la1, ln1, la2, ln2, this.earthRadius));
-            }
-            if(this.places.size() == 1){
-                distances.add(0L);
+            int max = (this.places.size() - 1);
+            int bonus = 0;
+            //add a bonus pass in this instance that will be caught by an if statement inside the for loop
+            if(this.places.size() > 2){bonus = 1;}
+
+            for(int i = 0; i < max+bonus; i++){
+                for(int j = 0; j < 2; j++){
+                    Map<String, String> myPlace;
+                    //if bonus pass was wanted, the last pass will add first and last places instead
+                    if(i == max){myPlace = this.places.get(j*(this.places.size() - 1));}
+                    else{myPlace = this.places.get(i+j);}
+
+                    names[j] = myPlace.get("name");
+                    lats[j] = myPlace.get("latitude");
+                    lngs[j] = myPlace.get("longitude");
+                    
+                    la[j] = Double.parseDouble(lats[j]);
+                    ln[j] = Double.parseDouble(lngs[j]);
+                }
+                distances.add((long)greatCircle(la[0], ln[0], la[1], ln[1], this.earthRadius));
             }
         }
+        if(this.places.size() == 1)
+            {distances.add(0L);}
     }
 
     public double greatCircle(double lat1, double lng1, double lat2, double lng2, double earthRad){
@@ -108,4 +98,3 @@ public class DistancesRequest extends RequestHeader {
     }
 
 }
-
