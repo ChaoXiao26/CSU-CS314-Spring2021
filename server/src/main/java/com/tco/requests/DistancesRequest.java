@@ -44,21 +44,21 @@ public class DistancesRequest extends RequestHeader {
                     la[j] = Double.parseDouble(lats[j]);
                     ln[j] = Double.parseDouble(lngs[j]);
                 }
-                distances.add((long)greatCircle(la[0], ln[0], la[1], ln[1], this.earthRadius));
+                distances.add((long)greatCircle(la, ln, this.earthRadius));
             }
         }
         if(this.places.size() == 1)
             {distances.add(0L);}
     }
 
-    public double greatCircle(double lat1, double lng1, double lat2, double lng2, double earthRad){
-        if ((lat1 != lat2) && (lng1 != lng2)){
+    public double greatCircle(double[] lats, double[] lngs, double earthRad){
+        if ((lats[0] != lats[1]) && (lngs[0] != lngs[1])){
 
-			double dLat = Math.toRadians(lat2 - lat1);
-            double dLng = Math.toRadians(lng2 - lng1);
+			double dLat = Math.toRadians(lats[1] - lats[0]);
+            double dLng = Math.toRadians(lngs[1] - lngs[0]);
 
 			double a = Math.sin(dLat/2) * Math.sin(dLat/2)
-                     + Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2))
+                     + Math.cos(Math.toRadians(lats[0])) * Math.cos(Math.toRadians(lats[1]))
                      * Math.sin(dLng/2) * Math.sin(dLng/2);
             double angle = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 
