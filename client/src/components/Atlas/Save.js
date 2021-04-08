@@ -95,7 +95,7 @@ export default class Save extends Component {
         }, 0);
     }
        else{
-           let arrayheader = ["Address","Latitude", "Longitude","Distance"];
+           let arrayheader = ["\"latitude\"","\"longitude\"", "\"name\""];
            console.log(this.props.locations);
            this.export_csv(arrayheader, this.props.locations,',', fileName);
 
@@ -118,7 +118,7 @@ export default class Save extends Component {
         let header = arrayHeader.join(delimiter) + '\n';
         let csv = header;
         arrayData.forEach( location => {
-            csv += [location["name"].replace(/,/g, "").replace(".", "")]+","+[location["lat"]]+','+[location["lng"]].join(delimiter)+"\n";
+            csv += "\""+[location["lat"]]+'\",\"'+[location["lng"]].join(delimiter)+"\",\""+[location["name"].replace(/,/g, "").replace(".", "")]+"\"\n";
         });
 
         let csvData = new Blob([csv], { type: 'text/csv' });  
