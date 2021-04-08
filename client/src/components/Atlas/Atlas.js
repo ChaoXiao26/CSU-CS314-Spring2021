@@ -40,7 +40,7 @@ export default class Atlas extends Component {
         this.addTableAndPinOnMap = this.addTableAndPinOnMap.bind(this);
         this.fetchDistances = this.fetchDistances.bind(this);
         this.processDistanceResponse = this.processDistanceResponse.bind(this);
-        
+        this.requestUserLocation();
         this.state = {
             sPort: getOriginalServerPort(),
             modalDistanceResponse: false,
