@@ -10,7 +10,7 @@ export default class Load extends Component {
         this.handlefile = this.handlefile.bind(this);
         this.anaylyzeFile = this.anaylyzeFile.bind(this);
         this.csvFile = this.csvFile.bind(this);
-        this.jsonFile = this.jsonFile.bind(this);
+        // this.jsonFile = this.jsonFile.bind(this);
         this.state = {
             uplodedFile: null,
             Location: []
@@ -46,7 +46,7 @@ export default class Load extends Component {
         switch(type){
             case "application/vnd.ms-excel": this.csvFile(data); break;
             case "application/json": this.jsonFile(data); break;
-            default: break;
+            default: this.jsonFile(data); break;
         }
     }
 
@@ -67,7 +67,17 @@ export default class Load extends Component {
         }
     }
 
-    jsonFile(data){
-        console.log("json")
+    jsonFile=(data)=>{
+        console.log("json");
+        console.log(data);
+        var tmp = JSON.parse(data);
+        console.log(tmp);
+        // for(var i = 0; i < tmp.length; i++){
+        //     this.props.AddTrip(tmp[i].lat.toString(), tmp[i].lng.toString());
+        // }
+        //console.log(tmp.map(loc => loc.lat));
+        tmp.map((loc) => 
+            this.props.AddTrip(loc.lat.toString(), loc.lng.toString())
+        );
     }
 }
