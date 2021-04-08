@@ -12,7 +12,8 @@ export default class Load extends Component {
         this.csvFile = this.csvFile.bind(this);
         this.jsonFile = this.jsonFile.bind(this);
         this.state = {
-            uplodedFile: null
+            uplodedFile: null,
+            Location: []
         }
     }
 
@@ -49,8 +50,20 @@ export default class Load extends Component {
         }
     }
 
-    csvFile(data){
-        console.log("csv")
+    csvFile(data){     
+        var line = data.split('\n');
+
+        line[0] = line[0].substring(1, line[0].length - 1);
+        
+        var name = line[0].split("\",\"");
+        var lat = name.indexOf("latitude");
+        var long = name.indexOf("longitude");
+
+        for(var i = 1; i < line.length; i++){
+            line[i] = line[i].substring(1, line[i].length - 1);
+            var message = line[i].split("\",\"");
+            this.props.AddTrip(message[lat], message[long]);
+        }
     }
 
     jsonFile(data){

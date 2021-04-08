@@ -74,7 +74,7 @@ export default class Atlas extends Component {
                             />
                             {this.renderLeafletMap()}
                             {this.renderFindMeButtom()}
-                            <Load AddTrip={this.loadFuncDummy}/>
+                            <Load AddTrip={this.addTrip}/>
                             <Distance
                                 locations = {this.state.locations}
                                 parentCallback = {this.handleCallback}
