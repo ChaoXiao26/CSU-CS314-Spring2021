@@ -63,8 +63,8 @@ During the Sprint 3 we have completed all the epics but left defect in distences
 | Statistic | # Planned | # Completed |
 | --- | ---: | ---: |
 | Epics | *6* | *count* |
-| Tasks |  *30*   | *count* | 
-| Story Points |  *32*  | *sum* | 
+| Tasks |  *30*   | *73* | 
+| Story Points |  *32*  | *73* | 
 
 
 ## Scrums
@@ -79,8 +79,10 @@ During the Sprint 3 we have completed all the epics but left defect in distences
 ## Review
 
 ### Epics completed  
+We completed Load Tour, Protocol Tour Feature, and Search More. We were unable to complete the rest of the epics due to various reasons.
 
 ### Epics not completed 
+We were not able to complete Save Tour, Modify Tour, and Shorter Tour.
 
 ## Retrospective
 
