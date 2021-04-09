@@ -128,7 +128,7 @@ export default class Save extends Component {
         let i = 0;
         arrayData.forEach( location => {
 
-             csv += "\""+[location["name"].replace(/,/g, "").replace(".", "")]+"\""+","+[location["lat"]]+"\""+','+[location["lng"]]+"\""+','+[location["distance"]]"\"".join(delimiter)+"\n";
+             csv += "\"" +[location["name"].replace(/,/g, "").replace(".", "")] + "\"" +","+"\""+[location["lat"]]+"\""+ ','+"\""+ [location["lng"]] + "\"" +','+"\""+[location["distance"]]+["\""].join(delimiter)+"\n";
          });
 
 
