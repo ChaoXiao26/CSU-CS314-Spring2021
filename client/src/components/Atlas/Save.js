@@ -81,10 +81,10 @@ export default class Save extends Component {
         });
     }
    downloadFile(fileText, fileName, fileType) {
-       console.log(this.combineDistancesAndLocations());
+    let data = this.combineDistancesAndLocations()
     let  file;
     if(fileType == 'json'){
-        file = new Blob([JSON.stringify(this.props.locations)], {type: fileType});
+        file = new Blob([JSON.stringify(data)], {type: fileType});
         let a = document.createElement('a'),
         url = URL.createObjectURL(file);
         a.href = url;
@@ -98,8 +98,7 @@ export default class Save extends Component {
     }
        else{
            let arrayheader = ["Address","Latitude", "Longitude","Distance"];
-           console.log(this.props.locations);
-           this.export_csv(arrayheader, this.props.locations,',', fileName);
+           this.export_csv(arrayheader, data,',', fileName);
 
        }
        
@@ -117,6 +116,8 @@ export default class Save extends Component {
       //TODO: create function  to parse csv file
       //Source: https://seegatesite.com/tutorial-read-and-write-csv-file-with-javascript/
       export_csv = (arrayHeader, arrayData, delimiter, fileName) => {
+          //let data = this.combineDistancesAndLocations();
+         // console.log(data);
         let header = arrayHeader.join(delimiter) + '\n';
         let csv = header;
         // for (let i = 0; i < arrayData.length; i++) { 
@@ -124,7 +125,7 @@ export default class Save extends Component {
         //   }
         let i = 0;
         arrayData.forEach( location => {
-             csv += [location["name"].replace(/,/g, "").replace(".", "")]+","+[location["lat"]]+','+[location["lng"]].join(delimiter)+"\n";
+             csv += [location["name"].replace(/,/g, "").replace(".", "")]+","+[location["lat"]]+','+[location["lng"]]+','+[location["distance"]].join(delimiter)+"\n";
          });
 
         let csvData = new Blob([csv], { type: 'text/csv' });  
