@@ -10,6 +10,7 @@ export default class Save extends Component {
         super(props);
         this.props = props;
         this.downloadFile = this.downloadFile.bind(this);
+        this.combineDistancesAndLocations = this.combineDistancesAndLocations.bind(this);
         
         this.state = {  
             modalNew: false,
@@ -80,9 +81,10 @@ export default class Save extends Component {
         });
     }
    downloadFile(fileText, fileName, fileType) {
+    let data = this.combineDistancesAndLocations()
     let  file;
     if(fileType == 'json'){
-        file = new Blob([JSON.stringify(this.props.locations)], {type: fileType});
+        file = new Blob([JSON.stringify(data)], {type: fileType});
         let a = document.createElement('a'),
         url = URL.createObjectURL(file);
         a.href = url;
@@ -95,9 +97,10 @@ export default class Save extends Component {
         }, 0);
     }
        else{
-           let arrayheader = ["\"latitude\"","\"longitude\"", "\"name\""];
-           console.log(this.props.locations);
-           this.export_csv(arrayheader, this.props.locations,',', fileName);
+
+           let arrayheader = ["\"Address\"","\"Latitude\"", "\"Longitude\"","\"Distance\""];
+           this.export_csv(arrayheader, data,',', fileName);
+
 
        }
        
@@ -115,11 +118,19 @@ export default class Save extends Component {
       //TODO: create function  to parse csv file
       //Source: https://seegatesite.com/tutorial-read-and-write-csv-file-with-javascript/
       export_csv = (arrayHeader, arrayData, delimiter, fileName) => {
+          //let data = this.combineDistancesAndLocations();
+         // console.log(data);
         let header = arrayHeader.join(delimiter) + '\n';
         let csv = header;
+        // for (let i = 0; i < arrayData.length; i++) { 
+        //     csv += [arrayData[i]["name"]].replace(/,/g, "").replace(".", "")+[arrayData[i]["lat"]].join(delimiter)+"\n";
+        //   }
+        let i = 0;
         arrayData.forEach( location => {
-            csv += "\""+[location["lat"]]+'\",\"'+[location["lng"]].join(delimiter)+"\",\""+[location["name"].replace(/,/g, "").replace(".", "")]+"\"\n";
-        });
+
+             csv += "\"" +[location["name"].replace(/,/g, "").replace(".", "")] + "\"" +","+"\""+[location["lat"]]+"\""+ ','+"\""+ [location["lng"]] + "\"" +','+"\""+[location["distance"]]+["\""].join(delimiter)+"\n";
+         });
+
 
         let csvData = new Blob([csv], { type: 'text/csv' });  
         let csvUrl = URL.createObjectURL(csvData);
@@ -130,6 +141,21 @@ export default class Save extends Component {
         hiddenElement.download = fileName + '.csv';
         hiddenElement.click();
     }
+    combineDistancesAndLocations(){
+        console.log(this.props.locations)
+        let combineData =[]
+         for (var i of this.props.locations){
+             combineData.push(i)
+         }
+         let j =0;
+         for (var distance of this.props.distances){
+                combineData[j].distance = distance;
+                 j+=1;
+             }
+
+         return combineData;
+    }
+
       
    
 
