@@ -41,6 +41,12 @@ public class TestConfigRequest {
     public void testFeatureDistances(){
         assertTrue(conf.validFeature("distances"));
     }
+    
+    @Test
+    @DisplayName("Features includes \"tour\"")
+    public void testFeatureTour(){
+        assertTrue(conf.validFeature("tour"));
+    }
 
     @Test
     @DisplayName("Team name is t16 404 Brain Not Found")
