@@ -97,8 +97,10 @@ export default class Save extends Component {
         }, 0);
     }
        else{
-           let arrayheader = ["Address","Latitude", "Longitude","Distance"];
+
+           let arrayheader = ["\"Address\"","\"Latitude\"", "\"Longitude\"","\"Distance\""];
            this.export_csv(arrayheader, data,',', fileName);
+
 
        }
        
@@ -125,8 +127,10 @@ export default class Save extends Component {
         //   }
         let i = 0;
         arrayData.forEach( location => {
-             csv += [location["name"].replace(/,/g, "").replace(".", "")]+","+[location["lat"]]+','+[location["lng"]]+','+[location["distance"]].join(delimiter)+"\n";
+
+             csv += "\""+[location["name"].replace(/,/g, "").replace(".", "")]+"\""+","+[location["lat"]]+"\""+','+[location["lng"]]+"\""+','+[location["distance"]]"\"".join(delimiter)+"\n";
          });
+
 
         let csvData = new Blob([csv], { type: 'text/csv' });  
         let csvUrl = URL.createObjectURL(csvData);

@@ -10,9 +10,10 @@ export default class Load extends Component {
         this.handlefile = this.handlefile.bind(this);
         this.anaylyzeFile = this.anaylyzeFile.bind(this);
         this.csvFile = this.csvFile.bind(this);
-        this.jsonFile = this.jsonFile.bind(this);
+        // this.jsonFile = this.jsonFile.bind(this);
         this.state = {
-            uplodedFile: null
+            uplodedFile: null,
+            Location: []
         }
     }
 
@@ -45,15 +46,38 @@ export default class Load extends Component {
         switch(type){
             case "application/vnd.ms-excel": this.csvFile(data); break;
             case "application/json": this.jsonFile(data); break;
-            default: break;
+            default: this.jsonFile(data); break;
         }
     }
 
-    csvFile(data){
-        console.log("csv")
+    csvFile(data){     
+        var line = data.split('\n');
+
+        line[0] = line[0].substring(1, line[0].length - 1);
+        
+        var name = line[0].split("\",\"");
+        var lat = name.indexOf("latitude");
+        var long = name.indexOf("longitude");
+
+        for(var i = 1; i < line.length; i++){
+            line[i] = line[i].substring(1, line[i].length - 1);
+            var message = line[i].split("\",\"");
+            if(message == "") break;
+            this.props.AddTrip(message[lat], message[long]);
+        }
     }
 
-    jsonFile(data){
-        console.log("json")
+    jsonFile=(data)=>{
+        console.log("json");
+        console.log(data);
+        var tmp = JSON.parse(data);
+        console.log(tmp);
+        // for(var i = 0; i < tmp.length; i++){
+        //     this.props.AddTrip(tmp[i].lat.toString(), tmp[i].lng.toString());
+        // }
+        //console.log(tmp.map(loc => loc.lat));
+        tmp.map((loc) => 
+            this.props.AddTrip(loc.lat.toString(), loc.lng.toString())
+        );
     }
 }

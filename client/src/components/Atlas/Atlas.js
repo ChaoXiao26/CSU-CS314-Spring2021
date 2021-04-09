@@ -40,7 +40,7 @@ export default class Atlas extends Component {
         this.addTableAndPinOnMap = this.addTableAndPinOnMap.bind(this);
         this.fetchDistances = this.fetchDistances.bind(this);
         this.processDistanceResponse = this.processDistanceResponse.bind(this);
-        
+        this.requestUserLocation();
         this.state = {
             sPort: getOriginalServerPort(),
             modalDistanceResponse: false,
@@ -74,7 +74,7 @@ export default class Atlas extends Component {
                             />
                             {this.renderLeafletMap()}
                             {this.renderFindMeButtom()}
-                            <Load AddTrip={this.loadFuncDummy}/>
+                            <Load AddTrip={this.addTrip}/>
                             <Distance
                                 locations = {this.state.locations}
                                 parentCallback = {this.handleCallback}
@@ -89,6 +89,8 @@ export default class Atlas extends Component {
         );
     }
     addTrip = (lat, lng)=>{
+        console.log(lat);
+        console.log(lng);
         const inputtxt = lat + ',' + lng;
         const coordinates = this.state.coordinates;
         coordinates.latLng = this.getCoordinatesOrNull(inputtxt);
