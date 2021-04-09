@@ -87,7 +87,10 @@ We were not able to complete Save Tour, Modify Tour, and Shorter Tour.
 ## Retrospective
 
 ### Things that went well
+We completed 3 epics.
 
 ### Things we need to improve
+We need to finish more epics.
 
 ### One thing we will change next time
+We need to be more productive.
