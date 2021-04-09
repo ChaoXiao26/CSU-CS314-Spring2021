@@ -209,7 +209,7 @@ export default class Atlas extends Component {
                         <th><b>Cumulative Distance</b></th>
                         <th className="smallCell"><b>Mark</b></th>   
 			                  <th className="smallCell"><Button color="primary" type="button" className="btn btn-secondary btn-block float-right" onClick={this.clearTable}>Clear</Button></th>
-            		        <th className="smallCell"><Save locations = {this.state.locations} distances ={this.state.disatnces} /></th>
+            		        <th className="smallCell"><Save locations = {this.state.locations} distances ={this.state.distances} /></th>
                     </tr>
                 </thead>
                 <tbody>{locations}</tbody>
