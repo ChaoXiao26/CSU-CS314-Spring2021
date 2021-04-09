@@ -87,10 +87,10 @@ We were not able to complete Save Tour, Modify Tour, and Shorter Tour.
 ## Retrospective
 
 ### Things that went well
-We completed 3 epics.
+We completed 3 epics. Also, we managed to clean up some of our code smells that were destroying our code. Despite a team member being sick for a majority of the sprint, the team was able to complete 74 story points. Through adversity the team was still able to accomplish a lot.
 
 ### Things we need to improve
-We need to finish more epics.
+We need to finish more epics. Our team communication has completely fallen off and we need to work on that for the next sprint. We also need to review other team members code before merging the pull request. Trust is an issue on our team and we have one sprint to overcome this.
 
 ### One thing we will change next time
 We need to be more productive.
