@@ -49,6 +49,13 @@ In this epic, we will need to use heuristic optimization techniques and concurre
 
 This epic will add a great feature for our users. First we need to have a data structure that we can copy the old order of the old trip while allowing the user to select a new starting point. We also would like to provide the user with the option of reversing the order of the trip while maintaining the starting location. Another task will be allowing the user to reorder the individual destinations. The user will also be provided with functionality to remove individual destinations. A feature we would like to add is to allow the user to add information about individual places as well as correct any wrong information. Lastly we will need a function that will render the updated trip with this new information.
 
+### User Experience
+
+In this epic, we will need to let other students or friends to take a look of our website and get some feedback from them. We will focus on the user experience for moblie user, and try to minimum the misunderstand in our website page, including show the fewest visual elements possible at a time, minimal scrolling required, and consistent with CSU web style guidelines and more if we found.
+
+### Filter tour
+
+In this epic, we will need to allow user to find and view a subset of the tour or search results when they get long, including let the user enter a search string and show only a portion of the tour or search results for matching item(s).
 
 ## Metrics
 
