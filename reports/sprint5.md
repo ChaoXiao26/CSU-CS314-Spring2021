@@ -37,6 +37,18 @@
 
 ## Planned Epics
 
+### Server Settings
+
+This epic will present the user with all available features. It will also allow the user to see which server is currently in use. Lastly it will suggest other server to connect too. Adequate tests will be created in order to boost test coverage. If this is all done properly, then interoperability will be an easier task to accomplish.
+
+### Shorter tour
+
+In this epic, we will need to use heuristic optimization techniques and concurrency to improve our tour showing, we need to let our website to respond in less than 1 second, and reduce the computation time for the optimization techniques. To do this, we will translate three algorithms into code: 2-opt, 3-opt, and nearest neighbor. To determine the correct optimization technique, we will have a check that determines which to use. We will also create adequate tests for each new method introduced.
+
+### Modify tour
+
+This epic will add a great feature for our users. First we need to have a data structure that we can copy the old order of the old trip while allowing the user to select a new starting point. We also would like to provide the user with the option of reversing the order of the trip while maintaining the starting location. Another task will be allowing the user to reorder the individual destinations. The user will also be provided with functionality to remove individual destinations. A feature we would like to add is to allow the user to add information about individual places as well as correct any wrong information. Lastly we will need a function that will render the updated trip with this new information.
+
 
 ## Metrics
 
