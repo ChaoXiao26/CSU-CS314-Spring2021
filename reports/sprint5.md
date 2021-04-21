@@ -59,6 +59,10 @@ In this epic, we will need to allow user to find and view a subset of the tour o
 ### Save tour
 We will continue to work on this epic carried over from last sprint. The user would like to save their tour and map. The user is currently able to save their Tour in csv and JSON formats. To complete this epic we need to implement a function to save the map in SVG and KML formats.
 
+### Load Tour
+We have some issue with our load tour. Currently, the latlng doesn't update correctly in the table column and Load Tour function doesnt update the distances column and doesn't load the correct json file correctly. We will fix our load tour in this sprint, so that it will be fully functional.
+
+
 ## Metrics
 
 | Statistic | # Planned | # Completed |
