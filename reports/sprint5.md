@@ -67,9 +67,9 @@ We have some issue with our load tour. Currently, the latlng doesn't update corr
 
 | Statistic | # Planned | # Completed |
 | --- | ---: | ---: |
-| Epics | *count* | *count* |
-| Tasks |  *count*   | *count* | 
-| Story Points |  *sum*  | *sum* | 
+| Epics | 7 | *count* |
+| Tasks |  39   | *count* | 
+| Story Points |  42  | *sum* | 
 
 
 ## Scrums
