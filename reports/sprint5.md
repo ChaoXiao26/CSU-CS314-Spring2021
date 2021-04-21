@@ -56,6 +56,8 @@ In this epic, we will need to let other students or friends to take a look of ou
 ### Filter tour
 
 In this epic, we will need to allow user to find and view a subset of the tour or search results when they get long, including let the user enter a search string and show only a portion of the tour or search results for matching item(s).
+### Save tour
+We will continue to work on this epic carried over from last sprint. The user would like to save their tour and map. The user is currently able to save their Tour in csv and JSON formats. To complete this epic we need to implement a function to save the map in SVG and KML formats.
 
 ## Metrics
 
