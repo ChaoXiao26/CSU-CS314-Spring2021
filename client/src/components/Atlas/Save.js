@@ -57,24 +57,7 @@ export default class Save extends Component {
             </div>
         );
     }
-    functionTakingTourInput = (event) => {
-        this.setState({ saveTourFormat: event.target.value });
-        downloadFile(this.props.distances, 'Tour', saveTourFormat);
-
-    }
-    textBox(name, text, func){
-        return(
-            <InputGroup>
-                <InputGroupAddon addonType="prepend">
-                    <InputGroupText>{name}</InputGroupText>
-                </InputGroupAddon>
-                <Input
-                    placeholder={text}
-                    onChange={func}
-                />
-            </InputGroup>
-        );
-    }
+    
     saveToggleNew=()=>{
         this.setState({
             modalNew: !this.state.modalNew
