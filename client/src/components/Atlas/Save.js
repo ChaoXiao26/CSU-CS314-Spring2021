@@ -158,11 +158,13 @@ export default class Save extends Component {
             '<styleUrl>#CrossStyle</styleUrl>'+
             '<LineString>'+
             '<coordinates>';
-
-            for (var i of file_data){
-                console.log(i.lat)
-                console.log(i.lng)
-            }
+            let lat,lng;
+            file_data.forEach( location => {
+                lat = location.lat.toFixed(2).toString().replace(".", ",")+',0';
+                lng = location.lng.toFixed(2).toString().replace(".", ",") + ',0';
+                console.log(lat);
+                
+            });
          
             let file = new Blob([KML_Map], { type: 'kml' });
             return file;
