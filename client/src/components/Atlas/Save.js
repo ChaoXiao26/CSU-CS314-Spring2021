@@ -48,10 +48,10 @@ export default class Save extends Component {
                         <Button onClick={() => this.downloadFile(this.props.locations,'Tour','csv')} color="success">Tour.csv</Button>
                         </InputGroup>
                         <InputGroup>
-                            <Button onClick={() => this.downloadFile(this.props.locations,'Tour','csv')} color="success">Map.svg</Button>
+                            <Button onClick={() => this.downloadFile(this.props.locations,'Tour','svg')} color="success">Map.svg</Button>
                         </InputGroup>
                         <InputGroup>
-                        <Button onClick={() => this.downloadFile(this.props.locations,'Tour','csv')} color="success">Map.kml</Button>
+                        <Button onClick={() => this.downloadFile(this.props.locations,'Tour','kml')} color="success">Map.kml</Button>
                         </InputGroup>
                     </ModalBody>
                 </Modal>
@@ -76,14 +76,16 @@ export default class Save extends Component {
            let arrayheader = ["\"Address\"","\"Latitude\"", "\"Longitude\"","\"Distance\""];
            file = this.export_csv(arrayheader, data,',', fileName);
         }
-        else if (fileType == 'csv'){
-            this.CreateSVGMap();
+        else if (fileType == 'svg'){
+            file = this.CreateSVGMap();
+            fileName+='.svg'
         }
-        
+
         let a = document.createElement('a'),
                 url = URL.createObjectURL(file);
             a.href = url;
             a.download = fileName;
+            console.log(fileName);
             document.body.appendChild(a);
             a.click();
             setTimeout(function() {
@@ -127,7 +129,8 @@ export default class Save extends Component {
         '<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="768"> \n' +
          '<image href= "https://instructor-uploaded-content.s3.amazonaws.com/MAP.svg-6983777" />\n'+
        ' </svg>';
-       return SVG_Map;
+       let file = new Blob([SVG_Map], { type: 'svg' });
+       return file;
 
 
     }
