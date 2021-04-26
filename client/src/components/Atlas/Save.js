@@ -12,6 +12,7 @@ export default class Save extends Component {
         this.downloadFile = this.downloadFile.bind(this);
         this.combineDistancesAndLocations = this.combineDistancesAndLocations.bind(this);
         this.CreateSVGMap =this.CreateSVGMap.bind(this);
+        this.CreateKMLMap =this.CreateKMLMap.bind(this);
         
         this.state = {  
             modalNew: false,
@@ -78,7 +79,12 @@ export default class Save extends Component {
         }
         else if (fileType == 'svg'){
             file = this.CreateSVGMap();
-            fileName+='.svg'
+            fileName+='.svg';
+        }
+        else{
+            console.log(data);
+            file = this.CreateKMLMap(data);
+            fileName+='.kml';
         }
 
         let a = document.createElement('a'),
@@ -131,6 +137,35 @@ export default class Save extends Component {
        ' </svg>';
        let file = new Blob([SVG_Map], { type: 'svg' });
        return file;
+
+
+    }
+    CreateKMLMap(file_data){
+        let KML_Map = '<?xml version="1.0" encoding="UTF-8"?>'+
+        '<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">'+
+            '<Document>'+
+                '<name>Tour</name>'+
+                '<open>1</open>'+
+                '<description>Saved Tour</description>'+
+                '<Style id="CrossStyle">'+
+                    '<LineStyle>'+
+                        '<color>ffffffb6</color>'+
+                        '<width>4</width>'
+                    '</LineStyle>'
+                '</Style>'+
+                '<Placemark>' +
+            '<name>Cross-corner line</name>'+
+            '<styleUrl>#CrossStyle</styleUrl>'+
+            '<LineString>'+
+            '<coordinates>';
+
+            for (var i of file_data){
+                console.log(i.lat)
+                console.log(i.lng)
+            }
+         
+            let file = new Blob([KML_Map], { type: 'kml' });
+            return file;
 
 
     }
