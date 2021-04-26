@@ -66,20 +66,20 @@ export default class Save extends Component {
    downloadFile(fileText, fileName, fileType) {
     let data = this.combineDistancesAndLocations()
     let  file;
-    if(fileType == 'json'){
-        file = new Blob([JSON.stringify(data)], {type: fileType});
-        let a = document.createElement('a'),
-        url = URL.createObjectURL(file);
-        a.href = url;
-        a.download = fileName;
-        document.body.appendChild(a);
-        a.click();
-        setTimeout(function() {
-          document.body.removeChild(a);
-          window.URL.revokeObjectURL(url);
-        }, 0);
-    }
-       else{
+        if(fileType == 'json'){
+            file = new Blob([JSON.stringify(data)], {type: fileType});
+            let a = document.createElement('a'),
+                url = URL.createObjectURL(file);
+            a.href = url;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            setTimeout(function() {
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+            }, 0);
+        }
+        else if (fileType == 'csv'){
 
            let arrayheader = ["\"Address\"","\"Latitude\"", "\"Longitude\"","\"Distance\""];
            this.export_csv(arrayheader, data,',', fileName);
@@ -87,27 +87,14 @@ export default class Save extends Component {
 
        }
        
-       //TO DO: Parse CSV file 
-      // else{
-        
-       // file = new Blob([fileText], {type: fileType});
-      // }
-       //TODO: IMPLEMENT FOR MAP.SVG
-
-       //TODO IMPLEMENT FOR MAP.KML
         
       }
 
       //TODO: create function  to parse csv file
       //Source: https://seegatesite.com/tutorial-read-and-write-csv-file-with-javascript/
       export_csv = (arrayHeader, arrayData, delimiter, fileName) => {
-          //let data = this.combineDistancesAndLocations();
-         // console.log(data);
         let header = arrayHeader.join(delimiter) + '\n';
         let csv = header;
-        // for (let i = 0; i < arrayData.length; i++) { 
-        //     csv += [arrayData[i]["name"]].replace(/,/g, "").replace(".", "")+[arrayData[i]["lat"]].join(delimiter)+"\n";
-        //   }
         let i = 0;
         arrayData.forEach( location => {
 
