@@ -69,7 +69,18 @@ export default class Save extends Component {
     let  file;
         if(fileType == 'json'){
             file = new Blob([JSON.stringify(data)], {type: fileType});
-            let a = document.createElement('a'),
+            
+        }
+        else if (fileType == 'csv'){
+
+           let arrayheader = ["\"Address\"","\"Latitude\"", "\"Longitude\"","\"Distance\""];
+           file = this.export_csv(arrayheader, data,',', fileName);
+        }
+        else if (fileType == 'csv'){
+            this.CreateSVGMap();
+        }
+        
+        let a = document.createElement('a'),
                 url = URL.createObjectURL(file);
             a.href = url;
             a.download = fileName;
@@ -79,15 +90,6 @@ export default class Save extends Component {
                 document.body.removeChild(a);
                 window.URL.revokeObjectURL(url);
             }, 0);
-        }
-        else if (fileType == 'csv'){
-
-           let arrayheader = ["\"Address\"","\"Latitude\"", "\"Longitude\"","\"Distance\""];
-           this.export_csv(arrayheader, data,',', fileName);
-        }
-        else if (fileType == 'csv'){
-            this.CreateSVGMap();
-        }
        
         
     }
@@ -116,14 +118,8 @@ export default class Save extends Component {
          });
 
 
-        let csvData = new Blob([csv], { type: 'text/csv' });  
-        let csvUrl = URL.createObjectURL(csvData);
-
-        let hiddenElement = document.createElement('a');
-        hiddenElement.href = csvUrl;
-        hiddenElement.target = '_blank';
-        hiddenElement.download = fileName + '.csv';
-        hiddenElement.click();
+        let csvData = new Blob([csv], { type: 'text/csv' });
+        return csvData;  
     }
 
     CreateSVGMap(){
