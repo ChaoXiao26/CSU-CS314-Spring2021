@@ -141,30 +141,48 @@ export default class Save extends Component {
 
     }
     CreateKMLMap(file_data){
-        let KML_Map = '<?xml version="1.0" encoding="UTF-8"?>'+
-        '<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">'+
-            '<Document>'+
-                '<name>Tour</name>'+
-                '<open>1</open>'+
-                '<description>Saved Tour</description>'+
-                '<Style id="CrossStyle">'+
-                    '<LineStyle>'+
-                        '<color>ffffffb6</color>'+
-                        '<width>4</width>'
-                    '</LineStyle>'
-                '</Style>'+
-                '<Placemark>' +
-            '<name>Cross-corner line</name>'+
-            '<styleUrl>#CrossStyle</styleUrl>'+
-            '<LineString>'+
-            '<coordinates>';
+        let KML_Map = '<?xml version="1.0" encoding="UTF-8"?>\n'+
+        '<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">\n'+
+            '\t<Document>\n'+
+                '\t\t<name>Tour</name>\n'+
+                '\t\t<open>1</open>\n'+
+                '\t\t<description>Saved Tour</description>\n'+
+                '\t\t<Style id="CrossStyle">\n'+
+                    '\t\t\t<LineStyle>\n'+
+                        '\t\t\t\t<color>ffffffb6</color>\n'+
+                        '\t\t\t\t<width>4</width>\n'+
+                    '\t\t\t</LineStyle>\n'+
+                '\t\t</Style>\n'+
+                '\t\t<Placemark>\n' +
+                    '\t\t\t<name>Cross-corner line</name>\n'+
+                    '\t\t\t<styleUrl>#CrossStyle</styleUrl>\n'+
+
+            //HARDCODED SECTION FOR TEST
+            '\t\t\t<LineString>'+ '\n'+
+            '\t\t\t\t<coordinates>' +'\n' +
+            '\t\t\t\t-102,37,0\n'+
+            '\t\t\t\t-109,41,0\n' +
+            '\t\t\t\t</coordinates>' +'\n'+
+                '\t\t\t</LineString>'+ '\n';
+
+                    
             let lat,lng;
-            file_data.forEach( location => {
-                lat = location.lat.toFixed(2).toString().replace(".", ",")+',0';
-                lng = location.lng.toFixed(2).toString().replace(".", ",") + ',0';
+            /* file_data.forEach( location => {
+                KML_Map +='<LineString>'+ '\n'+
+                '<coordinates>' +'\n';
+                //lat = location.lat.toFixed(2).toString().replace(".", ",")+',0';
+                //lng = location.lng.toFixed(2).toString().replace(".", ",") + ',0';
+
                 console.log(lat);
+                KML_Map += lng + ' ' +lat;
+                KML_Map += ' </coordinates>' +'\n'+
+                '</LineString>'+ '\n';
                 
-            });
+                
+            }); */
+            KML_Map += '\t\t</Placemark>\n' +'\t</Document>\n' +
+            '</kml>';
+
          
             let file = new Blob([KML_Map], { type: 'kml' });
             return file;
