@@ -11,6 +11,7 @@ export default class Save extends Component {
         this.props = props;
         this.downloadFile = this.downloadFile.bind(this);
         this.combineDistancesAndLocations = this.combineDistancesAndLocations.bind(this);
+        this.CreateSVGMap =this.CreateSVGMap.bind(this);
         
         this.state = {  
             modalNew: false,
@@ -83,14 +84,27 @@ export default class Save extends Component {
 
            let arrayheader = ["\"Address\"","\"Latitude\"", "\"Longitude\"","\"Distance\""];
            this.export_csv(arrayheader, data,',', fileName);
-
-
-       }
+        }
+        else if (fileType == 'csv'){
+            this.CreateSVGMap();
+        }
        
         
-      }
+    }
+      combineDistancesAndLocations(){
+        console.log(this.props.locations)
+        let combineData =[]
+         for (var i of this.props.locations){
+             combineData.push(i)
+         }
+         let j =0;
+         for (var distance of this.props.distances){
+                combineData[j].distance = distance;
+                 j+=1;
+             }
 
-      //TODO: create function  to parse csv file
+         return combineData;
+    }
       //Source: https://seegatesite.com/tutorial-read-and-write-csv-file-with-javascript/
       export_csv = (arrayHeader, arrayData, delimiter, fileName) => {
         let header = arrayHeader.join(delimiter) + '\n';
@@ -111,20 +125,18 @@ export default class Save extends Component {
         hiddenElement.download = fileName + '.csv';
         hiddenElement.click();
     }
-    combineDistancesAndLocations(){
-        console.log(this.props.locations)
-        let combineData =[]
-         for (var i of this.props.locations){
-             combineData.push(i)
-         }
-         let j =0;
-         for (var distance of this.props.distances){
-                combineData[j].distance = distance;
-                 j+=1;
-             }
 
-         return combineData;
+    CreateSVGMap(){
+        let SVG_Map = '<?xml version="1.0" encoding="UTF-8"?>\n '+
+        '<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="768"> \n' +
+         '<image href= "https://instructor-uploaded-content.s3.amazonaws.com/MAP.svg-6983777" />\n'+
+       ' </svg>';
+       return SVG_Map;
+
+
     }
+
+    
 
       
    
