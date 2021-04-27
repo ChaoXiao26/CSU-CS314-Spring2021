@@ -18,8 +18,8 @@
 
 | file:line | problem | hi/med/low | who found | github#  |
 | --- | --- | :---: | :---: | --- |
-| save.js: 119 | Not all input parameters used | mid| Tomas| |
-| save.js: 133 | SVG function not implemented| high|Tomas | |
+| save.js: 119 | Not all input parameters used | mid| Tomas|982 |
+| save.js: 133 | SVG function not implemented| high|Tomas | 944|
 | save.js: 145 | KML function could be break up to many small functions| low |Yuxin | |
 | save.js: 84 | downloadFile wasn't catch and display a error if server get unsupport file| mid |Yuxin | |
 | save.js: 68 | Unused input parameter | mid | Sam |  978 |
