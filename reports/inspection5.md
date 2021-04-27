@@ -22,5 +22,5 @@
 | save.js: 133 | SVG function not implemented| high|Tomas | |
 | save.js: 145 | KML function could be break up to many small functions| low |Yuxin | |
 | save.js: 84 | downloadFile wasn't catch and display a error if server get unsupport file| mid |Yuxin | |
-| save.js: 68 | Unused input parameter | mid | Sam | |
-| save.js: 68 | Wrap in try/catch to prevent any errors | mid | Sam | |
+| save.js: 68 | Unused input parameter | mid | Sam |  978 |
+| save.js: 68 | Wrap in try/catch to prevent any errors | mid | Sam | 979 |
