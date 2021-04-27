@@ -13,7 +13,6 @@ export default class Save extends Component {
             modalNew: false,
             saveTourFormat: null,
             saveMapFormat: null,
-            
         }
     }
     render() {
