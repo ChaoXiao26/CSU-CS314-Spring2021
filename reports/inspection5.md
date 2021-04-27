@@ -18,4 +18,4 @@
 | file:line | problem | hi/med/low | who found | github#  |
 | --- | --- | :---: | :---: | --- |
 | save.js: 119 | Not all input parameters used | mid| Tomas| |
-|  | | | | |
+| save.js: 133 | SVG function not implemented| high|Tomas | |
