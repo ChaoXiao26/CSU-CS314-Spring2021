@@ -8,7 +8,6 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 export default class Save extends Component {
     constructor(props) {
         super(props);
-        this.props = props;
         this.downloadFile = this.downloadFile.bind(this);
         this.combineDistancesAndLocations = this.combineDistancesAndLocations.bind(this);
         this.CreateSVGMap =this.CreateSVGMap.bind(this);
