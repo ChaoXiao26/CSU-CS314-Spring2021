@@ -13,6 +13,7 @@
 | Tomas Vasquez | 1hr |
 | Yuxin Huang | 1hr |
 | Sam Bonafe | 1hr |
+| Fan Si | 1hr |
 
 ### Problems found
 
@@ -24,3 +25,4 @@
 | save.js: 84 | downloadFile wasn't catch and display a error if server get unsupport file| mid |Yuxin | |
 | save.js: 68 | Unused input parameter | mid | Sam |  978 |
 | save.js: 68 | Wrap in try/catch to prevent any errors | mid | Sam | 979 |
+| save.js: 2 | Unused imports | low | fan |  |
