@@ -33,6 +33,7 @@ export default class Save extends Component {
     }
     renderSave=()=>{
         //https://6-4-0--reactstrap.netlify.app/components/modals/
+        const fileTypes = ['json', 'csv', 'svg', 'kml'];
         return (
             <div>
 
@@ -40,20 +41,14 @@ export default class Save extends Component {
                 <Modal isOpen={this.state.modalNew} toggle={this.findToggleNew}>
                     <ModalHeader toggle={this.saveToggleNew}>Save Tour and Map</ModalHeader>
                     <ModalBody>
-                        {/* InputGroup here */}
-                        
-                        <InputGroup>
-                            <Button onClick={() => this.downloadFile(this.props.locations,'Tour','json')} color="success">Tour.json</Button>
-                        </InputGroup>
-                        <InputGroup> 
-                        <Button onClick={() => this.downloadFile(this.props.locations,'Tour','csv')} color="success">Tour.csv</Button>
-                        </InputGroup>
-                        <InputGroup>
-                            <Button onClick={() => this.downloadFile(this.props.locations,'Tour','svg')} color="success">Map.svg</Button>
-                        </InputGroup>
-                        <InputGroup>
-                        <Button onClick={() => this.downloadFile(this.props.locations,'Tour','kml')} color="success">Map.kml</Button>
-                        </InputGroup>
+                        {/* Create four buttons of each format */}
+                        {fileTypes.map((type, i)=>{
+                            return (
+                                <InputGroup>
+                                    <Button onClick={() => this.downloadFile(this.props.locations,'Tour', {type})} color="success">{"Tour."+type}</Button>
+                                </InputGroup>
+                            )}
+                        )}
                     </ModalBody>
                 </Modal>
             </div>
