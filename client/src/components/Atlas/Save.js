@@ -8,10 +8,6 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 export default class Save extends Component {
     constructor(props) {
         super(props);
-        this.downloadFile = this.downloadFile.bind(this);
-        this.combineDistancesAndLocations = this.combineDistancesAndLocations.bind(this);
-        this.CreateSVGMap =this.CreateSVGMap.bind(this);
-        this.CreateKMLMap =this.CreateKMLMap.bind(this);
         
         this.state = {  
             modalNew: false,
@@ -64,7 +60,7 @@ export default class Save extends Component {
             modalNew: !this.state.modalNew
         });
     }
-   downloadFile(fileText, fileName, fileType) {
+   downloadFile = (fileText, fileName, fileType) =>{
     let data = this.combineDistancesAndLocations()
     let  file;
         if(fileType == 'json'){
@@ -100,7 +96,7 @@ export default class Save extends Component {
        
         
     }
-      combineDistancesAndLocations(){
+      combineDistancesAndLocations=()=>{
         console.log(this.props.locations)
         let combineData =[]
          for (var i of this.props.locations){
@@ -129,7 +125,7 @@ export default class Save extends Component {
         return csvData;  
     }
 
-    CreateSVGMap(){
+    CreateSVGMap=()=>{
         let SVG_Map = '<?xml version="1.0" encoding="UTF-8"?>\n '+
         '<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="768"> \n' +
          '<image href= "https://instructor-uploaded-content.s3.amazonaws.com/MAP.svg-6983777" />\n'+
@@ -141,7 +137,7 @@ export default class Save extends Component {
     }
 
     //TODO: break up into separate functions
-    CreateKMLMap(file_data){
+    CreateKMLMap=(file_data)=>{
         let KML_Map = '<?xml version="1.0" encoding="UTF-8"?>\n'+
         '<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">\n'+
             '\t<Document>\n'+
