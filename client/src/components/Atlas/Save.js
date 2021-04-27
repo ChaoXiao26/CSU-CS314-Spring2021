@@ -159,31 +159,25 @@ export default class Save extends Component {
 
             //HARDCODED SECTION FOR TEST
             '\t\t\t<LineString>'+ '\n'+
-            '\t\t\t\t<coordinates>' +'\n' +
-            '\t\t\t\t-102,37,0\n'+
-            '\t\t\t\t-109,41,0\n' +
-            '\t\t\t\t</coordinates>' +'\n'+
-                '\t\t\t</LineString>'+ '\n';
+            '\t\t\t\t<coordinates>' +'\n';
 
                     
-            let lat,lng;
-            /* file_data.forEach( location => {
-                KML_Map +='<LineString>'+ '\n'+
-                '<coordinates>' +'\n';
-                //lat = location.lat.toFixed(2).toString().replace(".", ",")+',0';
-                //lng = location.lng.toFixed(2).toString().replace(".", ",") + ',0';
-
-                console.log(lat);
-                KML_Map += lng + ' ' +lat;
-                KML_Map += ' </coordinates>' +'\n'+
-                '</LineString>'+ '\n';
+            let lat ,lng;
+            let lines = "";
+            file_data.forEach( location => {
                 
-                
-            }); */
-            KML_Map += '\t\t</Placemark>\n' +'\t</Document>\n' +
+                lat = location.lat;
+                lng = location.lng;
+                lines += '\t\t\t\t'+lng+','+ lat+','+'0\n';
+                console.log(lines);
+            });
+            KML_Map += lines;
+            KML_Map +='\t\t\t\t</coordinates>' +'\n'+
+            '\t\t\t</LineString>'+ '\n'+
+             '\t\t</Placemark>\n' +
+             '\t</Document>\n' +
             '</kml>';
 
-         
             let file = new Blob([KML_Map], { type: 'kml' });
             return file;
 
