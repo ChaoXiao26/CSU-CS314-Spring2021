@@ -14,6 +14,7 @@
 | Yuxin Huang | 1hr |
 | Sam Bonafe | 1hr |
 | Mark Garner | 1hr |
+| Fan Si | 1hr |
 
 ### Problems found
 
@@ -28,3 +29,4 @@
 | save.js: 12 | Apply Destructuring Assignment | low | Mark | 986 |
 | save.js: 14 | Convert functions to arrow notation and remove bind | low | Mark | 987 |
 | save.js: 46 | Reduce inputGroup repetition | low | Mark | 989 |
+| save.js: 2 | Unused imports | low | fan |  |
