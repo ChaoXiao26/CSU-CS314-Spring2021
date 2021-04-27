@@ -19,7 +19,6 @@ export default class Save extends Component {
         return (
             <div>
                 {this.renderSave()}
-               
             </div>
 
         );
@@ -29,7 +28,6 @@ export default class Save extends Component {
         //https://6-4-0--reactstrap.netlify.app/components/modals/
         return (
             <div>
-
                 <Button color='success' type="button" className="btn btn-secondary btn-block float-right" onClick={this.saveToggleNew} >Save</Button>
                 <Modal isOpen={this.state.modalNew} toggle={this.findToggleNew}>
                     <ModalHeader toggle={this.saveToggleNew}>Save Tour and Map</ModalHeader>
@@ -64,10 +62,8 @@ export default class Save extends Component {
     let  file;
         if(fileType == 'json'){
             file = new Blob([JSON.stringify(data)], {type: fileType});
-            
         }
         else if (fileType == 'csv'){
-
            let arrayheader = ["\"Address\"","\"Latitude\"", "\"Longitude\"","\"Distance\""];
            file = this.export_csv(arrayheader, data,',', fileName);
         }
@@ -82,7 +78,7 @@ export default class Save extends Component {
         }
 
         let a = document.createElement('a'),
-                url = URL.createObjectURL(file);
+            url = URL.createObjectURL(file);
             a.href = url;
             a.download = fileName;
             console.log(fileName);
