@@ -11,7 +11,7 @@ export default class ServerSettings extends Component {
         super(props);
 
         this.state = {
-            showFeatures: true,
+            showFeatures: false,
             inputText: this.props.serverSettings.serverPort,
             validServer: null,
             config: {}
@@ -51,13 +51,13 @@ export default class ServerSettings extends Component {
             </ModalBody>
         );
     }
-    toggleFeatures = ()=>{
+    toggleFeatures(){
         const showFeatures = !this.state.showFeatures;
         this.setState({showFeatures})
     }
     fillFeatures(serverConfig){
         let myFeatures;
-        if(serverConfig != null){
+        if(serverConfig != null && serverConfig.features != null){
             myFeatures = serverConfig.features.map((feature, i) =>{
                 return (
                     <Row className="m-2" key = {i}>
