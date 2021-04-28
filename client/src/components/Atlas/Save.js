@@ -36,7 +36,7 @@ export default class Save extends Component {
                         {/* Create four buttons of each format */}
                         {fileTypes.map((type, i)=>{
                             return (
-                                <InputGroup>
+                                <InputGroup key = {i}>
                                     <Button onClick={() => this.downloadFile(this.props.locations,'Tour', {type})} color="success">{"Tour."+type}</Button>
                                 </InputGroup>
                             )}
