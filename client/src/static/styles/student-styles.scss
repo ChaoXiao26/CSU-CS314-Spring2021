@@ -62,6 +62,16 @@
 
 .findplaces-custom-table
 {
-   max-height: "30vh" !important;
+   max-height: "10vh" !important;
+   height: "10vh" !important;
    overflow-y: scroll !important;
+}
+
+.table-responsive {
+   display: block !important;
+   width: 100% !important;
+   max-height: 40vh !important;
+   overflow-x: auto !important;
+   overflow-y: auto !important;
+   -webkit-overflow-scrolling: touch !important;
 }
