@@ -68,16 +68,14 @@ export default class Load extends Component {
     }
 
     jsonFile=(data)=>{
-        console.log("json");
-        console.log(data);
         var tmp = JSON.parse(data);
-        console.log(tmp);
-        // for(var i = 0; i < tmp.length; i++){
-        //     this.props.AddTrip(tmp[i].lat.toString(), tmp[i].lng.toString());
-        // }
+        for(var i = 0; i < tmp.places.length; i++){
+            var place = JSON.parse(JSON.stringify(tmp.places[i]));
+            this.props.AddTrip(place.latitude.toString(), place.longitude.toString());
+        }
         //console.log(tmp.map(loc => loc.lat));
-        tmp.map((loc) => 
-            this.props.AddTrip(loc.lat.toString(), loc.lng.toString())
-        );
+        // tmp.map((loc) => 
+        //     this.props.AddTrip(loc.places.latitude.toString(), loc.places.longitude.toString())
+        // );
     }
 }
