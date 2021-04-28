@@ -85,7 +85,7 @@ describe('Server Settings Modal', () => {
 
         const inputText = 'https://black-bottle.cs.colostate.edu:31400';
         simulateServerPortInputChange(settingsWrapper, {target: {value: inputText}});
-        settingsWrapper.find('Button').at(1).simulate('click');
+        settingsWrapper.find('Button').at(2).simulate('click');
 
         const actualAfterServerPort = pageWrapper.state().serverSettings.serverPort;
 
