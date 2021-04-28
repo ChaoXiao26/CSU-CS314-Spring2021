@@ -11,6 +11,7 @@ export default class ServerSettings extends Component {
         super(props);
 
         this.state = {
+            showFeatures: true,
             inputText: this.props.serverSettings.serverPort,
             validServer: null,
             config: {}
@@ -45,10 +46,46 @@ export default class ServerSettings extends Component {
                         {this.renderInputField()}
                     </Col>
                 </Row>
+                {this.printFeatures()}
+                
             </ModalBody>
         );
     }
-
+    toggleFeatures = ()=>{
+        const showFeatures = !this.state.showFeatures;
+        this.setState({showFeatures})
+    }
+    fillFeatures(serverConfig){
+        let myFeatures;
+        if(serverConfig != null){
+            myFeatures = serverConfig.features.map((feature, i) =>{
+                return (
+                    <Row className="m-2" key = {i}>
+                        <Col>
+                            {feature}
+                        </Col>
+                    </Row>
+                );
+            })
+        }
+        return myFeatures;
+    }
+    printFeatures = () => {
+        let myFeatures = this.fillFeatures(this.props.serverSettings.serverConfig);
+        if(this.state.showFeatures)
+        {
+            return(
+                <div>
+                    <Row className="m-2">
+                        <Col>
+                            Supported Features:
+                        </Col>
+                    </Row>
+                    {myFeatures}
+                </div>
+            );
+        }
+    }
     renderInputField() {
         return(
             <Input onChange={(e) => this.updateInput(e.target.value)}
@@ -63,6 +100,7 @@ export default class ServerSettings extends Component {
     renderFooterActions() {
         return (
             <ModalFooter>
+                <Button color="primary" onClick={() => this.toggleFeatures()}>Supported Features</Button>
                 <Button color="primary" onClick={() => this.resetServerSettingsState()}>Cancel</Button>
                 <Button color="primary" onClick={() =>
                 {
