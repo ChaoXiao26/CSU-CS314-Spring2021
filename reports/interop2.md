@@ -12,7 +12,7 @@ This table lists each student in the team and the team they verified interoperab
 | ---- | ---- |
 | Yuxin | t13 |
 | Tomas | t06 |
-|  |  |
+| Sam   | t09 |
 
 ### Problems found
 
@@ -22,8 +22,8 @@ You should discuss the issues found with the other team and create defects in Gi
 
 | team | C/S | problem | github# |
 | :--- | :---: | :--- | --- |
-|  |  |  |  |
-|  |  |  |  |
+| t09 | s | initial connection error | #1006 |
+| t09 | c | no issue |  |
 | t13 | c | no issue |  |
 | t13 | s | no issue |  |
 | t06 | s | no issue |  |
