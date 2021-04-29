@@ -13,6 +13,7 @@ This table lists each student in the team and the team they verified interoperab
 | Yuxin | t13 |
 | Tomas | t06 |
 | Sam   | t09 |
+| Fan   | t10 |
 
 ### Problems found
 
@@ -28,3 +29,5 @@ You should discuss the issues found with the other team and create defects in Gi
 | t13 | s | no issue |  |
 | t06 | s | no issue |  |
 | t06 | s | no issue |  |
+| t10 | c | no issue |  |
+| t10 | s | ERR_CONNECTION_REFUSED | #1016 |
