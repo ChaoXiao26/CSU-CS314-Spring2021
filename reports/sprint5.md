@@ -66,15 +66,22 @@ Interoperability testing helps us verify that our server and client code work in
 | Statistic | # Planned | # Completed |
 | --- | ---: | ---: |
 | Epics | 8 | *count* |
-| Tasks |  43   | *count* | 
-| Story Points |  46  | *sum* | 
+| Tasks |  43   | *9* | 
+| Story Points |  46  | *11* | 
 
 
 ## Scrums
 
 | Date | Tasks closed  | Tasks in progress | Impediments |
 | :--- | :--- | :--- | :--- |
-| *date* | *#task, ...* | *#task, ...* |  | 
+| 04/19/21 | Discussed Plan for Sprint| #942 #944 #945 #967 #969 #970 | Problems map, Problems with distance formla. Problem with loading Tour |
+| 04/21/21 | Discussed Plan moving forward  |#924 #928 #999 #942 #945 #967 #969 #970|Problems map, Problems with distance formla. Problem with loading Tour |  | 
+| 04/23/21 | Goals for the weekend #969 #970 |#924 #928 #999 #942 #944 #945 #1016 | Problems map, Problems with distance formla. Problem with loading Tour | 
+| 04/26/21 | Disucssed Progress #944 #945 |#924 #928 #999 #942 #1016 | time |
+| 04/26/21 | Disucssed Progress #942 #924 #928 #999 | #913  #912 #931 #944 #945 #1016  | time |
+| 04/28/21 | Disucssed Progress #913  #912 | #931 #944 #945 #1016 | Interoperability |
+
+
 
 
 ## Review
