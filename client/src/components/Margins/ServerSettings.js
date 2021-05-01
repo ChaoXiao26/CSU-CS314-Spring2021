@@ -47,44 +47,80 @@ export default class ServerSettings extends Component {
                     </Col>
                 </Row>
                 {this.printFeatures()}
-                
+                {this.printProposedServer()}
             </ModalBody>
         );
     }
-    toggleFeatures(){
+    toggleFeatures=()=>{
         const showFeatures = !this.state.showFeatures;
         this.setState({showFeatures})
     }
     fillFeatures(serverConfig){
-        let myFeatures;
+        let myFeatures = "";
+        
         if(serverConfig != null && serverConfig.features != null){
-            myFeatures = serverConfig.features.map((feature, i) =>{
-                return (
-                    <Row className="m-2" key = {i}>
-                        <Col>
-                            {feature}
-                        </Col>
-                    </Row>
-                );
-            })
+            for(let feature of serverConfig.features){
+                myFeatures += feature+", "
+            }
         }
         return myFeatures;
     }
-    printFeatures = () => {
-        let myFeatures = this.fillFeatures(this.props.serverSettings.serverConfig);
-        if(this.state.showFeatures)
+    printInFeatureFormat = (header, myFeatures) => {
+        if(myFeatures != "")
         {
             return(
                 <div>
                     <Row className="m-2">
                         <Col>
-                            Supported Features:
+                            {header}: {myFeatures}
                         </Col>
                     </Row>
-                    {myFeatures}
                 </div>
             );
         }
+    }
+    printFeatures = () => {
+        let myFeatures = this.fillFeatures(this.props.serverSettings.serverConfig);
+        
+        if(this.state.showFeatures)
+        {
+            return this.printInFeatureFormat("Supported Features", myFeatures);
+        }
+    }
+    printServerName = (myServerName) =>{
+        if(myServerName){
+            return(
+                <Row className="m-2">
+                    <Col>
+                        Name: {myServerName}
+                    </Col>
+                </Row>
+            );
+        }
+    }
+    printProposedServer=()=>{
+        let myFeatures = this.fillFeatures(this.state.config);
+        let myServerName = null;
+        if(this.state.config){
+            myServerName= this.state.config.serverName;
+        }
+        
+        if(myFeatures != "" || myServerName){
+            return(
+                <div>
+                    <br/>
+                    <Row className="m-2">
+                        <Col>
+                            Proposed Server:
+                        </Col>
+                    </Row>
+                    {this.printServerName(myServerName)}
+                    {this.printInFeatureFormat("Proposed Server's Supported Features", myFeatures)}
+                </div>
+            )
+        }
+       
+        
     }
     renderInputField() {
         return(
