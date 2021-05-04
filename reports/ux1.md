@@ -19,17 +19,20 @@ Record the failures, problems they encountered, and any aid that is given along 
 Each user should complete the following tasks in 10 minutes:
 
 * Create a trip to several cities around the world you would like to visit.
-*  
+
 
 ### Demographics
 
 | Pseudonym | Description |
 | :--- | :--- |
-|  |  |
+| C.B | White, Female, 26 |
 
 
 ### Observations
 
 | User | problem, aid, observation | hi/med/low | github#  |
 | :--- | :--- | :---: | :---: | 
-| | | | | 
+| C.B | Having trouble finding locations if spelled wrong, had to help correct spelling | med | | 
+| C.B | Tried to use coordinates to find location, not very useful | med | |
+| C.B | Loading tour was confusing and didn't work, seems useless | med | |
+| C.B | Site was not intuitive | high | |
