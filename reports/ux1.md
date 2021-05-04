@@ -28,6 +28,7 @@ Each user should complete the following tasks in 10 minutes:
 | C.B | White, Female, 26 |
 | Haoquan Wu | international student, Chinese, 20 |
 | Wu, Tianyu | current CS253 student, international student, Chinese, 21 |
+| S.G | White, Female, 56 |
 
 
 
@@ -48,6 +49,13 @@ Each user should complete the following tasks in 10 minutes:
 | Wu, Tianyu | He thinks that poly lines are not useful because he can not go with the lines. He thinks google map would be better. |low| | 
 | Jack C|User went straight for coordinate find. The way to search for a place is not clear | med| 
 | Jack C|User had a hard time using the find feature -Buttons not clear| med |
-|Jack C | Overall not clear what the application is suppoused to do| med|
+|Jack C | Overall not clear what the application is suppoused to do| med |
+| S.G | thought that lattitude longitude section was where you search for locations | med |
+| S.G | didn't understand the point of searching by lattitude and longitude | med |
+| S.G | didn't understand what match and limit meant when finding a place | med |
+| S.G | didn't understand what trip file upload was for | med |
+| S.G | wanted trip to be measured in time rather than distance | med |
+| S.G | didn't know why location didn't show up when they searched it in find place | med |
+
 | | | |
 
