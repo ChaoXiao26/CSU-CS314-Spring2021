@@ -33,4 +33,5 @@ Each user should complete the following tasks in 10 minutes:
 
 | User | problem, aid, observation | hi/med/low | github#  |
 | :--- | :--- | :---: | :---: | 
+| Haoquan Wu| Website response time too long|low| | 
 | | | | | 
