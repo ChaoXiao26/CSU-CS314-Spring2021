@@ -25,6 +25,7 @@ Each user should complete the following tasks in 10 minutes:
 
 | Pseudonym | Description |
 | :--- | :--- |
+| Haoquan Wu | international student, Chinese, 20 |
 |  |  |
 
 
@@ -32,4 +33,7 @@ Each user should complete the following tasks in 10 minutes:
 
 | User | problem, aid, observation | hi/med/low | github#  |
 | :--- | :--- | :---: | :---: | 
-| | | | | 
+| Haoquan Wu| Website response time too long|low| | 
+| Haoquan Wu| file load wasn't clear enough (don't know what kinds of file can be upload|med| |
+| Haoquan Wu| the user wants to search an specific area (Ex: where is Fort Collins)|low| | 
+| | | | 
