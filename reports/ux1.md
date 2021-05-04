@@ -26,6 +26,9 @@ Each user should complete the following tasks in 10 minutes:
 | Pseudonym | Description |
 | :--- | :--- |
 | C.B | White, Female, 26 |
+| Haoquan Wu | international student, Chinese, 20 |
+| Wu, Tianyu | current CS253 student, international student, Chinese, 21 |
+
 
 
 ### Observations
@@ -36,3 +39,12 @@ Each user should complete the following tasks in 10 minutes:
 | C.B | Tried to use coordinates to find location, not very useful | med | |
 | C.B | Loading tour was confusing and didn't work, seems useless | med | |
 | C.B | Site was not intuitive | high | |
+| Haoquan Wu| Website response time too long|low| | 
+| Haoquan Wu| file load wasn't clear enough (don't know what kinds of file can be upload|med| |
+| Haoquan Wu| the user wants to search an specific area (Ex: where is Fort Collins)|low| | 
+| Wu, Tianyu | He do not know what is the website for by looking at it |low| | 
+| Wu, Tianyu | Find will not check inputs. e.g.The website crashed when he try to search with Chinese |low| | 
+| Wu, Tianyu | He tried to limit the search results to a area by typing two names, but it doesn't do that. |low| | 
+| Wu, Tianyu | He thinks that poly lines are not useful because he can not go with the lines. He thinks google map would be better. |low| | 
+| | | | 
+
