@@ -25,6 +25,7 @@ Each user should complete the following tasks in 10 minutes:
 
 | Pseudonym | Description |
 | :--- | :--- |
+| Haoquan Wu | international student, Chinese, 20 |
 |  |  |
 
 
