@@ -46,5 +46,8 @@ Each user should complete the following tasks in 10 minutes:
 | Wu, Tianyu | Find will not check inputs. e.g.The website crashed when he try to search with Chinese |low| | 
 | Wu, Tianyu | He tried to limit the search results to a area by typing two names, but it doesn't do that. |low| | 
 | Wu, Tianyu | He thinks that poly lines are not useful because he can not go with the lines. He thinks google map would be better. |low| | 
-| | | | 
+| Jack C|User went straight for coordinate find. The way to search for a place is not clear | med| 
+| Jack C|User had a hard time using the find feature -Buttons not clear| med |
+|Jack C | Overall not clear what the application is suppoused to do| med|
+| | | |
 
