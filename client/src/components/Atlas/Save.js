@@ -159,6 +159,7 @@ export default class Save extends Component {
                 lines += '\t\t\t\t'+lng+','+ lat+','+'0\n';
                 console.log(lines);
             });
+            lines += '\t\t\t\t'+file_data[0].lng+','+ file_data[0].lat+','+'0\n';
             KML_Map += lines;
             KML_Map +='\t\t\t\t</coordinates>' +'\n'+
             '\t\t\t</LineString>'+ '\n'+
