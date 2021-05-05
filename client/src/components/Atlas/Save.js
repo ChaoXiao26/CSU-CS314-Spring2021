@@ -131,6 +131,20 @@ export default class Save extends Component {
 
 
     }
+    getPairValues = ()=>{
+        let LatLngPairs = [];
+        let length = this.props.locations.length;
+        let lat1,lat2,lng1,lng2;
+        for(let i =1; i<= length;i++){
+            lat1 = this.props.locations[i-1].lat
+            lng1 = this.props.locations[i-1].lng
+            lat2 = this.props.locations[i%length].lat
+            lng2 = this.props.locations [i%length].lng
+            console.log(lat1,lat2)
+            LatLngPairs.push(this.CovertToPair(lng1,lat1,lng2,lat2));
+        }
+        console.log(LatLngPairs)
+    }
     
     CovertToPair = (lng1,lat1,lng2,lat2)=>{
         let pair = "";
