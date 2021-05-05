@@ -101,7 +101,7 @@ export default class Save extends Component {
          return combineData;
     }
       //Source: https://seegatesite.com/tutorial-read-and-write-csv-file-with-javascript/
-      export_csv = (arrayHeader, arrayData, delimiter, fileName) => {
+      export_csv = (arrayHeader, arrayData, delimiter) => {
         let header = arrayHeader.join(delimiter) + '\n';
         let csv = header;
         let i = 0;
