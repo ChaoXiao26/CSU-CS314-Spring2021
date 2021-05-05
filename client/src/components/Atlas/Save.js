@@ -37,7 +37,7 @@ export default class Save extends Component {
                         {fileTypes.map((type, i)=>{
                             return (
                                 <InputGroup key = {i}>
-                                    <Button onClick={() => this.downloadFile(this.props.locations,'Tour', {type})} color="success">{"Tour."+type}</Button>
+                                    <Button onClick={() => this.downloadFile('Tour', {type})} color="success">{"Tour."+type}</Button>
                                 </InputGroup>
                             )}
                         )}
@@ -52,7 +52,7 @@ export default class Save extends Component {
             modalNew: !this.state.modalNew
         });
     }
-   downloadFile = (fileText, fileName, fileType) =>{
+   downloadFile = (fileName, fileType) =>{
     let data = this.combineDistancesAndLocations()
     let  file;
         if(fileType == 'json'){
