@@ -119,13 +119,16 @@ export default class Save extends Component {
         let SVG_Map = '<?xml version="1.0" encoding="UTF-8"?>' +
         '<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="720" viewBox="-180 -90 360 180">'+
           '<image href="https://instructor-uploaded-content.s3.amazonaws.com/MAP.svg-6983777" x="-180" y="-90" height="180" width="360" />'+
-          '<g transform="matrix(1,0,0,-1,0,0)">'+
-            '<polyline points="-105,40 -100,36" style="fill:none; stroke:red; stroke-width:0.5" />'+
-            '<circle cx="-105" cy="40" r="0.75" stroke="black" stroke-width="0.25" fill="black" />'+
-            '<circle cx="-100" cy="36" r="0.75" stroke="black" stroke-width="0.25" fill="black" />'+
-          '</g>'+
-        '</svg>';
-       this.getPairValues();
+          '<g transform="matrix(1,0,0,-1,0,0)">';
+          
+       let pairs = this.getPairValues();
+       pairs.forEach(pair=> {
+        SVG_Map+= '<polyline points="'+ pair + '"' + ' style="fill:none; stroke:red; stroke-width:0.5" />';
+
+       });
+
+       SVG_Map+='</g>'+
+       '</svg>';
        let file = new Blob([SVG_Map], { type: 'svg' });
        return file;
 
@@ -136,20 +139,20 @@ export default class Save extends Component {
         let length = this.props.locations.length;
         let lat1,lat2,lng1,lng2;
         for(let i =1; i<= length;i++){
-            lat1 = this.props.locations[i-1].lat
-            lng1 = this.props.locations[i-1].lng
-            lat2 = this.props.locations[i%length].lat
-            lng2 = this.props.locations [i%length].lng
+            lat1 = this.props.locations[i-1].lat.toFixed(5)
+            lng1 = this.props.locations[i-1].lng.toFixed(5)
+            lat2 = this.props.locations[i%length].lat.toFixed(5)
+            lng2 = this.props.locations [i%length].lng.toFixed(5)
             console.log(lat1,lat2)
             LatLngPairs.push(this.CovertToPair(lng1,lat1,lng2,lat2));
         }
-        console.log(LatLngPairs)
+        console.log(LatLngPairs);
+        return LatLngPairs;
     }
     
     CovertToPair = (lng1,lat1,lng2,lat2)=>{
         let pair = "";
         pair += lng1+','+lat1+ ' '+lng2+','+lat2;
-        console.log(pair);
         return pair;
     }
 
