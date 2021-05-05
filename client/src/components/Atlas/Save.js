@@ -37,7 +37,7 @@ export default class Save extends Component {
                         {fileTypes.map((type, i)=>{
                             return (
                                 <InputGroup key = {i}>
-                                    <Button onClick={() => this.downloadFile('Tour', {type})} color="success">{"Tour."+type}</Button>
+                                    <Button onClick={() => this.downloadFile('Tour', type)} color="success">{"Tour."+type}</Button>
                                 </InputGroup>
                             )}
                         )}
@@ -57,6 +57,7 @@ export default class Save extends Component {
     let  file;
         if(fileType == 'json'){
             file = new Blob([JSON.stringify(data)], {type: fileType});
+            fileName+='.json';
         }
         else if (fileType == 'csv'){
            let arrayheader = ["\"Address\"","\"Latitude\"", "\"Longitude\"","\"Distance\""];
