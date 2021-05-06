@@ -37,7 +37,7 @@ export default class Save extends Component {
                         {fileTypes.map((type, i)=>{
                             return (
                                 <InputGroup key = {i}>
-                                    <Button onClick={() => this.downloadFile(this.props.locations,'Tour', {type})} color="success">{"Tour."+type}</Button>
+                                    <Button onClick={() => this.downloadFile('Tour', type)} color="success">{"Tour."+type}</Button>
                                 </InputGroup>
                             )}
                         )}
@@ -52,11 +52,12 @@ export default class Save extends Component {
             modalNew: !this.state.modalNew
         });
     }
-   downloadFile = (fileText, fileName, fileType) =>{
+   downloadFile = (fileName, fileType) =>{
     let data = this.combineDistancesAndLocations()
     let  file;
         if(fileType == 'json'){
             file = new Blob([JSON.stringify(data)], {type: fileType});
+            fileName+='.json';
         }
         else if (fileType == 'csv'){
            let arrayheader = ["\"Address\"","\"Latitude\"", "\"Longitude\"","\"Distance\""];
@@ -101,7 +102,7 @@ export default class Save extends Component {
          return combineData;
     }
       //Source: https://seegatesite.com/tutorial-read-and-write-csv-file-with-javascript/
-      export_csv = (arrayHeader, arrayData, delimiter, fileName) => {
+      export_csv = (arrayHeader, arrayData, delimiter) => {
         let header = arrayHeader.join(delimiter) + '\n';
         let csv = header;
         let i = 0;
@@ -158,6 +159,7 @@ export default class Save extends Component {
                 lines += '\t\t\t\t'+lng+','+ lat+','+'0\n';
                 console.log(lines);
             });
+            lines += '\t\t\t\t'+file_data[0].lng+','+ file_data[0].lat+','+'0\n';
             KML_Map += lines;
             KML_Map +='\t\t\t\t</coordinates>' +'\n'+
             '\t\t\t</LineString>'+ '\n'+
