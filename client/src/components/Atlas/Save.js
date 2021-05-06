@@ -3,6 +3,7 @@ import { Col, Container, Row, Button, InputGroup, InputGroupAddon, InputGroupTex
 import 'leaflet/dist/leaflet.css';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import { LatLng } from 'leaflet';
 
 
 export default class Save extends Component {
@@ -68,7 +69,6 @@ export default class Save extends Component {
             fileName+='.svg';
         }
         else{
-            console.log(data);
             file = this.CreateKMLMap(data);
             fileName+='.kml';
         }
@@ -77,7 +77,6 @@ export default class Save extends Component {
             url = URL.createObjectURL(file);
             a.href = url;
             a.download = fileName;
-            console.log(fileName);
             document.body.appendChild(a);
             a.click();
             setTimeout(function() {
@@ -117,14 +116,44 @@ export default class Save extends Component {
     }
 
     CreateSVGMap=()=>{
-        let SVG_Map = '<?xml version="1.0" encoding="UTF-8"?>\n '+
-        '<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="768"> \n' +
-         '<image href= "https://instructor-uploaded-content.s3.amazonaws.com/MAP.svg-6983777" />\n'+
-       ' </svg>';
+        let SVG_Map = '<?xml version="1.0" encoding="UTF-8"?>' +
+        '<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="720" viewBox="-180 -90 360 180">'+
+          '<image href="https://instructor-uploaded-content.s3.amazonaws.com/MAP.svg-6983777" x="-180" y="-90" height="180" width="360" />'+
+          '<g transform="matrix(1,0,0,-1,0,0)">';
+          
+       let pairs = this.getPairValues();
+       pairs.forEach(pair=> {
+        SVG_Map+= '<polyline points="'+ pair + '"' + ' style="fill:none; stroke:red; stroke-width:0.5" />';
+
+       });
+
+       SVG_Map+='</g>'+
+       '</svg>';
        let file = new Blob([SVG_Map], { type: 'svg' });
        return file;
 
 
+    }
+    getPairValues = ()=>{
+        let LatLngPairs = [];
+        let length = this.props.locations.length;
+        let lat1,lat2,lng1,lng2;
+        for(let i =1; i<= length;i++){
+            lat1 = this.props.locations[i-1].lat.toFixed(5)
+            lng1 = this.props.locations[i-1].lng.toFixed(5)
+            lat2 = this.props.locations[i%length].lat.toFixed(5)
+            lng2 = this.props.locations [i%length].lng.toFixed(5)
+            console.log(lat1,lat2)
+            LatLngPairs.push(this.CovertToPair(lng1,lat1,lng2,lat2));
+        }
+        console.log(LatLngPairs);
+        return LatLngPairs;
+    }
+    
+    CovertToPair = (lng1,lat1,lng2,lat2)=>{
+        let pair = "";
+        pair += lng1+','+lat1+ ' '+lng2+','+lat2;
+        return pair;
     }
 
     //TODO: break up into separate functions
