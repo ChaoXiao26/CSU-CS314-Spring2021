@@ -80,6 +80,10 @@ Interoperability testing helps us verify that our server and client code work in
 | 04/26/21 | Disucssed Progress #944 #945 |#924 #928 #999 #942 #1016 | time |
 | 04/26/21 | Disucssed Progress #942 #924 #928 #999 | #913  #912 #931 #944 #945 #1016  | time |
 | 04/28/21 | Disucssed Progress #913  #912 | #931 #944 #945 #1016 | Interoperability |
+| 04/30/21 | Disucssed Progress | #913  #912  | Interoperability |
+| 05/03/21 | Disucssed Progress |  | Interoperability |
+| 05/05/21 | Disucssed Progress | #1043 #1042 #1045 | Interoperability |
+
 
 
 
