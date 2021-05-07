@@ -66,8 +66,8 @@ Interoperability testing helps us verify that our server and client code work in
 | Statistic | # Planned | # Completed |
 | --- | ---: | ---: |
 | Epics | 8 | *count* |
-| Tasks |  43   | *9* | 
-| Story Points |  46  | *11* | 
+| Tasks |  43   | 52 | 
+| Story Points |  46  | 54 | 
 
 
 ## Scrums
