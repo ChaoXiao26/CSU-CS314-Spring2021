@@ -93,7 +93,11 @@ Interoperability testing helps us verify that our server and client code work in
 ## Retrospective
 
 ### Things that went well
+We worked on the epics
 
 ### Things we need to improve
+Communication
 
 ### One thing we will change next time
+
+There are no further meetings planned.
