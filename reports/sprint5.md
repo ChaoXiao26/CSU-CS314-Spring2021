@@ -99,7 +99,11 @@ Shorter Tour, Modify Tour, Interoperability were all not completed.
 ## Retrospective
 
 ### Things that went well
+We worked on the epics
 
 ### Things we need to improve
+Communication
 
 ### One thing we will change next time
+
+There are no further meetings planned.
