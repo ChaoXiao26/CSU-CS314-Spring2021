@@ -91,8 +91,10 @@ Interoperability testing helps us verify that our server and client code work in
 ## Review
 
 ### Epics completed  
+Save Tour, Load Tour, User Experience, and Server Settings were all completed which is suprising due to the lack of communication and teamwork. Slowly throughout our semester are team has been getting worse. We probably should have got broken up earlier.
 
 ### Epics not completed 
+Shorter Tour, Modify Tour, Interoperability were all not completed.
 
 ## Retrospective
 
